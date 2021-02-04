@@ -1,5 +1,5 @@
 %\documentclass[]{spie}  %>>> use for US letter paper
-\documentclass[a4paper]{spie}  %>>> use this instead for A4 paper
+\documentclass[a4paper,nocompress]{spie}  %>>> use this instead for A4 paper
 %\documentclass[nocompress]{spie}  %>>> to avoid compression of citations
 
 \renewcommand{\baselinestretch}{1.0} % Change to 1.65 for double spacing
@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{tabularx}
+\setlength{\extrarowheight}{2pt}
 
 \title{Quantifying the Impact \\ of Performance Improvements and Cost Reductions \\ from 20 years of Light-Emitting Diode Manufacturing}
 
@@ -40,8 +42,8 @@ We collected historical data on device performance, technological breakthroughs 
 \clearpage
 \section{METRICS}
 
-Why did we choose the metrics we did?
-What are the limitations of eg. Haitz's Law, Cost per Lamp, CRI, etc.
+
+However, the total flux per die is 
 
 \begin{figure} [ht]
     \begin{center}
@@ -54,7 +56,45 @@ Mention previous work by Tsao et al.
 Mention limitations: Not done for 2003 (early devices) and 2020 (most recent devices)
 
 The overall efficiency of a light-emitting diode is the product of the sub-efficiencies associated with an ensemble of different loss channels. Sub-efficiencies directly capture the effect of technology breakthroughs in device design and manufacturing process improvements. They thus provide the best metric to quantify technology breakthroughs.
-    
+
+
+        It describes the electrical and optical losses within the device, as well as the conversion losses in the phosphor layer. It further considers the mismatch between the device spectrum and an optimal spectrum, accounting for the wavelength dependent sensitivity of the human eye.
+
+    \begin{table}[h!]
+        \caption{List of the device sub-efficiencies used in our methodology. We follow the definitions used by previous authors, such as Tsao et al. \cite{tsao2010solid} and Pattison et al. \cite{pattison2017solid}. The historical development of the sub-efficiencies is displayed in figure \ref{fig:efficiency}. *Also called "lamp efficiency" or "cumulative efficiency" by authors, such as Tsao et al. \cite{tsao2010solid}}
+        \bigskip
+        \centering
+    	\begin{tabularx}{\textwidth}{|l|l|l|X|}
+    		\hline
+    			\textit{Symbol} & \textit{Sub-Efficiency} & \textit{Loss-Channel} & \textit{Definition} \\
+    		\hline
+    		    $\eta_{V_f}$ & Forward Voltage Efficiency* & Ohmic Resistance & $\eta_{V_f} = E_{h\nu} / V_f $ \\
+    		\hline
+    		    $\eta_{LE}$ & Light-Extraction Efficiency & Re-absorption and Reflection & $\eta_{LE}= P_{out} / P_{in} $ \\
+    		\hline
+    		    $\eta_{IQ}$ & Internal Quantum Efficiency & Non-radiative Recombinations & $\eta_{EQ} = \eta_{IQ} \times \eta_{LE}$ \\
+    		\hline
+    		    $\eta_{Droop}$ & (Electrical) Droop & Non-radiative Recombinations & $\eta_{Droop} = 1 - \eta_{IQE} / \eta_{IQE}(A \rightarrow 0) $ \\
+    		\hline
+    		    $\eta_C$ & Conversion Efficiency & Stokes Loss, Absorption, etc. & $\eta_{C} = E_{\textcolor{blue}{B}} / \sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i$ \\
+    		\hline
+    		    $\eta_{S}$ & Spectral Efficiency & Eye Sensitivity & $\eta_{S} = K / K_{max}(CRI,CCT)$ \\
+    		\hline
+    		    $\eta_L$ & Lamp Efficiency & N/A (Cumulative) & $\eta_L = \prod_{i=(V_f,\dots,S)} \eta_i$ \\
+            \hline
+                \multicolumn{4}{|l|}{$\!\begin{aligned}
+                    E_{h\nu} &\dots \text{photon energy} \\
+                    V_f &\dots \text{forward voltage} \\
+                    A &\dots \text{electrical current} \\
+                    E_{B,\dots,G} &\dots \text{optical energy of monochromatic light (blue, red, orange, yellow, green)} \\
+                    K &\dots \text{luminous efficacy of radiation} \\
+                    CRI &\dots \text{color rendering index}, \ CCT \dots \text{color temperature} \\
+                \end{aligned}$} \\
+            \hline
+    	\end{tabularx}
+    \end{table}
+
+
 \clearpage
 
 \section{METHODS}
@@ -95,6 +135,7 @@ figure: chip architectures
         \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
     \end{center}
     \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Sources: Data for sub efficiencies from figures XXX. Data for XXX.}
+    \label{fig:efficiency}
 \end{figure}
 
 \subsection{Physical Efficiency}
@@ -119,7 +160,7 @@ show two waterfall diagrams (2003 only). mention work in progress
 The main author gratefully acknowledged funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA. Cooperation by \textit{Stiftung Warentest} of Berlin, Germany in granting access to their publication archive is gratefully acknowledged.
 
 % References
-%\bibliography{report} % bibliography data in report.bib
-%\bibliographystyle{spiebib} % makes bibtex use spiebib.bst
+\bibliography{report} % bibliography data in report.bib
+\bibliographystyle{spiebib} % makes bibtex use spiebib.bst
 
 \end{document} 
