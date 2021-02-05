@@ -10,6 +10,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tabularx}
 \setlength{\extrarowheight}{2pt}
+\usepackage{chemformula}
 
 \title{Quantifying the Impact \\ of Performance Improvements and Cost Reductions \\ from 20 years of Light-Emitting Diode Manufacturing}
 
@@ -65,7 +66,7 @@ Flicker \cite{weinold2020long}
         It describes the electrical and optical losses within the device, as well as the conversion losses in the phosphor layer. It further considers the mismatch between the device spectrum and an optimal spectrum, accounting for the wavelength dependent sensitivity of the human eye.
 
     \begin{table}[h!]
-        \caption{List of the device sub-efficiencies used in our methodology. We follow the definitions used by previous authors, such as Tsao et al. \cite{tsao2010solid} and Pattison et al. \cite{pattison2017solid}. The historical development of the sub-efficiencies is displayed in figure \ref{fig:efficiency}. *Also called "lamp efficiency" or "cumulative efficiency" by authors, such as Tsao et al. \cite{tsao2010solid}}
+        \caption{List of the device sub-efficiencies used in our methodology. We follow the definitions used by previous authors, such as Tsao et al. \cite{tsao2010solid} and Pattison et al. \cite{pattison2017solid}. The historical development of the sub-efficiencies is displayed in figure \ref{fig:efficiency}. \\ *Also called "lamp efficiency" or "cumulative efficiency" by authors, such as Tsao et al. \cite{tsao2010solid}}
         \bigskip
         \centering
     	\begin{tabularx}{\textwidth}{|l|l|l|X|}
@@ -100,6 +101,14 @@ Flicker \cite{weinold2020long}
     \end{table}
 
 
+\begin{figure} [ht]
+    \begin{center}
+        \includegraphics[width=\textwidth]{SPIE/article/cct_spectrum.pdf}
+    \end{center}
+    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light emitting diodes used in combinations with phosphors. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K. Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in Bando et al.  \cite{bando1998development} and Mueller-Mach et al.\cite{MuellerMach2005}.}
+    \label{fig:cct}
+\end{figure}
+
 \clearpage
 
 \section{METHODS}
@@ -116,7 +125,6 @@ To gain a detailed understanding of the sources and magnitude of efficiency impr
 For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
 
 
-figure: chip architectures
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=\textwidth]{SPIE/article/chip_architectures.pdf}
@@ -139,7 +147,7 @@ figure: chip architectures
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
     \end{center}
-    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Sources: Data for sub efficiencies from \cite{weinold2020technology}}
+    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
     \label{fig:efficiency}
 \end{figure}
 
@@ -162,7 +170,7 @@ show two waterfall diagrams (2003 only). mention work in progress
 \clearpage
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
  
-The main author gratefully acknowledged funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA.
+The main author gratefully acknowledges funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA.
 
 % References
 \bibliography{report} % bibliography data in report.bib
