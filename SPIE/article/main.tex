@@ -45,7 +45,7 @@ We collected historical data on device performance, technological breakthroughs 
 
 Data is readily available for metrics describing overall device performance. Luminous efficacy of devices as well as total flux per device can be extracted from datasheets, together with electrical device parameters. However, 
 
-For instance, a highly cited and frequently updated metric is the total flux per package \cite{Liu2009}\cite{haitz2011solid}\cite{cho2017white}\cite{Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, they have limited significance XXX. Firstly, it is not desirable in all applications to increase the total flux per device beyond a certain point. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, even if one were to disregard these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if it was referring to single chips, instead of multi-chip paackages. 
+For instance, a highly cited and frequently updated metric is the total flux per package \cite{Liu2009,haitz2011solid,cho2017white,Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, they have limited significance XXX. Firstly, it is not desirable in all applications to increase the total flux per device beyond a certain point. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, even if one were to disregard these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if it was referring to single chips, instead of multi-chip paackages. 
 Figure \ref{fig:haitz} shows an updated and expanded overview of best performing devices, both at the chip and package level, inspired by \textit{"Haitz's Law"}. It is evident that the historical improvement in total flux per package for single chips is not as pronounced as for multi-chip packages. While \textit{"Haitz's Law"} remains a popular visualization related to the progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
 
 \begin{figure} [ht]
@@ -61,7 +61,7 @@ In order to quantify the effect of single technological improvements on overall 
 
 The overall efficiency of a light-emitting diode is the product of the sub-efficiencies associated with an ensemble of different loss channels. Sub-efficiencies directly capture the effect of technology breakthroughs in device design and manufacturing process improvements. They thus provide the best metric to quantify technology breakthroughs.
 
-Flicker \cite{weinold2020long}
+
 
         It describes the electrical and optical losses within the device, as well as the conversion losses in the phosphor layer. It further considers the mismatch between the device spectrum and an optimal spectrum, accounting for the wavelength dependent sensitivity of the human eye.
 
@@ -100,17 +100,22 @@ Flicker \cite{weinold2020long}
     	\label{tab:eff}
     \end{table}
 
+consumer experience important
+metrics relevant to consumer experience
+some are contested
+consumer experience metrics have been trated in my thesis \cite{weinold2020technology}.
+flicker is out of scope and has been treated in a separate publication
+Flicker \cite{weinold2020long}
 
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=\textwidth]{SPIE/article/cct_spectrum.pdf}
     \end{center}
-    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light emitting diodes used in combinations with phosphors. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K. Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in Bando et al.  \cite{bando1998development} and Mueller-Mach et al.\cite{MuellerMach2005}.}
+    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light emitting diodes used in combinations with phosphors. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K. Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in publications  \cite{bando1998development,MuellerMach2005}.}
     \label{fig:cct}
 \end{figure}
 
 \clearpage
-
 \section{METHODS}
 \label{sec:methods}
 
@@ -121,6 +126,14 @@ To dis-aggregate the contribution of changes in manufacturing process steps to t
 
 The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
 
+    \begin{align}
+        C_i(\vec{r}) &= C_i^0 \prod_w g_{iw}(r_w) \\
+        \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
+        \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+    \end{align}
+    
+    where 
+
 To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data.
 For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
 
@@ -129,7 +142,7 @@ For instance, in the case of spectral efficiency and the performance related to 
     \begin{center}
         \includegraphics[width=\textwidth]{SPIE/article/chip_architectures.pdf}
     \end{center}
-    \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride}\cite{tanaka2010semiconductor}\cite{wierer2006photonic}}
+    \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride,tanaka2010semiconductor,wierer2006photonic}}
     \label{fig:chip_arch}
 \end{figure}
 
@@ -137,7 +150,7 @@ For instance, in the case of spectral efficiency and the performance related to 
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
     \end{center}
-    \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1}\cite{datasheet_lumileds_rebel}\cite{datasheet_lumileds_rebplus}\cite{lumi2019data}}
+    \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
     \label{fig:chip_arch}
 \end{figure}
 
