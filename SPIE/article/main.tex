@@ -42,21 +42,25 @@ We collected historical data on device performance, technological breakthroughs 
 \clearpage
 \section{METRICS}
 
+Data is readily available for metrics describing overall device performance. Luminous efficacy of devices as well as total flux per device can be extracted from datasheets, together with electrical device parameters. However, 
 
-However, the total flux per die is 
+For instance, a highly cited and frequently updated metric is the total flux per package \cite{Liu2009}\cite{haitz2011solid}\cite{cho2017white}\cite{Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, they have limited significance XXX. Firstly, it is not desirable in all applications to increase the total flux per device beyond a certain point. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, even if one were to disregard these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if it was referring to single chips, instead of multi-chip paackages. 
+Figure \ref{fig:haitz} shows an updated and expanded overview of best performing devices, both at the chip and package level, inspired by \textit{"Haitz's Law"}. It is evident that the historical improvement in total flux per package for single chips is not as pronounced as for multi-chip packages. While \textit{"Haitz's Law"} remains a popular visualization related to the progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
 
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=\textwidth]{haitz_law_white.pdf}
     \end{center}
-    \caption{Historical increase in flux for white light-emitting diode chips and packages, inspired by \textit{"Haitz's Law"}. Note that the increase in flux per single chip is not increasing as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers from press releases, datasheets and and industry periodicals.}
-\end{figure} 
-    
-Mention previous work by Tsao et al.
-Mention limitations: Not done for 2003 (early devices) and 2020 (most recent devices)
+    \caption{Historical increase in flux for highest performing white light-emitting diode \underline{chips and (multi-chip) packages}, inspired by \textit{"Haitz's Law"}. Note that the increase in flux per single chip is not increasing as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers from press releases, datasheets and and industry periodicals. Note the logarithmic ordinates and the black colored datapoints corresponding to the left ordinate, grey colored datapoints corresponding to the right ordinate. Sources: Data from Weinold et al. \cite{weinold2020technology}}
+    \label{fig:haitz}
+\end{figure}
+
+Overall efficiency is cumulative from many sub-efficiencies caused by different physical effects \cite{schubert2018light}
+In order to quantify the effect of single technological improvements on overall device performance, one must instead consider the metrics directly describing the various physical loss channels. Table \ref{tab:eff} lists the relevant sub-efficiencies considered along with mathematical definitions. The cumulative total lamp efficiency, defined as the product of all sub-efficiencies thus $\eta_L = \prod_{i=(V_f,\dots,S)} \eta_i$ XXX
 
 The overall efficiency of a light-emitting diode is the product of the sub-efficiencies associated with an ensemble of different loss channels. Sub-efficiencies directly capture the effect of technology breakthroughs in device design and manufacturing process improvements. They thus provide the best metric to quantify technology breakthroughs.
 
+Flicker \cite{weinold2020long}
 
         It describes the electrical and optical losses within the device, as well as the conversion losses in the phosphor layer. It further considers the mismatch between the device spectrum and an optimal spectrum, accounting for the wavelength dependent sensitivity of the human eye.
 
@@ -92,6 +96,7 @@ The overall efficiency of a light-emitting diode is the product of the sub-effic
                 \end{aligned}$} \\
             \hline
     	\end{tabularx}
+    	\label{tab:eff}
     \end{table}
 
 
@@ -105,7 +110,7 @@ To quantify changes in the manufacturing cost of devices, a bottom-up manufactur
 Also to diagreggate contribution of single changes
 To dis-aggregate the contribution of changes in manufacturing process steps to total manufacturing cost, we used an approach introduced by Kavlak et al. in a cost model with similar process step resolution for solar photovoltaics. It is based on the logarithmic derivative of the total differential of the cost function.
 
-Equation here
+The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
 
 To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data.
 For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
@@ -116,7 +121,7 @@ figure: chip architectures
     \begin{center}
         \includegraphics[width=\textwidth]{SPIE/article/chip_architectures.pdf}
     \end{center}
-    \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production.}
+    \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride}\cite{tanaka2010semiconductor}\cite{wierer2006photonic}}
     \label{fig:chip_arch}
 \end{figure}
 
@@ -124,7 +129,7 @@ figure: chip architectures
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
     \end{center}
-    \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop is the difference between these curves at the test current. Sources for real curves: XXX}
+    \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1}\cite{datasheet_lumileds_rebel}\cite{datasheet_lumileds_rebplus}\cite{lumi2019data}}
     \label{fig:chip_arch}
 \end{figure}
 
@@ -134,7 +139,7 @@ figure: chip architectures
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
     \end{center}
-    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Sources: Data for sub efficiencies from figures XXX. Data for XXX.}
+    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Sources: Data for sub efficiencies from \cite{weinold2020technology}}
     \label{fig:efficiency}
 \end{figure}
 
@@ -154,10 +159,10 @@ show two waterfall diagrams (2003 only). mention work in progress
 
 
 
-
+\clearpage
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
  
-The main author gratefully acknowledged funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA. Cooperation by \textit{Stiftung Warentest} of Berlin, Germany in granting access to their publication archive is gratefully acknowledged.
+The main author gratefully acknowledged funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA.
 
 % References
 \bibliography{report} % bibliography data in report.bib
