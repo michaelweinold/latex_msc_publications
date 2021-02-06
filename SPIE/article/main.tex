@@ -100,18 +100,14 @@ The overall efficiency of a light-emitting diode is the product of the sub-effic
     	\label{tab:eff}
     \end{table}
 
-consumer experience important
-metrics relevant to consumer experience
-some are contested
-consumer experience metrics have been trated in my thesis \cite{weinold2020technology}.
-flicker is out of scope and has been treated in a separate publication
-Flicker \cite{weinold2020long}
+    
+    Performance improvements in metrics related to consumer experience have also played a role in the adoption of light-emitting diode based luminaires \cite{cowan2011understanding}. Broadly described as the quality of light, these include metrics related to the emitted spectrum as well flicker, the temporal modulation of light. For instance, breakthroughs in the development of downconversion phosphors enabled a greater range in the color temperature of light sources, shown in figure \ref{fig:cct}. A thorough treatment of consumer experience metrics is given by Weinold et al. \cite{weinold2020technology}. Flicker was not considered in this context because it is not an inherent property of the light-emitting diodes themselves, but rather the electrical ballasts in the luminaires. We instead refer to a recent publication by Weinold \cite{weinold2020long}. 
 
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=\textwidth]{SPIE/article/cct_spectrum.pdf}
     \end{center}
-    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light emitting diodes used in combinations with phosphors. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K. Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in publications  \cite{bando1998development,MuellerMach2005}.}
+    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light-emitting diodes used in combinations with phosphors. Arrows indicate flexibility through phosphor composition variation. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K (tuneable). Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in publications  \cite{bando1998development,MuellerMach2005}.}
     \label{fig:cct}
 \end{figure}
 
@@ -120,41 +116,36 @@ Flicker \cite{weinold2020long}
 \label{sec:methods}
 
     \subsection{Manufacturing Cost Model}
-To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed to cover the entire manufacturing process of GaN-on-sapphire based phosphor converted low-to-mid power light-emitting diode packages of different chip architectures. We considered classical p-side-up lateral current spreading devices, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland. The model includes both the wafer treatment process as well as the packaging process. It is important to note that the aim of the model is not to faithfully represent real world manufacturing conditions in Asia based plants, but rather to show the effect of single technological changes in the manufacturing process on total cost. This means that while the model does consider overhead costs and depreciation, it does so only to XXXX 
 
+        To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed. It covers the entire manufacturing process of GaN-on-sapphire-based phosphor-converted low-to-mid power light-emitting diode packages of different chip architectures. We considered the classical p-side-up lateral current spreading architecture, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. An excerpt of the device architectures considered is shown in figure \ref{fig:chip_arch}. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Where necessary, this data was augmented using information gathered during semi-structured interviews with experts from industry and academia. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by semi-structured interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland of SB Consulting\cite{ledcomv2}. The model includes both the wafer treatment process as well as the packaging process. While the model offers great flexibility to researchers in adapting the manufacturing process parameters and chip architectures used, it is important to note the limitations of this approach. The main aim of the model is not to faithfully represent real world manufacturing conditions in Asian manufacturing locations, but rather to show the effect of single technological changes in the manufacturing process on total cost. For instance, XXX
 
-\begin{figure} [ht]
-    \begin{center}
-        \includegraphics[width=\textwidth]{SPIE/article/chip_architectures.pdf}
-    \end{center}
-    \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride,tanaka2010semiconductor,wierer2006photonic}}
-    \label{fig:chip_arch}
-\end{figure}
+        \begin{figure} [ht]
+            \begin{center}
+                \includegraphics[width=\textwidth]{SPIE/article/chip_architectures.pdf}
+            \end{center}
+            \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride,tanaka2010semiconductor,wierer2006photonic}}
+            \label{fig:chip_arch}
+        \end{figure}
 
-    To dis-aggregate the contribution of changes in single variables on total performance in both the device sub-efficiencies and the manufacturing cost, we used an approach introduced by Kavlak et al. \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. We can write the cost function $C$ of the manufacturing process as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$, where $g_{iw}(r_w)$ gives the dependence of $i$th cost component on the $w$th variable. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can now be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
-
-	\begin{align}
-        C(\vec{r}) &= C(r_1,r_2, \dots) = \sum_i C_i = \sum_i C_i^0 \prod_w g_{iw}(r_w) \\
-        \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
-        \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
-    \end{align}
+        To dis-aggregate the contribution of changes in single variables on total manufacturing cost, we used an approach introduced by Kavlak et al. \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. We can write the cost function $C$ of the manufacturing process as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$, where $g_{iw}(r_w)$ gives the dependence of $i$th cost component on the $w$th variable. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can now be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
     
-        \subsection{Literature Review and Performance Computation}
-
+    	\begin{align}
+            C(\vec{r}) &= C(r_1,r_2, \dots) = \sum_i C_i = \sum_i C_i^0 \prod_w g_{iw}(r_w) \\
+            \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
+            \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+        \end{align}
     
-To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data.
-For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
+    \subsection{Literature Review and Performance Computation}
+    
+        To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data. For instance, to gather historical data on the improvement of losses associated with electrical droop, data was extracted from device datasheets, as shown in figure \ref{fig:droop}. This was augmented by industry forecasts from company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
 
-
-
-
-\begin{figure} [ht]
-    \begin{center}
-        \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
-    \end{center}
-    \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
-    \label{fig:chip_arch}
-\end{figure}
+        \begin{figure} [ht]
+            \begin{center}
+                \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
+            \end{center}
+            \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop $D$, as defined in table \ref{tab:eff}, is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
+            \label{fig:droop}
+        \end{figure}
 
 \section{PERFORMANCE IMPROVEMENTS}
 
@@ -188,7 +179,7 @@ show cct spectrum with lines of YAG and 258+ phosphors
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/costmodel_calibration.pdf}
     \end{center}
-    \caption{Modeled manufacturing cost for the specified architecture of light-emitting diode packages split by manufacturing step category, following the XXX in US DoE reports \cite{doe2016solid}. The top graph shows the data from \textit{LEDCOM} model and  round table discussions published by the United States Department of Energy. The bottom graph shows the results of the cost model developed in this thesis. Die per wafer calculated from de Vries \cite{deVries2005}}
+    \caption{Modeled manufacturing cost for the specified architecture of light-emitting diode packages split by manufacturing step category, following the categories used in the US DoE reports \cite{doe2016solid}. The inset plot shows the number of die per wafer corresponding to wafers of different sizes, associated street width and exclusion zone. Calculated using approximations introduced by de Vries \cite{deVries2005}.}
     \label{fig:cost}
 \end{figure}
 
