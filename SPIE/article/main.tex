@@ -119,18 +119,8 @@ Flicker \cite{weinold2020long}
 \section{METHODS}
 \label{sec:methods}
 
+    \subsection{Manufacturing Cost Model}
 To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed to cover the entire manufacturing process of GaN-on-sapphire based phosphor converted low-to-mid power light-emitting diode packages of different chip architectures. We considered classical p-side-up lateral current spreading devices, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland. The model includes both the wafer treatment process as well as the packaging process. It is important to note that the aim of the model is not to faithfully represent real world manufacturing conditions in Asia based plants, but rather to show the effect of single technological changes in the manufacturing process on total cost. This means that while the model does consider overhead costs and depreciation, it does so only to XXXX 
-
-    To dis-aggregate the contribution of changes in single variables on total performance in both the device sub-efficiencies and the manufacturing cost, we used an approach introduced by Kavlak et al. \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. We can write the cost function $C$ of the manufacturing process as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$, where $g_{iw}(r_w)$ gives the dependence of $i$th cost component on the $w$th variable. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can now be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
-
-	\begin{align}
-        C(\vec{r}) &= C(r_1,r_2, \dots) = \sum_i C_i = \sum_i C_i^0 \prod_w g_{iw}(r_w) \\
-        \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
-        \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
-    \end{align}
-    
-To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data.
-For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
 
 
 \begin{figure} [ht]
@@ -140,6 +130,23 @@ For instance, in the case of spectral efficiency and the performance related to 
     \caption{Cutaway side views of the evolution of chip architectures for classical chip designs (lateral current spreading). Note that dimensions are not to scale and smaller features are greatly exaggerated for visibility. Years correspond to earliest identified patent priority date. Dashed boxes indicate chip designs not brought to large scale production. Adapted from patents \cite{nagahama2013nitride,tanaka2010semiconductor,wierer2006photonic}}
     \label{fig:chip_arch}
 \end{figure}
+
+    To dis-aggregate the contribution of changes in single variables on total performance in both the device sub-efficiencies and the manufacturing cost, we used an approach introduced by Kavlak et al. \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. We can write the cost function $C$ of the manufacturing process as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$, where $g_{iw}(r_w)$ gives the dependence of $i$th cost component on the $w$th variable. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can now be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
+
+	\begin{align}
+        C(\vec{r}) &= C(r_1,r_2, \dots) = \sum_i C_i = \sum_i C_i^0 \prod_w g_{iw}(r_w) \\
+        \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
+        \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+    \end{align}
+    
+        \subsection{Literature Review and Performance Computation}
+
+    
+To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data.
+For instance, in the case of spectral efficiency and the performance related to consumer experience metrics, we identified the prevalent red and yellow phosphors used during the period of interest. We then computed luminous efficacy of radiation as well as the color rendering index and color temperature from the spectral data. The development history of each phosphor was researched to determine if it had been developed specifically for use in light emitting devices, or if it was instead the result of a knowledge spillover.
+
+
+
 
 \begin{figure} [ht]
     \begin{center}
@@ -151,13 +158,7 @@ For instance, in the case of spectral efficiency and the performance related to 
 
 \section{PERFORMANCE IMPROVEMENTS}
 
-\begin{figure} [ht]
-    \begin{center}
-        \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
-    \end{center}
-    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
-    \label{fig:efficiency}
-\end{figure}
+
 
 \subsection{Physical Efficiency}
 
@@ -169,11 +170,27 @@ example: maybe droop with associated figure. is good example of process improvem
 List phosphors, give a short overview but do not include figures
 show cct spectrum with lines of YAG and 258+ phosphors
 
-\section{MANUFACTURING COST}
-
-show two waterfall diagrams (2003 only). mention work in progress
+\section{MANUFACTURING COST REDUCTIONS}
 
 
+
+\clearpage
+
+\begin{figure} [ht]
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
+    \end{center}
+    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
+    \label{fig:efficiency}
+\end{figure}
+
+\begin{figure} [ht]
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{SPIE/article/costmodel_calibration.pdf}
+    \end{center}
+    \caption{Modeled manufacturing cost for the specified architecture of light-emitting diode packages split by manufacturing step category, following the XXX in US DoE reports \cite{doe2016solid}. The top graph shows the data from \textit{LEDCOM} model and  round table discussions published by the United States Department of Energy. The bottom graph shows the results of the cost model developed in this thesis. Die per wafer calculated from de Vries \cite{deVries2005}}
+    \label{fig:cost}
+\end{figure}
 
 \clearpage
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
