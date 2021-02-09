@@ -38,7 +38,17 @@ We collected historical data on device performance, technological breakthroughs 
 \keywords{light-emitting diodes, innovation, efficiency, cost}
 
 \section{INTRODUCTION}
-\label{sec:intro}  % \label{} allows reference to this section
+\label{sec:intro}
+
+mention: technology had important improvements in past 25 years
+mention anniversiary of technology
+mention adoption in EU and US
+mention commoditization
+lack of understanding of sources of improvements across 25 years
+mention works by tsao (and at least two others)
+
+
+We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX. We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX.
 
 \clearpage
 \section{METHODS}
@@ -46,7 +56,7 @@ We collected historical data on device performance, technological breakthroughs 
 
     \subsection{Manufacturing Cost Model}
 
-        To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed. It covers the entire manufacturing process of GaN-on-sapphire-based phosphor-converted low-to-mid power light-emitting diode packages of different chip architectures. We considered the classical p-side-up lateral current spreading architecture, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. An excerpt of the device architectures considered is shown in figure \ref{fig:chip_arch}. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Where necessary, this data was augmented using information gathered during semi-structured interviews with experts from industry and academia. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by semi-structured interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland of SB Consulting\cite{ledcomv2}. The model includes both the wafer treatment process as well as the packaging process. While the model offers great flexibility to researchers in adapting the manufacturing process parameters and chip architectures used, it is important to note the limitations of this approach. The main aim of the model is not to faithfully represent real world manufacturing conditions in Asian manufacturing locations, but rather to show the effect of single technological changes in the manufacturing process on total cost. For instance, XXX
+        To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed. It covers the entire manufacturing process of GaN-on-sapphire-based phosphor-converted low-to-mid power light-emitting diode packages of different chip architectures. We considered the classical p-side-up lateral current spreading architecture, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. An excerpt of the device architectures considered is shown in figure \ref{fig:chip_arch}. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Where necessary, this data was augmented using information gathered during semi-structured interviews with experts from industry and academia. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by semi-structured interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland of SB Consulting\cite{ledcomv2}. The model includes both the wafer treatment process as well as the packaging process. While the model offers great flexibility to researchers in adapting the manufacturing process parameters and chip architectures used, it is important to note the limitations of this approach. The main aim of the model is not to faithfully represent real world manufacturing conditions in Asian manufacturing locations, but rather to show the effect of single technological changes in the manufacturing process on total cost. 
 
         \begin{figure} [ht]
             \begin{center}
@@ -66,7 +76,9 @@ We collected historical data on device performance, technological breakthroughs 
     
     \subsection{Literature Review and Performance Computation}
     
-        To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture and types of down conversion phosphors used. We systematically identified the improvements related to each device sub-efficiency, gathered associated efficiency data from literature or computed the respective values from raw data. For instance, to gather historical data on the improvement of losses associated with electrical droop, data was extracted from device datasheets, as shown in figure \ref{fig:droop}. This was augmented by industry forecasts from company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
+        To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture, manufacturing processes and types of down conversion phosphors used. We systematically identified the architecture and manufacturing process improvements related to each physical loss channel, gathered associated efficiency data from literature or computed the respective values from raw data.
+        
+        For instance, to gather historical data on the improvement of losses associated with electrical droop, device performance data was extracted from datasheets, as shown in figure \ref{fig:droop}. This data was cross-referenced with information on the different chip architectures and manufacturing processes used for each device. Data was then augmented by industry forecasts from company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
 
         \begin{figure} [ht]
             \begin{center}
@@ -78,15 +90,11 @@ We collected historical data on device performance, technological breakthroughs 
 
 \section{METRICS}
 
-    Once technological breakthroughs and spillovers have been identified, their effect must be quantified. However, in solid-state lighting device performance does not only have a purely physical and economic dimension. We must consider human factors in two dimensions: First, we must consider the wavelength dependent sensitivity of the human eyes. This allows us to us to extend the physical performance dimension to an optometric performance dimension. Second, we must consider the consumer experience dimension. Related to the spectrum of the light source, this includes the perceived temperature of white light or its ability to faithfully render colors. Related to the temporal modulation of the light source, this includes unwanted flickering. Only when considering all three dimensions can the effect of a technological breakthrough be fully quantified.
-
-    Metrics for light-emitting diodes must fulfill a number of requirements. First, the combined number of metrics must describe all dimensions of product performance introduced above. The development of a single compound metric, considering all dimensions, would be beyond the scope of this thesis. They must be widely accepted in industry. This ensures that they are reported in scientific literature and device datasheets. Metrics which have been proposed in literature but not reported by device manufacturers cannot be used to compare device performance. If neither is the case, they must at least allow for their computation from metrics which are available to us. They must further have the ability to directly describe the effect of breakthroughs on device performance. Otherwise, they must take as inputs metrics which directly describe the effect of breakthroughs on device performance. In this case, they must not require additional information which can not be fully quantified or is unavailable to us.
-
-    Data is readily available for metrics describing overall device performance. Luminous efficacy of devices as well as total flux per device can be extracted from datasheets, together with electrical device parameters. However, 
-
-    For instance, a highly cited and frequently updated metric is the total luminous flux per light-emitting diode package \cite{Liu2009,haitz2011solid,cho2017white,Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
+    Once technological breakthroughs and process improvements had been identified, their effect was quantified. The ensemble of metrics was required to describe all dimensions of device performance, including the overall physical device efficiency and the sub-efficiencies related to different physical loss channels. They must further have the ability to directly describe the effect of single technological breakthroughs, device architectures and manufacturing process improvements on device performance. 
     
-    Firstly, the metric today retains only limited significance as a proxy for technological development in light-emitting diodes. This is because it is not desirable to increase the total flux per device beyond a certain point in many applications. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, disregard these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if data was given for single light-emitting diode chips, instead of multi-chip packages. Historically, publications have sometimes failed to make this distinction, listing datapoints for both device levels in the same graph without supporting information.
+    These requirements precluded the use of some established metrics. For instance, a highly cited and frequently updated metric is the total luminous flux per light-emitting diode package \cite{Liu2009,haitz2011solid,cho2017white,Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
+    
+    Firstly, the metric today retains only limited significance as a proxy for technological development in light-emitting diodes. This is because it is not desirable to increase the total flux per device beyond a certain point in many applications. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, disregarding these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if data was given for single light-emitting diode chips, instead of multi-chip packages. Historically, publications have sometimes failed to make this distinction, listing datapoints for both device levels in the same graph without supporting information.
 
     Figure \ref{fig:haitz} shows an updated and expanded overview of best performing devices, both at the chip and package level, inspired by \textit{"Haitz's Law"}. It is evident that the historical improvement in total flux per package for single chips is not as pronounced as for multi-chip packages. While \textit{"Haitz's Law"} remains a popular visualization related to the progress in light-emitting diode design and manufacturing, .
 
@@ -146,9 +154,13 @@ We collected historical data on device performance, technological breakthroughs 
     \label{fig:cct}
 \end{figure}
 
+\clearpage
 \section{PERFORMANCE IMPROVEMENTS}
 
-
+    list performance improvements, mention physical limits
+    mention loss channels with process improvements vs channels with breakthroughs and spillovers
+    mention caveats in manufacturing cost decrease
+    mention most important factor in manufacturing cost decrease
 
 \subsection{Physical Efficiency}
 
@@ -162,9 +174,6 @@ show cct spectrum with lines of YAG and 258+ phosphors
 
 \section{MANUFACTURING COST REDUCTIONS}
 
-
-
-\clearpage
 
 \begin{figure} [ht]
     \begin{center}
@@ -182,11 +191,12 @@ show cct spectrum with lines of YAG and 258+ phosphors
     \label{fig:cost}
 \end{figure}
 
-\clearpage
+
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
  
 The main author gratefully acknowledges funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA.
 
+\clearpage
 % References
 \bibliography{report} % bibliography data in report.bib
 \bibliographystyle{spiebib} % makes bibtex use spiebib.bst
