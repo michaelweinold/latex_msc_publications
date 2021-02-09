@@ -30,7 +30,10 @@
 \maketitle
 
 \begin{abstract}
-We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX.
+    
+    
+    To understand the 
+    We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX.
 
 \end{abstract}
 
@@ -47,8 +50,9 @@ mention commoditization
 lack of understanding of sources of improvements across 25 years
 mention works by tsao (and at least two others)
 
+    Within only 25 years of the introduction of the first commercial white light-emitting diode, efficiency has increased by three orders of magnitude while manufacturing costs have fallen by two orders of magnitude. The total market penetration in general illumination has recently exceeded 50\% in the European Union and the United States \cite{eu2019impactass}\cite{stratunl2018}. Today, the solid-state lighting markets in the US and the EU together are valued at 58.7 Bn.\$(2020) \cite{gvr2020market_us}\cite{gvr2020market_eu}. Legislation and policy aimed at increasing the adoption of solid-state light sources has been implemented around the world \cite{2009-125-EC_regulation-2012_impact}. Estimates for the electrical energy saved annually from the adoption of energy efficiency lamps ranges from 131 TWh/year in 2020 for the EU to 442 TWh/year in 2020 for the US.
 
-We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX. We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX.
+    The early development history of light-emitting diodes is well documented \cite{Steigerwald2002}\cite{Nakamura2013}\cite{feezell2018invention}. Major works dealing with device efficiency improvements have documented overall progress \cite{azevedo2009transition}\cite{tsao2010solid}\cite{pattison2017solid}. Despite the excellent overview these publications provide, they did not systematically investigate the sources and impact of related technology improvements. Investigations regarding cost reductions are rarely reported in scientific literature. The focus is instead on the energy economics implications of decreased electricity consumption \cite{tsao2010world}\cite{Tsao2010SSL}. 
 
 \clearpage
 \section{METHODS}
@@ -142,39 +146,26 @@ We collected historical data on device performance, technological breakthroughs 
     	\end{tabularx}
     	\label{tab:eff}
     \end{table}
-
     
-    Performance improvements in metrics related to consumer experience have also played a role in the adoption of light-emitting diode based luminaires \cite{cowan2011understanding}. Broadly described as the quality of light, these include metrics related to the emitted spectrum as well flicker, the temporal modulation of light. For instance, breakthroughs in the development of downconversion phosphors enabled a greater range in the color temperature of light sources, shown in figure \ref{fig:cct}. A thorough treatment of consumer experience metrics is given by Weinold et al. \cite{weinold2020technology}. Flicker was not considered in this context because it is not an inherent property of the light-emitting diodes themselves, but rather the electrical ballasts in the luminaires. We instead refer to a recent publication by Weinold \cite{weinold2020long}. 
+    Performance improvements in metrics related to consumer experience have also played a role in the adoption of light-emitting diode based luminaires \cite{cowan2011understanding}. Broadly described as the quality of light, these include metrics related to the emitted spectrum as well flicker, the temporal modulation of light. For instance, breakthroughs in the development of downconversion phosphors enabled a greater range in the color temperature of light sources. A thorough treatment of consumer experience metrics is given by Weinold et al. \cite{weinold2020technology}. Flicker was not considered in this context because it is not an inherent property of the light-emitting diodes themselves, but rather the electrical ballasts in the luminaires. We instead refer to a recent publication by Weinold \cite{weinold2020long}. 
 
-\begin{figure} [ht]
-    \begin{center}
-        \includegraphics[width=\textwidth]{SPIE/article/cct_spectrum.pdf}
-    \end{center}
-    \caption{Color temperature for temperature values between 1,000K and 12,000K. Vertical lines indicate the color temperature of blue light-emitting diodes used in combinations with phosphors. Arrows indicate flexibility through phosphor composition variation. Two data points are shown: The 1997 \textit{Nichia} \ch{YAG:Ce^{3+}} (YAG) phosphor at 5800K and the 2004 \textit{Lumileds} \ch{Sr_2Si_5N_8:Eu^{2+}} ("258") phosphor at below 4000K (tuneable). Color data generated using the \textit{luxpy} package for \textit{Python}. CCT for phosphors computed using the \textit{color science} package for \textit{Python}, from spectral data in publications  \cite{bando1998development,MuellerMach2005}.}
-    \label{fig:cct}
-\end{figure}
-
-\clearpage
 \section{PERFORMANCE IMPROVEMENTS}
 
-    list performance improvements, mention physical limits
-    mention loss channels with process improvements vs channels with breakthroughs and spillovers
-    mention caveats in manufacturing cost decrease
-    mention most important factor in manufacturing cost decrease
-
-\subsection{Physical Efficiency}
-
-give two waterfall diagrams (2003,2020) and give one example
-example: maybe droop with associated figure. is good example of process improvements
-
-\subsection{Consumer Experience}
-
-List phosphors, give a short overview but do not include figures
-show cct spectrum with lines of YAG and 258+ phosphors
+     Overall efficiency in best performing devices improved from $\eta_L=5.8\%$ in 2002 to $\eta_L = 38.7\%$ in 2020. As previous authors have noted, no single loss channel dominates the overall the efficiency\cite{tsao2010solid}. We note, however, that those loss channels with a fixed physical limit become significantly more dominant in 2016 and 2020. For instance, Stokes loss, describing the energy dissipated upon conversion from short wavelength to long wavelength photons, becomes more dominant. Figure \ref{fig:efficiency} additionally shows the physical limits for the loss channels. Notably, sub-efficiencies for most current devices are only $\sim10\%$ below the physical limit. The exception is spectral efficiency, which at $\sim20\%$ below the physical limit shows larger potential for improvement.
+     
+     Our comparison between the improvements in device sub-efficiencies between 2002 and 2020 shows that the aggregate efficiency improvement was not driven primarily by improvements in a single sub-efficiency. Instead, there has been consistent progress across the ensemble of loss channels corresponding to the device sub-efficiencies in the past 18 years: forward voltage efficiency ($70\%\rightarrow99.5\%$), internal quantum efficiency ($55\%\rightarrow90\%)$, electrical droop ($65\%\rightarrow90\%$), light-extraction efficiency ($60\%\rightarrow90\%$) and spectral efficiency ($74\% \rightarrow83\%$).
+     
+     We find that there are two distinct sources for improvements in device sub-efficiencies. In loss channels with physically well understood  XXXXX Our comparison between the improvements in device sub-efficiencies between 2002 and 2020 shows that the aggregate efficiency improvement was not driven primarily by improvements in a single sub-efficiency. Instead, there has been consistent progress across the ensemble of loss channels corresponding to the device sub-efficiencies in the past 18 years: forward voltage efficiency ($70\%\rightarrow99.5\%$), internal quantum efficiency ($55\%\rightarrow90\%)$, electrical droop ($65\%\rightarrow90\%$), light-extraction efficiency ($60\%\rightarrow90\%$) and spectral efficiency ($74\% \rightarrow83\%$).
 
 \section{MANUFACTURING COST REDUCTIONS}
 
-
+    The cost of manufacturing low-power and mid-power light-emitting diode packages at a US location, using state-of-the-art equipment, was estimated to have decreased from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. 
+    
+    A preliminary analysis of cost factors suggests that an increase in wafer size in the manufacturing process is responsible for the largest part of the cost reduction. The number of die per wafer associated with this has been computed and is displayed in the inset plot of figure \ref{fig:cost}. The wafer diameter used in production has been steadily increasing since 2002. The model assumes diameters and associated number of die per wafer  $d(2002)=50$mm$\rightarrow851$ to $d(2020)=200$mm$\rightarrow26,838$. Note that the decrease in exclusion zone and cutting width also contribute to the increase in die per wafer.
+    
+    As the number of die per wafer increases, the packaging steps carry a larger share of the total cost. This is because these steps are limited by the throughput of the associated equipment. The wafer processing steps are limited by the number of die per wafer and only to a lesser extend the throughput of equipment.
+    
+\clearpage
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
@@ -187,7 +178,7 @@ show cct spectrum with lines of YAG and 258+ phosphors
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/costmodel_calibration.pdf}
     \end{center}
-    \caption{Modeled manufacturing cost for the specified architecture of light-emitting diode packages split by manufacturing step category, following the categories used in the US DoE reports \cite{doe2016solid}. The inset plot shows the number of die per wafer corresponding to wafers of different sizes, associated street width and exclusion zone. Calculated using approximations introduced by de Vries \cite{deVries2005}.}
+    \caption{Modeled manufacturing cost for the specified architecture of light-emitting diode packages split by manufacturing step category, following the categories and color scheme used in the reports by the US DoE \cite{doe2016solid}. The inset plot shows the number of die per wafer corresponding to wafers of different sizes, associated street width and exclusion zone. Calculated using approximations introduced by de Vries \cite{deVries2005}.}
     \label{fig:cost}
 \end{figure}
 
