@@ -9,6 +9,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tabularx}
+\usepackage{wrapfig}
 \setlength{\extrarowheight}{2pt}
 \usepackage{chemformula}
 
@@ -43,7 +44,7 @@
 \label{sec:intro}
 
 
-    Within just 25 years of the introduction of first commercial white light-emitting diodes (LED), the solid state lighting industry has become a rare success story in the global drive for the transformation of energy systems. Today, the solid-state lighting markets in the US and the EU together are valued at 58.7 Bn.\$(2020) \cite{gvr2020market_us,gvr2020market_eu} with general illumination market penetration exceeding 50\% \cite{eu2019impactass,stratunl2018}. Estimates for the electrical energy saved annually from SSL adoption ranges from 131 TWh/year in 2020 for the EU \cite{eu2019impactass} to 442 TWh/year in 2020 for the US \cite{yamada2015adoption,guidehouse2020adoption}, which is on par with the amount of energy produced by all deployed solar photovoltaic installations in these regions. Legislation aimed at increasing the adoption of solid-state light sources that has been implemented around the world creates favorable conditions for further expansion of the industry. However, this revolution in lighting would not have been possible without dramatic improvements in the overall LED device efficiency and reductions in LED manufacturing costs. In last twenty years, efficiency has increased by three orders of magnitude [CHECK IF THAT IS APPROPRIATE, AS "ORDERS OF MAGNITUDE" FOR VARIABLES MEASURED IN PERCENTAGES ARE NOT VERY MEANINGFUL], while manufacturing costs have fallen by two orders of magnitude.
+    Within just 25 years of the introduction of first commercial white light-emitting diodes (LED), the solid state lighting industry has become a rare success story in the global drive for the transformation of energy systems. Today, the solid-state lighting markets in the US and the EU together are valued at 58.7 Bn.\$(2020) \cite{gvr2020market_us,gvr2020market_eu} with general illumination market penetration exceeding 50\% \cite{eu2019impactass,stratunl2018}. Estimates for the electrical energy saved annually from SSL adoption ranges from 131 TWh/year in 2020 for the EU \cite{eu2019impactass} to 442 TWh/year in 2020 for the US \cite{yamada2015adoption,guidehouse2020adoption}, which is on par with the amount of energy produced by all deployed solar photovoltaic installations in these regions. This revolution in lighting would not have been possible without dramatic improvements in the overall device efficiency and reductions in manufacturing costs.
 
     Understanding the sources and impact of these dramatic improvements on LED manufacturing is essential for researchers, industry professionals, as well as policymakers in the sphere of energy, science and innovation, as they may provide valuable insights for the acceleration of innovation in other demand-side energy technologies. With this aim, in this paper we identify and quantify the principal sources of performance improvements and cost reductions in phosphor-converted white LED lighting devices over the last 20 years. 
 
@@ -112,8 +113,6 @@
     
         To gain a detailed understanding of the sources and magnitude of efficiency improvements and cost reductions in light-emitting diode manufacturing, we gathered data from a variety of sources. The aim was to collect historical data on overall device performance and historical development in sub-efficiencies. Where possible, we gathered  efficiency data from literature or computed the respective values from raw data. We further had to identify the associated device architectures, manufacturing processes and types of down conversion phosphors used. Data was extracted from patent literature, scientific publications, industry reports and technology forecasts. Additional information and data was provided by experts from both the light-emitting diode manufacturing industry and the manufacturing equipment industry during semi-structured interviews. 
         
-        For instance, to gather historical data on the reduction of losses associated with electrical droop, device performance data was calculated based on the information extracted from datasheets, as shown in figure \ref{fig:droop}. This data was cross-referenced with information on the different chip architectures and manufacturing processes used for each device. This data was then augmented by data provided in industry reports and company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
-
         \begin{figure} [ht]
             \begin{center}
                 \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
@@ -121,8 +120,8 @@
             \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop $D$, as defined in table \ref{tab:eff}, is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
             \label{fig:droop}
         \end{figure}
-
-
+        
+        For instance, to gather historical data on the reduction of losses associated with electrical droop, device performance data was calculated based on the information extracted from datasheets, as shown in figure \ref{fig:droop}. This data was cross-referenced with information on the different chip architectures and manufacturing processes used for each device. This data was then augmented by data provided in industry reports and company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
 
     \subsection{Manufacturing Cost Model}
 
@@ -150,35 +149,46 @@
         \begin{center}
             \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
         \end{center}
-        \caption{Impact of technology breakthroughs and manufacturing process improvements on historical developments in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates that the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range of this limit is indicated by an upward pointing black arrow. Efficiency acronyms are listed in table \ref{tab:eff}. Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
+        \caption{Impact of technology breakthroughs and manufacturing process improvements on historical developments in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates that the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range of this limit is indicated by an upward pointing black arrow. Efficiency acronyms are listed in table \ref{tab:eff}.}
         \label{fig:efficiency}
     \end{figure}
     
     Notably, efficiency improvements in sub-efficiencies with a good understanding of the underlying physical loss channels, such as light-extraction efficiency, forward voltage efficiency and spectral efficiency were mostly a result of targeted research and development. For instance, optical simulations could be performed to determine ways of modifying the device architecture to improve light extraction efficiency. On the other hand, efficiency improvements in sub-efficiencies with a limited physical understanding internal quantum efficiency and the associated electrical droop at high currents were mostly due to process improvements in the manufacturing process. For instance, the reasons for electrical droop have, until recently, been a topic of hot debate, but significant improvements in this channel were still achieved by varying metal-organic vapour deposition (MOCVD) growth parameters in large ensembles of wafer batches.
 
 \subsection{Manufacturing Cost Reductions}
-
+    
     Using our cost model, we estimate that the cost of manufacturing low-power and mid-power light-emitting diode packages at a US location, using state-of-the-art equipment, to have decreased from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. 
     
-    A preliminary analysis of components of the cost model suggests that an increase in wafer size in the manufacturing process is responsible for the largest part of the cost reduction. The number of die per wafer associated with this is displayed in the inset plot of figure \ref{fig:cost}. The wafer diameter used in production has been steadily increasing since 2002. The model assumes diameters and associated number of die per wafer  $d(2002)=50$mm$\rightarrow851$ to $d(2020)=200$mm$\rightarrow26,838$. Note that the decrease in exclusion zone and cutting width also contribute to the increase in die per wafer.
+    A preliminary analysis of components of the cost model suggests that an increase in wafer size in the manufacturing process is responsible for the largest part of the cost reduction. The number of die per wafer associated with this is displayed in the inset plot of figure \ref{fig:cost}. The wafer diameter used in production has been steadily increasing since 2002. The model assumes diameters and associated number of die per wafer  $d(2002)=50$mm$\rightarrow851$ to $d(2020)=200$mm$\rightarrow26,838$. Note that the decrease in exclusion zone and cutting width also contribute to the increase in die per wafer. As the number of die per wafer increases, the packaging steps carry a larger share of the total cost. This is because these steps are limited by the throughput of the associated equipment. The wafer processing steps are limited by the number of die per wafer and only to a lesser extend the throughput of equipment.
     
-    As the number of die per wafer increases, the packaging steps carry a larger share of the total cost. This is because these steps are limited by the throughput of the associated equipment. The wafer processing steps are limited by the number of die per wafer and only to a lesser extend the throughput of equipment.
-    
-    XXX some numbers from the figure
+    \begin{table}[h!]
+        \caption{Manufacturing cost of low-power classical chips (lateral current spreading) estimated with the cost model introduced in section \ref{sec:methods}. Relative contributions of different manufacturing process steps are shown in figure \ref{fig:cost}.}
+        \bigskip
+            \centering
+            \begin{tabularx}{\textwidth}{|l|l|X|X|X|}
+            	\hline
+            		\textit{Year} & \textit{Unit} & \textit{Cost (Wafer Proc.)} & \textit{Cost (Packaging)} & \textit{Total Cost} \\
+                \hline
+                    2002 & \$(2020) & 0.975 & 0.138 & 1.113 \\
+                \hline
+                    2002-2012 & \% & -62.05 & -47.10 & -90.12 \\
+                \hline
+                    2012 & \$(2020) & 0.037 & 0.073 & 0.110 \\
+                \hline
+                    2012-2020 & \% & -67.56 & -36.98 & -47.27 \\
+                \hline
+                    2020 & \$(2020) & 0.012 & 0.046 & 0.058 \\
+                \hline
+            \end{tabularx}
+            \label{tab:cost}
+        \end{table}
 
-\begin{figure} [ht]
-    \begin{center}
-        \includegraphics[width=0.85\textwidth]{SPIE/article/costmodel_calibration.pdf}
-    \end{center}
-    \caption{Left panel: Modeled manufacturing cost for low power classical chip architecture (lateral current spreading) the specified architecture of light-emitting diode packages split by manufacturing step category. Right panel: The number of die per wafer corresponding to wafers of different sizes, associated street width and exclusion zone. Calculated using approximations introduced by de Vries \cite{deVries2005}.}
-    \label{fig:cost}
-\end{figure}
 
 \section{CONCLUSIONS}
 
     In this study, we found that technological breakthroughs and process innovation contributed to performance improvements across the entire range of LED device sub-efficiencies, resulting in the overall lamp efficiency increase for the highest performing devices at a test current of 350mA from 5.8\% in 2002 to 38.7\% in 2020. Notably, we found that efficiency improvements in loss channels with a good underlying understanding of physical mechanism were driven mostly by research and development, while improvements in channels with a lack of such understanding required extensive experimentation and learning-by-doing in the manufacturing setting. It shows the importance of further research into the underlying solid-state physics of light-emitting diodes. A deeper understanding of the underlying effects and mechanisms associated with device loss channels will potentially enable further advances in LED technology, with spectral efficiency showing the largest potential for further improvements. 
 
-    We also construct the manufacturing cost model for low-power and mid-power LED packages produced at a virtual US location using state-of-the-art equipment. We estimate that the cost of LED manufacturing in these conditions has dropped from 1.11$(2020) in 2002 to 0.05$(2020) in 2020, a 95.5\% decrease. The largest contribution to overall historical cost reductions came from increase in wafer size. The largest remaining contributor to the manufacturing cost is the LED packaging, contributing 60\% to the cost structure in 2020.
+    We also construct the manufacturing cost model for low-power and mid-power LED packages produced at a virtual US location using state-of-the-art equipment. We estimate that the cost of LED manufacturing in these conditions has dropped from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. The largest contribution to overall historical cost reductions came from increase in wafer size. The largest remaining contributor to the manufacturing cost is the LED packaging, contributing 60\% to the cost structure in 2020.
 
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
 
