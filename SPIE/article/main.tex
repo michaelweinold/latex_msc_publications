@@ -16,11 +16,12 @@
 
 \author[a,b]{Michael Weinold}
 \author[b]{Sergey Kolesnikov}
-\author[c]{Laura Diaz Anadon}
-\affil[a]{ETH Zurich, Chair of Entrepreneurial Risks, Scheuchzerstrasse 7, 8092 Zurich, Switzerland}
-\affil[b]{University of Cambridge, Centre for Environment, Energy and Natural Resource Governance, The David Attenborough Building, CB2 3QZ Cambridge, UK}
+\author[b,c]{Laura Diaz Anadon}
+\affil[a]{Chair of Entrepreneurial Risks, ETH Zurich, Scheuchzerstrasse 7, CH-8092 Zurich, CH}
+\affil[b]{Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, CB3 9EP, UK}
+\affil[c]{Belfer Center for Science and International Affairs, Harvard Kennedy School, Harvard University, Cambridge, MA 02138, USA}
 
-\authorinfo{Further author information: (Send correspondence to Michael Weinold)\\Michael Weinold: E-mail: michael.weinold@alumni.ethz.ch}
+\authorinfo{Further author information: (Send correspondence to Michael Weinold) \\ MW: E-mail: mw799@cam.ac.uk \\ SK: E-mail: sk2063@cam.ac.uk \\ LDA: E-mail: lda24@cam.ac.uk}
 
 % Option to view page numbers
 \pagestyle{empty} % change to \pagestyle{plain} for page numbers   
@@ -31,14 +32,12 @@
 
 \begin{abstract}
     
-    
-    To understand the 
-    We collected historical data on device performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We used this information to identify and quantify the principal sources of performance improvements in LED manufacturing. We found that in order to quantify the impact of single technological changes, it is necessary to analyse performance improvements the device sub-efficiency level. We further developed a bottom-up manufacturing cost model with process step resolution that captures improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale to analyse cost reductions and their sources. It covers progress from early manufacturing in 2003 to today. We found that larger wafer sizes have been largely responsible for cost reductions. We found that XXX well known XXX.
+    With the aim of identifying and quantifying the principal sources of performance improvements and cost reductions in white light emitting diode manufacturing, we collect historical data on device cost and performance, technological breakthroughs and manufacturing innovation for phosphor-converted white light-emitting diodes for the past 20 years. We find that technological breakthroughs and process innovation contributed to performance improvements across the entire range of LED device sub-efficiencies, resulting in the overall increase in the lamp efficiency for the highest performing devices at a test current of 350mA from 5.8\% to 38.7\% between 2002 and 2020. We further develop a bottom-up manufacturing cost model with process-step resolution that captured improvements in throughput, yield and related costs of all relevant manufacturing steps, as well as economies of scale, to analyse progress in LED manufacturing cost structure between early manufacturing in 2003 and 2020. We estimate that the cost of manufacturing low-power and mid-power light-emitting diode packages at a US location using state-of-the-art equipment has dropped from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. We also find that the largest contribution to overall cost reductions has come from increase in wafer size, and that in 2020, chip packaging remains the largest contributor to cost at 60\%.
 
 \end{abstract}
 
 % Include a list of keywords after the abstract 
-\keywords{light-emitting diodes, innovation, efficiency, cost}
+\keywords{light-emitting diodes, LED manufacturing, LED efficiency, manufacturing cost, cost modeling, cost reduction, technological breakthroughs}
 
 \section{INTRODUCTION}
 \label{sec:intro}
@@ -60,7 +59,7 @@ mention works by tsao (and at least two others)
 
     \subsection{Manufacturing Cost Model}
 
-        To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed. It covers the entire manufacturing process of GaN-on-sapphire-based phosphor-converted low-to-mid power light-emitting diode packages of different chip architectures. We considered the classical p-side-up lateral current spreading architecture, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. An excerpt of the device architectures considered is shown in figure \ref{fig:chip_arch}. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Where necessary, this data was augmented using information gathered during semi-structured interviews with experts from industry and academia. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by semi-structured interviews with experts from industry and academia. For 2012, data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland of SB Consulting\cite{ledcomv2}. The model includes both the wafer treatment process as well as the packaging process. While the model offers great flexibility to researchers in adapting the manufacturing process parameters and chip architectures used, it is important to note the limitations of this approach. The main aim of the model is not to faithfully represent real world manufacturing conditions in Asian manufacturing locations, but rather to show the effect of single technological changes in the manufacturing process on total cost. 
+        To quantify changes in the manufacturing cost of devices, a bottom-up manufacturing cost model with process step resolution was constructed. It covers the entire manufacturing process of GaN-on-sapphire-based phosphor-converted low-to-mid power light-emitting diode packages of different chip architectures. We considered the classical p-side-up lateral current spreading architecture, as well as a packaged flip-chip vertical current spreading architecture and a chip-scale package flip chip architecture. An excerpt of the device architectures considered is shown in figure \ref{fig:chip_arch}. The model was constructed for the years 2003, 2012 and 2020. It was populated with equipment data from European and North American firms, selected for a virtual North American manufacturing location. Process specific step parameters were derived from scientific literature, company publications, archived product catalogs and patent literature. Where necessary, this data was augmented using information gathered during semi-structured interviews with experts from industry and academia. Details of the manufacturing process, as well as changes in the same were gathered from detailed patent analysis, augmented by semi-structured interviews with experts from industry and academia. For 2012, additional data for the model was adapted from the \textit{LEDCOM} cost model prepared for the US Department of Energy by Stephen Bland of SB Consulting\cite{ledcomv2}. Our model includes both the wafer treatment process as well as the packaging process. While the model offers great flexibility to researchers in adapting the manufacturing process parameters and chip architectures used, it is important to note the limitations of this approach. The main aim of the model is not to faithfully represent real-world manufacturing such as those in present-day manufacturing locations in Asia, but rather to show the effect of technological change and manufacturing process improvements on total cost. 
 
         \begin{figure} [ht]
             \begin{center}
@@ -70,50 +69,19 @@ mention works by tsao (and at least two others)
             \label{fig:chip_arch}
         \end{figure}
 
-        To dis-aggregate the contribution of changes in single variables on total manufacturing cost, we used an approach introduced by Kavlak et al. \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. We can write the cost function $C$ of the manufacturing process as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$, where $g_{iw}(r_w)$ gives the dependence of $i$th cost component on the $w$th variable. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can now be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
+        To dis-aggregate the contribution of changes in single variables to changes in the total manufacturing cost, we used an approach introduced by Kavlak et al. in a cost model for photovoltaic modules \cite{kavlak2018evaluating}. It is based on the logarithmic derivative of the total differential of the cost function. The contribution of changes in the cost model $\Delta C_z$ to total manufacturing cost $C$ can thus be approximated. For the detailed derivation, we refer to the supplementary material of the original publication.
     
-    	\begin{align}
-            C(\vec{r}) &= C(r_1,r_2, \dots) = \sum_i C_i = \sum_i C_i^0 \prod_w g_{iw}(r_w) \\
-            \Delta C_x &= \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t \\
-            \Delta C_z (t_1,t_2) &\approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
-        \end{align}
+    \subsection{Data Sources and Performance Calculations}+
     
-    \subsection{Literature Review and Performance Computation}
+        XXX mention patent analysis
+        XXX mention interviews
+        XXX mention company publications
+        XXX move any relevant sentences from cost model subsection here
     
-        To gain a detailed understanding of the sources and magnitude of efficiency improvements in devices, we gathered data on overall device performance and identified the associated device architecture, manufacturing processes and types of down conversion phosphors used. We systematically identified the architecture and manufacturing process improvements related to each physical loss channel, gathered associated efficiency data from literature or computed the respective values from raw data.
+        To gain a detailed understanding of the sources and magnitude of efficiency improvements and cost reductions in devices, we gathered data on overall device performance and identified the associated device architecture, manufacturing processes and types of down conversion phosphors used. We systematically identified the architecture and manufacturing process improvements related to each physical loss channel, gathered associated efficiency data from literature or computed the respective values from raw data.
         
-        For instance, to gather historical data on the improvement of losses associated with electrical droop, device performance data was extracted from datasheets, as shown in figure \ref{fig:droop}. This data was cross-referenced with information on the different chip architectures and manufacturing processes used for each device. Data was then augmented by industry forecasts from company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
-
-        \begin{figure} [ht]
-            \begin{center}
-                \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
-            \end{center}
-            \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop $D$, as defined in table \ref{tab:eff}, is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
-            \label{fig:droop}
-        \end{figure}
-
-\section{METRICS}
-
-    Once technological breakthroughs and process improvements had been identified, their effect was quantified. The ensemble of metrics was required to describe all dimensions of device performance, including the overall physical device efficiency and the sub-efficiencies related to different physical loss channels. They must further have the ability to directly describe the effect of single technological breakthroughs, device architectures and manufacturing process improvements on device performance. 
-    
-    These requirements precluded the use of some established metrics. For instance, a highly cited and frequently updated metric is the total luminous flux per light-emitting diode package \cite{Liu2009,haitz2011solid,cho2017white,Fontoynont2018}. In combination with the cost per total flux, this visualization is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while these metrics are often used to showcase technological progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
-    
-    Firstly, the metric today retains only limited significance as a proxy for technological development in light-emitting diodes. This is because it is not desirable to increase the total flux per device beyond a certain point in many applications. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, disregarding these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if data was given for single light-emitting diode chips, instead of multi-chip packages. Historically, publications have sometimes failed to make this distinction, listing datapoints for both device levels in the same graph without supporting information.
-
-    Figure \ref{fig:haitz} shows an updated and expanded overview of best performing devices, both at the chip and package level, inspired by \textit{"Haitz's Law"}. It is evident that the historical improvement in total flux per package for single chips is not as pronounced as for multi-chip packages. While \textit{"Haitz's Law"} remains a popular visualization related to the progress in light-emitting diode design and manufacturing, .
-
-    \begin{figure} [ht]
-        \begin{center}
-            \includegraphics[width=\textwidth]{haitz_law_white.pdf}
-        \end{center}
-        \caption{Historical increase in flux for highest performing white \underline{light-emitting diode chips and (multi-chip) packages}, inspired by \textit{"Haitz's Law"}\cite{haitz1999case}. Note that flux per single chips has not increased as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers from press releases, datasheets and and industry periodicals. Note the logarithmic ordinates and the black colored datapoints corresponding to the left ordinate, grey colored datapoints corresponding to the right ordinate. Sources: Data from Weinold et al. \cite{weinold2020technology}}
-        \label{fig:haitz}
-    \end{figure}
-
-    Instead, progress in light-emitting diode technology is best described by the overall device efficiency, or lamp efficiency. This metric defined as the product of all device sub-efficiencies associated with an ensemble of different loss channels $\eta_L = \prod_{i=(V_f,\dots,S)} \eta_i$. Sub-efficiencies directly capture the effect of technology breakthroughs in device design and manufacturing process improvements. They thus provide the best metric to quantify technology breakthroughs. Table \ref{tab:eff} lists the relevant sub-efficiencies considered along with mathematical definitions.
-
     \begin{table}[h!]
-        \caption{List of the device sub-efficiencies used in our methodology. We follow the definitions used by previous authors, such as Tsao et al. \cite{tsao2010solid} and Pattison et al. \cite{pattison2017solid}. The historical development of the sub-efficiencies is displayed in figure \ref{fig:efficiency}. \\ *Also called "lamp efficiency" or "cumulative efficiency" by authors, such as Tsao et al. \cite{tsao2010solid}}
+        \caption{List of the device sub-efficiencies used in our methodology. We follow the definitions used by previous authors, such as Tsao et al. \cite{tsao2010solid} and Pattison et al. \cite{pattison2017solid}. The historical development of the sub-efficiencies is displayed in figure \ref{fig:efficiency}.}
         \bigskip
         \centering
     	\begin{tabularx}{\textwidth}{|l|l|l|X|}
@@ -146,31 +114,67 @@ mention works by tsao (and at least two others)
     	\end{tabularx}
     	\label{tab:eff}
     \end{table}
+        
+        For instance, to gather historical data on the reduction of losses associated with electrical droop, device performance data was calculated based on the information extracted from datasheets, as shown in figure \ref{fig:droop}. This data was cross-referenced with information on the different chip architectures and manufacturing processes used for each device. This data was then augmented by data provided in industry reports and company publications \cite{osram2014osram}. Data was gathered in a similar way for all sub-efficiencies listed in table \ref{tab:eff}, to gather a complete picture of the historical development of light-emitting diode efficiency.
+
+        \begin{figure} [ht]
+            \begin{center}
+                \includegraphics[width=0.85\textwidth]{SPIE/article/droop_lumileds.pdf}
+            \end{center}
+            \caption{Luminous intensity of four different \textit{Lumileds} high-power light-emitting diodes normalized to the value at a test current of $A_{test}=350$mA. The black curves describe the real measured intensity, the orange curves describe the estimated ideal intensity. Droop $D$, as defined in table \ref{tab:eff}, is the difference between these curves at the test current. Current-Intensity data extracted from device datasheets \cite{datasheet_lumileds_lux1,datasheet_lumileds_rebel,datasheet_lumileds_rebplus,lumi2019data}}
+            \label{fig:droop}
+        \end{figure}
+
+\subsection{Choice of Metrics}
+
+    Once technological breakthroughs and process improvements had been identified, the next step was to quantify their effect. The ensemble of metrics is required to describe all dimensions of device performance, including the overall physical device efficiency and the sub-efficiencies related to different physical loss channels. They must further have the ability to directly describe the effect of single technological breakthroughs, device architectures and manufacturing process improvements on device performance. 
     
-    Performance improvements in metrics related to consumer experience have also played a role in the adoption of light-emitting diode based luminaires \cite{cowan2011understanding}. Broadly described as the quality of light, these include metrics related to the emitted spectrum as well flicker, the temporal modulation of light. For instance, breakthroughs in the development of downconversion phosphors enabled a greater range in the color temperature of light sources. A thorough treatment of consumer experience metrics is given by Weinold et al. \cite{weinold2020technology}. Flicker was not considered in this context because it is not an inherent property of the light-emitting diodes themselves, but rather the electrical ballasts in the luminaires. We instead refer to a recent publication by Weinold \cite{weinold2020long}. 
+    These requirements precluded the use of some established metrics. For instance, a highly cited and frequently updated metric is the total luminous flux per light-emitting diode package \cite{Liu2009,haitz2011solid,cho2017white,Fontoynont2018}. In combination with the cost per total flux, it is sometimes referred to as \textit{"Haitz's Law"}, in reference to an early report on LED development by Haitz et al. \cite{haitz1999case}. However, while it is often used to showcase technological progress in light-emitting diode design and manufacturing, care must be taken to consider its limitations.
+    
+    Firstly, the metric today retains only limited significance as a proxy for technological development in light-emitting diodes. This is because it is not desirable to increase the total flux per device beyond a certain point in many applications. Reasons for limiting the total flux per device may include lighting design considerations to reduce glare \cite{khan2015led}, device efficiency considerations to avoid electrical droop at high operating currents associated with high brightness \cite{Piprek2010} and economical considerations where multiple LED die in a single package can achieve the same brightness as a single high-brightness LED die. Secondly, disregarding these limitations, the total flux per device would only be a proxy for technological improvements in light-emitting diodes, if data was given for single light-emitting diode chips, instead of multi-chip packages. Historically, publications have sometimes failed to make this distinction, listing datapoints for both device levels in the same graph without supporting information.
 
-\section{PERFORMANCE IMPROVEMENTS}
+    Figure \ref{fig:haitz} shows an updated and expanded overview of best performing devices, both at the chip and package level, to demonstrate the limitations of these metrics. It is evident that the historical improvement in total flux per package for single chips is not as pronounced as for multi-chip packages.
 
-     Overall efficiency in best performing devices improved from $\eta_L=5.8\%$ in 2002 to $\eta_L = 38.7\%$ in 2020. As previous authors have noted, no single loss channel dominates the overall the efficiency\cite{tsao2010solid}. We note, however, that those loss channels with a fixed physical limit become significantly more dominant in 2016 and 2020. For instance, Stokes loss, describing the energy dissipated upon conversion from short wavelength to long wavelength photons, becomes more dominant. Figure \ref{fig:efficiency} additionally shows the physical limits for the loss channels. Notably, sub-efficiencies for most current devices are only $\sim10\%$ below the physical limit. The exception is spectral efficiency, which at $\sim20\%$ below the physical limit shows larger potential for improvement.
+    \begin{figure} [ht]
+        \begin{center}
+            \includegraphics[width=\textwidth]{haitz_law_white.pdf}
+        \end{center}
+        \caption{Historical increase in flux for highest performing white light-emitting diode chips and (multi-chip) packages, inspired by \textit{"Haitz's Law"}\cite{haitz1999case}. Note that flux per single chips has not increased as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers from press releases, datasheets and and industry periodicals. Note the logarithmic ordinates and the black colored datapoints corresponding to the left ordinate, blue colored datapoints corresponding to the right ordinate. Sources: Data from Weinold et al. \cite{weinold2020technology}}
+        \label{fig:haitz}
+    \end{figure}
+
+    Instead, progress in light-emitting diode technology is best described by the overall device efficiency, or lamp efficiency. This metric is defined as the product of all device sub-efficiencies associated with an ensemble of different loss channels $\eta_L = \prod_{i=(V_f,\dots,S)} \eta_i$. Sub-efficiencies directly capture the effect of particular technological breakthroughs in device design and manufacturing process improvements. Table \ref{tab:eff} lists the relevant sub-efficiencies considered along with mathematical definitions.
+    
+    Performance improvements in metrics related to consumer experience have also played a role in the adoption of light-emitting diode based luminaires \cite{cowan2011understanding}. Broadly described as the quality of light, these include metrics related to the emitted spectrum as well flicker, the temporal modulation of light. For instance, breakthroughs in the development of downconversion phosphors enabled a greater range in the color temperature of light sources. The work on analyzing consumer experience metrics is ongoing and will be presented in our future work. Notably, we exclude flicker from this context because it is not an inherent property of the light-emitting diodes themselves, but rather the electrical ballasts in the luminaires. We instead refer to a recent publication by Weinold \cite{weinold2020long}.
+
+\section{RESULTS}
+
+\subsection{Performance Improvements}
+
+     Results for performance improvements are presented in Figure \ref{fig:efficiency}. Overall efficiency in best performing devices improved from $\eta_L=5.8\%$ in 2002 to $\eta_L = 38.7\%$ in 2020. As previous studies have noted, no single loss channel dominates the overall the efficiency\cite{tsao2010solid}. We note, however, that those loss channels with a fixed physical limit become significantly more dominant in 2016 and 2020. For instance, Stokes loss, describing the energy dissipated upon conversion from short wavelength to long wavelength photons, becomes more dominant. Figure \ref{fig:efficiency} additionally shows the physical limits for the loss channels. Notably, sub-efficiencies for the most current devices are only $\sim10\%$ below the physical limit. The exception is spectral efficiency, which at $\sim20\%$ below the physical limit shows larger potential for improvement.
      
      Our comparison between the improvements in device sub-efficiencies between 2002 and 2020 shows that the aggregate efficiency improvement was not driven primarily by improvements in a single sub-efficiency. Instead, there has been consistent progress across the ensemble of loss channels corresponding to the device sub-efficiencies in the past 18 years: forward voltage efficiency ($70\%\rightarrow99.5\%$), internal quantum efficiency ($55\%\rightarrow90\%)$, electrical droop ($65\%\rightarrow90\%$), light-extraction efficiency ($60\%\rightarrow90\%$) and spectral efficiency ($74\% \rightarrow83\%$).
      
-     We find that there are two distinct sources for improvements in device sub-efficiencies. In loss channels with physically well understood  XXXXX Our comparison between the improvements in device sub-efficiencies between 2002 and 2020 shows that the aggregate efficiency improvement was not driven primarily by improvements in a single sub-efficiency. Instead, there has been consistent progress across the ensemble of loss channels corresponding to the device sub-efficiencies in the past 18 years: forward voltage efficiency ($70\%\rightarrow99.5\%$), internal quantum efficiency ($55\%\rightarrow90\%)$, electrical droop ($65\%\rightarrow90\%$), light-extraction efficiency ($60\%\rightarrow90\%$) and spectral efficiency ($74\% \rightarrow83\%$).
+     XXXXXXXXXXXXXXXX
 
-\section{MANUFACTURING COST REDUCTIONS}
+\subsection{Manufacturing Cost Reductions}
 
-    The cost of manufacturing low-power and mid-power light-emitting diode packages at a US location, using state-of-the-art equipment, was estimated to have decreased from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. 
+    Using our cost model, we estimate that the cost of manufacturing low-power and mid-power light-emitting diode packages at a US location, using state-of-the-art equipment, to have decreased from 1.11\$(2020) in 2002 to 0.05\$(2020) in 2020, a 95.5\% decrease. 
     
-    A preliminary analysis of cost factors suggests that an increase in wafer size in the manufacturing process is responsible for the largest part of the cost reduction. The number of die per wafer associated with this has been computed and is displayed in the inset plot of figure \ref{fig:cost}. The wafer diameter used in production has been steadily increasing since 2002. The model assumes diameters and associated number of die per wafer  $d(2002)=50$mm$\rightarrow851$ to $d(2020)=200$mm$\rightarrow26,838$. Note that the decrease in exclusion zone and cutting width also contribute to the increase in die per wafer.
+    A preliminary analysis of components of the cost model suggests that an increase in wafer size in the manufacturing process is responsible for the largest part of the cost reduction. The number of die per wafer associated with this is displayed in the inset plot of figure \ref{fig:cost}. The wafer diameter used in production has been steadily increasing since 2002. The model assumes diameters and associated number of die per wafer  $d(2002)=50$mm$\rightarrow851$ to $d(2020)=200$mm$\rightarrow26,838$. Note that the decrease in exclusion zone and cutting width also contribute to the increase in die per wafer.
     
     As the number of die per wafer increases, the packaging steps carry a larger share of the total cost. This is because these steps are limited by the throughput of the associated equipment. The wafer processing steps are limited by the number of die per wafer and only to a lesser extend the throughput of equipment.
+    
+\subsection{Future Work}
+
+    
     
 \clearpage
 \begin{figure} [ht]
     \begin{center}
         \includegraphics[width=0.85\textwidth]{SPIE/article/breakthroughs_efficiency.pdf}
     \end{center}
-    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical improvements in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range is given by an upward pointing black arrow. Color of vertical bars indicates improvement through either technology spillovers or other improvements (technology breakthroughs or process learning). Spillovers are annotated and listed in an inset table. Efficiency acronyms: forward voltage efficiency (V$_\text{f}$E), internal quantum efficiency (IQE), light extraction efficiency (LEE), conversion efficiency (CE), spectral efficiency (SE), power conversion efficiency ($\eta_{PC}$). Spillover acronyms: patterned sapphire substrate (PSS), indium tin oxide (ITO). Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
+    \caption{Impact of technology breakthroughs and manufacturing process improvements on historical developments in sub-efficiencies of phosphor-converted warm white light-emitting diodes with test currents of at least $I_\text{test}=350$mA. The overall lamp efficiency $\eta_L$ is displayed as the rightmost column. This figure takes as inputs the state-of-the-art sub-efficiencies discussed in section \ref{sec:methods}. Horizontal colored bars give state-of-the-art sub-efficiencies for five years: \textcolor{blue}{1997}, \textcolor{teal}{2002}, \textcolor{orange}{2010}, \textcolor{magenta}{2016} and \textcolor{red}{2020}. Colored annotation "N/A" indicates that the sub-efficiency of the corresponding year cannot be computed for the following reasons: V$_\text{f}$E, Droop: depend on current, which was below 350mA at the time; CE, SE: warm white spectrum LEDs not available at the time. Physical limits are indicated by black horizontal bars. The possible range for the physical limit of V$_\text{f}$E exceeds 100\% and depends on electrical device parameters, which are discussed in \cite{david2016electrical}. The range of this limit is indicated by an upward pointing black arrow. Efficiency acronyms are listed in table \ref{tab:eff}. Data for historical improvements of sub efficiencies from Weinold et al. \cite{weinold2020technology}}
     \label{fig:efficiency}
 \end{figure}
 
@@ -184,8 +188,9 @@ mention works by tsao (and at least two others)
 
 
 \acknowledgments % equivalent to \section*{ACKNOWLEDGMENTS}       
- 
-The main author gratefully acknowledges funding by the \textit{Swiss Study Foundation} of Zurich, Switzerland. The authors further gratefully acknowledge project funding by the \textit{Alfred P. Sloan Foundation} of New York, USA.
+
+We express our gratitude to all inteviewees for their willingness to participate in this study and invaluable contributions. This research is funded by the \textit{Alfred P. Sloan Foundation} of New York, USA, grant number 253128. Michael Weinold further gratefully acknowledges support from the \textit{Swiss Study Foundation} of Zurich, Switzerland.
+
 
 \clearpage
 % References
