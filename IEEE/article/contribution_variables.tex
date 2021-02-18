@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+
+In their 2018 paper on solar photovoltaics (10.1016/j.enpol.2018.08.015; P.9 Main Body,
+P.1 in Supplementary Material), the authors have a cost function C which describes
+the cost associated with manufacturing one solar cell at a certain point in time. This
+function depends on manufacturing variables x, y, which change over time (e.g. price
+of silicon, price of chemicals, etc.). Variables are known only at discrete points in time
+(t0, t1).
+
+\begin{equation}
+    C(x(t),y(t))
+\end{equation}
+
+They want to determine the contribution of a single variable x to the total change of
+the cost function between two points in time $\Delta C(t0, t1)$ (eg. X\% of the cost reductions
+in manufacturing solar cells in 2000 vs. 2020 are due to a change in variable x).
+They start by writing out the differential of the cost function C as
+
+\begin{equation}
+    dC(x(t),y(t)) = \frac{\partial C}{\partial x} \frac{\text{d}y}{\text{d}t} \text{d}t + \frac{\partial C}{\partial y} \frac{\text{d}y}{\text{d}t} \text{d}t
+\end{equation}
+
+A sample cost model equation can be written as
+
+\begin{equation}
+    \Delta C_x = \int_{t=t_0}^{t_1} \frac{\partial C}{\partial x} \frac{\text{d}x}{\text{d}t} \text{d}t
+\end{equation}
+
+and then for C(t) assume a constant $C(t) \approx \tilde{C}$, which is approximately chosen to be $\tilde{C}=\frac{\Delta \tilde{C}}{\Delta \ln \tilde{C}}$ such that $\Delta C_x+\Delta C_y=\Delta C$
+
+where the contribution of the change in variable x over time $t_0 < t < t_1$ is then
+
+Here they say
+If it were possible to observe the (...) variables x in continuous time, (...) [this equation]
+would provide all that is needed to compute the contribution of each variable x.
+Using logarithmic differentiation, they go on to rewrite the expression as
+
+\begin{equation}
+    \Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{\partial \ln C}{\partial x} \frac{\text{d}x}{\text{d}t} \text{d}t
+\end{equation}
+
+Questions:
+Given a function
+\begin{equation}
+    C(x(t), y(t)) = x * y
+\end{equation}
+
+and discrete data for variables x(t), y(t) at the points t0, t1, what is the contribution
+(total or percentage) of the change in variable x to the change $\Delta_C$
+
+in the function C?
+The authors of the paper assume that given continuous variable functions x(t), y(t), equation
+(1) would suffice to calculate the contributions. But even if the time dependence
+of variables were known (eg. daily data on the price of silicon, etc.), then integrating
+would not yield what the authors are actually looking for.
+They are interested in the contribution of single variables to the total change in C (eg.
+what percentage of total manufacturing cost reductions are due to decrease in silicon
+price). But integrating using
+
+\begin{equation}
+    \Delta C_x = \int_{t=t_0}^{t_1} \frac{\partial C}{\partial x} \frac{\text{d}x}{\text{d}t}
+\end{equation}
+
+is dependent on the path of curves x(t), y(t). This would yield different results for different
+time dependency of variables. A variable x(t) would yield a different Cx than a
+variable x'(t), which is not what the authors seek to describe.
+
+%
+\begin{equation}
+    C = \frac{1}{DY}(ab+cd)
+\end{equation}
+%
+where
+%
+\begin{align*}
+    a &\dots \text{step 1 variable 1} \\
+    b &\dots \text{step 1 variable 2} \\
+    c &\dots \text{step 2 variable 1} \\
+    d &\dots \text{step 2 variable 2} \\
+    D &\dots \text{global variable 1} \\
+    Y &\dots \text{global variable 2}
+\end{align*}
+%
+
+
+\end{document}
