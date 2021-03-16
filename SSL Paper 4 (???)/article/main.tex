@@ -2,6 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
+\usepackage{babel,csquotes,xpatch}
+\usepackage[backend=biber]{biblatex}
+
+\bibliography{./contribution_variables.bib}
+
 \begin{document}
 
 In their 2018 paper on solar photovoltaics (10.1016/j.enpol.2018.08.015; P.9 Main Body,
@@ -85,6 +90,9 @@ where
     Y &\dots \text{global variable 2}
 \end{align*}
 %
+
+\clearpage
+\printbibliography
 
 
 \end{document}
