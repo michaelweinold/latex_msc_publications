@@ -1,4 +1,6 @@
+%\documentclass[]{spie}  %>>> use for US letter paper
 \documentclass[a4paper,nocompress]{spie}  %>>> use this instead for A4 paper
+%\documentclass[nocompress]{spie}  %>>> to avoid compression of citations
 
 \renewcommand{\baselinestretch}{1.0} % Change to 1.65 for double spacing
  
@@ -7,22 +9,26 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tabularx}
-%\usepackage{wrapfig}
-%\setlength{\extrarowheight}{2pt}
-%\usepackage{chemformula}
+\usepackage{wrapfig}
+\setlength{\extrarowheight}{2pt}
+\usepackage{chemformula}
 
 \title{Quantifying the Impact \\ of Performance Improvements and Cost Reductions \\ from 20 years of Light-Emitting Diode Manufacturing}
 
 \author[a,b]{Michael Weinold}
+\author[a]{Sergey Kolesnikov}
+\author[a,c]{Laura Diaz Anadon}
+\affil[a]{Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, CB3 9EP, UK}
+\affil[b]{Chair of Entrepreneurial Risks, ETH Zurich, Scheuchzerstrasse 7, CH-8092 Zurich, CH}
+\affil[c]{Belfer Center for Science and International Affairs, Harvard Kennedy School, Harvard University, Cambridge, MA 02138, USA}
 
 \authorinfo{Further author information: (Send correspondence to Michael Weinold) \\ MW: E-mail: mw799@cam.ac.uk \\ SK: E-mail: sk2063@cam.ac.uk \\ LDA: E-mail: lda24@cam.ac.uk}
 
 % Option to view page numbers
-%\pagestyle{empty} % change to \pagestyle{plain} for page numbers   
-%\setcounter{page}{301} % Set start page numbering at e.g. 301
+\pagestyle{plain} % change to \pagestyle{plain} for page numbers   
+\setcounter{page}{1} % Set start page numbering at e.g. 301
  
-\begin{document}
-
+\begin{document} 
 \maketitle
 
 \begin{abstract}
@@ -193,7 +199,7 @@ We would like to thank Gabriel Chan, Anna Goldstein and Venkatesh Narayanamurti 
 
 \clearpage
 % References
-\bibliography{main} % bibliography data in main.bib
+\bibliography{main} % bibliography data in report.bib
 \bibliographystyle{spiebib} % makes bibtex use spiebib.bst
 
 \end{document} 
