@@ -1,0 +1,398 @@
+\documentclass{article}
+% formatting
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+% cross-referencing
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{doi}
+% tables
+\usepackage{booktabs}
+% fonts
+\usepackage{amsfonts}
+\usepackage{microtype}
+% figures
+\usepackage{graphicx}
+% math
+\usepackage{amsmath}
+
+% template
+\usepackage{style_files/arxiv}
+
+
+\title{Something something progress in light}
+
+\date{July 2022}
+
+\author{
+    \href{https://orcid.org/0000-0003-4859-2650}
+    {\includegraphics[scale=0.06]{2_SSL_EES/article/figures/orcid.pdf}
+    \hspace{1mm}
+    Michael Weinold} \\
+	ETH Zurich\\
+    Switzerland \\
+	\texttt{michael.weinold@alumni.ethz.ch} \\
+	\AND
+	Dr. Sergey Kolesnikov\\
+	University of Cambridge \\
+	United Kingdom \\
+    \And
+	Laura Diaz Anadon \\
+	University of Cambridge \\
+	United Kingdom \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+\renewcommand{\headeright}{Supplementary Information}
+\renewcommand{\undertitle}{Supplementary Information}
+%\renewcommand{\shorttitle}{\textit{arXiv} Template}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={A template for the arxiv style},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+pdfkeywords={First keyword, Second keyword, More},
+}
+
+\begin{document}
+\maketitle
+
+\section{Manufacturing Cost Model: Details on computation}
+
+\subsection{Total manufacturing cost}
+
+The manufacturing process of semiconductor devices can be categorized by the level of integration at which steps are implemented. While the upstream steps in the manufacturing flow are carried out at the wafer level, the packaging steps are typically carried out at the die/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
+
+\begin{equation}
+\label{eqn:cost_sum}
+    C \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] = P_S + C_w + C_p
+\end{equation}
+
+where
+
+\begin{align*}
+    P_S &\dots \text{sapphire substrate price} \\
+    C_w &\dots \text{wafer processing cost} \\
+    C_p &\dots \text{die processing cost}
+\end{align*}
+
+The total wafer processing cost and total die packaging costs are in turn the sum of all associated process steps.
+
+\begin{align}
+	C_w &= \sum_i C_i \\
+	C_p &= \sum_j C_j
+\end{align}
+
+The cost of a single process step $C_i$ can now be written as
+
+\begin{equation}
+\label{eqn:cost_wafer}
+    C_i \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
+\end{equation}
+
+where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the indices $x,y$ run over all materials.
+
+\begin{align*}
+        D &\dots \text{good die per wafer} \label{def:cost_wafer_first} \\
+        y &\dots \text{process step yield} \\
+        u &\dots \text{equipment utilization} \\
+        p &\dots \text{power consumption} \\
+        e &\dots \text{hourly electricity cost} \\
+        m &\dots \text{hourly maintenance cost} \\
+        d &\dots \text{hourly depreciation cost}\\
+        l &\dots \text{hourly labour cost} \\
+        o &\dots \text{hourly overhead cost} \\
+        t_i &\dots \text{time per run} \\
+        w &\dots \text{wafers per run} \\
+        A &\dots \text{wafer area} \\
+        v_x &\dots \text{volume of substance per wafer} \\
+        p_x &\dots \text{price of substance $x$ per volume}\\
+\end{align*}
+
+The number of die per wafer $D$ depends on the total usable wafer area. The usable area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
+
+\begin{equation}
+	A_{\text{usable}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
+\end{equation}
+
+Determining the usable wafer area as a of these three parameters requires a numerical solution. However, following discussions in literature \cite{de2005investigation}, we approximate the number of good die per wafer as
+
+\begin{equation}
+label{eqn:dpw}
+	D=\frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2}
+\end{equation}
+
+where
+
+\begin{align*}
+    d &\dots \text{wafer diameter} \\
+    e &\dots \text{wafer edge exclusion zone width} \\
+    a &\dots \text{die area} \\
+    s &\dots \text{cutting street width} \\
+\end{align*}
+
+which gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
+
+\begin{equation}
+\label{eqn:cost_wafer_full}
+\begin{split}
+    C_i \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
+    &  \frac{1}{y_i}  \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
+\end{split}
+\end{equation}
+
+and the cost of a manufacturing step $C_j$ in the packaging category
+
+\begin{equation}
+\label{eqn:cost_die}
+    C_j \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((e*p) + l + m + d + o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x p_x \bigg\}
+\end{equation}
+
+where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
+\begin{equation}
+\label{eqn:cost_total}
+\begin{split}
+    C= P_s &+ \sum_i \bigg \{ \frac{1}{D} \frac{1}{y_i} \bigg[ \frac{t_i}{w_i u_i} \bigg((e*p) + l + m + d +o \bigg)_i  + \sum_{x} v_x p_x \bigg] \bigg \} + \\
+    & + \sum_j \bigg \{ \frac{1}{y_j} \bigg[ \frac{c_j}{u_j}  \bigg((e*p) + l + m + d + o \bigg)_i + \sum_{x} a v_x p_x \bigg ] \bigg\}
+\end{split}
+\end{equation}
+
+Note that in keeping with the categorization introduced by the United States Department of energy, certain steps from these two categories are reported separately. In the wafer processing category, the epitaxy step is reported separately due to its complexity and the large share of cost carried. In the wafer processing category, the phosphor step is reported separately.
+
+\subsection{Yielded Cost}
+
+Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in  \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
+
+\begin{equation}
+\begin{split}
+\label{eqn:C_2}
+    C_{Y_1} &= \frac{C_1}{Y_1} \\
+    C_{Y_2} &= \frac{C_1 + C_2}{Y_1 Y_2} - C_{Y_1} = \frac{C_1 + C_2}{Y_1 Y_2} - \frac{C_1}{Y_1} = \frac{1}{Y_1 Y_2} \bigg ( C_1 (1-Y_2) +C_2 \bigg)\\
+    C_{Y_i} &= \frac{ \sum_{x \leq i} C_x }{ \prod_{x \leq i} Y_x } - \frac{ \sum_{x<i} C_x }{ \prod_{x<i} Y_x }
+\end{split}
+\end{equation}
+
+If a step is applied more than once, we can conveniently rewrite this in a form suited to computation within the \textit{Excel} worksheet. Assuming step $2$ is used twice, we get for the yielded cost of this step an equation of the form
+
+\begin{align}
+\label{eqn:C_2^2}
+    C_{Y_2}^{(2 \times)} &= \bigg( \frac{C_1 + C_2}{Y_1 Y_2} - \frac{C_1}{Y_1} \bigg) + \bigg( \frac{C_1 + 2 C_2}{Y_1 Y_2^2} - \frac{C_1 + C_2}{Y_1 Y_2}     \bigg) \\
+    &= \frac{1}{Y_1 Y_2^2} \bigg( C_1 (1-Y_2^2) +2C_2 \bigg)
+\end{align}
+
+which can be compared to equation \ref{eqn:C_2} for a more general form.
+
+\begin{equation}
+    C_2^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
+\end{equation}
+
+Omitting a proof by induction, we get for the general term for a step $i>1$ repeated $n$ times an equation of the form
+
+\begin{equation}
+\label{eqn:yielded_cost}
+    C_{Y_{i>1}}^{(n \times)} = \frac{1}{Y_i^{n-1} \prod_{x \leq i} Y_x} \bigg( nC_i + \sum_{x < i} C_x (1-Y_i^n) \bigg)
+\end{equation}
+
+This cummulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. The yielded cost of a single process step $f$ is described by
+
+\begin{equation}
+	f_\text{single} = \frac{i+s}{y}
+\end{equation}
+
+where
+
+\begin{align*}
+    i &\dots \text{material cost of previous step} \\
+    s &\dots \text{step cost}
+\end{align*}
+
+For process steps that are performed more than once, a series expression is used
+
+\begin{align}
+\label{eqn:series}
+    f_{\times 2} &=  \frac{\frac{i+s}{y}+s}{y} \\
+    f_{\times n} &= \frac{i + s(1+y+y^2+ \dots + y^{n-1})}{y^n}
+\end{align}
+
+This itemized approach serves as a convenient approximation, but its cumulative contributions do not equal the total yielded cost of the entire manufacturing process
+
+\begin{equation}
+    f_\text{total} = \frac{\sum_i^n s_i}{\prod_i^ny_i} \neq \sum_i^n f_i
+\end{equation}
+
+where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in equation \ref{eqn:series}.
+
+\subsection{Contribution of Variables}
+
+To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \ref{eqn:cost_wafer} and \ref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
+
+\begin{equation}
+C=ab+cd
+\end{equation}
+
+and manufacturing variables $a,b,c,d$, we are looking for the contribution $\Delta C_{a}$ made by a single variable $a$ to the total change in the cost function $\Delta C$ between points $t_0,t_1$ such, that
+
+\begin{equation}
+\Delta C = C(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta C_i
+\end{equation}
+
+The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \ref{eqn:cost_sum} as
+
+\begin{equation}
+\text{d}C(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial C }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial C }{\partial x_i}  \Delta x_i
+\end{equation}
+
+where $x_i$ is an arbitrary cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to total cost $C$ over the period $t_0 < t < t_1 $ is then
+
+\begin{equation}
+\Delta C_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial C }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
+\label{eqn:integral_1}
+\end{equation}
+
+However, data on the cost model variables is not available in continuous time. Disaggregating the contribution of single variables to the total cost reduction is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
+
+The cost function $C$ as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
+
+\begin{equation}
+C(\vec{r}) = C(r_1,r_2, \dots) = \sum_i C_i
+\end{equation}
+
+where
+
+\begin{equation}
+C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
+\end{equation}
+
+Using logarithmic differentiation, the integral from equation \ref{eqn:integral_1} can be rewritten as
+
+\begin{equation}
+\Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
+\end{equation}
+
+where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\Delta C_{x_i} = \Delta C$. In practice, this constant value can be approximated as $\tilde{C} \approx \frac{2}{3} C_i^\text{geo} + \frac{1}{3} \overline{C_i}$. The contribution of a single cost model variable $r_z$ can then be written as
+
+\begin{equation}
+\Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+\end{equation}
+
+This approach was used to determine the effect of spillovers on device performance, displayed in figure \ref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of equation \ref{eqn:cost_sum}, could this method.
+
+\newpage
+\section{Complete list of sources for figures}
+
+\subsection{Figure XX (Historical development of luminous efficacy)}
+
+The complete list of sources is organized by the different technologies described in the figure:
+
+\subsubsection{LED}
+
+Own research, compare:
+
+M. Weinold. ‘Light-Emitting Diode (LED) Technology History’.
+In: Zenodo Open Repository. doi: 10.5281/zenodo.3685284 
+
+\subsubsection{CFL (<1984)}
+
+\cite{Bouwknegt1982}\cite{Vrenken1983}
+
+\subsubsection{CFL (1984-2011)}
+
+\cite{eger2018origin}
+
+\subsubsection{CFL (>2011)}
+
+\cite{Guan2015}
+
+\subsubsection{Fire, Incandescent, HID}
+
+\cite{azevedo2009transition} augmented by own calculations based on \cite{benesch1905beleuchtungswesen}
+
+\subsubsection{Max. efficacy}
+
+\cite{Murphy2012} Note that this is in contrast to the original value given in \cite{azevedo2009transition}. 
+Note that a humorous illustration of this trend in this figure has been provided by Randall Munroe in \href{https://xkcd.com/1603/}{https://xkcd.com/1603/}.
+
+\subsection{Figure XX (Historical development of lamp prices)}
+
+Consumer organization magazines:
+
+\textit{Stiftung Warentest (Germany)}: \cite{Warentest2008}\cite{Warentest2009_1}\cite{Warentest2009_2}\cite{Warentest2010_1}\cite{Warentest2010_2}\cite{Warentest2011}\cite{Warentest2012}\cite{Warentest2013}\cite{Warentest2014_1}\cite{Warentest2014_2}\cite{Warentest2015}\cite{Warentest2016_1}\cite{Warentest2016_2}\cite{Warentest2018}
+
+\textit{Konsument (Austria)}: \cite{Konsument2010}
+
+\textit{Which (UK):} \cite{Which2020})
+
+Industry periodicals:
+
+\cite{PM2020}
+
+Government reports:
+
+\cite{council2013assessment}
+
+Support by German consumer organization Stiftung Warentest in providing access to their archive is gratefully acknowledged.
+Figure XX (Historical evolution of light-emitting diode chip architectures)
+
+Scientific publications:
+
+\cite{plossl2010wafer}\cite{bierhuizen2007performance}\cite{gencc2019distributed}\cite{chong2014performance}
+
+Patents:
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DJPH11168235A}{JPH11168235A}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DDE19921987A1}{DE19921987A1}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DJPH11340514A}{JPH11340514A}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DJP2001044498A}{JP2001044498A}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DUS2005045893A1}{US2005045893A1}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DUS2002093023A1}{US2002093023A1}, 
+\href{https://worldwide.espacenet.com/patent/search?q=pn%3DUS2006273339A1}{US2006273339A1} 
+
+Other publications:
+
+https://web.archive.org/web/20170801160530/
+https://www.energy.gov/sites/prod/files/2015/02/f19/craford_innovation_sanfrancisco2015.pdf
+https://web.archive.org/web/20170715230721/https://www.energy.gov/sites/prod/files/2016/02/f29/sun_china_raleigh2016.pdf
+http://web.archive.org/web/20160425025936/
+https://www.slideshare.net/Yole_Developpement/yole-led-packagingjanuary2013reportsample
+
+Figure XX (Historical developments in the device sub-efficiencies):
+
+The complete list of sources for the figure provided below is organized by the sub-efficiencies (panels) described in the figure.
+
+Forward Voltage (panel a):
+
+\cite{nichia2001data}\cite{lumi2002data}\cite{gen2005data}\cite{candlepwr2005data}\cite{lumi2006data}\cite{lumi2007data}\cite{nichia2008data}\cite{lumi2008data}\cite{osram2008data}\cite{jeong2011high}\cite{osram2012data}\cite{osram2013data}\cite{osram2014data}\cite{lumi2016data_1}\cite{lumi2016data_2}\cite{epistar2017data}\cite{osram2017data_1}\cite{osram2017data_2}\cite{samsung2017data}\cite{samsung2018data}\cite{osram2018data}\cite{epistar2018data}\cite{lumi2019data}
+
+Internal Quantum Efficiency (panel b):
+
+Data points: own research, compare:
+
+M. Weinold. ‘Light-Emitting Diode (LED) Internal Quantum Efficiency History’.
+In: Zenodo Open Repository. doi: 10.5281/zenodo.XXXXXXXX
+
+Average performance and future targets set by the U.S. Department of Energy (DoE) derived from industry round-table discussions:
+
+\cite{doe_ssl_multiyear_2006}\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2009}\cite{doe_ssl_multiyear_2010}\cite{doe_ssl_multiyear_2011}\cite{doe_ssl_multiyear_2012}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_multiyear_2014}\cite{doe_ssl_rnd_2015}\cite{doe_ssl_rnd_2016}
+
+Note that the artifact in the DoE Average around 2013 is due to a change in definition for internal quantum efficiency laid out in \cite{doe_ssl_multiyear_2013}
+
+Droop (panel c):
+
+Data calculated from luminous intensity curves of respective device datasheets. Sources for datapoints:
+
+\cite{datasheet_osram_topled}\cite{osram2008data}\cite{osram2008gdplus}\cite{osram2018csp}\cite{datasheet_lumileds_lux1}\cite{lumi2008data}\cite{lumi2016data_1}\cite{lumi2016data_2}\cite{samsung2018data} \\ Sources for DoE data: \cite{doe_ssl_multiyear_2010}\cite{doe_ssl_multiyear_2011}\cite{doe_ssl_multiyear_2012}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_multiyear_2014}\cite{doe_ssl_rnd_2015}\cite{doe_ssl_rnd_2016}
+
+Light-Extraction Efficiency (panel d):
+
+\cite{lee2005analysis}\cite{krames2007status}\cite{Jang2004}\cite{Horng2013}\cite{Liao2010}\cite{HungWenHuang2005}\cite{Leem2007}\cite{Huang2008}\cite{Wang2009}\cite{Huh2003}\cite{Horng2008}\cite{Gao2008}\cite{Chang2003}\cite{Zhou2012}\cite{ChunJuTun2006}\cite{Hua2009}\cite{Matioli2010}\cite{lee2005analysis}\cite{Zhu2015}\cite{Ding2015}\cite{Taki2019}\cite{Shchekin2006}\cite{Hu2016}\cite{Horng2010}\cite{Lin2016}\cite{Yue2018}\cite{Zhao2012}\cite{Zhu2015}\cite{Ding2015}\cite{wierer2001high}\cite{Steigerwald2002}\cite{DaeSeobHan2006}\cite{Wang2006}\cite{Lee2007}\cite{Shen2007}\cite{Huang2006}\cite{Zhmakin2011}
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+
+\end{document}
