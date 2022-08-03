@@ -15,6 +15,11 @@
 \usepackage{graphicx}
 % math
 \usepackage{amsmath}
+% tables
+\usepackage{tabularx}
+\usepackage{colortbl}
+\definecolor{silver}{rgb}{0.75, 0.75, 0.75}
+
 
 % template
 \usepackage{auxiliary/arxiv_template_style_files/arxiv}
@@ -26,7 +31,7 @@
 
 \author{
     \href{https://orcid.org/0000-0003-4859-2650}
-    {\includegraphics[scale=0.06]{2_SSL_EES/article/figures/orcid.pdf}
+    {\includegraphics[scale=0.06]{2_SSL_EES/article/auxiliary/rsc_template_figures/orcid.pdf}
     \hspace{1mm}
     Michael Weinold} \\
 	ETH Zurich\\
@@ -282,6 +287,35 @@ where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\
 \end{equation}
 
 This approach was used to determine the effect of spillovers on device performance, displayed in figure \ref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of equation \ref{eqn:cost_sum}, could this method.
+
+\section{Contribution of spillovers}
+
+    \begin{table}[h!]
+        \centering
+    	\begin{tabularx}{\textwidth}{|l|l|X|X|X|X|}
+    		\hline
+    			Year & $\eta_L$[\%]  & $\Delta \eta_L^{abs}$[\%] & $\Delta \eta_L^{rel}$[\%]  & $\Delta \eta_L^{abs}(S/O)$[\%]  & $\Delta \eta_L^{rel}(S/O)$[\%]  \\
+    		\hline
+    			2002 & 5.8 & \multicolumn{4}{c|}{\cellcolor{silver}} \\
+    		\hline
+    		    \multicolumn{2}{|c|}{2002-2010} & 6.8 & 117.4 & 1.0 & 14.4 \\
+    		\hline
+    			2010 & 12.5 & \multicolumn{4}{c|}{\cellcolor{silver}} \\
+    		\hline
+    		    \multicolumn{2}{|c|}{2010-2016} & 19.9 & 158 & 1.6 & 8.0 \\
+    		\hline
+    			2016 & 32.5 & \multicolumn{4}{c|}{\cellcolor{silver}} \\
+    		\hline
+    		    \multicolumn{2}{|c|}{2016-2020} & 6.2 & 19.0 & 0.3 & 3.9 \\
+    		\hline
+    			2020 & 38.7 & \multicolumn{4}{c|}{\cellcolor{silver}} \\
+    		\hline
+    		    \multicolumn{2}{|c|}{2002-2020} & 32.9 & 566.4 & 2.8 & 8.5 \\
+            \hline
+    	\end{tabularx}
+    	\caption{Contribution of technology spillovers to improvements in the total lamp efficiency $\eta_L$ for warm white light-emitting diodes in the period 2002-2020. Note numbers are rounded. \\ $\Delta \eta_L^{abs}\overset{eg.}{=}\eta_L(2010)-\eta_L(2002)$ is absolute change in total lamp efficiency. \\ $\Delta \eta_L^{rel}\overset{eg.}{=}(\eta_L(2010)-\eta_L(2002))/(\eta_L(2002)/100)$ is relative change in lamp efficiency.}
+    	\label{tab:spillover-data}
+    \end{table}
 
 \newpage
 \section{Complete list of sources for figures}
