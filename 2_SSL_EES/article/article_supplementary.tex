@@ -107,13 +107,13 @@ where the index $i$ runs over all wafer processing steps, the index $j$ runs ove
         p_x &\dots \text{price of substance $x$ per volume}\\
 \end{align*}
 
-The number of die per wafer $D$ depends on the total usable wafer area. The usable area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
+The number of die per wafer $D$ depends on the total USAble wafer area. The USAble area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
 
 \begin{equation}
-	A_{\text{usable}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
+	A_{\text{USAble}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
 \end{equation}
 
-Determining the usable wafer area as a of these three parameters requires a numerical solution. However, following discussions in literature \cite{de2005investigation}, we approximate the number of good die per wafer as
+Determining the USAble wafer area as a of these three parameters requires a numerical solution. However, following discussions in literature \cite{de2005investigation}, we approximate the number of good die per wafer as
 
 \begin{equation}
 label{eqn:dpw}
@@ -159,7 +159,7 @@ Note that in keeping with the categorization introduced by the United States Dep
 
 \subsection{Yielded Cost}
 
-Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in  \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
+Devices may be damaged or otherwise rendered unUSAble during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in  \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
 
 \begin{equation}
 \begin{split}
@@ -335,22 +335,23 @@ We note differences between our model and costs reported to the US Department of
     \centering
     \begin{tabular}{|l|l|l|l|l|}
     \hline
-        \# & Sector  & Role  & Country  & Expertise \\ \hline
-        1 & R\&D (Academia) & Researcher & UK & Epitaxy \\ \hline
-        2 & R\&D (Industry) & Consultant & USA & Device Architecture \\ \hline
-        3 & R\&D (Industry) & Head of R\&D & Germany & Epitaxy \\ \hline
-        4 & R\&D (Academia) & Professor & Austria & Phosphors \\ \hline
-        5 & R\&D (Industry) & Head of R\&D & USA & Device Architecture \\ \hline
-        6 & Consulting & Consultant & USA & Device Architecture \\ \hline
-        7 & R\&D (Academia) & Professor & Germany & Phosphors \\ \hline
-        8 & R\&D (Government) & R\&D Manager  & USA & Device Architecture \\ \hline
-        9 & Consulting & Consultant & USA & Device Applications \\ \hline
-        10 & R\&D (Academia) & Professor & France & Device Physics \\ \hline
-        11 & R\&D (Industry) & Head of R\&D & USA & Device Architecture \\ \hline
-        12 & R\&D (Industry) & Head of R\&D & Germany & Phosphors \\ \hline
-        13 & R\&D (Industry) & Head of R\&D & USA  & Phosphors \\ \hline
+        \# & sector & role & country & expertise \\ \hline
+        1 & academia & sr. researcher & UK & epitaxy \\ \hline
+        2 & industry & consultant, form. sr. researcher & USA & device architecture \\ \hline
+        3 & industry & consultant, form. head of R\&D & Germany & epitaxy \\ \hline
+        4 & academia & professor & Austria & phosphors \\ \hline
+        5 & industry & consultant, form. head of R\&D & USA & device architecture \\ \hline
+        6 & consulting & consultant, form. sr. technical advisor & USA & device architecture \\ \hline
+        7 & academia & professor & Germany & phosphors \\ \hline
+        8 & government & R\&D manager & USA & device architecture \\ \hline
+        9 & consulting & consultant & USA & device applications \\ \hline
+        10 & academia & professor & France & device physics \\ \hline
+        11 & industry & sr scientist, form. head of R\&D & USA & device architecture \\ \hline
+        12 & industry & principal scientist & Germany & phosphors \\ \hline
+        13 & industry & form. head of R\&D & USA & phosphors \\ \hline
     \end{tabular}
     \label{tab:interviews}
+    \caption{list of domain experts with whom semi-structured interviews were conducted. \\ Abbreviations: form. - former, sr. - senior}
 \end{table}
 
 \newpage
