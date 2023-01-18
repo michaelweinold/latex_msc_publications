@@ -219,6 +219,79 @@ Historically, the progress in LED technology is commonly described by pointing t
 
 Initially, as LED devices developed, the primary metric of progress in solid-state lighting was typically the luminous flux, as reflected in the so-called “Haitz’s Law” \cite{haitz1999case}\cite{haitz2011solid}. The luminous flux (total brightness) of early white LEDs was too small to allow for the economical combination of multiple LEDs into lamps for general illumination purposes. In 2000, highest performing devices yielded around 10lm, just below the output of a candle as defined in the unit candela (1cd=12.57lm) \cite{haitz2011solid}. Today, however, highest performing devices yield in excess of 1600lm, the equivalent of a 100W incandescent bulb \cite{cree2020bright}. LED brightness has become sufficient to enable the construction of lamps from multiple LED devices, with design improvements focusing on higher efficiency and quality of light instead of brightness. Even though some scientific publications and industry periodicals continue to focus on brightness as a metric of progress in lighting, we find that, by now, it fails to capture the complexity of the multitude of efficiency improvements that have been driving overall LED efficiency \cite{weinold2021compound}. 
 
+\subsubsection{Forward Voltage Efficiency $\eta_{V_f}$}
+
+Device forward voltage efficiency\footnote{"Joule Efficiency" $\epsilon_J$ in Tsao et al. \cite{tsao2010solid}} $V_fE$ describes all electrical losses at the interface between the electrodes and the semiconductor and in the bulk. These losses can be due to tunneling and Ohmic resistance at the interface, as well as Ohmic resistance and other electrical losses within the bulk of the semiconductor. It is defined as
+
+\begin{equation}
+    \eta_{V_f} = \frac{E_{h\nu}}{V_f}
+\end{equation}
+
+where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltage \cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Light Extraction Efficiency $\eta_{LE}$}
+
+Device light-extraction efficiency describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
+
+\begin{equation}
+    \eta_{LE}=\frac{\text{\# of photons out}}{\text{\# of photons created}} = \frac{P_{opt}}{P_{int}}
+\end{equation}
+
+where $P_{opt}$ is the optical power of the device and $P_{int}$ is the internal power of the device\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
+
+Internal quantum efficiency describes non-radiative recombinatory processes in the semiconductor bulk. It is related to the external quantum efficiency through
+\begin{equation}
+\label{eqn:ieq-eqe}
+    \eta_{EQ} = \eta_{IQ} \times \eta_{LE}
+\end{equation}
+
+and defined as
+
+\begin{equation}
+    \eta_{IQ} = \frac{\# \text{of photons created}}{\# \text{of electron-hole pairs in}}
+\end{equation}
+
+and depends on the current density of the device\cite{schubert2018light}\cite{tsao2010solid}. 
+
+\subsubsection{Droop $\eta_{droop}$}
+
+(Efficiency) droop describes the decrease of device internal quantum efficiency at high current densities, which is caused by a number of different physical effects\cite{David2020}. This is often treated separately from internal quantum efficiency in literature due to its importance in high-power devices. It is defined as
+
+\begin{equation}
+    \eta_{droop} = 1 - \frac{\eta_{IQE}}{\eta_{IQE}(A \rightarrow 0)}
+\end{equation}
+
+where $\eta_{IQE}(A \rightarrow 0)$ denotes the internal quantum efficiency at low current densities. In practice, droop is often given as the percentage difference between the ideal luminous intensity curve $\phi_{ideal}$ and the real luminous intensity curve $\phi$ at a set diode test current $A_{test}$ as
+
+\begin{equation}
+\label{eqn:droop}
+    D = \frac{\phi_{ideal}(A_{test})-\phi(A_{test})}{\phi_{ideal}(A_{test})/100}
+\end{equation}
+
+Thereby, according to this definition, a lack of droop corresponds to a droop efficiency of $\eta_{droop} = 100\%$\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Conversion Efficiency $\eta_{CE}$}
+
+(Light) conversion efficiency describes losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and well as scattering/absorption losses. It is defined as
+
+\begin{equation}
+    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
+\end{equation}
+
+where $E_i$ denotes the total energy of light at the color corresponding to the down-converted photon wavelength (Blue, Red, Orange, Yellow, Green)\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Spectral Efficiency $\eta_{S}$}
+
+Spectral efficiency describes losses in the conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet are lost to illumination purposes. It is defined as
+
+\begin{equation}
+    \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
+\end{equation}
+
+where $K$ is the luminous efficacy of radiation of the light source, can be computed from the spectrum and the luminosity function, which describes the sensitivity of the human eye.$K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}. 
+
 \subsection{Consumer Experience Metrics}
 
 The perceived quality of light is entirely determined by the emission spectrum of a light source \cite{ies_handbook}. Any metric relevant to customer experience can thus be calculated from the spectrum alone. The spectrum of an LED light source is determined by the emission wavelength of the LED itself and the absorption and emission spectra  of the downconversion phosphor used in the device. It is typically included in the product datasheets provided by manufacturers, which enables the calculation of all relevant spectrum-based metrics for these devices. Based on the prevalence in scholarly literature and industry publications, for this study we choose two consumer experience metrics: Colour Rendering Index (CRI) and Colour Temperature. We do not consider flicker, the unintended high-frequency temporal modulation of light, which is another important consumer experience metric for lighting and a subject of recent regulation by the European Union /cite{weinold2020long}. This effect is caused not by LEDs themselves, but rather by inadequately designed electrical ballasts \cite{Lehman2014}. It is thus beyond the scope of this work. 
