@@ -1,7 +1,10 @@
-\documentclass{article}
+\documentclass[10pt]{article}
+% page setup
+\usepackage[a4paper, total={6in, 8.75in}]{geometry}
+\usepackage{parskip}
 % formatting
 \usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage[T1]{fontenc} % use 8-bit T1 fonts
 % cross-referencing
 \usepackage{hyperref}
 \usepackage{url}
@@ -18,55 +21,39 @@
 % tables
 \usepackage{tabularx}
 \usepackage{colortbl}
+% boxes
+\usepackage{fancybox}
+
+%%% custom definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \definecolor{silver}{rgb}{0.75, 0.75, 0.75}
 
+%%% document metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% template
-\usepackage{auxiliary/arxiv_template_style_files/arxiv}
+\title{Rapid technological progress in white light-emitting diodes \\ and its sources in innovation and technology spillovers  }
+\date{February 2023}
 
-
-\title{Rapid technological progress in \\ white light-emitting diodes and its sources in innovation and technology spillovers}
-
-\date{July 2022}
-
-\author{
-    \href{https://orcid.org/0000-0003-4859-2650}
-    {\includegraphics[scale=0.06]{2_SSL_EES/article/auxiliary/rsc_template_figures/orcid.pdf}
-    \hspace{1mm}
-    Michael Weinold} \\
-	ETH Zurich\\
-    Switzerland \\
-	\texttt{michael.weinold@alumni.ethz.ch} \\
-	\AND
-	Dr. Sergey Kolesnikov\\
-	University of Cambridge \\
-	United Kingdom \\
-    \And
-	Laura Diaz Anadon \\
-	University of Cambridge \\
-	United Kingdom \\
-}
-
-% Uncomment to remove the date
-%\date{}
-
-% Uncomment to override  the `A preprint' in the header
-\renewcommand{\headeright}{Supplementary Information}
-\renewcommand{\undertitle}{Supplementary Information}
-%\renewcommand{\shorttitle}{\textit{arXiv} Template}
-
-%%% Add PDF metadata to help others organize their library
-%%% Once the PDF is generated, you can check the metadata with
-%%% $ pdfinfo template.pdf
 \hypersetup{
-pdftitle={A template for the arxiv style},
-pdfsubject={q-bio.NC, q-bio.QM},
-pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
-pdfkeywords={First keyword, Second keyword, More},
+    pdftitle={Supplementary Information},
+    pdfauthor={Michael Weinold, Sergey Kolesnikov, Laura Diaz Anadon}
 }
+
+%%% document body %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\maketitle
+
+\setlength{\fboxsep}{10pt}
+\fbox{
+    \parbox{\textwidth}{
+        \textbf{\textsc{Supplementary Information}} for: \\
+        M. Weinold, S. Kolesnikov, L.D. Anadon \\
+        "Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers" \textit{Energy and Environmental Science} (2023)
+    }
+}
+
+\tableofcontents
+
+\newpage
 
 \section{Manufacturing Cost Model: Details on computation}
 
