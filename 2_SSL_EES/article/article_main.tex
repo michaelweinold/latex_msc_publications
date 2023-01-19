@@ -31,6 +31,7 @@
 \usepackage{hyperref}
 %%%Please don't disable any packages in the preamble, as this may cause the template to display incorrectly.%%%
 
+\usepackage{tabularx}
 
 \usepackage{epstopdf}%This line makes .eps figures into .pdf - please comment out if not required.
 
@@ -147,7 +148,7 @@
 \footnotetext{\textit{$^{a}$~ETH Zurich, Zurich, Switzerland. E-mail: michael.weinold@alumni.ethz.ch}}
 \footnotetext{\textit{$^{b}$~Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, United Kingdom. }}
 
-%Please use \dag to cite the ESI in the main text of the article.
+%Please use \dag to\cite the ESI in the main text of the article.
 %If you article does not have ESI please remove the the \dag symbol from the title and the footnotetext below.
 \footnotetext{\dag~Electronic Supplementary Information (ESI) available: [details of any supplementary information available should be included here]. See DOI: 00.0000/00000000.}
 %additional addresses can be cited as above using the lower-case letters, c, d, e... If all authors are from the same address, no letter is required
@@ -169,7 +170,7 @@ There are a range of mechanisms that contribute to improvements in a technology 
 
 \begin{figure*}[h]
  \centering
- \includegraphics[height=7cm]{2_SSL_EES/article/figures/history_efficacy.pdf}
+ \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/history_efficacy.pdf}
  \caption{Historical development of the luminous efficacy ($K$) of the most widely-used lighting technologies in human history from 1850 to 2020. Data shown for best performers by year of market introduction, with dashed lines. Dashed lines indicate the average improvement calculated from a 3rd-order polynomial fit to the data. The physical limit for an ideal light source with a colour rendering index of CRI=90, denoted as $K_max^{CRI90}$, is shown as a black horizontal line, as per calculations by Murphy et al. \cite{Murphy2012}. The magnified plot shows the progress in cool white LEDs from 1996 to 2020, with the dashed line indicating a linear rate of efficacy improvement of 10lm/W per year. For comparison, efficacies of best performers in legacy lighting technologies for 2020 are shown as coloured horizontal lines. Note the logarithmic scale of the vertical axis on the main plot and the linear scale on the magnified plot. Abbreviations: HID – High-Intensity Discharge; CFL – Compact Fluorescent Lamp; Hal. – Halogen, Incd. – Incandescent. Source: own synthesis of published data based on a visual approach proposed by Azevedo et al. \cite{azevedo2009transition}. See Supplementary Information, section , for the full list of data sources. }
  \label{fgr:history_efficacy}
 \end{figure*}
@@ -315,7 +316,7 @@ To overcome the limitations of these different methods for understanding technol
 
 We collected data on LED performance and characteristics in a systematic literature review that included scientific publications, patents, conference proceedings from the largest semiconductor and optoelectronics conferences, industry periodicals and roadmaps, as well as company presentations and reports. This review was structured around the three main goals: 1) tracking the evolution of LED technology over time as indicated by three groups of progress metrics selected above in the “Metrics” section; 2) identifying individual innovations that contributed to this evolution and whether or not they could be spillovers, and quantifying their impact on device performance and manufacturing cost; and 3) determining whether these innovations had originated within the LED technology domain, or in a field of research or technology outside of solid-state lighting, making them a technology spillovers. 
 
-Relevant  sources for the review were found in an iterative search process that involved two components. The first was the search in specialized patent and publication databases such as Google Scholar, Google Patents, and Scopus , as well as company websites. The second component was the analysis of backward citations in the identified sources, starting from the reviews mentioned in the “Previous literature” section and then iteratively repeating it for all newly identified sources, until no further relevant and significant new sources were found. We also relied on backward citations for the identification of technology spillovers,   considering cited documents as indicators of knowledge origins of an innovation and analyzing whether those documents belonged to the LED technology domain or not.
+Relevant  sources for the review were found in an iterative search process that involved two components. The first was the search in specialized patent and publication databases such as Google Scholar, Google Patents, and Scopus, as well as company websites. The second component was the analysis of backward citations in the identified sources, starting from the reviews mentioned in the “Previous literature” section and then iteratively repeating it for all newly identified sources, until no further relevant and significant new sources were found. We also relied on backward citations for the identification of technology spillovers, considering cited documents as indicators of knowledge origins of an innovation and analyzing whether those documents belonged to the LED technology domain or not.
 
 \subsection{Semi-Structured Interviews}
 
@@ -336,6 +337,68 @@ The contribution of individual technology innovations and spillovers to the prog
  \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003 (top panel) and 2010 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) – flip-chip with YGAG phosphor; 2010 (bottom panel) – flip-chip with 258 phosphor. Details on phosphors are provided in Table XX and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.6\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
  \label{fgr:waterfall_1}
 \end{figure*}
+
+Some text here
+
+\begin{figure*}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_efficiency.pdf}
+ \caption{Contribution of innovations and technology spillovers to the historical progress in sub-efficiencies of phosphor-converted warm white LEDs with test currents of at least 350mA. Vertical bars represent LED technology innovations, with purple bars indicating innovations driven by technology spillovers (annotated and listed in an inset table) and grey bars indicating all other improvements identified in this study. Horizontal coloured lines indicate state-of-the-art sub-efficiency levels for five years: 1997, 2003, 2010, 2016, and 2020. Physical limits on sub-efficiencies are indicated by black horizontal lines. The overall LED lamp efficiency, $\eta_L$, is displayed in the rightmost column. $\eta_Vf$ – forward voltage efficiency; $\eta_IQ$ – internal quantum efficiency; $\eta_Droop$ – efficiency droop; $\eta_LE$ – light extraction efficiency; $\eta_(C_ER)$ – conversion efficiency for red phosphors; $\eta_(C_(EY/G))$ – conversion efficiency for yellow/green phosphors; $\eta_S$ – spectral efficiency; PSS – patterned sapphire substrate, ITO – indium tin oxide current spreading layer; 258, SLA, PFS – different phosphors used in white LEDs, see Table 3. "N/A" denotes sub-efficiencies that could not be calculated for 1997 due to $\eta_Vf$, $\eta_droop$ depending on current, which was below 350mA at the time, and warm white spectrum LEDs not available at the time for $\eta_(C_ER)$,$\eta_(C_(EY/G))$  and $\eta_S$ The physical limit on $\eta_Vf$ exceeds 100\% and depends on electrical device parameters \cite{david2016electrical}. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \label{fgr:breakthroughs_efficiency}
+\end{figure*}
+
+\subsection{Improvements in Consumer Experience Metrics}
+
+Historical improvements in consumer experience metrics for phosphor-converted warm white LEDs are shown in Figure \ref{fgr:consumer_experience}. A high colour rendering index (CRI) of an LED in combination with a specific range of possible colour temperatures is generally desirable in general illumination applications. The values of these metrics are determined by LED device spectra (provided and discussed in SI section X), which, in turn, depend on the means of light down conversion in the device. Due to that, we were able to establish the links between all major improvements in LED consumer experience metrics identified in this study and individual LED inventions associated either with phosphors or quantum dots used for light down conversion. The list of these inventions is provided in Table 3. 
+
+Notably, from detailed descriptions of the history of inventions in this list, which we provide in SI section 3, we find that only a single invention related to LED consumer experience improvements was originally developed specifically for application in solid-state lighting: the 2016 SALON phosphor compound \cite{seibald2019phosphor}\cite{Hoerder2019}. All other inventions in the list were either originally developed for non-LED applications or prominently used knowledge from areas of science and technology beyond LED or SSL. We discuss the details of corresponding technology spillovers in section XX below. 
+
+\begin{table*}[h]
+    \small
+    \centering
+    \begin{tabularx}{\textwidth}{|l|l|l|X|X|l|}
+    \hline
+        \textbf{Year} & \textbf{Desig.} & \textbf{Chemical formula} & \textbf{Description} & \textbf{Significance} & \textbf{SI Sec.} \\ \hline
+        1996 & YAG & $Y_3 Al_5 O_{12}:Ce$ & Yttrium aluminium garnet (YAG) phosphor activated with cerium & First LED phosphor, enabled white LEDs & SI 3.1 \\ \hline
+        1996 & YGAG & $(Y_{1-x} Gd_x)_3 Al_5 O_{12}:Ce$ & Gadolinium-doped YAG phosphor & First red-shifted phosphor, enabled warm white LEDs & SI 3.1 \\ \hline
+        2002 & 258 & $(Ba,Sr)_2 Si_5 N_8:Eu^{2+}$ & Europium-doped nitridosilicate phosphor & First red LED phosphor & SI 3.2 \\ \hline
+        2003 & QD & N/A & Quantum dot-based phosphor & First use of QD for LED light down conversion & SI 3.4 \\ \hline
+        2005 & PFS & $K_2 SiF_6: Mn^{4+}$ & Manganese-activated potassium fluorosilicate (PFS) phosphor & First ultra-narrow-band red LED phosphor & SI 3.3 \\ \hline
+        2013 & SLA & $Sr[Li Al]_3 N_4 ]:Eu^{2+}$ & Europium-doped cuboidal nitridolithoaluminate phosphor & Improved narrow-band red phosphor & SI 3.2 \\ \hline
+        2016 & SALON & $Sr[Li_2 Al_2 O_2 N_2]:Eu^{2+}$ & Europium-doped oxonitride phosphor & High-performance ultra-narrow-band red phosphor & SI 3.2 \\ \hline
+    \end{tabularx}
+    \label{tab:phosphors}
+    \caption{LED light down conversion inventions related to improvements in consumer experience metrics identified in this study. Note: Year column represents the earliest reported application of invention in white LEDs. These years are different from the years in Figure \ref{fgr:consumer_experience} that correspond to the earliest publication of spectral data for representative LED products  that relied on those inventions. Section in SI refers to a section in the Supplementary Information that contains references and a detailed description of the history of corresponding invention. Abbreviations: Desig. - Designation, Sec. - Section.}
+\end{table*}
+
+\begin{figure*}[h]
+ \centering
+ \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_efficiency.pdf}
+ \caption{Contribution of innovations and technology spillovers to the historical progress in sub-efficiencies of phosphor-converted warm white LEDs with test currents of at least 350mA. Vertical bars represent LED technology innovations, with purple bars indicating innovations driven by technology spillovers (annotated and listed in an inset table) and grey bars indicating all other improvements identified in this study. Horizontal coloured lines indicate state-of-the-art sub-efficiency levels for five years: 1997, 2003, 2010, 2016, and 2020. Physical limits on sub-efficiencies are indicated by black horizontal lines. The overall LED lamp efficiency, $\eta_L$, is displayed in the rightmost column. $\eta_Vf$ – forward voltage efficiency; $\eta_IQ$ – internal quantum efficiency; $\eta_Droop$ – efficiency droop; $\eta_LE$ – light extraction efficiency; $\eta_(C_ER)$ – conversion efficiency for red phosphors; $\eta_(C_(EY/G))$ – conversion efficiency for yellow/green phosphors; $\eta_S$ – spectral efficiency; PSS – patterned sapphire substrate, ITO – indium tin oxide current spreading layer; 258, SLA, PFS – different phosphors used in white LEDs, see Table 3. "N/A" denotes sub-efficiencies that could not be calculated for 1997 due to $\eta_Vf$, $\eta_droop$ depending on current, which was below 350mA at the time, and warm white spectrum LEDs not available at the time for $\eta_(C_ER)$,$\eta_(C_(EY/G))$  and $\eta_S$ The physical limit on $\eta_Vf$ exceeds 100\% and depends on electrical device parameters \cite{david2016electrical}. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \label{fgr:consumer_experience}
+\end{figure*}
+
+\subsection{Technology Spillovers}
+
+\begin{table*}[h]
+    \small
+    \centering
+    \begin{tabularx}{\textwidth}{|l|l|l|X|X|X|l|X|}
+    \hline
+        \textbf{Disc.} & \textbf{S/O} & \textbf{Comm.} & \textbf{LED Innovation} & \textbf{Spillover} & \textbf{Origin} & \textbf{Ref.} & \textbf{Area of Improvement} \\ \hline
+        1926 & 1994 & 1996 & LED phosphors & Use of phosphors for light down conversion in LEDs & Materials science (S), Cathode ray tubes (T) & \cite{bright1972electric}\cite{shimizu1994sheet}\cite{cho2017white} & Enabled light down conversion in LEDs \\ \hline
+        1967 & 1996 & 1996 & YAG phosphor & Use of YAG phosphor in a first white LED product & Chemistry (S), Materials science (S), Fluorescent lighting (T), Cathode ray tubes (T) & \cite{blasse1967new}\cite{bando1996}\cite{bando1998development}\cite{shimizu1999light}\cite{cho2017white} & Enabled white LED products, $\eta_S$, $\eta_C$ \\ \hline
+        1967 & 1996 & <2002 & YGAG phosphor & Use of YGAG phosphor in first warm white LEDs & Chemistry (S), Materials science (S) &\cite{holloway1969optical}\cite{bando1998development}\cite{shimizu1999light}\cite{Mueller2002} & Enabled warm white LEDs, $\eta_S$, $\eta_C$ \\ \hline
+        1982 & 1996 & 2015 & Patterned sapphire substrate (PSS) & Use of anti-reflective properties of substrate patterns in LEDs & Optics and photonics (S), Materials science and technology (S,T), Nature-inspired material design (T) &\cite{moharam1982diffraction}\cite{krames1998ordered} & $\eta_{LE}$, $\eta_{IQ}$ \\ \hline
+        1971 & 1999 & <2005 & Indium tin oxide (ITO) current spreading layer & Use of ITO current spreading layer in white LEDs & Optics and photonics (S), Materials science and technology (S,T), Optoelectronic devices (T) &\cite{margalith1999indium} & $\eta_{Vf}$ \\ \hline
+        1997 & 2002 & 2005 & 258 phosphor & Use of luminescent ‘258’ nitridosilicate compound as LED phosphor & Chemistry (S), Materials science (S) &\cite{Huppertz1997}\cite{mueller2004phosphor}\cite{MuellerMach2005} & $\eta_S$, $\eta_C$ \\ \hline
+        1984 & 2003 & 2009 & Quantum dot-based phosphor & Use of quantum dots for light down conversion in LEDs & Solid-state physics (S), Photochemistry (S), Nanotechnology (T) &\cite{fojtik1984photo}\cite{simmonsfinal}\cite{ledprof_nexxusqd}\cite{bourzac2013quantum} & $\eta_S$, $\eta_C$ \\ \hline
+        1972 & 2005 & 2015 & PFS phosphor & Use of knowledge in luminescent materials and skills in "wet" chemical synthesis to synthesize PFS compound and optimize it as LED phosphor & Chemistry (S), Materials science (S) &\cite{paulusz1973efficient}\cite{radkov2009red}\cite{Murphy2015} & $\eta_S$, $\eta_C$ \\ \hline
+        2008 & 2013 & 2015 & SLA phosphor & Use of knowledge about existing cuboidal nitride compounds to identify and synthesize structurally similar SLA phosphor & Structural chemistry (S), Materials science (S), Solid-state physics (S) &\cite{Park2008New}\cite{schmidt2013new}\cite{Pust2014} & $\eta_S$, $\eta_C$ \\ \hline
+    \end{tabularx}
+    \label{tab:spillovers}
+    \caption{Technology spillovers involved in white LED technology innovations identified in this study. Note: LED innovations are ordered by the year in which a technology spillover into LED occurred, provided in the Spillover to LED column. Initial discovery is the year of the earliest identified discovery of the original idea or invention outside the LED domain. Commercial application is the year of the first recorded application of that idea or invention in a commercial LED product. Origin column represents knowledge domains in which spillovers initially emerged, where (S) denotes a scientific discipline and (T) is an area of technology. References column lists literature sources for the represented innovations and spillovers. Area of improvement represents the impact of spillovers on different aspects of white LED technology, e.g., improvements in particular sub-efficiencies. Abbreviations: Disc. - Year of Discovery, S/O - Year of Spillover to LED, Comm. - Year of Commercial Application., Ref. - References.}
+\end{table*}
 
 \section{Conclusions}
 Our study has analysed in a systematic and granular way the sources of dramatic cost reductions and efficiency improvements in white light-emitting diodes since their introduction to the market in 1996. We find that the total LED device efficiency increased from $5.8\%$ to $38.7\%$ between 2003 and 2020 has been predominantly driven by LED technology innovations that have affected all physical energy loss channels and corresponding device sub-efficiencies. We also find that among those innovations, at least nine were driven by technology originating in areas of science and technology outside LEDs and solid-state lighting—i.e., those nine innovations can be referred to as technology spillovers . These spillovers were responsible for $8.5\%$ of the total efficiency improvements and nearly $100\%$ of the improvements in consumer experience metrics. 
