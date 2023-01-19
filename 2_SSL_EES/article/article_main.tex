@@ -326,7 +326,22 @@ The primary, structured part of the interviews explored which innovations were d
 
 \subsection{Performance Metrics Calculations}
 
-The contribution of individual technology innovations and spillovers to the progress in the overall device efficiency over time is estimated by the index decomposition analysis, which is commonly used in energy economics \cite{Ang2019}. Specifically, we use the additive logarithmic mean Divisia index method I (LMDI-I), also known as the Additive Sato-Vartia indicator \cite{deBoer2019}. It was developed by Boyd in 1987 \cite{Boyd1987} on the basis of Divisia index, a method in statistical economics \cite{Diewert1988}, and subsequently refined \cite{Ang1997}.
+The contribution of individual technology innovations and spillovers to the progress in the overall device efficiency over time is estimated by the index decomposition analysis, which is commonly used in energy economics \cite{Ang1997}. Specifically, we use the additive logarithmic mean Divisia index method I (LMDI-I), also known as the Additive Sato-Vartia indicator \cite{deBoer2019}. It was developed by Boyd in 1987 \cite{Boyd1987} on the basis of Divisia index, a method in statistical economics \cite{Diewert1988}, and subsequently refined.
+
+According to this method, for an overall device efficiency function $F$ that is the product of variables $a, b$ that represent sub-efficiencies, the contribution of the change  in a single sub-efficiency variable a between times $t=0$ and $t=T$ can be estimated as \cite{Ang2019}
+
+\begin{align}
+    \Delta a &= \frac{a_{t=T} - a_{t=0}}{\ln(a_{t=T}) - \ln(a_{t=0})} \times \ln \big ( \frac{a_{t=T}}{a_{t=0}} \big ) \\
+    & \stackrel{a_{t=0} \neq a_{t=T}}{=} L(F_{t=T}, F_{t=0}) \times \ln \big ( \frac{a_{t=T}}{a_{t=0}} \big )
+\end{align}
+
+where $L(F_{t=T}, F_{t=0})$ is the logarithmic mean of $F$ values at times $t=0$ and $t=T$. These terms contain no residuals, therefore it can be shown that the overall improvement in the device efficiency due to improvements in individual sub-efficiencies is equal to the sum of these improvements in individual sub-efficiencies: 
+
+\begin{equation}
+    \Delta a + \Delta b  = \Delta F
+\end{equation}
+
+To document historical improvements in LED device performance accurately, we need data on all sub-efficiencies for the selected device architectures and periods covered. However, the scope of data reporting in scientific literature and industry publications is typically limited to selected metrics of interest, rather than the full ensemble of sub-efficiencies that determine the overall device performance. For this reason, our data collection efforts were supplemented by performance calculations for individual sub-efficiencies? where possible and necessary. Of the device sub-efficiencies, those related to the emission spectrum  were computed from the spectral data often reported in LED device specifications. In particular, we used the \texttt{colour-science} package for Python\cite{python-colour} to calculate the luminous efficacy of radiation, colour rendering performance and luminous efficacy of radiation of phosphor down-conversion of blue light on the basis of available LED emission spectra. This approach allowed us to fully quantify the improvements related to phosphor development in LEDs. 
 
 \section{Results}
 
@@ -334,8 +349,17 @@ The contribution of individual technology innovations and spillovers to the prog
  \centering
  \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
  \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
- \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003 (top panel) and 2010 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) – flip-chip with YGAG phosphor; 2010 (bottom panel) – flip-chip with 258 phosphor. Details on phosphors are provided in Table XX and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.6\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003 (top panel) and 2010 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) – flip-chip with YGAG phosphor; 2010 (bottom panel) – flip-chip with 258 phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
  \label{fgr:waterfall_1}
+\end{figure*}
+
+\begin{figure*}[h!]
+ \centering
+ \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
+ \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
+ \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2016 (top panel) and 2020 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) a
+ t the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2016 (top panel) – flip-chip with PFS phosphor; 2020 (bottom panel) – flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section 2. Overall LED package efficiency $\eta_L= 32.5\%$ in 2016, $\eta_L= 38.7\%$ in 2020. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \label{fgr:waterfall_2}
 \end{figure*}
 
 Some text here
@@ -367,8 +391,8 @@ Notably, from detailed descriptions of the history of inventions in this list, w
         2013 & SLA & $Sr[Li Al]_3 N_4 ]:Eu^{2+}$ & Europium-doped cuboidal nitridolithoaluminate phosphor & Improved narrow-band red phosphor & SI 3.2 \\ \hline
         2016 & SALON & $Sr[Li_2 Al_2 O_2 N_2]:Eu^{2+}$ & Europium-doped oxonitride phosphor & High-performance ultra-narrow-band red phosphor & SI 3.2 \\ \hline
     \end{tabularx}
-    \label{tab:phosphors}
     \caption{LED light down conversion inventions related to improvements in consumer experience metrics identified in this study. Note: Year column represents the earliest reported application of invention in white LEDs. These years are different from the years in Figure \ref{fgr:consumer_experience} that correspond to the earliest publication of spectral data for representative LED products  that relied on those inventions. Section in SI refers to a section in the Supplementary Information that contains references and a detailed description of the history of corresponding invention. Abbreviations: Desig. - Designation, Sec. - Section.}
+    \label{tab:phosphors}
 \end{table*}
 
 \begin{figure*}[h]
@@ -396,8 +420,8 @@ Notably, from detailed descriptions of the history of inventions in this list, w
         1972 & 2005 & 2015 & PFS phosphor & Use of knowledge in luminescent materials and skills in "wet" chemical synthesis to synthesize PFS compound and optimize it as LED phosphor & Chemistry (S), Materials science (S) &\cite{paulusz1973efficient}\cite{radkov2009red}\cite{Murphy2015} & $\eta_S$, $\eta_C$ \\ \hline
         2008 & 2013 & 2015 & SLA phosphor & Use of knowledge about existing cuboidal nitride compounds to identify and synthesize structurally similar SLA phosphor & Structural chemistry (S), Materials science (S), Solid-state physics (S) &\cite{Park2008New}\cite{schmidt2013new}\cite{Pust2014} & $\eta_S$, $\eta_C$ \\ \hline
     \end{tabularx}
-    \label{tab:spillovers}
     \caption{Technology spillovers involved in white LED technology innovations identified in this study. Note: LED innovations are ordered by the year in which a technology spillover into LED occurred, provided in the Spillover to LED column. Initial discovery is the year of the earliest identified discovery of the original idea or invention outside the LED domain. Commercial application is the year of the first recorded application of that idea or invention in a commercial LED product. Origin column represents knowledge domains in which spillovers initially emerged, where (S) denotes a scientific discipline and (T) is an area of technology. References column lists literature sources for the represented innovations and spillovers. Area of improvement represents the impact of spillovers on different aspects of white LED technology, e.g., improvements in particular sub-efficiencies. Abbreviations: Disc. - Year of Discovery, S/O - Year of Spillover to LED, Comm. - Year of Commercial Application., Ref. - References.}
+    \label{tab:spillovers}
 \end{table*}
 
 \section{Conclusions}
