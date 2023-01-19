@@ -351,26 +351,30 @@ We identified two existing cost models for LED manufacturing in the prior litera
 
 Given this situation, we developed our own bottom-up LED manufacturing cost model. The model structure is generally based on the 2012 \textit{LEDCOM} cost model, but we expand it significantly both in scope and in its ability to capture historical trends. The model captures three historical time periods corresponding to different “eras” in LED manufacturing: the early period of the first high-power white LEDs around 2003, the period of accelerating consumer adoption of LED lighting around 2012, and the most recent period around 2020, the year of our main data collection efforts. For each of these three periods, the most prevalent manufacturing equipment was identified through industry periodicals, archived website data from the \textit{Internet Archive}, and expert interviews. Because the architecture of LED chips has changed significantly since the introduction of the first commercial devices in 1996, three different chip architectures were initially considered in the model: classical chips, flip chips, and chip-scale package flip chips. The details of the manufacturing process for each architecture were collected from the scientific literature, textbooks and relevant patents. In addition, two LED life cycle analyses \cite{scholand2012life}\cite{casamayor2018comparative} were used to validate the model structure and extract some of the necessary quantitative model inputs. These studies captured a large number of LED manufacturing process steps and included the details on the use of metals, chemicals and electricity for each manufacturing step.  
 
+The cost model we developed relies on a cumulative approach to yielded cost\cite{becker2001use}. In this approach, the yielded cost of process step $1$ is defined as the ratio between the total cost of step 1 $C_1$ and the yield of step 1 $Y_1$:
+
+\begin{equation}
+    C_{Y_1} = \frac{C_1}{Y_1}, \ C_{Y_2} = C_{Y_{2 \rightarrow 3}} - C_{Y_1} = \frac{C_1(1-Y_2)+C_2}{Y_1Y_2}, \ C_{Y_3}=\dots
+\end{equation}
+
+This cost metric is cumulative by definition, thus
+
+\begin{equation}
+    \sum_i C_{Y_i} = \frac{\sum_i C_i}{\prod_i Y_i}
+\end{equation}
+
+Yielded cost per step is dependent on the step order and blind to downstream information \cite{becker2001use}. Additional information on details of the computation of cost metrics and the different manufacturing steps is presented in the Supplementary Information.
 
 \section{Results}
 
 \begin{figure*}[h!]
  \centering
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/test.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/test.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/test.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/test.pdf}
- \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003 (top panel) and 2010 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) – flip-chip with YGAG phosphor; 2010 (bottom panel) – flip-chip with 258 phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
- \label{fgr:waterfall_1}
-\end{figure*}
-
-\begin{figure*}[h!]
- \centering
- \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
- \includegraphics[width=16.5cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
- \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2016 (top panel) and 2020 (bottom panel), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) a
- t the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The following corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2016 (top panel) – flip-chip with PFS phosphor; 2020 (bottom panel) – flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section 2. Overall LED package efficiency $\eta_L= 32.5\%$ in 2016, $\eta_L= 38.7\%$ in 2020. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
- \label{fgr:waterfall_2}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
+ \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) – flip-chip with YGAG phosphor; 2010 (bottom panel) – flip-chip with 258 phosphor; 2016 (top panel) – flip-chip with PFS phosphor; 2020 (bottom panel) – flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \label{fgr:waterfall}
 \end{figure*}
 
 Some text here
