@@ -29,6 +29,8 @@
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+% landscape pages
+\usepackage{pdflscape}
 
 % this style is applied by default to any tikzpicture included via \tikzfig
 \tikzstyle{tikzfig}=[baseline=-0.25em,scale=0.5]
@@ -115,6 +117,46 @@
 The cost model adapted for this publication is a microeconomic manufacturing cost model. Within the timeframe and scope laid out in the main publication, it returns the total manufacturing cost of phosphor converted warm white light-emitting diode packages. In this computation, it considers the main economic factors associated with operating and maintaining manufacturing equipment. It does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters.
 
 A schematic diagram of the cost model developed in this thesis is presented in figure \ref{fig:costmodel-schematic}. The cost model is process step based. It is split between the upstream part of the manufacturing process and the downstream part of the manufacturing process. The former is performed at the wafer level. The latter is performed at the package level. The model takes as inputs both parameters specific to manufacturing process steps (\textit{"step parameters"}) and parameters applying to all manufacturing steps (\textit{"global steps"}). The cost for each process step is then computed. The cost model returns the total and step manufacturing costs. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
+
+\subsection{Examples of Chip Architectures}
+
+Figures \ref{fig:manuf_vtf_2012-1}-\ref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of two differente chip architectures considered in the cost model.
+
+    %VERTICAL THIN-FILM FLIP-CHIP
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/vtf_overview_2012-1.pdf}
+            \caption{(1/2) Manufacturing process for a vertical thin-film  package flip-chip LED chip with vertical current spreading, circa 2012. Continued on next page.}
+            \label{fig:manuf_vtf_2012-1}
+        \end{figure}
+    \end{landscape}
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/vtf_overview_2012-2.pdf}
+            \caption{(2/2) Continued from previous page.}
+            \label{fig:manuf_vtf_2012-2}
+        \end{figure}
+    \end{landscape}
+
+    % CHIP-SCALE PACKAGE FLIP-CHIP
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/csp_overview_2020-1.pdf}
+            \caption{(1/2) Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. Continued on next page.}
+            \label{fig:manuf_csp_2020-1}
+        \end{figure}
+    \end{landscape}
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/csp_overview_2020-2.pdf}
+            \caption{(2/2) Continued from previous page.}
+            \label{fig:manuf_csp_2020-2}
+        \end{figure}
+    \end{landscape}
 
 \subsection{Computation of Manufacturing Cost}
 
@@ -393,6 +435,7 @@ We note differences between our model and costs reported to the US Department of
 	\label{fig:costmodel_calibration}
 \end{figure}
 
+\newpage
 \section{Phosphors}
 
 \subsection{Spectral Data of Identifies LED Phosphor Innovations}
@@ -401,7 +444,7 @@ We note differences between our model and costs reported to the US Department of
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/phosphor_spectrum-comparison.pdf}
 	\caption{Modelled manufacturing cost for light-emitting diode packages split by manufacturing step category. The top graph shows the data from LEDCOM model and round table discussions published by the United States Department of Energy (DoE). The bottom graph shows the results of the cost model developed in this thesis. Hatched bars are projections given by the sources. Inset plot shows the number of die per wafer (DPW) calculated for different wafer sizes used in the model.}
-	\label{fig:costmodel_calibration}
+	\label{fig:phosphor_spectrum}
 \end{figure}
 
 \subsection{History of Identifies Phosphor Inventions}
