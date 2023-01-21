@@ -453,12 +453,48 @@ Figure \ref{fig:costmodel_calibration} shows a comparison of the relative manufa
 \newpage
 \section{Phosphors}
 
+\subsection{Luminous Efficacy (of Radiation)}
+\label{subsec:ler}
+
+As with the flux metrics previously introduced, efficacy in lighting is likewise dependent on the luminosity function of figure \ref{fig:tristimulus}. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength dependent human sensitivity to light \cite{cie-term-effrad}
+%
+\begin{equation}
+\label{eqn:ler}
+    K [\text{lm/W}_{opt}]= \frac{\int_0^\infty K( \lambda ) \phi \text{d} \lambda}{\int_0^\infty \phi \text{d} \lambda}
+\end{equation}
+%
+where
+%
+\begin{align*}
+    K &\dots \text{spectral luminous efficacy} \\
+    \phi &\dots \text{spectral radiant flux} \\
+    \lambda &\dots \text{wavelength}
+\end{align*}
+%
+This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in figure \ref{fig:se_efficacy} in chapter \ref{ch:results}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation, as the product with the luminosity function of figure \ref{fig:tristimulus} shows. Care must be taken not to confuse this efficacy metric with efficacy of source, which depends not only on the spectral power distribution of a light source.
+
+This metric describes the match of a light-emitting diode package spectrum to the human visual system. It thus describes only a part of the total device performance. It is used in the computation of other metric introduced in section \ref{subsec:subeff} below.
+
+\subsection{Luminous Efficacy (of Source)}
+\label{subsec:les}
+
+    The luminous efficacy of a light source $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power \cite{cie-term-effsrc}
+    %
+    \begin{equation}
+        \eta [\text{lm/W}_{el}]= \frac{\phi}{P_{el}}
+    \end{equation}
+    %
+    Unlike the luminous efficacy of radiation, this metric cannot be extracted from the spectrum of a light source. It is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with efficacy of radiation, which depends only on the spectral power distribution of a light source.
+
+    This metric fulfills the requirements laid out in section \ref{sec:metrics_requirements}. However, as it captures overall device efficacy, it depends on a large number of device properties and parameters. This makes attribution to single changes in device design or manufacturing difficult.
+
+
 \subsection{Spectral Data of Identifies LED Phosphor Innovations}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/phosphor_spectrum-comparison.pdf}
-	\caption{Modelled manufacturing cost for light-emitting diode packages split by manufacturing step category. The top graph shows the data from LEDCOM model and round table discussions published by the United States Department of Energy (DoE). The bottom graph shows the results of the cost model developed in this thesis. Hatched bars are projections given by the sources. Inset plot shows the number of die per wafer (DPW) calculated for different wafer sizes used in the model.}
+	\caption{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data that used phosphor innovations listed in Table 3 in the main text, as represented in Figure 8 in the main text, each indicated by the phosphor label and publication year. panel: luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED products represented in Figure 8. Desirable direction of improvements towards higher luminous efficacy and higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown on the bottom panels using \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two panels: spectra of light-emitting diodes  presented in Figure 8 using phosphor mixtures based on chemical compounds or quantum dots listed in Table 3 for down conversion of blue light. The luminosity function of human eye, based on its wavelength-dependent sensitivity, is shown for reference in red . Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable for consumers. Photons of the corresponding energy are lost to the human observer and count towards the spectral loss channel.  Plot legends indicate the years of publication of the spectral data  and phosphor mixtures  used, with the following designations: R* – …, Y* – … G† – …, O‡ – …  . . Source: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{Murphy2015}, QD \cite{lumileds2016qd}, \cite{osram2019qd} , SALON \cite{Hoerder2019}}
 	\label{fig:phosphor_spectrum}
 \end{figure}
 

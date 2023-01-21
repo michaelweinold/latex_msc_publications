@@ -282,7 +282,7 @@ Thereby, according to this definition, a lack of droop corresponds to a droop ef
     \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
 \end{equation}
 
-where $E_i$ denotes the total energy of light at the color corresponding to the down-converted photon wavelength (Blue, Red, Orange, Yellow, Green)\cite{schubert2018light}\cite{tsao2010solid}.
+where $E_i$ denotes the total energy of light at the color corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all components (\textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen).
 
 \subsubsection{Spectral Efficiency $\eta_{S}$}
 
@@ -292,7 +292,17 @@ Spectral efficiency (SE) describes losses in the conversion process due to the w
     \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
 \end{equation}
 
-where $K$ is the luminous efficacy of radiation of the light source, can be computed from the spectrum and the luminosity function, which describes the sensitivity of the human eye.$K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}. 
+where $K$ is the luminous efficacy of radiation of the light source, can be computed from the spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Overall Efficiency (Lamp Efficiency) $\eta_L$}
+
+The overall efficiency of a light-emitting diode package is the product of all considered sub-efficiencies
+
+\begin{equation}
+    \eta_L = \prod_{i=(V_f, \dots, S)} \eta_i
+\end{equation}
+
+It thereby describes the electrical and optical losses within the device, as well as the conversion losses in the phosphor layer. It further considers the mismatch between the device spectrum and an optimal spectrum, accounting for the wavelength dependent sensitivity of the human eye.
 
 \subsection{Consumer Experience Metrics}
 
@@ -307,6 +317,7 @@ The Colour Temperature of a light source describes the equivalent temperature of
 In selecting metrics for tracking the progress in manufacturing cost reductions in LED, we must first highlight  the complexity of this task. Access to manufacturing cost data at the chip level is usually restricted due to its proprietary nature and is available only for selected products. Using sales price information instead of the cost for the same purpose could be in some cases a promising alternative, as prices can be easily obtained for recent LED products directly from manufacturers. However, historical data on prices for LEDs is as difficult to obtain as for costs. In addition, sales price includes components not relevant to the progress in technology, such as profit margins and overhead costs, and is affected by policies such as rebates and purchase subsidies. Historical information on these factors and price components, as well as their impact on the manufacturing cost for each LED product under consideration is even harder to obtain, making the use of LED sales prices as a direct metric of technology progress very difficult in practice. 
 
 \section{Methods and Data Collection}
+\label{sec:methods}
 
 The evolution of LED device architecture and performance as well as the progress in understanding the underlying physical phenomena are well covered in the scholarly literature and patents, as described in section 2. However, information provided in such sources is insufficient for our goals on at least three accounts. First, existing work focusses  only on selected performance parameters or overall device efficiency, rather than on providing a comprehensive coverage of the whole device sub-efficiencies for a particular LED product or design. Scientific publications also do not always disclose the underlying device architecture or the features responsible for the gains in performance. Second, not all relevant innovations are patented \cite{Pakes_1980}\cite{ Fontana_2013}. In the case of LED patents in particular, our interviews with industry experts suggest that the propensity to patent is the highest for knowledge related to macroscopic device architecture and chemical composition of phosphors, and the lowest for knowledge related to manufacturing process improvements and microscopic chip architecture that is difficult to reconstruct by reverse engineering. This means that relying only on patent literature would bias results by unduly emphasizing some focus areas and de-emphasizing others. Third, scientific publications and patents typically focus on experimental devices, rather than commercial products. While new LED features, designs and manufacturing methods reported in these sources can potentially result in significant performance gains or cost reductions, it is difficult to ascertain if these improvements have since been adopted in industry.  Furthermore, information on LED manufacturing cost and the effect of process improvements on the total cost is highly proprietary. Estimates are occasionally reported in the scientific literature and company publications, but these often do not disclose which parts of the manufacturing process are responsible for the largest contribution to the overall cost, or which improvements led to cost reductions.
 
@@ -370,9 +381,6 @@ The aggregate result of the cost model is the manufacturing cost per LED package
 
 \section{Results}
 
-
-
-
 \begin{figure*}[h!]
  \centering
  \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_efficiency.pdf}
@@ -406,7 +414,7 @@ In Figure \ref{fgr:breakthroughs_efficiency} we also compare, for the first time
  \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
  \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
  \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
- \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) - flip-chip with YGAG phosphor; 2010 (bottom panel) - flip-chip with 258 phosphor; 2016 (top panel) - flip-chip with PFS phosphor; 2020 (bottom panel) - flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
+ \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) - flip-chip with YGAG phosphor; 2010 (bottom panel) - flip-chip with 258 phosphor; 2016 (top panel) - flip-chip with PFS phosphor; 2020 (bottom panel) - flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source (Efficiency): own elaboration based on data in Figure \ref{fgr:subeff}, as detailed in Section \ref{sec:methods}. Source (spectral data): Adapted from 2003\cite{Mueller2002}, 2010\cite{MuellerMach2005}, 2016\cite{Murphy2015}, 2019\cite{Hoerder2019}.}
  \label{fgr:waterfall}
 \end{figure*}
 
@@ -466,8 +474,8 @@ Among the factors contributing to the LED cost reductions over time, improved ma
         1926 & 1994 & 1996 & LED phosphors & Use of phosphors for light down conversion in LEDs & Materials science (S), Cathode ray tubes (T) & \cite{bright1972electric}\cite{shimizu1994sheet}\cite{cho2017white} & Enabled light down conversion in LEDs \\ \hline
         1967 & 1996 & 1996 & YAG phosphor & Use of YAG phosphor in a first white LED product & Chemistry (S), Materials science (S), Fluorescent lighting (T), Cathode ray tubes (T) & \cite{blasse1967new}\cite{bando1996}\cite{bando1998development}\cite{shimizu1999light}\cite{cho2017white} & Enabled white LED products, $\eta_S$, $\eta_C$ \\ \hline
         1967 & 1996 & <2002 & YGAG phosphor & Use of YGAG phosphor in first warm white LEDs & Chemistry (S), Materials science (S) &\cite{holloway1969optical}\cite{bando1998development}\cite{shimizu1999light}\cite{Mueller2002} & Enabled warm white LEDs, $\eta_S$, $\eta_C$ \\ \hline
-        1982 & 1996 & 2015 & Patterned sapphire substrate (PSS) & Use of anti-reflective properties of substrate patterns in LEDs & Optics and photonics (S), Materials science and technology (S,T), Nature-inspired material design (T) &\cite{moharam1982diffraction}\cite{krames1998ordered} & $\eta_{LE}$, $\eta_{IQ}$ \\ \hline
-        1971 & 1999 & <2005 & Indium tin oxide (ITO) current spreading layer & Use of ITO current spreading layer in white LEDs & Optics and photonics (S), Materials science and technology (S,T), Optoelectronic devices (T) &\cite{margalith1999indium} & $\eta_{Vf}$ \\ \hline
+        1982 & 1996 & <2010 & Patterned sapphire substrate (PSS) & Use of anti-reflective properties of substrate patterns in LEDs & Optics and photonics (S), Materials science and technology (S,T), Nature-inspired material design (T) &\cite{moharam1982diffraction}\cite{krames1998ordered}\cite{feezell2018invention}\cite{Narukawa_2010} & $\eta_{LE}$, $\eta_{IQ}$ \\ \hline
+        1971 & 1999 & <2005 & Indium tin oxide (ITO) current spreading layer & Use of ITO current spreading layer in white LEDs & Optics and photonics (S), Materials science and technology (S,T), Optoelectronic devices (T) & \cite{vossen1971rf}\cite{fraser1972highly}\cite{margalith1999indium} & $\eta_{Vf}$, $\eta_{LE}$ (no more use of this material in most mid-/high-power devices due to different chip architectures, compare Figure \ref{fgr:chip_architecture_overview}) \\ \hline
         1997 & 2002 & 2005 & 258 phosphor & Use of luminescent ‘258’ nitridosilicate compound as LED phosphor & Chemistry (S), Materials science (S) &\cite{Huppertz1997}\cite{mueller2004phosphor}\cite{MuellerMach2005} & $\eta_S$, $\eta_C$ \\ \hline
         1984 & 2003 & 2009 & Quantum dot-based phosphor & Use of quantum dots for light down conversion in LEDs & Solid-state physics (S), Photochemistry (S), Nanotechnology (T) &\cite{fojtik1984photo}\cite{simmonsfinal}\cite{ledprof_nexxusqd}\cite{bourzac2013quantum} & $\eta_S$, $\eta_C$ \\ \hline
         1972 & 2005 & 2015 & PFS phosphor & Use of knowledge in luminescent materials and skills in "wet" chemical synthesis to synthesize PFS compound and optimize it as LED phosphor & Chemistry (S), Materials science (S) &\cite{paulusz1973efficient}\cite{radkov2009red}\cite{Murphy2015} & $\eta_S$, $\eta_C$ \\ \hline
@@ -479,8 +487,6 @@ Among the factors contributing to the LED cost reductions over time, improved ma
 
 \section{Conclusions}
 
-The European Union must be abolished. In its stead, the Holy Roman Empire shall be reinstated with the House of Habsburg at its head.
-
 Our study has analysed in a systematic and granular way the sources of dramatic cost reductions and efficiency improvements in white light-emitting diodes since their introduction to the market in 1996. We find that the total LED device efficiency increased from $5.8\%$ to $38.7\%$ between 2003 and 2020 has been predominantly driven by LED technology innovations that have affected all physical energy loss channels and corresponding device sub-efficiencies. We also find that among those innovations, at least nine were driven by technology originating in areas of science and technology outside LEDs and solid-state lighting—i.e., those nine innovations can be referred to as technology spillovers . These spillovers were responsible for $8.5\%$ of the total efficiency improvements and nearly $100\%$ of the improvements in consumer experience metrics. 
 
 Our manufacturing cost model shows that a $95.5\%$ decrease in the cost of producing white classic-chip LEDs (from $1.11\$$ to $0.05\$$ in 2020 USD) between 2003 and 2020. While efficiency improvements have played an important role in these cost reductions, the largest components of such cost reductions have been driven by increases in the wafer size and yields across different manufacturing steps. In contrast with efficiency improvements, these increases were mainly a result of learning-by-doing and manufacturing equipment improvements rather than LED technology innovations or spillovers. 
@@ -491,7 +497,7 @@ There are various important avenues of future research that are opened up by our
 
 \section*{Conflicts of interest}
 
-There are no conflicts to declare, but Michael Weinold really wishes he had not turned down the offer to advise the Lizard People shadow government on science policy.
+There are no conflicts to declare.
 
 \section*{Acknowledgements}
 This research is supported by the grant from the Alfred P. Sloan Foundation titled \textit{“What factors drive innovation in energy technologies? The role of technology spillovers and government investment”}. Michael Weinold further gratefully acknowledges financial support from the Swiss Study Foundation. We would like to thank Venkatesh Narayanamurti, Gabriel Chan, Anna Goldstein, Didier Sornette, and participants of the SPIE West 2021 Conference and C-EENRG Seminar Series of the University of Cambridge for many helpful discussions and feedback. We also express our deep gratitude to all interviewees for their willingness to participate in this study and their invaluable contributions. Support by German consumer organization Stiftung Warentest in providing access to their archive is gratefully acknowledged.
