@@ -325,6 +325,7 @@ To supplement our data collection efforts, verify our findings and identify addi
 The primary, structured part of the interviews explored which innovations were deemed most relevant to the evolution of device performance, consumer experience and manufacturing cost of LED packages. Thereafter, interviewees were asked to consider the extent to which these innovations may have originated outside of their respective field of expertise and the LED industry more broadly—i.e., which of the innovations may be considered spillovers. The remainder of the interview was focused on learning about particular aspects of the manufacturing processes relevant to cost and performance modelling, the current state of industry, and the circumstances surrounding the innovations and spillovers identified in the first part of the interview. Specific quantitative data was also provided by experts, helping fine-tune the parameters of the manufacturing cost model (described in subsection 4.4) and verify device performance data.
 
 \subsection{Performance Metrics Calculations}
+\label{subsec:metrics}
 
 The contribution of individual technology innovations and spillovers to the progress in the overall device efficiency over time is estimated by the index decomposition analysis, which is commonly used in energy economics \cite{Ang1997}. Specifically, we use the additive logarithmic mean Divisia index method I (LMDI-I), also known as the Additive Sato-Vartia indicator \cite{deBoer2019}. It was developed by Boyd in 1987 \cite{Boyd1987} on the basis of Divisia index, a method in statistical economics \cite{Diewert1988}, and subsequently refined.
 
@@ -369,17 +370,8 @@ The aggregate result of the cost model is the manufacturing cost per LED package
 
 \section{Results}
 
-\begin{figure*}[h!]
- \centering
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
- \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) - flip-chip with YGAG phosphor; 2010 (bottom panel) - flip-chip with 258 phosphor; 2016 (top panel) - flip-chip with PFS phosphor; 2020 (bottom panel) - flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
- \label{fgr:waterfall}
-\end{figure*}
 
-Some text here
+
 
 \begin{figure*}[h!]
  \centering
@@ -390,6 +382,12 @@ Some text here
 
 \subsection{Improvements in Sub-Efficiencies and Overall Efficiency}
 
+The historical improvements in four sub-efficiency channels—forward voltage efficiency, internal quantum efficiency, droop, and light extraction efficiency—identified in our study are shown in Figure 4. Using data on these four sub-efficiencies, as well as on improvements in spectral efficiency and light conversion efficiencies calculated from spectral data for LED phosphors provided in SI section 2 and discussed in the context of consumer experience improvements in section 5.2, we then calculate the overall LED efficiency in 2003 and 2010, shown in Figure XX. as a waterfall diagram across all sub-efficiencies, and in 2016 and 2020, similarly shown in Figure . The overall white LED lamp efficiency improved from $\eta_L(2003)=5.8\% \rightarrow \eta_L (2010) = 12.6\% \rightarrow \eta_L = 32.5\% \rightarrow \eta_L(2020) = 38.7\%$, as shown in Figure \ref{fgr:waterfall}. No single loss channel dominates in terms of its contribution to the overall efficiency, in line with previous observations\cite{tsao2010solid}. We note, however, that the loss channels with a fixed physical limit, e.g., the Stokes loss that contributes to the conversion efficiency by phosphors, became more dominant in 2016 and 2020 compared to 2003 and 2010. 
+
+Figure \ref{fgr:breakthroughs_efficiency} shows the overall magnitude of contributions of identified LED innovations and technology spillovers to improvements in LED efficiency over time across different sub-efficiencies. The list of technology spillovers identified in our study is provided and discussed below in Section \ref{subsec:spillovers}. Through the index decomposition analysis described in section \ref{subsec:metrics}, we find that in the overall LED efficiency increase of 32.9\% from 5.8\% to 38.7\% between 2003 and 2020, at least 2.8 of these percentage points can be attributed specifically to technology spillovers identified in this study, corresponding to 8.5\% of the total LED efficiency improvements between 2003 and 2020.
+
+In Figure \ref{fgr:breakthroughs_efficiency} we also compare, for the first time, efficiency improvements across sub-efficiencies over time, contrasting them with the physical limits of corresponding loss channels. Notably, sub-efficiencies for the most recent devices considered in our study are only $\sim10\%$ below the physical limit. The exception is spectral efficiency, which at $\sim20\%$ below the physical limit shows larger potential for further improvements.
+
 \begin{figure*}[h!]
  \centering
  \includegraphics[width=17.5cm]{2_SSL_EES/article/figures/subefficiencies_progress.pdf}
@@ -399,16 +397,26 @@ Some text here
  \textbf{Panel B1:} Internal quantum efficiency, for different chip architectures, by type of measurement used. Measurement methods: PL - Photoluminescence\cite{Shim_2018}, EL - Electroluminescence\cite{Getty_2009};  ABC Model\cite{Karpov_2014}, Ideality Factor\cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where applicable.
  \textbf{Panel B2:} Light extraction efficiency for different chip architectures, by type of specific technology used to improve light-extraction efficiency. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
  Source: own synthesis of data from the full list of sources provided in the Supplementary Information, section XX. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report\cite{beale_leds_2015}.}
+ \label{fgr:subeff}
+\end{figure*}
+
+\begin{figure*}[h!]
+ \centering
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
+ \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
+ \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures from Figure \ref{fgr:chip_architecture_overview} are shown for reference: 2003 (top panel) - flip-chip with YGAG phosphor; 2010 (bottom panel) - flip-chip with 258 phosphor; 2016 (top panel) - flip-chip with PFS phosphor; 2020 (bottom panel) - flip-chip with SALON phosphor. Details on phosphors are provided in Table \ref{tab:phosphors} and SI section XX. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003 and $\eta_L = 12.7\%$ in 2010. Abbreviations: Scat. = Scattering. Source: own elaboration based on data from sources listed in SI, section XX.}
  \label{fgr:waterfall}
 \end{figure*}
 
 \subsection{Improvements in Consumer Experience Metrics}
 
-Historical improvements in consumer experience metrics for phosphor-converted warm white LEDs are shown in Figure \ref{fgr:consumer_experience}. A high colour rendering index (CRI) of an LED in combination with a specific range of possible colour temperatures is generally desirable in general illumination applications. The values of these metrics are determined by LED device spectra (provided and discussed in SI section X), which, in turn, depend on the means of light down conversion in the device. Due to that, we were able to establish the links between all major improvements in LED consumer experience metrics identified in this study and individual LED inventions associated either with phosphors or quantum dots used for light down conversion. The list of these inventions is provided in Table 3. 
+Historical improvements in consumer experience metrics for phosphor-converted warm white LEDs are shown in Figure \ref{fgr:consumer_experience}. A high colour rendering index (CRI) of an LED in combination with a specific range of possible colour temperatures is generally desirable in general illumination applications. The values of these metrics are determined by LED device spectra (provided and discussed in SI section X), which, in turn, depend on the means of light down conversion in the device. Due to that, we were able to establish the links between all major improvements in LED consumer experience metrics identified in this study and individual LED inventions associated either with phosphors or quantum dots used for light down conversion. The list of these inventions is provided in Table \ref{tab:spillovers}. 
 
 Notably, from detailed descriptions of the history of inventions in this list, which we provide in SI section 3, we find that only a single invention related to LED consumer experience improvements was originally developed specifically for application in solid-state lighting: the 2016 SALON phosphor compound \cite{seibald2019phosphor}\cite{Hoerder2019}. All other inventions in the list were either originally developed for non-LED applications or prominently used knowledge from areas of science and technology beyond LED or SSL. We discuss the details of corresponding technology spillovers in section XX below. 
 
-\begin{table*}[h]
+\begin{table*}[h!]
     \small
     \centering
     \begin{tabularx}{\textwidth}{|l|l|l|X|X|l|}
@@ -426,7 +434,7 @@ Notably, from detailed descriptions of the history of inventions in this list, w
     \label{tab:phosphors}
 \end{table*}
 
-\begin{figure*}[h]
+\begin{figure*}[h!]
  \centering
  \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_consumer-experience.pdf}
  \caption{Historical improvements in consumer experience metrics of phosphor-converted white LEDs. Circle dots show data for the earliest identified representative white LED products with published spectral data that used phosphors listed in Table 3, each indicated by the phosphor label and publication year. Corresponding spectral data used to calculate colour temperature values is provided in Figure SI1 in SI section 2. Three data points representing compact fluorescent lamps (CFLs)\cite{cie_reference}, shown as black triangles, are provided for comparison. Horizontal lines represent typical colour temperatures of “traditional” light sources, shown for reference. Desirable range of colour temperatures for home illumination, indicated by a vertical red arrow, lies between two horizontal orange lines representing typical incandescent light and warm daylight colour temperatures. Horizontal red arrow indicates desirable higher values of colour rendering index (CRI). LED products based on the following phosphor innovations from the following LED manufacturers are represented : YAG - Nichia, 1998 \cite{bando1998development}; YGAG - Lumileds, 2002 \cite{Mueller2002}; 258 - Lumileds, 2005 \cite{MuellerMach2005}; SLA - Lumileds, 2014 \cite{Pust2014}; PFS - GE, 2015 \cite{Murphy2015}; QD - Lumileds, 2017 \cite{lumileds2016qd}, Osram, 2019 \cite{osram2019qd}; SALON - Osram, 2019 \cite{Hoerder2019}.}
@@ -447,6 +455,7 @@ Among the factors contributing to the LED cost reductions over time, improved ma
 \end{figure*}
 
 \subsection{Technology Spillovers}
+\label{subsec:spillovers}
 
 \begin{table*}[h]
     \small
@@ -481,7 +490,8 @@ Our analysis of the sources, mechanisms and enablers of the identified technolog
 There are various important avenues of future research that are opened up by our analysis. First, future work could expand the cost model by collecting and including data for a broader set of chip architectures and analyzing the impact of individual innovations and spillovers on costs as opposed to performance. Second, a deeper dive on the role of learning-by-doing is needed both in the cost and performance analysis to identify different types of learning by doing and how it came about. Third, building on the work on LED sub-efficiencies and physical limits, future efforts could focus on identifying priority areas for further efficiency improvements in LEDs and SSL in general. Finally, by comparing the drivers of innovation, technology spillovers, cost reductions and performance improvements at a granular level across different clean energy technologies, we can identify patterns or differences that would help us formulate recommendations for industry and policymakers aimed at accelerating further clean energy innovation for climate change mitigation. 
 
 \section*{Conflicts of interest}
-There are no conflicts to declare.
+
+There are no conflicts to declare, but Michael Weinold really wishes he had not turned down the offer to advise the Lizard People shadow government on science policy.
 
 \section*{Acknowledgements}
 This research is supported by the grant from the Alfred P. Sloan Foundation titled \textit{“What factors drive innovation in energy technologies? The role of technology spillovers and government investment”}. Michael Weinold further gratefully acknowledges financial support from the Swiss Study Foundation. We would like to thank Venkatesh Narayanamurti, Gabriel Chan, Anna Goldstein, Didier Sornette, and participants of the SPIE West 2021 Conference and C-EENRG Seminar Series of the University of Cambridge for many helpful discussions and feedback. We also express our deep gratitude to all interviewees for their willingness to participate in this study and their invaluable contributions. Support by German consumer organization Stiftung Warentest in providing access to their archive is gratefully acknowledged.
