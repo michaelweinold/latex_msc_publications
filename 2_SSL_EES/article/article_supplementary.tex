@@ -495,6 +495,70 @@ We note differences between our model and costs reported to the US Department of
 Figure \ref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the figures must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by figure \ref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
 
 \newpage
+\section{Identified LED Innovations}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{ |l|X|X|l|l| }
+        \multicolumn{5}{c}{Forward Voltage Efficiency (VFE) $\eta_{Vf}$} \\
+        \hline
+            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+        \hline
+            1983 & Indium Tin Oxide \newline Current Spreading Layer & Contact Resistance & Yes (T,S) & \cite{margalith1999indium}\\
+        \hline
+            1998 & Digited Electrodes & Contact Resistance & Weak & \cite{steigerwald2001electrode} \\
+        \hline
+            ongoing & Epitaxy Improvements \newline and better Doping & Polarization and \newline Bulk Resistance & No & I \\
+        \hline
+        $\sim$2000 & Silver p-Contacts & Contact Resistance & No & \cite{kondoh2001nitride} \\
+        \hline
+        \multicolumn{5}{c}{Light Extraction Efficiency (LEE) $\eta_{LE}$} \\
+        \hline
+            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+        \hline
+            $<$ 2003 & Optimization for  \newline Cavity Effects & Other & No & I, \cite{Shen2003} \\
+        \hline
+            (1973) 1993 & "Chip \newline Randomization" & Total Reflection \newline Absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
+        \hline
+            1993 & Thin-Film \newline Chip Architecture & Absorption & No & I, \cite{Schnitzer1993} \\
+        \hline
+            $<2001$ & Patterned Sapphire \newline Substrate  & Total Reflection \newline Absorption & Yes (T,S) & I, \cite{Tadatomo2001} \\
+        \hline
+            ongoing & Chip Design for \newline high LEE & Total Reflection \newline Absorption & No & I, \cite{Haerle2004} \\
+        \hline
+            $\sim$2000 & Silver p-Contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
+        \hline
+        \multicolumn{5}{c}{Internal Quantum Efficiency (IQE) $\eta_{IQ}$} \\
+        \hline
+            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+        \hline
+            1994 & DH & $>$ Radiative Recombination \newline Probability & No & \cite{Nakamura1994} \\
+        \hline
+            1996 & MQW & $>$ Radiative Recombination \newline Probability & No & \cite{Koike1996} \\
+        \hline
+            ongoing & Active Region \newline Doping & Both & No & I, \cite{schubert2018light} \\
+        \hline
+            ongoing & Epitaxy \newline Improvements & Both & No & I \\
+        \hline
+            ongoing & Chip Architecture \newline Improvements & Both & No & I \\
+        \hline
+        \multicolumn{5}{c}{(Phosphor) Conversion Efficiency (CE) $\eta_{C}$} \\
+        \hline
+            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+        \hline
+            ongoing & Lower Current Density & Current Density & No & I \\
+        \hline
+            ongoing & Epitaxy \newline Improvements & $\ominus/\oplus$ Distribution \newline Defect Density & No & I, \cite{bhardwaj2016progress} \\
+        \hline
+            ongoing & Chip Architecture \newline Improvements  & $\ominus/\oplus$ Distribution \newline Defect Density & No & I, \cite{Wildeson2017} \\
+        \hline
+            $<$ 2017 & Defect Getting \newline Underlayer & Defect Density & No & I, \cite{haller2017burying} \\
+        \hline
+        \end{tabularx}
+    \caption{Technology breakthroughs and spillovers related to improvements in forward voltage efficiency, light extraction efficiency, internal quantum efficiency and conversion efficiency. Year column indicates first identified use in solid-state lighting. S/O column indicates if the breakthrough has been identified as a spillover. Source column additionally indicates if the spillover has been identified as part of an expert interview (I). Spillover sources are indicated in brackets and follow the taxonomy developed in \cite{Stephan_2021}: Other technology (T), other sector (S), other scientific discipline (D).}
+    \label{tab:subeff_vfe}
+\end{table}
+
+\newpage
 \section{Phosphors}
 
 \subsection{History of Identifies Phosphor Inventions}
