@@ -14,7 +14,7 @@
 % fonts
 \usepackage{amsfonts}
 \usepackage{microtype}
-% figures
+% s
 \usepackage{graphicx}
 \usepackage{float}
 % math
@@ -33,9 +33,12 @@
 \usepackage{pdflscape}
 % chemical formulas
 \usepackage{chemformula}
+% smart references
+\usepackage{cleveref}
 
 \renewcommand{\figurename}{Figure SI}
 \renewcommand{\tablename}{Table SI}
+\renewcommand{\theequation}{SI \arabic{equation}}
 
 % this style is applied by default to any tikzpicture included via \tikzfig
 \tikzstyle{tikzfig}=[baseline=-0.25em,scale=0.5]
@@ -107,9 +110,9 @@
 
 \newpage
 
-\section{Lighting Metrics}
+\section{Additional Performance Metrics}
 
-\subsection{Luminous Efficacy (of Radiation)}
+\subsection{Luminous Efficacy of Radiation}
 \label{subsec:ler}
 
 Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength dependent human sensitivity to light \cite{cie-term-effrad}
@@ -127,11 +130,11 @@ where
     \lambda &\dots \text{wavelength}
 \end{align*}
 
-This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in figure \ref{fig:se_efficacy} in chapter \ref{ch:results}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation, as the product with the luminosity function of figure \ref{fig:tristimulus} shows. Care must be taken not to confuse this efficacy metric with efficacy of source, which depends not only on the spectral power distribution of a light source.
+This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in  \cref{fig:se_efficacy} in chapter \cref{ch:results}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation, as the product with the luminosity function of  \cref{fig:tristimulus} shows. Care must be taken not to confuse this efficacy metric with efficacy of source, which depends not only on the spectral power distribution of a light source.
 
-This metric describes the match of a light-emitting diode package spectrum to the human visual system. It thus describes only a part of the total device performance. 
+This metric describes the match of a light-emitting diode package spectrum to the human visual system.
 
-\subsection{Luminous Efficacy (of Source)}
+\subsection{Luminous Efficacy of Source}
 \label{subsec:les}
 
 In contrast to the efficacy \textit{of radiation} $K$, the luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power \cite{cie-term-effsrc}
@@ -142,11 +145,6 @@ In contrast to the efficacy \textit{of radiation} $K$, the luminous efficacy \te
 
 Unlike the luminous efficacy of radiation, this metric cannot be extracted from the spectrum of a light source. It is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with efficacy of radiation, which depends only on the spectral power distribution of a light source. As it captures overall device efficacy, it depends on a large number of device properties and parameters. This makes attribution to single changes in device design or manufacturing difficult.
 
-\subsection{Arbitrary Units}
-\label{subsec:arbunit}
-
-In spectroscopy, an arbitrary unit (abbreviated "Arb. Unit") is a relative unit of measurement to show the ratio of the intensity to a predetermined reference. In the case of Figure \ref{fig:phosphor_spectrum}, the reference is the highest point in the spectrum.
-
 \newpage
 \section{Manufacturing Cost Model}
 \label{sec:costmodel}
@@ -156,25 +154,25 @@ In spectroscopy, an arbitrary unit (abbreviated "Arb. Unit") is a relative unit 
 \begin{figure}[h!]
     \tikzfig{./figures/costmodel}
     \centering
-    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to cost model outputs. For description of cost variables, see definitions for equation \ref{eqn:cost_wafer}.}
+    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to cost model outputs. For description of cost variables, see definitions for equation \cref{eqn:cost_wafer}.}
     \label{fig:costmodel-schematic}
     \vspace{-8pt}
 \end{figure}
 
 The cost model adapted for this publication is a microeconomic manufacturing cost model. Within the timeframe and scope laid out in the main publication, it returns the total manufacturing cost of phosphor converted warm white light-emitting diode packages. In this computation, it considers the main economic factors associated with operating and maintaining manufacturing equipment. It does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters.
 
-A schematic diagram of the cost model developed in this thesis is presented in figure \ref{fig:costmodel-schematic}. The cost model is process step based. It is split between the upstream part of the manufacturing process and the downstream part of the manufacturing process. The former is performed at the wafer level. The latter is performed at the package level. The model takes as inputs both parameters specific to manufacturing process steps (\textit{"step parameters"}) and parameters applying to all manufacturing steps (\textit{"global steps"}). The cost for each process step is then computed. The cost model returns the total and step manufacturing costs. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
+A schematic diagram of the cost model developed is presented in  \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the upstream part of the manufacturing process and the downstream part of the manufacturing process. The former is performed at the wafer level. The latter is performed at the package level. The model takes as inputs both parameters specific to manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
 
-\subsection{Examples of Chip Architectures}
+\subsection{Manufacturing Process Steps by Chip Architecture}
 
-Figures \ref{fig:manuf_vtf_2012-1}-\ref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of two differente chip architectures considered in the cost model.
+Figures \cref{fig:manuf_vtf_2012-1}-\cref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of three different chip architectures considered in the cost model.
 
     %VERTICAL THIN-FILM FLIP-CHIP
 
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=595pt]{./figures/vtf_overview_2012-1.pdf}
-            \caption{(1/2) Manufacturing process for a vertical thin-film  package flip-chip LED chip with vertical current spreading, circa 2012. Continued on next page.}
+            \caption{(1/2) Manufacturing process for a vertical thin-film  package flip-chip LED chip with vertical current spreading, circa 2012. Abbreviations: MQW - multiple quantum well; LLO - laser lift-off. Continued on next page.}
             \label{fig:manuf_vtf_2012-1}
         \end{figure}
     \end{landscape}
@@ -182,7 +180,7 @@ Figures \ref{fig:manuf_vtf_2012-1}-\ref{fig:manuf_csp_2020-2} show a simplified 
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=595pt]{./figures/vtf_overview_2012-2.pdf}
-            \caption{(2/2) Continued from previous page.}
+            \caption{(2/2) Continued from previous page. Abbreviations: Encaps. - encapsulation.}
             \label{fig:manuf_vtf_2012-2}
         \end{figure}
     \end{landscape}
@@ -192,7 +190,7 @@ Figures \ref{fig:manuf_vtf_2012-1}-\ref{fig:manuf_csp_2020-2} show a simplified 
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=595pt]{./figures/csp_overview_2020-1.pdf}
-            \caption{(1/2) Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. Continued on next page.}
+            \caption{(1/2) Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. Abbreviations: MQW - multiple quantum well. Continued on next page.}
             \label{fig:manuf_csp_2020-1}
         \end{figure}
     \end{landscape}
@@ -200,18 +198,18 @@ Figures \ref{fig:manuf_vtf_2012-1}-\ref{fig:manuf_csp_2020-2} show a simplified 
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=595pt]{./figures/csp_overview_2020-2.pdf}
-            \caption{(2/2) Continued from previous page.}
+            \caption{(2/2) Continued from previous page. Abbreviations: Encaps. - encapsulation.}
             \label{fig:manuf_csp_2020-2}
         \end{figure}
     \end{landscape}
 
 \subsection{Computation of Manufacturing Cost}
 
-The manufacturing process of semiconductor devices can be categorized by the level of integration at which steps are implemented. While the upstream steps in the manufacturing flow are carried out at the wafer level, the packaging steps are typically carried out at the die/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
+The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. While the upstream steps in the manufacturing flow are carried out at the wafer level, the packaging steps are typically carried out at the die/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
 
 \begin{equation}
 \label{eqn:cost_sum}
-    C \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] = P_S + C_w + C_p
+    C \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = P_S + C_w + C_p
 \end{equation}
 
 where
@@ -233,15 +231,15 @@ The cost of a single process step $C_i$ can now be written as
 
 \begin{equation}
 \label{eqn:cost_wafer}
-    C_i \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
 \end{equation}
 
 where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the indices $x,y$ run over all materials.
 
 \begin{align*}
-        D &\dots \text{good die per wafer} \label{def:cost_wafer_first} \\
+        D &\dots \text{functional die per wafer (tested successfully)} \label{def:cost_wafer_first} \\
         y &\dots \text{process step yield} \\
-        u &\dots \text{equipment utilization} \\
+        u &\dots \text{equipment utilization (in relation to theoretical equipment capacity)} \\
         p &\dots \text{power consumption} \\
         e &\dots \text{hourly electricity cost} \\
         m &\dots \text{hourly maintenance cost} \\
@@ -251,20 +249,20 @@ where the index $i$ runs over all wafer processing steps, the index $j$ runs ove
         t_i &\dots \text{time per run} \\
         w &\dots \text{wafers per run} \\
         A &\dots \text{wafer area} \\
-        v_x &\dots \text{volume of substance per wafer} \\
-        p_x &\dots \text{price of substance $x$ per volume}\\
+        v_x &\dots \text{volume of material $x$ per wafer} \\
+        p_x &\dots \text{price of material $x$ per volume}\\
 \end{align*}
 
-The number of die per wafer $D$ depends on the total USAble wafer area. The USAble area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
+The number of die per wafer $D$ depends on the total usable wafer area. The usable area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
 
 \begin{equation}
-	A_{\text{USAble}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
+	A_{\text{usable}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
 \end{equation}
 
-Determining the USAble wafer area as a of these three parameters requires a numerical solution. However, following discussions in literature \cite{de2005investigation}, we approximate the number of good die per wafer as
+Determining the usable wafer area as a function of these three parameters requires a numerical solution. However, following discussions in the literature \cite{de2005investigation}, we approximate the number of functional die per wafer\footnote{often \textit{"good die per wafer"} in the literature} as
 
 \begin{equation}
-label{eqn:dpw}
+\label{eqn:dpw}
 	D=\frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2}
 \end{equation}
 
@@ -277,12 +275,19 @@ where
     s &\dots \text{cutting street width} \\
 \end{align*}
 
-which gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5.5cm]{./figures/die-per-wafer.pdf}
+    \caption{Number of die per wafer for the different wafer sized used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW to $d(2020)=200$mm$\rightarrow26,838$DPW. Source: own elucidations, based on equation \cref{eqn:dpw}.}
+    \label{fig:dpw}
+\end{figure}
+
+Results are plotted in Figure \cref{fig:dpw}, showing the increase in die per wafer (DPW). Equation \cref{eqn:dpw} then gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
 
 \begin{equation}
 \label{eqn:cost_wafer_full}
 \begin{split}
-    C_i \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
     &  \frac{1}{y_i}  \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
 \end{split}
 \end{equation}
@@ -291,7 +296,7 @@ and the cost of a manufacturing step $C_j$ in the packaging category
 
 \begin{equation}
 \label{eqn:cost_die}
-    C_j \bigg[ \frac{ \$(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((e*p) + l + m + d + o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x p_x \bigg\}
+    C_j \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((e*p) + l + m + d + o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x p_x \bigg\}
 \end{equation}
 
 where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
@@ -303,11 +308,11 @@ where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
 \end{split}
 \end{equation}
 
-Note that in keeping with the categorization introduced by the United States Department of energy, certain steps from these two categories are reported separately. In the wafer processing category, the epitaxy step is reported separately due to its complexity and the large share of cost carried. In the wafer processing category, the phosphor step is reported separately.
+Note that in keeping with the categorization introduced by the United States Department of Energy (cf. eg. \cite{doe_ssl_rnd_2019}), certain steps from these two categories are reported separately. In the wafer processing category, the epitaxy step is reported separately due to its complexity and the large share of cost carried. In the wafer processing category, the phosphor step is reported separately.
 
 \subsection{Computation of Yielded Cost}
 
-Devices may be damaged or otherwise rendered unUSAble during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in  \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
+Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
 
 \begin{equation}
 \begin{split}
@@ -326,20 +331,20 @@ If a step is applied more than once, we can conveniently rewrite this in a form 
     &= \frac{1}{Y_1 Y_2^2} \bigg( C_1 (1-Y_2^2) +2C_2 \bigg)
 \end{align}
 
-which can be compared to equation \ref{eqn:C_2} for a more general form.
+which can be compared to equation \cref{eqn:C_2} to find a more general form:
 
 \begin{equation}
-    C_2^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
+    C_{Y_2}^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
 \end{equation}
 
-Omitting a proof by induction, we get for the general term for a step $i>1$ repeated $n$ times an equation of the form
+It can be shown by induction that the general term for a step $i>1$ repeated $n$ times gives an equation of the form:
 
 \begin{equation}
 \label{eqn:yielded_cost}
     C_{Y_{i>1}}^{(n \times)} = \frac{1}{Y_i^{n-1} \prod_{x \leq i} Y_x} \bigg( nC_i + \sum_{x < i} C_x (1-Y_i^n) \bigg)
 \end{equation}
 
-This cummulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. The yielded cost of a single process step $f$ is described by
+This cumulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in the literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. Using this approach, the yielded cost of a single process step $f$ is described by
 
 \begin{equation}
 	f_\text{single} = \frac{i+s}{y}
@@ -366,11 +371,11 @@ This itemized approach serves as a convenient approximation, but its cumulative 
     f_\text{total} = \frac{\sum_i^n s_i}{\prod_i^ny_i} \neq \sum_i^n f_i
 \end{equation}
 
-where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in equation \ref{eqn:series}.
+where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in equation \cref{eqn:series}.
 
 \subsection{Computation of the Contribution of Variables}
 
-To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \ref{eqn:cost_wafer} and \ref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
+To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
 
 \begin{equation}
 C=ab+cd
@@ -382,7 +387,7 @@ and manufacturing variables $a,b,c,d$, we are looking for the contribution $\Del
 \Delta C = C(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta C_i
 \end{equation}
 
-The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \ref{eqn:cost_sum} as
+The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \cref{eqn:cost_sum} as
 
 \begin{equation}
 \text{d}C(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial C }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial C }{\partial x_i}  \Delta x_i
@@ -409,7 +414,7 @@ where
 C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
 \end{equation}
 
-Using logarithmic differentiation, the integral from equation \ref{eqn:integral_1} can be rewritten as
+Using logarithmic differentiation, the integral from equation \cref{eqn:integral_1} can be rewritten as
 
 \begin{equation}
 \Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
@@ -421,13 +426,13 @@ where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\
 \Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
 \end{equation}
 
-This approach was used to determine the effect of spillovers on device performance, displayed in figure \ref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of equation \ref{eqn:cost_sum}, could this method.
+This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of equation \cref{eqn:cost_sum}, could this method.
 
 \subsection{Examples of Input Data Considered}
 
 \subsubsection{Sapphire Wafers}
 
-Sapphire wafers form the substrate on which all other layers of the light-emitting diode wafer are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace in 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in figure \ref{fig:sapphire_prices}. This can be attributed not only to the lighting industry, but more importantly to increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market is dominated by U.S. based \textit{Rubicon Technology} and Russian based \textit{Monocrystal}. The prevalence of wafer diameters used is shown in figure \ref{fig:wafer_size}.
+Sapphire wafers form the substrate on which all other layers of the light-emitting diode wafer are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace in 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in  \cref{fig:sapphire_prices}. This can be attributed not only to the lighting industry, but more importantly to increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market is dominated by U.S. based \textit{Rubicon Technology} and Russian based \textit{Monocrystal}. The prevalence of wafer diameters used is shown in  \cref{fig:wafer_size}.
 
 \begin{figure}[h!]
     \includegraphics[width=14.5cm]{./figures/wafer_size.pdf}
@@ -441,11 +446,11 @@ Sapphire wafers form the substrate on which all other layers of the light-emitti
 \begin{figure}[h]
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_sensitivity.pdf}
-	\caption{Sensitivity analysis of selected cost model parameters. Note the decreasing sensitivity to cost model parameters as the number of die per wafer increases. Compare table \ref{tab:sensitivity}. Abbreviations: resp. - respective}
+	\caption{Sensitivity analysis of selected cost model parameters. Note the decreasing sensitivity to cost model parameters as the number of die per wafer increases. Compare table \cref{tab:sensitivity}. Abbreviations: resp. - respective}
 	\label{fig:sensitivity}
 \end{figure}
 
-A sensitivity analysis of the cost model has been performed using parameter variations listed in table \ref{tab:sensitivity}. The amount of parameter variation was chosen to encompass the identified range of the value of the parameter in different manufacturing setups of each considered year. As an example, the lower range in the variation for metal cost (+50\%,-0\%) was chosen because the metal prices in the model are price quotes from the United State Geological Survey price database. Industry metals are not sold below the price of the raw material and often the markup is small compared to the price of the material. The upper range was chosen, because a survey of industrial metal suppliers for semiconductor manufacturing showed that the largest markup was below 50\%. The results of the analysis are shown in figure \ref{fig:sensitivity}. The cost model is generally more sensitive to variation of parameters at smaller wafer diameters. The most sensitive parameters are global parameters, such as yield or average equipment throughput.
+A sensitivity analysis of the cost model has been performed using parameter variations listed in table \cref{tab:sensitivity}. The amount of parameter variation was chosen to encompass the identified range of the value of the parameter in different manufacturing setups of each considered year. As an example, the lower range in the variation for metal cost (+50\%,-0\%) was chosen because the metal prices in the model are price quotes from the United State Geological Survey price database. Industry metals are not sold below the price of the raw material and often the markup is small compared to the price of the material. The upper range was chosen, because a survey of industrial metal suppliers for semiconductor manufacturing showed that the largest markup was below 50\%. The results of the analysis are shown in  \cref{fig:sensitivity}. The cost model is generally more sensitive to variation of parameters at smaller wafer diameters. The most sensitive parameters are global parameters, such as yield or average equipment throughput.
 
 \begin{table}[H]
 \small
@@ -453,11 +458,11 @@ A sensitivity analysis of the cost model has been performed using parameter vari
         \hline
             \textit{Parameter} & \textit{Unit} & \textit{2003} & $\pm [\%]$ & \textit{2012} & $\pm [\%]$ & \textit{2020} & $\pm [\%]$ & \textit{Source} \\
         \hline
-            Cleanroom Cost & \$/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & Figure \ref{fig:electricity+cleanroom_prices} \\
+            Cleanroom Cost & \text{USD}/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & Figure \cref{fig:electricity+cleanroom_prices} \\
         \hline
             Manhours & FTE & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & I \\
         \hline
-            Equip. Discount & \% of \$ & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I, \cite{Appleyard2001} \\
+            Equip. Discount & \% of \text{USD} & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I, \cite{Appleyard2001} \\
         \hline
             Overall Yield & \% & 100\% & +25,-25 & 100\% & +25,-15 & 100\% & +25,-25 & I, \cite{lumi2012yield}\cite{ledsmag2012} \newline \cite{systemplus2015reverse}\cite{ledcomv2} \\
         \hline
@@ -465,22 +470,22 @@ A sensitivity analysis of the cost model has been performed using parameter vari
         \hline
             Overall Throughput & UPH or h$^{-1}$ & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & Datasheets \\
         \hline
-            Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I, Figure \ref{fig:wafer_size} \\
+            Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I, Figure \cref{fig:wafer_size} \\
         \hline
             Edge Exclusion & mm & 7 & +0,-50 & 5 & +40,-0 & 5 & +40,-20 & \cite{ledsmagexclusion}\cite{rubiconexclusion} \newline \cite{xiamenexclusion}\cite{american2007annual} \\
         \hline
             Cutting Width & $\mu$m & 100 & +50,-25 & 75 & +33.3,-20 & 20 & +300,-50 & \cite{masaki2000division}\cite{ils2005width} \newline \cite{photonics2010width}\cite{discowidth} \\
         \hline
-            Metal Prices & \$/kg & 100\% & +50,-0 & 100\% & +50,-0 & 100\% & +50,-0 & Datasheets \\
+            Metal Prices & \text{USD}/kg & 100\% & +50,-0 & 100\% & +50,-0 & 100\% & +50,-0 & Datasheets \\
         \hline
-            Electricity Price & \$/kWh & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
+            Electricity Price & \text{USD}/kWh & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
         \hline
-            Saph. Subst. Price & \$ & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & Figure \ref{fig:sapphire_prices} \\
+            Saph. Subst. Price & \text{USD} & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & Figure \cref{fig:sapphire_prices} \\
         \hline
-            Phosphor Prices & \$/g & 100\% & +50,-50 & 150 & +0,-0 & 200 & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
+            Phosphor Prices & \text{USD}/g & 100\% & +50,-50 & 150 & +0,-0 & 200 & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
         \hline
         \end{tabularx}
-    \caption{Cost model sensitivity analysis parameter list. For the sensitivity analysis performed using these variables, see figure \ref{fig:sensitivity}. Units for values in columns \textit{2002}-\textit{2020} are indicated in column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead are given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines.}
+    \caption{Cost model sensitivity analysis parameter list. For the sensitivity analysis performed using these variables, see  \cref{fig:sensitivity}. Units for values in columns \textit{2002}-\textit{2020} are indicated in column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead are given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines.}
     \label{tab:sensitivity}
 \end{table}
 
@@ -491,11 +496,11 @@ We note differences between our model and costs reported to the US Department of
 \begin{figure}[h]
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_calibration.pdf}
-	\caption{Modelled manufacturing cost for light-emitting diode packages split by manufacturing step category. The top graph shows the data from LEDCOM model and round table discussions published by the United States Department of Energy (DoE). The bottom graph shows the results of the cost model developed in this thesis. Hatched bars are projections given by the sources. Inset plot shows the number of die per wafer (DPW) calculated for different wafer sizes used in the model. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in Section \ref{sec:costmodel}. Sources for Inset Plot: own elaborations based on numerical approximations for die-per-wafer estimations provided in \cite{de2005investigation}, informed by expert interviews.}
+	\caption{Modelled manufacturing cost for light-emitting diode packages split by manufacturing step category. The top graph shows the data from LEDCOM model and round table discussions published by the United States Department of Energy (DoE). The bottom graph shows the results of the cost model developed in this thesis. Hatched bars are projections given by the sources. Inset plot shows the number of die per wafer (DPW) calculated for different wafer sizes used in the model. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in Section \cref{sec:costmodel}. Sources for Inset Plot: own elaborations based on numerical approximations for die-per-wafer estimations provided in \cite{de2005investigation}, informed by expert interviews.}
 	\label{fig:costmodel_calibration}
 \end{figure}
 
-Figure \ref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the figures must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by figure \ref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
+Figure \cref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the s must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by  \cref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
 
 \section{Identified LED Innovations}
 
@@ -592,7 +597,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 \begin{figure}[H]
 	\centering
     \includegraphics[width=0.95\textwidth]{2_SSL_EES/article/figures/phosphor_spectrum-comparison.pdf}
-	\caption{Two key metrics associated with red phosphor innovations in light-emitting diodes and their associated spectral data. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Main Article Figure 7 (Historical Improvements in Consumer Experience Metrics of Phosphor-Converted White LED). Years indicate the earliest identified representative white LED products with published spectral data that used phosphor innovations listed in Main Article Table 2. The desirable direction of improvements towards higher luminous efficacy at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the two bottom rows using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: Corresponding spectral data. The luminosity function, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable. This is because photons of the corresponding energy are lost to the human observer and count towards the spectral loss channel. Abbreviations: Arb. Units - Arbitrary Units (compare section \ref{subsec:arbunit}). Plot legends indicate the years of publication of the spectral data and phosphor mixtures used with the following designations: ? -  other parts of phosphor mixture not disclosed, $^*$ - \ch{CaSrS:Eu^{2+}}, $^\star$ - $\beta-$SiAlON:Eu$^{2+}$, $^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, $^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Full chemical formulas for displayed phosphors: \ch{Sr[Li2Al2O2N2]:Eu^{2+}}(SALON), \ch{Sr[LiAl_3N_4]:Eu^{2+}} (SLA), \ch{K2SiF6:Mn^{4+}} (PFS), \ch{Sr2Si5N8:Eu^{2+}} (258), Quantum Dots (QD). Source (top panel): own elaboration based on spectral data. Source (spectral data): adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
+	\caption{Two key metrics associated with red phosphor innovations in light-emitting diodes and their associated spectral data. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Main Article Figure 7 (Historical Improvements in Consumer Experience Metrics of Phosphor-Converted White LED). Years indicate the earliest identified representative white LED products with published spectral data that used phosphor innovations listed in Main Article Table 2. The desirable direction of improvements towards higher luminous efficacy at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the two bottom rows using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: Corresponding spectral data. The luminosity function, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable. This is because photons of the corresponding energy are lost to the human observer and count towards the spectral loss channel. Abbreviations: Arb. Units - Arbitrary Units (compare section \cref{subsec:arbunit}). Plot legends indicate the years of publication of the spectral data and phosphor mixtures used with the following designations: ? -  other parts of phosphor mixture not disclosed, $^*$ - \ch{CaSrS:Eu^{2+}}, $^\star$ - $\beta-$SiAlON:Eu$^{2+}$, $^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, $^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Full chemical formulas for displayed phosphors: \ch{Sr[Li2Al2O2N2]:Eu^{2+}}(SALON), \ch{Sr[LiAl_3N_4]:Eu^{2+}} (SLA), \ch{K2SiF6:Mn^{4+}} (PFS), \ch{Sr2Si5N8:Eu^{2+}} (258), Quantum Dots (QD). Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Source (spectral data): adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
 \label{fig:phosphor_spectrum}
 \end{figure}
 
@@ -629,7 +634,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \subsection{Figure 1 (Historical Development of Luminous Efficacy)}
 
-The complete list of sources is organized by the different technologies described in the figure:
+The complete list of sources is organized by the different technologies described in the :
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
@@ -701,7 +706,7 @@ The complete list of sources is organized by different sources:
 
 \subsection{Figure 4 (Historical Developments in Device Sub-Efficiencies)}
 
-The complete list of sources is organized by the sub-efficiencies (panels) described in the figure:
+The complete list of sources is organized by the sub-efficiencies (panels) described in the :
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
