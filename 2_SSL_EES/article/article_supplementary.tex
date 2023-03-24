@@ -525,79 +525,83 @@ We note differences between our model and costs reported to the US Department of
 
 \cref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the s must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by  \cref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
 
-\section{Identified LED Innovations}
+\section{Non-Phosphor-Related LED Innovations}
+
+This section summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting key white LED sub-efficiencies, as discussed in section 5.1 and shown in Figures 4-6 in the main article. Note that phosphor-related LED innovations affecting consumer experience metrics, along with spectral efficiency, are presented separately in Table 1 in the main publication and discussed in detail in \cref{sec:innovation_phosphor}.
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{ |l|X|X|l|l| }
         \multicolumn{5}{c}{Forward Voltage Efficiency (VFE) $\eta_{Vf}$} \\
         \hline
-            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+            \textit{Year} & \textit{Innovation} & \textit{Area of Improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            1983 & Indium Tin Oxide \newline Current Spreading Layer & Contact Resistance & Yes (T,S) & \cite{margalith1999indium}\\
+            1999 & Indium Tin Oxide \newline Current spreading layer & Contact resistance & Yes & \cite{margalith1999indium}\\
         \hline
-            1998 & Digited Electrodes & Contact Resistance & Weak & \cite{steigerwald2001electrode} \\
+            1998 & Digitated electrodes & Contact resistance & No & \cite{steigerwald2001electrode} \\
         \hline
-            ongoing & Epitaxy Improvements \newline and better Doping & Polarization and \newline Bulk Resistance & No & I \\
+            ongoing & Epitaxy improvements \newline and better doping & polarization and \newline bulk resistance & No & I \\
         \hline
-        $\sim$2000 & Silver p-Contacts & Contact Resistance & No & \cite{kondoh2001nitride} \\
+            1998 & Silver p-Contacts & Contact resistance & No & \cite{kondoh2001nitride} \\
         \hline
-        \multicolumn{5}{c}{Light Extraction Efficiency (LEE) $\eta_{LE}$} \\
+        \multicolumn{5}{c}{Light extraction efficiency (LEE) $\eta_{LE}$} \\
         \hline
-            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            $<$ 2003 & Optimization for  \newline Cavity Effects & Other & No & I, \cite{Shen2003} \\
+            $<$ 2003 & Optimization for \newline cavity effects & Other & No & I, \cite{Shen2003} \\
         \hline
-            (1973) 1993 & "Chip \newline Randomization" & Total Reflection \newline Absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
+            1993 & Chip surface randomization & Total reflection \newline Absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
         \hline
-            1993 & Thin-Film \newline Chip Architecture & Absorption & No & I, \cite{Schnitzer1993} \\
+            1993 & Thin-Film \newline Chip architecture & Absorption & No & I, \cite{Schnitzer1993} \\
         \hline
-            $<2001$ & Patterned Sapphire \newline Substrate  & Total Reflection \newline Absorption & Yes (T,S) & I, \cite{Tadatomo2001} \\
+            1996 & Patterned sapphire \newline Substrate  & Total reflection \newline Absorption & Yes & I, \cite{Tadatomo2001} \\
         \hline
-            ongoing & Chip Design for \newline high LEE & Total Reflection \newline Absorption & No & I, \cite{Haerle2004} \\
+            ongoing & Chip design for \newline high LEE & total reflection \newline Absorption & No & I, \cite{Haerle2004} \\
         \hline
-            $\sim$2000 & Silver p-Contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
+            $\sim$2000 & Silver p-contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
         \hline
-        \multicolumn{5}{c}{Internal Quantum Efficiency (IQE) $\eta_{IQ}$} \\
+        \multicolumn{5}{c}{Internal quantum efficiency (IQE) $\eta_{IQ}$} \\
         \hline
-            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            1994 & DH & $>$ Radiative Recombination \newline Probability & No & \cite{Nakamura1994} \\
+            1994 & DH & Higher radiative recombination \newline Probability & No & \cite{Nakamura1994} \\
         \hline
-            1996 & MQW & $>$ Radiative Recombination \newline Probability & No & \cite{Koike1996} \\
+            1996 & multiple quantum well & Higher radiative recombination \newline Probability & No & \cite{Koike1996} \\
         \hline
-            ongoing & Active Region \newline Doping & Both & No & I, \cite{schubert2018light} \\
+            ongoing & Active region \newline Doping & Both & No & I, \cite{schubert2018light} \\
         \hline
             ongoing & Epitaxy \newline Improvements & Both & No & I \\
         \hline
-            ongoing & Chip Architecture \newline Improvements & Both & No & I \\
+            ongoing & Chip architecture \newline Improvements & Both & No & I \\
         \hline
-        \multicolumn{5}{c}{(Phosphor) Conversion Efficiency (CE) $\eta_{C}$} \\
+        \multicolumn{5}{c}{Light Conversion efficiency (CE) $\eta_{C}$} \\
         \hline
-            \textit{Year} & \textit{Breakthrough} & \textit{Affects} & \textit{S/O} & \textit{Source} \\
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            ongoing & Lower Current Density & Current Density & No & I \\
+            ongoing & Lower current density & Current density & No & I \\
         \hline
-            ongoing & Epitaxy \newline Improvements & $\ominus/\oplus$ Distribution \newline Defect Density & No & I, \cite{bhardwaj2016progress} \\
+            ongoing & Epitaxy \newline Improvements & Charge distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
         \hline
-            ongoing & Chip Architecture \newline Improvements  & $\ominus/\oplus$ Distribution \newline Defect Density & No & I, \cite{Wildeson2017} \\
+            ongoing & Chip architecture \newline improvements  & Charge distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
         \hline
-            $<$ 2017 & Defect Getting \newline Underlayer & Defect Density & No & I, \cite{haller2017burying} \\
+            $<$ 2017 & Defect getting \newline underlayer & Defect Density & No & I, \cite{haller2017burying} \\
         \hline
         \end{tabularx}
-    \caption{Technology breakthroughs and spillovers related to a subset of the sub-efficiencies considered. For a list of innovations in spectral efficiency, compare Table 1 in the main article. Listed are improvements in forward voltage efficiency, light extraction efficiency, internal quantum efficiency and conversion efficiency. No  Year column indicates first identified use in solid-state lighting. S/O column indicates if the breakthrough has been identified as a spillover. Source column additionally indicates if the spillover has been identified as part of an expert interview (I). Spillover sources are indicated in brackets and follow the taxonomy developed in \cite{Stephan_2021}: Other technology (T), other sector (S), other scientific discipline (D). }
+    \caption{LED innovations and technology improvements affecting key white LED device sub-efficiencies. The table includes innovations and technology improvements affecting forward voltage efficiency, light extraction efficiency, internal quantum efficiency, and light conversion efficiency. For a list of innovations affecting spectral efficiency, see Table 1 in the main article. Year column indicates the first instance of application of corresponding invention in white LEDs. Spillover column indicates if the innovation involved technology spillovers. Source column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source. Source column additionally indicates if the spillover has been identified as part of an expert interview (I).}
     \label{tab:innovations}
 \end{table}
 
-\newpage
-\section{Phosphors}
+\section{Phosphor-Related LED Innovations}
+\label{sec:innovation_phosphor}
 
-\subsection{History of Identifies Phosphor Inventions}
+This section provides additional details for phosphor-related LED innovations identified in this study as affecting both spectral sub-efficiences and consumer experience metrics and discussed in \cref{subsec:metrics}, Table 1 and Figures 5-7 in the main article. 
+
+\subsection{History of Identified Phosphor-Related LED Innovations"}
 
 \subsubsection{YAG and YGAG Phosphors}
 
 Prior to Nakamura’s invention of highly efficient blue LEDs in the 1990s, Japan’s Nichia Corporation had not sold commercially successful semiconductor products, instead specializing in phosphors for cathode ray tubes (CRT) and fluorescent lamps \cite{nakamura2013blue}  . Nevertheless, extensive firm expertise in this area helped Nichia’s Yoshinori Shimizu formulate the principles of using CRT phosphors to convert blue light from Nakamura’s LEDs into white light in 1994 \cite{shimizu1994sheet}\cite{cho2017white}. By 1996, Shimizu and his colleagues developed \cite{bando1996}\cite{shimizu1999light} the first practical LED application of a well-known Yttrium Aluminium Garnet (YAG) CRT phosphor activated with cerium \cite{blasse1967new}, enabling the first commercial white LED products manufactured and sold by Nichia since late 1996 \cite{bando1998development}\cite{cho2017white}. 
 
-Importantly, the YAG phosphor does not exhibit the spectral properties desirable in general illumination applications (see Figure 8 in the main text). An early solution to this problem, which was first discovered in the late 1967 \cite{holloway1969optical} and suggested for LEDs by the same team at Nichia in 1996 \cite{bando1998development}\cite{shimizu1999light}, was to use the gadolinium-doped red-shifted YAG phosphor (YGAG). Used in combination with red-emitting sulfide phosphors, by 2002 it helped bring to the market the first generation of warm white light LED products, e.g., those produced by Lumileds \cite{Mueller2002}. However, sulfide phosphors led to accelerated deterioration of sensitive parts of LED devices and became less efficient as operating temperatures increased. New chemically stable and non-toxic red phosphors were needed. 
+Importantly, the YAG phosphor does not exhibit the spectral properties desirable in general illumination applications (see Figure 7 in the main article). An early solution to this problem, which was first discovered in the late 1967 \cite{holloway1969optical} and suggested for LEDs by the same team at Nichia in 1996 \cite{bando1998development}\cite{shimizu1999light}, was to use the gadolinium-doped red-shifted YAG phosphor (YGAG). Used in combination with red-emitting sulfide phosphors, by 2002 it helped bring to the market the first generation of warm white light LED products, e.g., those produced by Lumileds \cite{Mueller2002}. However, sulfide phosphors led to accelerated deterioration of sensitive parts of LED devices and became less efficient as operating temperatures increased. New chemically stable and non-toxic red phosphors were needed. 
 
 \subsubsection{258, SLA and SALON phosphors}
 
@@ -605,49 +609,49 @@ In 1997, Hubert Huppertz and Wolfgang Schnick, working at the University of Bayr
 
 Further efforts in LED phosphor development were directed towards synthesizing a red narrow-band phosphor. Narrow LED emission peak widths yield the highest luminous efficacy of radiation, as in this case less light is emitted in the far-red range of the spectrum in which the human eye is not very sensitive. After synthesizing several narrow-band phosphors emitting in yellow \cite{Hppe2004} and cyan \cite{Kechele2009}, the Schnick’s group identified the local cubic cation coordination structure of the cyan phosphor compound as the reason for its narrow band width \cite{lumi2016narrow}. A search for a structurally analogous nitride compound with the narrow red instead of the cyan emission was undertaken. After several unsuccessful attempts, the sought-after cuboidal nitride compound was found in a 2008 publication led by Francis DiSalvo \cite{Park2008Sr}. Based on information provided in this work, Schnick and colleagues synthesized and studied the spectral properties of a new narrow band red SLA phosphor in 2013 \cite{schmidt2013new}\cite{Pust2014}\cite{schmidt2017phosphors}. The material was introduced in commercial LED devices by Lumileds in 2015 \cite{lumi2016narrow_whitepaper}. 
 
-The most recent red narrow-band phosphor breakthrough included in Table 3 and Figure 8 in the main text, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first patent application for this phosphor was filed in 2016. The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
+The most recent red narrow-band phosphor innovation included in Table 1 and Figure 7 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first patent application for this phosphor was filed in 2016 . The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
 
 \subsubsection{PFS Phosphor}
 
-Down conversion with ultra-narrow-band phosphor can achieve the highest spectral efficiency. However, few such phosphors have been identified, with even less exhibiting desirable material properties such as thermal stability \cite{Phillips2007}. The first commercially successful ultra-narrow-band red phosphor was developed by General Electric (GE). It is based on a potassium fluorosilicate (PFS) compound activated with manganese ions. Its luminescence was first recorded by Paulusz at GE in 1972 \cite{paulusz1973efficient}. In the early 2000s, while searching for potential new LED phosphor materials for GE’s lighting business at GE Lumination, Emil Radkov rediscovered Paulusz’s findings in the literature. Following extensive research on PFS chemical synthesis and material properties conducted in collaboration with the University of Sofia in Bulgaria, Radkov’s Alma Mater, the PFS phosphor had been under development at GE since 2005 \cite{radkov2006red}\cite{radkov2009red}. This work, supported by public funding from the U.S. Department of Energy (DOE) Solid-State Lighting program , resulted in a series of critical improvements in the PFS phosphor properties \cite{Setlur2010}\cite{lyons2012color}, eventually enabling its commercialization under the “TriGain” brand in 2015 \cite{trigain_spectrum}\cite{setlur2015trigain}\cite{Murphy2015}.
+Down conversion with ultra-narrow-band phosphor can achieve the highest spectral efficiency. However, few such phosphors have been identified, with even less exhibiting desirable material properties such as thermal stability \cite{Phillips2007}. The first commercially successful ultra-narrow-band red phosphor was developed by General Electric (GE). It is based on a potassium fluorosilicate (PFS) compound activated with manganese ions. Its luminescence was first recorded by Adrian Paulusz at GE in 1972 \cite{paulusz1973efficient}. In the early 2000s, while searching for potential new LED phosphor materials for GE’s lighting business at GE Lumination, Emil Radkov rediscovered Paulusz’s findings in the literature. Following extensive research on PFS chemical synthesis and material properties conducted in collaboration with the University of Sofia in Bulgaria, Radkov’s Alma Mater, the PFS phosphor had been under development at GE since 2005 \cite{radkov2006red}\cite{radkov2009red}. This work, supported by public funding from the U.S. Department of Energy (DOE) Solid-State Lighting program \cite{doesslprogram}, resulted in a series of critical improvements in the PFS phosphor properties \cite{Setlur2010}\cite{lyons2012color}, eventually enabling its commercialization under the “TriGain” brand in 2015 \cite{trigain_spectrum}\cite{setlur2015trigain}\cite{Murphy2015}.
 
 \subsubsection{Quantum Dots for Light Down-Conversion}
 
-Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{chen_white-light_2005}\cite{hsueh-shih_chen_ingan-cdse-znse_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
+Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{Chen_2005}\cite{Hsueh_Shih_Chen_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
 
-\subsection{Spectral Data of Identified LED Phosphor Innovations}
+\subsection{Spectral Data for Identified LED Phosphor Innovations}
 
 \begin{figure}[H]
 	\centering
     \includegraphics[width=0.95\textwidth]{2_SSL_EES/article/figures/phosphor_spectrum-comparison.pdf}
-	\caption{Two key metrics associated with red phosphor innovations in light-emitting diodes and their associated spectral data. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Main Article Figure 7 (Historical Improvements in Consumer Experience Metrics of Phosphor-Converted White LED). Years indicate the earliest identified representative white LED products with published spectral data that used phosphor innovations listed in Main Article Table 2. The desirable direction of improvements towards higher luminous efficacy at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the two bottom rows using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: Corresponding spectral data. The luminosity function, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable. This is because photons of the corresponding energy are lost to the human observer and count towards the spectral loss channel. Abbreviations: Arb. Units - Arbitrary Units (compare section \cref{subsec:arbunit}). Plot legends indicate the years of publication of the spectral data and phosphor mixtures used with the following designations: ? -  other parts of phosphor mixture not disclosed, $^*$ - \ch{CaSrS:Eu^{2+}}, $^\star$ - $\beta-$SiAlON:Eu$^{2+}$, $^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, $^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Full chemical formulas for displayed phosphors: \ch{Sr[Li2Al2O2N2]:Eu^{2+}}(SALON), \ch{Sr[LiAl_3N_4]:Eu^{2+}} (SLA), \ch{K2SiF6:Mn^{4+}} (PFS), \ch{Sr2Si5N8:Eu^{2+}} (258), Quantum Dots (QD). Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Source (spectral data): adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
+	\caption{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data, shown in Figure 7 in the main article, that used phosphor innovations listed in Table 1 in the main article, each indicated by the phosphor label and spectral data publication year. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Figure 7 in the main article. The desirable direction of improvements towards higher luminous efficacy at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the two bottom panels using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: Corresponding spectral data. The luminosity function \cite{cie-term-lumeff}, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable, as the photons of the corresponding energy are lost to the human eye and count towards the spectral loss channel.  Abbreviations: Arb. Units - Arbitrary Units (compare section \cref{subsec:arbunit}). Plot legends indicate the years of publication of the spectral data and phosphor mixtures used in corresponding LED devices, with the following designations for additional phosphor mix components: O$^\ddagger$ -  other parts of phosphor mixture not disclosed, G$^*$ - \ch{CaSrS:Eu^{2+}}, Y$^\star$ - $\beta-$SiAlON:Eu$^{2+}$, $^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, $^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Sources: top panel - own elaboration based on spectral data; bottom two panels: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
 \label{fig:phosphor_spectrum}
 \end{figure}
 
-\section{Anonymized List of Interviewees}
+\section{List of Interviewees}
 
 \begin{table}[h!]
 \small
     \centering
     \begin{tabular}{|l|l|l|l|l|}
     \hline
-        \textbf{\#} & \textbf{sector} & \textbf{role} & \textbf{country} & \textbf{expertise} \\ \hline
-        1 & academia & sr. researcher & UK & epitaxy \\ \hline
-        2 & industry & consultant, form. sr. researcher & USA & device architecture \\ \hline
-        3 & industry & consultant, form. head of R\&D & Germany & epitaxy \\ \hline
-        4 & academia & professor & Austria & phosphors \\ \hline
-        5 & industry & consultant, form. head of R\&D & USA & device architecture \\ \hline
-        6 & consulting & consultant, form. sr. technical advisor & USA & device architecture \\ \hline
-        7 & academia & professor & Germany & phosphors \\ \hline
-        8 & government & R\&D manager & USA & device architecture \\ \hline
-        9 & consulting & consultant & USA & device applications \\ \hline
-        10 & academia & professor & France & device physics \\ \hline
-        11 & industry & sr scientist, form. head of R\&D & USA & device architecture \\ \hline
-        12 & industry & principal scientist & Germany & phosphors \\ \hline
-        13 & industry & form. head of R\&D & USA & phosphors \\ \hline
+        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Expertise} \\ \hline
+        1 & Academia & Sr. researcher & UK & Epitaxy \\ \hline
+        2 & Industry & Consultant, former sr. researcher & USA & Device architecture \\ \hline
+        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
+        4 & Academia & Professor & Austria & Phosphors \\ \hline
+        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
+        6 & consulting & Consultant, former sr. technical advisor & USA & Device architecture \\ \hline
+        7 & Academia & Professor & Germany & Phosphors \\ \hline
+        8 & government & R\&D manager & USA & Device architecture \\ \hline
+        9 & consulting & Consultant & USA & Device applications \\ \hline
+        10 & Academia & Professor & France & Device physics \\ \hline
+        11 & Industry & Sr scientist, former head of R\&D & USA & Device architecture \\ \hline
+        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
+        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
     \end{tabular}
     \label{tab:interviews}
-    \caption{List of domain experts with whom semi-structured interviews were conducted. \\ Abbreviations: form. - former, sr. - senior}
+    \caption{Anonymized list of LED experts interviewed for this study. Abbreviations: sr. - senior}
 \end{table}
 
 \clearpage
