@@ -467,58 +467,58 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 
 \section{Computation of Contribution of Individual Variables}
 
-To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
+To quantify the drivers of changes in manufacturing cost or device performance among many contributing factors, one would need to identify the magnitude of contribution to these changes made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the manufacturing cost or performance function of a device at time $t$,
 
 \begin{myequation}
-C=ab+cd
+F=ab+cd
 \end{myequation}
 
-and manufacturing variables $a,b,c,d$, we are looking for the contribution $\Delta C_{a}$ made by a single variable $a$ to the total change in the cost function $\Delta C$ between points $t_0,t_1$ such, that
+and input variables $a,b,c,d$, we are looking for the contribution $\Delta F_{a}$ made by a single variable $a$ to the total change in the function value $\Delta F$ between points $t_0,t_1$ such, that
 
 \begin{myequation}
-\Delta C = C(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta C_i
+\Delta F = F(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta F_i
 \end{myequation}
 
-The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \cref{eqn:cost_sum} as
+The infinitesimal contribution to the total funcation value by the infinitesimal change in an input variable is defined through the total differential of the function as
 
 \begin{myequation}
-\text{d}C(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial C }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial C }{\partial x_i}  \Delta x_i
+\text{d}F(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial F }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial F }{\partial x_i}  \Delta x_i
 \end{myequation}
 
-where $x_i$ is an arbitrary cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to total cost $C$ over the period $t_0 < t < t_1 $ is then
+where $x_i$ is an input cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to the total function value $F$ over the period $t_0 < t < t_1 $ is then
 
 \begin{myequation}
-\Delta C_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial C }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
+\Delta F_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial F }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
 \label{eqn:integral_1}
 \end{myequation}
 
-However, data on the cost model variables is not available in continuous time. Disaggregating the contribution of single variables to the total cost reduction is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
+However, data on the input variables is not available in continuous time. Disaggregating the contribution of single variables to the change in the cost or performance is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. In our work, we propose to address this problem by following an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
 
-The cost function $C$ as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
+The function $F$ as a function of a vector of input model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
 
 \begin{myequation}
-C(\vec{r}) = C(r_1,r_2, \dots) = \sum_i C_i
+    F(\vec{r}) = F(r_1,r_2, \dots) = \sum_i F_i
 \end{myequation}
 
 where
 
 \begin{myequation}
-C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
+    F_i(\vec{r}) = F_i^0 \prod_w g_{iw}(r_w)
 \end{myequation}
 
 Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
 
 \begin{myequation}
-\Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
+    \Delta F_x = \int_{t=t_0}^{t_1} F(t) \frac{ \partial \ln F }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
 \end{myequation}
 
-where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\Delta C_{x_i} = \Delta C$. In practice, this constant value can be approximated as $\tilde{C} \approx \frac{2}{3} C_i^\text{geo} + \frac{1}{3} \overline{C_i}$. The contribution of a single cost model variable $r_z$ can then be written as
+where for $F(t)$ a constant $F(t) \approx \tilde{F} $ can be chosen such that $\Delta F_{x_i} = \Delta F$. In practice, this constant value can be approximated through the geometric and arithmetic means $\tilde{F} \approx \frac{2}{3} F_i^\text{geo} + \frac{1}{3} \overline{F_i}$. The contribution of a single cost model variable $r_z$ can then be written as
 
 \begin{myequation}
-\Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+    \Delta F_z (t_1,t_2) \approx \sum_i \tilde{F_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
 \end{myequation}
 
-This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of  \cref{eqn:cost_sum}, could this method.
+We use this approach to estimate the effect of individual innovations and spillovers on LED device performance, as discussed in section 4.3 and shown in Figure 5 in the main article. Due to time constraints, we leave the quantification of the impact of different drivers of cost reductions with this methodological approach for our future work.
 
 \section{Non-Phosphor-Related LED Innovations}
 
