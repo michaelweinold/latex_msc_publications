@@ -252,7 +252,7 @@ The cost of a single process step $C_i$ can now be written as
 
 \begin{myequation}
 \label{eqn:cost_wafer}
-    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x \c_x \bigg\}
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
 \end{myequation}
 
 where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the index $x$ run over all materials.
@@ -299,7 +299,7 @@ where
 \begin{figure}[h!]
     \centering
     \includegraphics[width=5.5cm]{./figures/die-per-wafer.pdf}
-    \caption{Number of die per wafer for the different wafer sizes used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW, $d(2002)=50$mm$\rightarrow5370$DPW, $d(2020)=100$mm$, \rightarrow26,838$DPW. Source: own estimates, based on \cref{eqn:dpw} and the dominant wafer size of the considered year, according to \cref{fig:wafers}.}
+    \caption{Number of die per wafer for the different wafer sizes used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW, $d(2002)=50$mm$\rightarrow5370$DPW, $d(2020)=100$mm$, \rightarrow26,838$DPW. Source: own estimates, based on \cref{eqn:dpw} and the dominant wafer size of the considered year, informed by expert interviews. For detailed statistics on changes in wafer size, compare also \cref{fig:wafers}.}
     \label{fig:dpw}
 \end{figure}
 
@@ -308,7 +308,7 @@ Results are plotted in \cref{fig:dpw}, showing the increase in die per wafer (DP
 \label{eqn:cost_wafer_full}
 \begin{split}
     C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
-    &  \frac{1}{y_i}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x \c_x \bigg\}
+    &  \frac{1}{y_i}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
 \end{split}
 \end{myequation}
 and the cost of a manufacturing step $C_j$ in the packaging category
@@ -367,7 +367,7 @@ It can be shown by induction that the general form of a term for a step $i>1$ re
 This cumulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in the literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. In this approach, the yielded cost of a single process step $f$ is described as
 
 \begin{myequation}
-	f_\text{single} = \frac{i+s}{y}
+    f_\text{single} = \frac{i+s}{y}
 \end{myequation}
 
 where
@@ -383,8 +383,8 @@ For process steps that are performed more than once, a series expression is used
     f_{\times 2} =  \frac{\frac{i+s}{y}+s}{y}
 \end{myequation}
 \begin{myequation}
-    f_{\times n} = \frac{i + s(1+y+y^2+ \dots + y^{n-1})}{y^n}
 \label{eqn:series}
+    f_{\times n} = \frac{i + s(1+y+y^2+ \dots + y^{n-1})}{y^n}
 \end{myequation}
 
 This itemized approach serves as a convenient approximation, but its cumulative contributions do not equal the total yielded cost of the entire manufacturing process
@@ -461,11 +461,9 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 \begin{figure}[h]
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_calibration.pdf}
-	\caption{Modelled manufacturing cost for light-emitting diode packages split by manufacturing step category. The top graph shows the data from LEDCOM model and round table discussions published by the United States Department of Energy (DoE). The bottom graph shows the results of the cost model developed in this thesis. Hatched bars are projections given by the sources. Inset plot shows the number of die per wafer (DPW) calculated for different wafer sizes used in the model. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in Section \cref{sec:costmodel}. Sources for Inset Plot: own elaborations based on numerical approximations for die-per-wafer estimations provided in \cite{de2005investigation}, informed by expert interviews.}
+	\caption{Comparison of LED manufacturing cost structure between our manufacturing cost model (bottom panel) and previously published US DOE manufacturing cost calculations and projections based on industry data and LEDCOM model (top panel). Hatched bars are projections given by US DOE for 2018 and 2020. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in Section \cref{sec:costmodel}.}
 	\label{fig:costmodel_calibration}
 \end{figure}
-
-\cref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the s must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by  \cref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
 
 \section{Computation of Contribution of Individual Variables}
 
