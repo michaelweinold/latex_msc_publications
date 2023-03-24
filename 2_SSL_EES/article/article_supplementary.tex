@@ -120,12 +120,14 @@
 
 \newpage
 
-\section{Additional Performance Metrics}
+\section{Luminous Efficacy Metrics}
+
+Figure 1 in the main publication uses luminous efficacy of radiation as the primary metric to describe progress in lighting technologies. Care must be taken not to confuse this metric with luminous efficacy of source, which is used in \ref{fig:phosphor_spectrum}.
 
 \subsection{Luminous Efficacy of Radiation}
 \label{subsec:ler}
 
-Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength dependent human sensitivity to light \cite{cie-term-effrad}
+This metric describes the match of a light-emitting diode package spectrum to the human visual system. Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength-dependent human sensitivity to light \cite{cie-term-effrad}
 
 \begin{myequation}
 \label{eqn:ler}
@@ -140,20 +142,18 @@ where
     \lambda &\dots \text{wavelength}
 \end{align*}
 
-This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in  \cref{fig:se_efficacy} in chapter \cref{ch:results}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation, as the product with the luminosity function of  \cref{fig:tristimulus} shows. Care must be taken not to confuse this efficacy metric with efficacy of source, which depends not only on the spectral power distribution of a light source.
-
-This metric describes the match of a light-emitting diode package spectrum to the human visual system.
+This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in the top panel of \cref{fig:phosphor_spectrum}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation. Care must be taken not to confuse this efficacy metric with the \textit{efficacy of source} described in the following subsection.
 
 \subsection{Luminous Efficacy of Source}
 \label{subsec:les}
 
-In contrast to the efficacy \textit{of radiation} $K$, the luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power \cite{cie-term-effsrc}
+The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power \cite{cie-term-effsrc}
 
 \begin{myequation}
     \eta [\text{lm/W}_{el}]= \frac{\phi}{P_{el}}
 \end{myequation}
 
-Unlike the luminous efficacy of radiation, this metric cannot be extracted from the spectrum of a light source. It is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with efficacy of radiation, which depends only on the spectral power distribution of a light source. As it captures overall device efficacy, it depends on a large number of device properties and parameters. This makes attribution to single changes in device design or manufacturing difficult.
+This metric is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with the \textit{luminous efficacy of radiation}, which depends only on the spectral characteristics of a light source. As the luminous efficacy of a light source $\eta$ captures the overall device efficacy, it depends on a large number of other device properties and parameters. This makes attribution of changes in this metric to individual changes in device design or manufacturing difficult. For this reason, we do not use this metric in our study.
 
 \newpage
 \section{Manufacturing Cost Model}
@@ -164,27 +164,24 @@ Unlike the luminous efficacy of radiation, this metric cannot be extracted from 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.95\textwidth]{./figures/cost_model.pdf}
-    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to the cost model outputs. For the description of cost variables, see definitions for equation \cref{eqn:cost_wafer}.}
+    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to the cost model outputs. For the description of cost variables, see definitions for \cref{eqn:cost_wafer}.}
     \label{fig:costmodel-schematic}
 \end{figure}
 
 The cost model adapted for this publication is a microeconomic manufacturing cost model. Within the timeframe and scope laid out in the main publication, it returns the total manufacturing cost of phosphor converted warm white light-emitting diode packages. In this computation, it considers the main economic factors associated with operating and maintaining manufacturing equipment. It does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters.
 
-Calling something here as 'upstream' and 'downstream' is kind of confusing. I suggest to replace the text highlighted by this comment with the following simplifying reformulation: 
-'It is split between the two stages of the manufacturing process: first stage combining operations at the wafer level, followed by the LED packaging stage.'
-
-A schematic diagram of the cost model developed is presented in  \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the upstream part of the manufacturing process and the downstream part of the manufacturing process. The former is performed at the wafer level. The latter is performed at the package level. The model takes as inputs both parameters specific to manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
+A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
 
 \subsection{Manufacturing Process Steps by Chip Architecture}
 
-\cref{fig:manuf_vtf_2012-1}-\cref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of three different chip architectures considered in the cost model.
+\cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of three different chip architectures considered in the cost model.
 
     %CLASSICAL CHIP
 
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=555pt]{./figures/classical_overview_2003.pdf}
-            \caption{Manufacturing process for a classical LED package with lateral current spreading, circa 2003. Abbreviations: MQW - multiple quantum well; PLLC - plastic leaded chip carrier. Continued on next page.}
+            \caption{Manufacturing process for a classical LED package with lateral current spreading, circa 2003. Abbreviations: MQW - multiple quantum well; PLLC - plastic leaded chip carrier.}
             \label{fig:manuf_classical_2003}
         \end{figure}
     \end{landscape}
@@ -220,7 +217,7 @@ A schematic diagram of the cost model developed is presented in  \cref{fig:costm
     \begin{landscape}
         \begin{figure}
             \includegraphics[width=595pt]{./figures/csp_overview_2020-2.pdf}
-            \caption{(2/2) Continued from previous page. Abbreviations: Encaps. - encapsulation.}
+            \caption{(2/2) Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. Continued from previous page. Abbreviations: Encaps. - encapsulation.}
             \label{fig:manuf_csp_2020-2}
         \end{figure}
     \end{landscape}
@@ -300,7 +297,7 @@ where
 \begin{figure}[h!]
     \centering
     \includegraphics[width=5.5cm]{./figures/die-per-wafer.pdf}
-    \caption{Number of die per wafer for the different wafer sized used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW to $d(2020)=200$mm$\rightarrow26,838$DPW. Source: own elucidations, based on equation \cref{eqn:dpw}.}
+    \caption{Number of die per wafer for the different wafer sized used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW to $d(2020)=200$mm$\rightarrow26,838$DPW. Source: own elucidations, based on  \cref{eqn:dpw}.}
     \label{fig:dpw}
 \end{figure}
 
@@ -357,7 +354,7 @@ If a step is applied more than once, we can conveniently rewrite this in a form 
     = \frac{1}{Y_1 Y_2^2} \bigg( C_1 (1-Y_2^2) +2C_2 \bigg)
 \end{myequation}
 
-which can be compared to equation \cref{eqn:C_2} to find a more general form:
+which can be compared to  \cref{eqn:C_2} to find a more general form:
 
 \begin{myequation}
     C_{Y_2}^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
@@ -397,7 +394,7 @@ This itemized approach serves as a convenient approximation, but its cumulative 
     f_\text{total} = \frac{\sum_i^n s_i}{\prod_i^ny_i} \neq \sum_i^n f_i
 \end{myequation}
 
-where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in equation \cref{eqn:series}.
+where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in  \cref{eqn:series}.
 
 \subsection{Computation of the Contribution of Variables}
 
@@ -440,7 +437,7 @@ where
 C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
 \end{myequation}
 
-Using logarithmic differentiation, the integral from equation \cref{eqn:integral_1} can be rewritten as
+Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
 
 \begin{myequation}
 \Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
@@ -452,7 +449,7 @@ where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\
 \Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
 \end{myequation}
 
-This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of equation \cref{eqn:cost_sum}, could this method.
+This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of  \cref{eqn:cost_sum}, could this method.
 
 \subsection{Examples of Input Data Considered}
 
@@ -660,7 +657,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \subsection{Figure 1 (Historical Development of Luminous Efficacy)}
 
-The complete list of sources is organized by the different technologies described in the :
+The list of sources for Figure 1 in the main article is organized by different technologies:
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
@@ -677,19 +674,19 @@ The complete list of sources is organized by the different technologies describe
     \hline
     Fire, Incandescent, HID & \cite{azevedo2009transition} augmented by own calculations based on \cite{benesch1905beleuchtungswesen} \\
     \hline
-    Max. efficacy & \cite{Murphy2012} (in contrast to the original value given in \cite{azevedo2009transition}) \\
+    Max. efficacy & \cite{Murphy2012} \\
     \hline
     \end{tabularx}
 \end{table}
 
 \subsection{Figure 2 (Historical Development of Lamp Prices)}
 
-The complete list of sources is organized by different sources:
+The sources for Figure 2 in the main article are grouped by the provider of data:
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{Source of References} & \textbf{References} \\
+    \textbf{Provider of References} & \textbf{References} \\
     \hline
     Stiftung Warentest (Germany) & \cite{Warentest2008}\cite{Warentest2009_1}\cite{Warentest2009_2}\cite{Warentest2010_1}\cite{Warentest2010_2}\cite{Warentest2011}\cite{Warentest2012}\cite{Warentest2013}\cite{Warentest2014_1}\cite{Warentest2014_2}\cite{Warentest2015}\cite{Warentest2016_1}\cite{Warentest2016_2}\cite{Warentest2018} \\
     \hline
@@ -706,12 +703,12 @@ The complete list of sources is organized by different sources:
 
 \subsection{Figure 3 (Historical Evolution of LED Chip Architectures)}
 
-The complete list of sources is organized by different sources:
+The sources for Figure 3 in the main article are grouped by their type:
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{Source of References} & \textbf{References} \\
+    \textbf{Type of Source} & \textbf{References} \\
     \hline
     Scientific Publications & \cite{plossl2010wafer}\cite{bierhuizen2007performance}\cite{gencc2019distributed}\cite{chong2014performance} \\
     \hline
@@ -732,12 +729,12 @@ The complete list of sources is organized by different sources:
 
 \subsection{Figure 4 (Historical Developments in Device Sub-Efficiencies)}
 
-The complete list of sources is organized by the sub-efficiencies (panels) described in the :
+The sources for Figure 4 in the main article are grouped by sub-efficiencies represented on different panels of the figure:
 
 \begin{table}[h!]
     \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{Technology} & \textbf{References} \\
+    \textbf{Panel (Sub-Eff.)} & \textbf{References} \\
     \hline
     Panel A1 ($V_f$) & \cite{nichia2001data}\cite{lumi2002data}\cite{gen2005data}\cite{candlepwr2005data}\cite{lumi2006data}\cite{lumi2007data}\cite{nichia2008data}\cite{lumi2008data}\cite{osram2008data}\cite{jeong2011high}\cite{osram2012data}\cite{osram2013data}\cite{osram2014data} \newline \cite{lumi2016data_1}\cite{lumi2016data_2}\cite{epistar2017data}\cite{osram2017data_1}\cite{osram2017data_2}\cite{samsung2017data}\cite{samsung2018data}\cite{osram2018data}\cite{epistar2018data}\cite{lumi2019data} \\
     \hline
