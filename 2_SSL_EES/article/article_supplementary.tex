@@ -381,6 +381,7 @@ This itemized approach serves as a convenient approximation, but its cumulative 
 
 where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in  \cref{eqn:series}.
 
+\newpage
 \subsection{Example of Input Data Considered: Sapphire Wafers}
 
 Sapphire wafers form the substrate on which all other layers of the light-emitting diode are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace by 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in the bottom panel of \cref{fig:wafers}. This can be attributed not only to the lighting industry, but more importantly to increased supply as a result of increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market has been dominated by U.S.-based \textit{Rubicon Technology} and Russian-based \textit{Monocrystal}. he evolution of sapphire wafer prices and diameters used in LED manufacturing over the years is shown in top panel of \cref{fig:wafers}.
@@ -441,6 +442,7 @@ A sensitivity analysis of the cost model has been performed using parameter vari
     \label{tab:sensitivity}
 \end{table}
 
+\newpage
 \subsection{Comparison with Reported Industry Data and DOE Projections}
 
 We conducted a comparison of the LED manufacturing cost structure produced by our cost model with previously reported US DOE calculations and projections based on the LEDCOM model and industry data provided as part of industry round table discussions (see \cref{fig:costmodel_calibration}). We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual US-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers is located in Asia. We also note that the share of the substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections
@@ -452,6 +454,7 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 	\label{fig:costmodel_calibration}
 \end{figure}
 
+\newpage
 \section{Computation of Contribution of Individual Variables}
 \label{sec:contribution_variables}
 
@@ -494,7 +497,7 @@ We use this approach to estimate the effect of individual innovations and spillo
 
 \section{Non-Phosphor-Related LED Innovations}
 
-This section summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting key white LED sub-efficiencies, as discussed in section 5.1 and shown in Figures 4-6 in the main article. Note that phosphor-related LED innovations affecting consumer experience metrics, along with spectral efficiency, are presented separately in Table 1 in the main publication and discussed in detail in \cref{sec:innovation_phosphor}.
+\cref{tab:innovations} summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting key white LED sub-efficiencies, as discussed in section 5.1 and shown in Figures 4-6 in the main article. Note that phosphor-related LED innovations affecting consumer experience metrics, along with spectral efficiency, are presented separately in Table 1 in the main publication and discussed in detail in \cref{sec:innovation_phosphor}.
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{ |l|X|X|l|l| }
@@ -514,7 +517,7 @@ This section summarizes LED innovations and technology and manufacturing process
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            $<$ 2003 & Optimization for \newline cavity effects & Other & No & I, \cite{Shen2003} \\
+            $<$ 2003 & Optimization for \newline cavity effects & reduces self-interference of quantum well & No & I, \cite{Shen2003} \\
         \hline
             1993 & Chip surface randomization & Total reflection and absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
         \hline
@@ -530,15 +533,15 @@ This section summarizes LED innovations and technology and manufacturing process
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            1994 & DH & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
+            1994 & double heterostructure & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
         \hline
             1996 & multiple quantum well & Higher radiative recombination probability & No & \cite{Koike1996} \\
         \hline
-            ongoing & Active region \newline Doping & Both & No & I, \cite{schubert2018light} \\
+            ongoing & Active region \newline Doping & radiative recombination probability & No & I, \cite{schubert2018light} \\
         \hline
-            ongoing & Epitaxy \newline Improvements & Both & No & I \\
+            ongoing & Epitaxy \newline Improvements & radiative recombination probability & No & I \\
         \hline
-            ongoing & Chip architecture \newline Improvements & Both & No & I \\
+            ongoing & Chip architecture \newline Improvements & radiative recombination probability & No & I \\
         \hline
         \multicolumn{5}{c}{Light Conversion efficiency (CE) $\eta_{C}$} \\
         \hline
@@ -553,7 +556,7 @@ This section summarizes LED innovations and technology and manufacturing process
             $<$ 2017 & Defect getting \newline underlayer & Defect Density & No & I, \cite{haller2017burying} \\
         \hline
         \end{tabularx}
-    \caption{LED innovations and technology improvements affecting key white LED device sub-efficiencies. The table includes innovations and technology improvements affecting forward voltage efficiency, light extraction efficiency, internal quantum efficiency, and light conversion efficiency. For a list of innovations affecting spectral efficiency, see Table 1 in the main article. Year column indicates the first instance of application of corresponding invention in white LEDs. Spillover column indicates if the innovation involved technology spillovers. Source column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source. Source column additionally indicates if the spillover has been identified as part of an expert interview (I).}
+    \caption{LED innovations and technology improvements affecting key white LED device sub-efficiencies. The table includes innovations and technology improvements affecting forward voltage efficiency, light extraction efficiency, internal quantum efficiency, and light conversion efficiency. For a list of innovations affecting spectral efficiency, see Table 1 in the main article. \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
     \label{tab:innovations}
 \end{table}
 
@@ -562,7 +565,7 @@ This section summarizes LED innovations and technology and manufacturing process
 
 This section provides additional details for phosphor-related LED innovations identified in this study as affecting both spectral sub-efficiencies and consumer experience metrics and discussed in section 5.2, Table 1 and Figures 5-7 in the main article.
 
-\subsection{History of Identified Phosphor-Related LED Innovations"}
+\subsection{History of Identified Phosphor-Related LED Innovations}
 
 \subsubsection{YAG and YGAG Phosphors}
 
