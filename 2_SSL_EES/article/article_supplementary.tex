@@ -246,11 +246,11 @@ The total wafer processing cost and total die packaging costs are in turn the su
 The cost of a single process step $C_i$ can now be written as
 \begin{myequation}
 \label{eqn:cost_wafer}
-    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{DPW}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
 \end{myequation}
 where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the index $x$ run over all materials.
 \begin{align*}
-        D &\dots \text{number of functional (i.e., successfully tested) die per wafer}\\
+        DPW &\dots \text{number of functional (i.e., successfully tested) die per wafer}\\
         y &\dots \text{process step yield} \\
         u &\dots \text{equipment utilization (relative to theoretical equipment capacity)} \\
         p &\dots \text{power consumption} \\
@@ -306,7 +306,7 @@ where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
 \begin{myequation}
 \label{eqn:cost_total}
 \begin{split}
-    C= P_s &+ \sum_i \bigg \{ \frac{1}{D} \frac{1}{y_i} \bigg[ \frac{t_i}{w_i u_i} \bigg((e*p) + l + m + d +o \bigg)_i  + \sum_{x} v_x p_x \bigg] \bigg \} + \\
+    C= P_s &+ \sum_i \bigg \{ \frac{1}{DPW} \frac{1}{y_i} \bigg[ \frac{t_i}{w_i u_i} \bigg((e*p) + l + m + d +o \bigg)_i  + \sum_{x} v_x p_x \bigg] \bigg \} + \\
     & + \sum_j \bigg \{ \frac{1}{y_j} \bigg[ \frac{c_j}{u_j}  \bigg((e*p) + l + m + d + o \bigg)_i + \sum_{x} a v_x p_x \bigg ] \bigg\}
 \end{split}
 \end{myequation}
@@ -500,6 +500,7 @@ We use this approach to estimate the effect of individual innovations and spillo
 \cref{tab:innovations} summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting key white LED sub-efficiencies, as discussed in section 5.1 and shown in Figures 4-6 in the main article. Note that phosphor-related LED innovations affecting consumer experience metrics, along with spectral efficiency, are presented separately in Table 1 in the main publication and discussed in detail in \cref{sec:innovation_phosphor}.
 
 \begin{table}[H]
+    \caption{Banana}
     \begin{tabularx}{\textwidth}{ |l|X|X|l|l| }
         \multicolumn{5}{c}{Forward Voltage Efficiency (VFE) $\eta_{Vf}$} \\
         \hline
@@ -509,7 +510,7 @@ We use this approach to estimate the effect of individual innovations and spillo
         \hline
             1998 & Digitated electrodes & Contact resistance & No & \cite{steigerwald2001electrode} \\
         \hline
-            ongoing & Epitaxy improvements \newline and better doping & polarization and \newline bulk resistance & No & I \\
+            Ongoing & Epitaxy improvements \newline and better doping & Polarization and \newline bulk resistance & No & I \\
         \hline
             1998 & Silver p-Contacts & Contact resistance & No & \cite{kondoh2001nitride} \\
         \hline
@@ -517,7 +518,7 @@ We use this approach to estimate the effect of individual innovations and spillo
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            $<$ 2003 & Optimization for \newline cavity effects & reduces self-interference of quantum well & No & I, \cite{Shen2003} \\
+            $<$ 2003 & Optimization for \newline cavity effects & Reduces self-interference of quantum well & No & I, \cite{Shen2003} \\
         \hline
             1993 & Chip surface randomization & Total reflection and absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
         \hline
@@ -525,7 +526,7 @@ We use this approach to estimate the effect of individual innovations and spillo
         \hline
             1996 & Patterned sapphire substrate  & Total reflection and absorption & Yes & I, \cite{Tadatomo2001} \\
         \hline
-            ongoing & Chip design for high LEE & Total reflection and absorption & No & I, \cite{Haerle2004} \\
+            Ongoing & Chip design for high LEE & Total reflection and absorption & No & I, \cite{Haerle2004} \\
         \hline
             $\sim$2000 & Silver p-contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
         \hline
@@ -533,30 +534,30 @@ We use this approach to estimate the effect of individual innovations and spillo
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            1994 & double heterostructure & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
+            1994 & Double heterostructure & Higher Radiative recombination probability & No & \cite{Nakamura1994} \\
         \hline
-            1996 & multiple quantum well & Higher radiative recombination probability & No & \cite{Koike1996} \\
+            1996 & Multiple quantum well & Higher Radiative recombination probability & No & \cite{Koike1996} \\
         \hline
-            ongoing & Active region \newline Doping & radiative recombination probability & No & I, \cite{schubert2018light} \\
+            Ongoing & Active region \newline Doping & Radiative recombination probability & No & I, \cite{schubert2018light} \\
         \hline
-            ongoing & Epitaxy \newline Improvements & radiative recombination probability & No & I \\
+            Ongoing & Epitaxy \newline Improvements & Radiative recombination probability & No & I \\
         \hline
-            ongoing & Chip architecture \newline Improvements & radiative recombination probability & No & I \\
+            Ongoing & Chip architecture \newline Improvements & Radiative recombination probability & No & I \\
         \hline
         \multicolumn{5}{c}{Light Conversion efficiency (CE) $\eta_{C}$} \\
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            ongoing & Lower current density & Current density & No & I \\
+            Ongoing & Lower current density & Current density & No & I \\
         \hline
-            ongoing & Epitaxy \newline Improvements & Charge distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
+            Ongoing & Epitaxy \newline Improvements & Charge distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
         \hline
-            ongoing & Chip architecture \newline improvements  & Charge distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
+            Ongoing & Chip architecture \newline improvements  & Charge distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
         \hline
             $<$ 2017 & Defect getting \newline underlayer & Defect Density & No & I, \cite{haller2017burying} \\
         \hline
         \end{tabularx}
-    \caption{LED innovations and technology improvements affecting key white LED device sub-efficiencies. The table includes innovations and technology improvements affecting forward voltage efficiency, light extraction efficiency, internal quantum efficiency, and light conversion efficiency. For a list of innovations affecting spectral efficiency, see Table 1 in the main article. \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
+    LED innovations and technology improvements affecting key white LED device sub-efficiencies. The table includes innovations and technology improvements affecting forward voltage efficiency, light extraction efficiency, internal quantum efficiency, and light conversion efficiency. For a list of innovations affecting spectral efficiency, see Table 1 in the main article. \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.
     \label{tab:innovations}
 \end{table}
 
