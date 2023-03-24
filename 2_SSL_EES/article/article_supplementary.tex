@@ -224,7 +224,7 @@ A schematic diagram of the cost model is presented in \cref{fig:costmodel-schema
 
 \subsection{Computation of Manufacturing Cost}
 
-The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. While the upstream steps in the manufacturing flow are carried out at the wafer level, the packaging steps are typically carried out at the die/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
+The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
 
 \begin{myequation}
 \label{eqn:cost_sum}
@@ -234,15 +234,17 @@ The manufacturing process of semiconductor devices can be categorized by the lev
 where
 
 \begin{align*}
-    P_S &\dots \text{sapphire substrate price} \\
-    C_w &\dots \text{wafer processing cost} \\
+    P_S &\dots \text{sapphire substrate price per die} \\
+    C_w &\dots \text{wafer processing cost per die} \\
     C_p &\dots \text{die processing cost}
 \end{align*}
 
 The total wafer processing cost and total die packaging costs are in turn the sum of all associated process steps.
 
 \begin{myequation}
-        C_w = \sum_i C_i \\
+        C_w = \sum_i C_i
+\end{myequation}
+\begin{myequation}
 	C_p = \sum_j C_j
 \end{myequation}
 
@@ -250,26 +252,26 @@ The cost of a single process step $C_i$ can now be written as
 
 \begin{myequation}
 \label{eqn:cost_wafer}
-    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x \c_x \bigg\}
 \end{myequation}
 
-where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the indices $x,y$ run over all materials.
+where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the index $x$ run over all materials.
 
 \begin{align*}
-        D &\dots \text{functional die per wafer (tested successfully)} \label{def:cost_wafer_first} \\
+        D &\dots \text{number of functional (i.e., successfully tested) die per wafer}\\
         y &\dots \text{process step yield} \\
-        u &\dots \text{equipment utilization (in relation to theoretical equipment capacity)} \\
+        u &\dots \text{equipment utilization (relative to theoretical equipment capacity)} \\
         p &\dots \text{power consumption} \\
-        e &\dots \text{hourly electricity cost} \\
-        m &\dots \text{hourly maintenance cost} \\
-        d &\dots \text{hourly depreciation cost}\\
-        l &\dots \text{hourly labour cost} \\
-        o &\dots \text{hourly overhead cost} \\
+        c_e &\dots \text{hourly electricity cost} \\
+        c_m &\dots \text{hourly maintenance cost} \\
+        c_d &\dots \text{hourly depreciation cost}\\
+        c_l &\dots \text{hourly labour cost} \\
+        c_o &\dots \text{hourly overhead cost} \\
         t_i &\dots \text{time per run} \\
         w &\dots \text{wafers per run} \\
         A &\dots \text{wafer area} \\
         v_x &\dots \text{volume of material $x$ per wafer} \\
-        p_x &\dots \text{price of material $x$ per volume}\\
+        c_x &\dots \text{cost of material $x$ per volume}\\
 \end{align*}
 
 The number of die per wafer $D$ depends on the total usable wafer area. The usable area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
@@ -282,7 +284,7 @@ Determining the usable wafer area as a function of these three parameters requir
 
 \begin{myequation}
 \label{eqn:dpw}
-	D=\frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2}
+	DPW = \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2}
 \end{myequation}
 
 where
@@ -297,27 +299,23 @@ where
 \begin{figure}[h!]
     \centering
     \includegraphics[width=5.5cm]{./figures/die-per-wafer.pdf}
-    \caption{Number of die per wafer for the different wafer sized used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW to $d(2020)=200$mm$\rightarrow26,838$DPW. Source: own elucidations, based on  \cref{eqn:dpw}.}
+    \caption{Number of die per wafer for the different wafer sizes used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW, $d(2002)=50$mm$\rightarrow5370$DPW, $d(2020)=100$mm$, \rightarrow26,838$DPW. Source: own estimates, based on \cref{eqn:dpw} and the dominant wafer size of the considered year, according to \cref{fig:wafers}.}
     \label{fig:dpw}
 \end{figure}
 
-Results are plotted in \cref{fig:dpw}, showing the increase in die per wafer (DPW). \cref{eqn:dpw} then gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
-
+Results are plotted in \cref{fig:dpw}, showing the increase in die per wafer (DPW) over time. \cref{eqn:dpw} then gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
 \begin{myequation}
 \label{eqn:cost_wafer_full}
 \begin{split}
     C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
-    &  \frac{1}{y_i}  \bigg\{ \bigg((e*p) + l + m + d +o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x p_x \bigg\}
+    &  \frac{1}{y_i}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x \c_x \bigg\}
 \end{split}
 \end{myequation}
-
 and the cost of a manufacturing step $C_j$ in the packaging category
-
 \begin{myequation}
 \label{eqn:cost_die}
-    C_j \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((e*p) + l + m + d + o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x p_x \bigg\}
+    C_j \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x c_x \bigg\}
 \end{myequation}
-
 where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
 \begin{myequation}
 \label{eqn:cost_total}
@@ -326,12 +324,11 @@ where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
     & + \sum_j \bigg \{ \frac{1}{y_j} \bigg[ \frac{c_j}{u_j}  \bigg((e*p) + l + m + d + o \bigg)_i + \sum_{x} a v_x p_x \bigg ] \bigg\}
 \end{split}
 \end{myequation}
-
 Note that in keeping with the categorization introduced by the United States Department of Energy (cf. eg. \cite{doe_ssl_rnd_2019}), certain steps from these two categories are reported separately. In the wafer processing category, the epitaxy step is reported separately due to its complexity and the large share of cost carried. In the wafer processing category, the phosphor step is reported separately.
 
 \subsection{Computation of Yielded Cost}
 
-Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$
+Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$ with associated cost (before considering yield) $C_1$ and yield $Y_1$:
 
 \begin{myequation}
 \label{eqn:C_2}
@@ -360,14 +357,14 @@ which can be compared to  \cref{eqn:C_2} to find a more general form:
     C_{Y_2}^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
 \end{myequation}
 
-It can be shown by induction that the general term for a step $i>1$ repeated $n$ times gives an equation of the form:
+It can be shown by induction that the general form of a term for a step $i>1$ repeated $n$ times can be expressed as:
 
 \begin{myequation}
 \label{eqn:yielded_cost}
     C_{Y_{i>1}}^{(n \times)} = \frac{1}{Y_i^{n-1} \prod_{x \leq i} Y_x} \bigg( nC_i + \sum_{x < i} C_x (1-Y_i^n) \bigg)
 \end{myequation}
 
-This cumulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in the literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. Using this approach, the yielded cost of a single process step $f$ is described by
+This cumulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model. It uses what in the literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. In this approach, the yielded cost of a single process step $f$ is described as
 
 \begin{myequation}
 	f_\text{single} = \frac{i+s}{y}
@@ -383,9 +380,11 @@ where
 For process steps that are performed more than once, a series expression is used
 
 \begin{myequation}
-\label{eqn:series}
-    f_{\times 2} =  \frac{\frac{i+s}{y}+s}{y} \\
+    f_{\times 2} =  \frac{\frac{i+s}{y}+s}{y}
+\end{myequation}
+\begin{myequation}
     f_{\times n} = \frac{i + s(1+y+y^2+ \dots + y^{n-1})}{y^n}
+\label{eqn:series}
 \end{myequation}
 
 This itemized approach serves as a convenient approximation, but its cumulative contributions do not equal the total yielded cost of the entire manufacturing process
@@ -395,61 +394,6 @@ This itemized approach serves as a convenient approximation, but its cumulative 
 \end{myequation}
 
 where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in  \cref{eqn:series}.
-
-\subsection{Computation of the Contribution of Variables}
-
-To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
-
-\begin{myequation}
-C=ab+cd
-\end{myequation}
-
-and manufacturing variables $a,b,c,d$, we are looking for the contribution $\Delta C_{a}$ made by a single variable $a$ to the total change in the cost function $\Delta C$ between points $t_0,t_1$ such, that
-
-\begin{myequation}
-\Delta C = C(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta C_i
-\end{myequation}
-
-The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \cref{eqn:cost_sum} as
-
-\begin{myequation}
-\text{d}C(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial C }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial C }{\partial x_i}  \Delta x_i
-\end{myequation}
-
-where $x_i$ is an arbitrary cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to total cost $C$ over the period $t_0 < t < t_1 $ is then
-
-\begin{myequation}
-\Delta C_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial C }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
-\label{eqn:integral_1}
-\end{myequation}
-
-However, data on the cost model variables is not available in continuous time. Disaggregating the contribution of single variables to the total cost reduction is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
-
-The cost function $C$ as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
-
-\begin{myequation}
-C(\vec{r}) = C(r_1,r_2, \dots) = \sum_i C_i
-\end{myequation}
-
-where
-
-\begin{myequation}
-C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
-\end{myequation}
-
-Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
-
-\begin{myequation}
-\Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
-\end{myequation}
-
-where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\Delta C_{x_i} = \Delta C$. In practice, this constant value can be approximated as $\tilde{C} \approx \frac{2}{3} C_i^\text{geo} + \frac{1}{3} \overline{C_i}$. The contribution of a single cost model variable $r_z$ can then be written as
-
-\begin{myequation}
-\Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
-\end{myequation}
-
-This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of  \cref{eqn:cost_sum}, could this method.
 
 \subsection{Example of Input Data Considered: Sapphire Wafers}
 
@@ -510,9 +454,9 @@ A sensitivity analysis of the cost model has been performed using parameter vari
     \label{tab:sensitivity}
 \end{table}
 
-\subsection{Comparison with Reported Industry Data}
+\subsection{Comparison with Reported Industry Data and DOE Projections}
 
-We note differences between our model and costs reported to the US Department of Energy (DoE) by industry. For instance, the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on wafer-level packaging.
+We conducted a comparison of the LED manufacturing cost structure produced by our cost model with previously reported US DOE calculations and projections based on the LEDCOM model and industry data provided as part of industry round table discussions (see \cref{fig:costmodel_calibration}). We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual US-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers is located in Asia. We also note that the share of the substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections
 
 \begin{figure}[h]
 	\centering
@@ -522,6 +466,61 @@ We note differences between our model and costs reported to the US Department of
 \end{figure}
 
 \cref{fig:costmodel_calibration} shows a comparison of the relative manufacturing cost by manufacturing step categories between the cost model and data released by the United States Department of Energy (DoE). Note that any comparison between the s must consider: Our model assumes state-of-the-art equipment, while the DoE industry round table reports data from factories which use older equipment, as well as newer equipment. Our model presently considers only low-power and mid-power packages, while the DoE reports consider high-power packages also. Our model assumes a virtual North American manufacturing location, while the majority of manufacturers produce in Asia. We note that the share of the substrate price in the DoE data is much larger than in our model. This can in part be explained by  \cref{fig:sapphire_prices}, which already shows how projections overestimated the actual price for 2015-2020. We note also that the share of the epitaxy step is larger in the DoE model. This can in part be explained by our model relying on state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In conclusion, our model fits industry forecasts due to the way it is set up. The packaging part of the manufacturing process is increasing in importance, which has been confirmed by researchers and industry reports on WLP\cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}.
+
+\section{Computation of Contribution of Individual Variables}
+
+To quantify the drivers of cost reductions across all process steps, one would need to identify the magnitude of contribution to cost reductions made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the cost associated with manufacturing a single unit at time $t$,
+
+\begin{myequation}
+C=ab+cd
+\end{myequation}
+
+and manufacturing variables $a,b,c,d$, we are looking for the contribution $\Delta C_{a}$ made by a single variable $a$ to the total change in the cost function $\Delta C$ between points $t_0,t_1$ such, that
+
+\begin{myequation}
+\Delta C = C(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta C_i
+\end{myequation}
+
+The infinitesimal contribution to the total cost by the infinitesimal change in a cost model variable is defined through the total differential of the cost function \cref{eqn:cost_sum} as
+
+\begin{myequation}
+\text{d}C(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial C }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial C }{\partial x_i}  \Delta x_i
+\end{myequation}
+
+where $x_i$ is an arbitrary cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to total cost $C$ over the period $t_0 < t < t_1 $ is then
+
+\begin{myequation}
+\Delta C_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial C }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
+\label{eqn:integral_1}
+\end{myequation}
+
+However, data on the cost model variables is not available in continuous time. Disaggregating the contribution of single variables to the total cost reduction is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. The following discussion follows an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
+
+The cost function $C$ as a function of a vector of cost model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
+
+\begin{myequation}
+C(\vec{r}) = C(r_1,r_2, \dots) = \sum_i C_i
+\end{myequation}
+
+where
+
+\begin{myequation}
+C_i(\vec{r}) = C_i^0 \prod_w g_{iw}(r_w)
+\end{myequation}
+
+Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
+
+\begin{myequation}
+\Delta C_x = \int_{t=t_0}^{t_1} C(t) \frac{ \partial \ln C }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
+\end{myequation}
+
+where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\Delta C_{x_i} = \Delta C$. In practice, this constant value can be approximated as $\tilde{C} \approx \frac{2}{3} C_i^\text{geo} + \frac{1}{3} \overline{C_i}$. The contribution of a single cost model variable $r_z$ can then be written as
+
+\begin{myequation}
+\Delta C_z (t_1,t_2) \approx \sum_i \tilde{C_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+\end{myequation}
+
+This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of  \cref{eqn:cost_sum}, could this method.
 
 \section{Non-Phosphor-Related LED Innovations}
 
