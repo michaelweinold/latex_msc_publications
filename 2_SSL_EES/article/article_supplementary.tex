@@ -164,7 +164,7 @@ This metric is often cited in device datasheets, scientific literature and textb
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.95\textwidth]{./figures/cost_model.pdf}
-    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to the cost model outputs. For the description of cost variables, see definitions for \cref{eqn:cost_wafer}.}
+    \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to the cost model outputs. For the description of cost variables, see definitions for \cref{eqn:cost_wafer}. For the computation of total cost, see \cref{subsec:cost_computation}. For the computation of changes in total cost, see \cref{sec:contribution_variables}.}
     \label{fig:costmodel-schematic}
 \end{figure}
 
@@ -223,40 +223,32 @@ A schematic diagram of the cost model is presented in \cref{fig:costmodel-schema
     \end{landscape}
 
 \subsection{Computation of Manufacturing Cost}
+\label{subsec:cost_computation}
 
 The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
-
 \begin{myequation}
 \label{eqn:cost_sum}
     C \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = P_S + C_w + C_p
 \end{myequation}
-
 where
-
 \begin{align*}
     P_S &\dots \text{sapphire substrate price per die} \\
     C_w &\dots \text{wafer processing cost per die} \\
     C_p &\dots \text{die processing cost}
 \end{align*}
-
 The total wafer processing cost and total die packaging costs are in turn the sum of all associated process steps.
-
 \begin{myequation}
         C_w = \sum_i C_i
 \end{myequation}
 \begin{myequation}
 	C_p = \sum_j C_j
 \end{myequation}
-
 The cost of a single process step $C_i$ can now be written as
-
 \begin{myequation}
 \label{eqn:cost_wafer}
     C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] =\frac{1}{D}  \frac{1}{y_i}   \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
 \end{myequation}
-
 where the index $i$ runs over all wafer processing steps, the index $j$ runs over all die processing steps and the index $x$ run over all materials.
-
 \begin{align*}
         D &\dots \text{number of functional (i.e., successfully tested) die per wafer}\\
         y &\dots \text{process step yield} \\
@@ -273,22 +265,16 @@ where the index $i$ runs over all wafer processing steps, the index $j$ runs ove
         v_x &\dots \text{volume of material $x$ per wafer} \\
         c_x &\dots \text{cost of material $x$ per volume}\\
 \end{align*}
-
 The number of die per wafer $D$ depends on the total usable wafer area. The usable area depends on the wafer diameter, the cutting street width between the chips and the exclusion zone at the rim of the wafer.
-
 \begin{myequation}
 	A_{\text{usable}}=A_{\text{wafer}}-A_{\text{cut}}-A_{\text{exclusion}}
 \end{myequation}
-
 Determining the usable wafer area as a function of these three parameters requires a numerical solution. However, following discussions in the literature \cite{de2005investigation}, we approximate the number of functional die per wafer\footnote{often \textit{"good die per wafer"} in the literature} as
-
 \begin{myequation}
 \label{eqn:dpw}
 	DPW = \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2}
 \end{myequation}
-
 where
-
 \begin{align*}
     d &\dots \text{wafer diameter} \\
     e &\dots \text{wafer edge exclusion zone width} \\
@@ -406,28 +392,29 @@ Sapphire wafers form the substrate on which all other layers of the light-emitti
 	\label{fig:wafers}
 \end{figure}
 
+\newpage
 \subsection{Preliminary Sensitivity Analysis}
 
-\begin{figure}[h]
+\begin{figure}[]
 	\centering
     \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_sensitivity.pdf}
-	\caption{Sensitivity analysis of selected cost model parameters. Note the decreasing sensitivity to cost model parameters as the number of die per wafer increases. Compare table \cref{tab:sensitivity}. Abbreviations: resp. - respective}
+	\caption{Sensitivity analysis for selected cost model parameters. Panel a represents the tested range of variation of parameters indicated on horizontal axis along with their respective measurement units, as represented in \cref{tab:sensitivity}. Panel b shows the resulting range of variation in the manufacturing cost. Ranges are represented for three years considered in the cost model, where corresponding data is available, by whiskers of the following colour: 2003 – blue, 2012 – green, 2020 – red. Note the overall trend of decreasing sensitivity to cost model parameters as the number of die per wafer increases over time. Abbreviations: resp. - respective; yield sav. from insp. - yield savings from inspection.}
 	\label{fig:sensitivity}
 \end{figure}
 
-A sensitivity analysis of the cost model has been performed using parameter variations listed in table \cref{tab:sensitivity}. The amount of parameter variation was chosen to encompass the identified range of the value of the parameter in different manufacturing setups of each considered year. As an example, the lower range in the variation for metal cost (+50\%,-0\%) was chosen because the metal prices in the model are price quotes from the United State Geological Survey price database. Industry metals are not sold below the price of the raw material and often the markup is small compared to the price of the material. The upper range was chosen, because a survey of industrial metal suppliers for semiconductor manufacturing showed that the largest markup was below 50\%. The results of the analysis are shown in  \cref{fig:sensitivity}. The cost model is generally more sensitive to variation of parameters at smaller wafer diameters. The most sensitive parameters are global parameters, such as yield or average equipment throughput.
+A sensitivity analysis of the cost model has been performed using parameter variations listed in table \cref{tab:sensitivity}. The amount of parameter variation was chosen to encompass the identified range of parameter values in different manufacturing setups for each considered year. As an example, the lower range in the variation for the price of metals used in the model (+50\%,-0\%) was chosen because the prices quotes from the United State Geological Survey price database. Industry metals are not sold below the price of the raw material and often the markup is small compared to the price of the material. The upper range was chosen because a survey of industrial metal suppliers for semiconductor manufacturing showed that the largest markup was below 50\%. The results of the analysis are shown in  \cref{fig:sensitivity}. The cost model is generally more sensitive to the variation in parameters at smaller wafer diameters. The most sensitive parameters are global parameters, such as yield or average equipment throughput.
 
-\begin{table}[H]
+\begin{table}[]
 \small
-    \begin{tabularx}{\textwidth}{ |X|l|l|l|l|l|l|l|X|}
+    \begin{tabularx}{\textwidth}{ |X|X|l|l|l|l|l|l|X|}
         \hline
-            \textit{Parameter} & \textit{Unit} & \textit{2003} & $\pm [\%]$ & \textit{2012} & $\pm [\%]$ & \textit{2020} & $\pm [\%]$ & \textit{Source} \\
+            \textit{Parameter} & \textit{Unit} & \textit{2003} & $\pm [\%]$ & \textit{2012} & $\pm [\%]$ & \textit{2020} & $\pm [\%]$ & Source \\
         \hline
-            Cleanroom Cost & \text{USD}/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & Figure \cref{fig:electricity+cleanroom_prices} \\
+            Cleanroom Cost & \text{USD}/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & \cite{mddi1997cleanroom}\cite{ledcomv2} \newline \cite{bakshi2009euv}\cite{gajera2006process} \\
         \hline
-            Manhours & FTE & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & I \\
+            Person-hour & FTE & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & I \\
         \hline
-            Equip. Discount & \% of \text{USD} & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I, \cite{Appleyard2001} \\
+            Equip. Discount & \% of \text{USD} & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I \newline \cite{Appleyard_2001} \\
         \hline
             Overall Yield & \% & 100\% & +25,-25 & 100\% & +25,-15 & 100\% & +25,-25 & I, \cite{lumi2012yield}\cite{ledsmag2012} \newline \cite{systemplus2015reverse}\cite{ledcomv2} \\
         \hline
@@ -435,7 +422,7 @@ A sensitivity analysis of the cost model has been performed using parameter vari
         \hline
             Overall Throughput & UPH or h$^{-1}$ & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & Datasheets \\
         \hline
-            Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I, Figure \cref{fig:wafer_size} \\
+            Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I and \cref{fig:wafers} \\
         \hline
             Edge Exclusion & mm & 7 & +0,-50 & 5 & +40,-0 & 5 & +40,-20 & \cite{ledsmagexclusion}\cite{rubiconexclusion} \newline \cite{xiamenexclusion}\cite{american2007annual} \\
         \hline
@@ -445,12 +432,12 @@ A sensitivity analysis of the cost model has been performed using parameter vari
         \hline
             Electricity Price & \text{USD}/kWh & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
         \hline
-            Saph. Subst. Price & \text{USD} & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & Figure \cref{fig:sapphire_prices} \\
+            Saph. Subst. Price & \text{USD} & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & \cref{fig:wafers} \\
         \hline
             Phosphor Prices & \text{USD}/g & 100\% & +50,-50 & 150 & +0,-0 & 200 & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
         \hline
         \end{tabularx}
-    \caption{Cost model sensitivity analysis parameter list. For the sensitivity analysis performed using these variables, see  \cref{fig:sensitivity}. Units for values in columns \textit{2002}-\textit{2020} are indicated in column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead are given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines.}
+    \caption{Cost model sensitivity analysis parameter list. The results of the sensitivity analysis for the parameters in this table are presented in \cref{fig:sensitivity}. The units for the values in columns \textit{2003}-\textit{2020} are indicated in the column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines. Abbreviations: FTE - full-time equivalent; UPH - units per hour; Equip. Discount - equipment discount (sales rebate for large purchases); Inspec. Yield Savings - yield savings from inspection (early detection and alleviation of issues in the manufacturing workflow).}
     \label{tab:sensitivity}
 \end{table}
 
@@ -466,58 +453,43 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 \end{figure}
 
 \section{Computation of Contribution of Individual Variables}
+\label{sec:contribution_variables}
 
 To quantify the drivers of changes in manufacturing cost or device performance among many contributing factors, one would need to identify the magnitude of contribution to these changes made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the manufacturing cost or performance function of a device at time $t$,
-
 \begin{myequation}
 F=ab+cd
 \end{myequation}
-
 and input variables $a,b,c,d$, we are looking for the contribution $\Delta F_{a}$ made by a single variable $a$ to the total change in the function value $\Delta F$ between points $t_0,t_1$ such, that
-
 \begin{myequation}
 \Delta F = F(t_1)-C(t_0) = \sum_{i=a, \dots, d} \Delta F_i
 \end{myequation}
-
 The infinitesimal contribution to the total funcation value by the infinitesimal change in an input variable is defined through the total differential of the function as
-
 \begin{myequation}
 \text{d}F(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial F }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial F }{\partial x_i}  \Delta x_i
 \end{myequation}
-
 where $x_i$ is an input cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to the total function value $F$ over the period $t_0 < t < t_1 $ is then
-
 \begin{myequation}
 \Delta F_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial F }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
 \label{eqn:integral_1}
 \end{myequation}
-
 However, data on the input variables is not available in continuous time. Disaggregating the contribution of single variables to the change in the cost or performance is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. In our work, we propose to address this problem by following an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
 
 The function $F$ as a function of a vector of input model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
-
 \begin{myequation}
     F(\vec{r}) = F(r_1,r_2, \dots) = \sum_i F_i
 \end{myequation}
-
 where
-
 \begin{myequation}
     F_i(\vec{r}) = F_i^0 \prod_w g_{iw}(r_w)
 \end{myequation}
-
 Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
-
 \begin{myequation}
     \Delta F_x = \int_{t=t_0}^{t_1} F(t) \frac{ \partial \ln F }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
 \end{myequation}
-
 where for $F(t)$ a constant $F(t) \approx \tilde{F} $ can be chosen such that $\Delta F_{x_i} = \Delta F$. In practice, this constant value can be approximated through the geometric and arithmetic means $\tilde{F} \approx \frac{2}{3} F_i^\text{geo} + \frac{1}{3} \overline{F_i}$. The contribution of a single cost model variable $r_z$ can then be written as
-
 \begin{myequation}
     \Delta F_z (t_1,t_2) \approx \sum_i \tilde{F_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
 \end{myequation}
-
 We use this approach to estimate the effect of individual innovations and spillovers on LED device performance, as discussed in section 4.3 and shown in Figure 5 in the main article. Due to time constraints, we leave the quantification of the impact of different drivers of cost reductions with this methodological approach for our future work.
 
 \section{Non-Phosphor-Related LED Innovations}
@@ -604,7 +576,7 @@ In 1997, Hubert Huppertz and Wolfgang Schnick, working at the University of Bayr
 
 Further efforts in LED phosphor development were directed towards synthesizing a red narrow-band phosphor. Narrow LED emission peak widths yield the highest luminous efficacy of radiation, as in this case less light is emitted in the far-red range of the spectrum in which the human eye is not very sensitive. After synthesizing several narrow-band phosphors emitting in yellow \cite{Hppe2004} and cyan \cite{Kechele2009}, the Schnick’s group identified the local cubic cation coordination structure of the cyan phosphor compound as the reason for its narrow band width \cite{lumi2016narrow}. A search for a structurally analogous nitride compound with the narrow red instead of the cyan emission was undertaken. After several unsuccessful attempts, the sought-after cuboidal nitride compound was found in a 2008 publication led by Francis DiSalvo \cite{Park2008Sr}. Based on information provided in this work, Schnick and colleagues synthesized and studied the spectral properties of a new narrow band red SLA phosphor in 2013 \cite{schmidt2013new}\cite{Pust2014}\cite{schmidt2017phosphors}. The material was introduced in commercial LED devices by Lumileds in 2015 \cite{lumi2016narrow_whitepaper}. 
 
-The most recent red narrow-band phosphor innovation included in Table 1 and Figure 7 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first patent application for this phosphor was filed in 2016 . The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
+The most recent red narrow-band phosphor innovation included in Table 1 and Figure 7 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first U.S. patent application for this phosphor was filed in 2017 \cite{seibald2019phosphor}. The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
 
 \subsubsection{PFS Phosphor}
 
