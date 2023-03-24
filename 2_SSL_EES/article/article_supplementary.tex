@@ -451,17 +451,15 @@ where for $C(t)$ a constant $C(t) \approx \tilde{C} $ can be chosen such that $\
 
 This approach was used to determine the effect of spillovers on device performance, displayed in  \cref{fig:breakthroughs_efficiency}. Due to time constraints, this approach could not be used to determine the effect of spillovers on manufacturing cost. Future work to quantify the impact of different cost drivers, including breakthroughs and changes in the manufacturing variables of  \cref{eqn:cost_sum}, could this method.
 
-\subsection{Examples of Input Data Considered}
+\subsection{Example of Input Data Considered: Sapphire Wafers}
 
-\subsubsection{Sapphire Wafers}
-
-Sapphire wafers form the substrate on which all other layers of the light-emitting diode wafer are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace in 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in  \cref{fig:sapphire_prices}. This can be attributed not only to the lighting industry, but more importantly to increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market is dominated by U.S. based \textit{Rubicon Technology} and Russian based \textit{Monocrystal}. The prevalence of wafer diameters used is shown in  \cref{fig:wafer_size}.
+Sapphire wafers form the substrate on which all other layers of the light-emitting diode are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace by 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in the bottom panel of \cref{fig:wafers}. This can be attributed not only to the lighting industry, but more importantly to increased supply as a result of increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market has been dominated by U.S.-based \textit{Rubicon Technology} and Russian-based \textit{Monocrystal}. he evolution of sapphire wafer prices and diameters used in LED manufacturing over the years is shown in top panel of \cref{fig:wafers}.
 
 \begin{figure}[h!]
-    \includegraphics[width=14.5cm]{./figures/wafer_size.pdf}
     \includegraphics[width=15cm]{./figures/sapphire_prices.pdf}
+    \includegraphics[width=14.5cm]{./figures/wafer_size.pdf}
 	\caption{Top: Historical data for sapphire substrate prices of different surface properties and diameters. Shown is data for polished surface (NPS) and patterned substrates (PSS). \textit{Monocrystal} denotes the Russian manufacturer of the same name. Dashed lines are projections from the previous year. Sources: \cite{monocrystal2020private}\cite{yole2011sapphire}\cite{yole2015sapphire}. Bottom: Prevalence of sapphire wafer size used in the manufacturing of light-emitting diodes. Hatched bars are projections given by the sources. Sources: \cite{veeco2013}\cite{Scholand2012}\cite{yole2015sapphire}}
-	\label{fig:wafer_size}
+	\label{fig:wafers}
 \end{figure}
 
 \subsection{Preliminary Sensitivity Analysis}
@@ -549,13 +547,13 @@ This section summarizes LED innovations and technology and manufacturing process
         \hline
             $<$ 2003 & Optimization for \newline cavity effects & Other & No & I, \cite{Shen2003} \\
         \hline
-            1993 & Chip surface randomization & Total reflection \newline Absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
+            1993 & Chip surface randomization & Total reflection and absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
         \hline
-            1993 & Thin-Film \newline Chip architecture & Absorption & No & I, \cite{Schnitzer1993} \\
+            1993 & Thin-film chip architecture & Absorption & No & I, \cite{Schnitzer1993} \\
         \hline
-            1996 & Patterned sapphire \newline Substrate  & Total reflection \newline Absorption & Yes & I, \cite{Tadatomo2001} \\
+            1996 & Patterned sapphire substrate  & Total reflection and absorption & Yes & I, \cite{Tadatomo2001} \\
         \hline
-            ongoing & Chip design for \newline high LEE & total reflection \newline Absorption & No & I, \cite{Haerle2004} \\
+            ongoing & Chip design for high LEE & Total reflection and absorption & No & I, \cite{Haerle2004} \\
         \hline
             $\sim$2000 & Silver p-contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
         \hline
@@ -563,9 +561,9 @@ This section summarizes LED innovations and technology and manufacturing process
         \hline
             \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
         \hline
-            1994 & DH & Higher radiative recombination \newline Probability & No & \cite{Nakamura1994} \\
+            1994 & DH & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
         \hline
-            1996 & multiple quantum well & Higher radiative recombination \newline Probability & No & \cite{Koike1996} \\
+            1996 & multiple quantum well & Higher radiative recombination probability & No & \cite{Koike1996} \\
         \hline
             ongoing & Active region \newline Doping & Both & No & I, \cite{schubert2018light} \\
         \hline
