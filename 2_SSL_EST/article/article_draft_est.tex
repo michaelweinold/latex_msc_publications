@@ -1,167 +1,132 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%This is the LaTeX ARTICLE template for RSC journals
-%Copyright The Royal Society of Chemistry 2016
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is a (brief) model paper using the achemso class
+%% The document class accepts keyval options, which should include
+%% the target journal and optionally the manuscript type. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[journal=jacsat,manuscript=article]{achemso}
 
-\documentclass[twoside,twocolumn,9pt]{article}
-\usepackage{extsizes}
-\usepackage[super,sort&compress,comma]{natbib} 
-\usepackage[version=3]{mhchem}
-\usepackage[left=1.5cm, right=1.5cm, top=1.785cm, bottom=2.0cm]{geometry}
-\usepackage{balance}
-\usepackage{mathptmx}
-\usepackage{sectsty}
-\usepackage{graphicx} 
-\usepackage{lastpage}
-\usepackage[format=plain,justification=justified,singlelinecheck=false,font={stretch=1.125,small,sf},labelfont=bf,labelsep=space]{caption}
-\usepackage{float}
-\usepackage{fancyhdr}
-\usepackage{fnpos}
-\usepackage[english]{babel}
-\addto{\captionsenglish}{%
-  \renewcommand{\refname}{Notes and references}
-}
-\usepackage{array}
-\usepackage{droidsans}
-\usepackage{charter}
-\usepackage[T1]{fontenc}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{setspace}
-\usepackage[compact]{titlesec}
-\usepackage{hyperref}
-%%%Please don't disable any packages in the preamble, as this may cause the template to display incorrectly.%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional packages needed here.  Only include packages
+%% which are essential, to avoid problems later. Do NOT use any
+%% packages which require e-TeX (for example etoolbox): the e-TeX
+%% extensions are not currently available on the ACS conversion
+%% servers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
 \usepackage{tabularx}
+\usepackage[usenames,dvipsnames]{xcolor}
 
-\usepackage{epstopdf}%This line makes .eps figures into .pdf - please comment out if not required.
 
-\definecolor{cream}{RGB}{222,217,201}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If issues arise when submitting your manuscript, you may want to
+%% un-comment the next line.  This provides information on the
+%% version of every file you have used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\listfiles
 
-\usepackage{layout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional macros here.  Please use \newcommand* where
+%% possible, and avoid layout-changing macros (which are not used
+%% when typesetting).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Meta-data block
+%% ---------------
+%% Each author should be given as a separate \author command.
+%%
+%% Corresponding authors should have an e-mail given after the author
+%% name as an \email command. Phone and fax numbers can be given
+%% using \phone and \fax, respectively; this information is optional.
+%%
+%% The affiliation of authors is given after the authors; each
+%% \affiliation command applies to all preceding authors not already
+%% assigned an affiliation.
+%%
+%% The affiliation takes an option argument for the short name.  This
+%% will typically be something like "University of Somewhere".
+%%
+%% The \altaffiliation macro should be used for new address, etc.
+%% On the other hand, \alsoaffiliation is used on a per author basis
+%% when authors are associated with multiple institutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Michael Weinold}
+\email{michael.weinold@alumni.ethz.ch}
+\affiliation[ETHZ]{ETH Zurich, Switzerland}
+\alsoaffiliation[UCAM]
+{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, United Kingdom}
+\altaffiliation{Current address: Technology Assessment Group, Paul Scherrer Institute, Switzerland}
+
+\author{Sergey Kolesnikov}
+\affiliation[UCAM]
+{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, United Kingdom}
+
+
+\author{Laura Diaz Anadon}
+\affiliation[UCAM]{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, United Kingdom}
+\alsoaffiliation[UHarv]
+{Belfer Center for Science and International Affairs, Harvard University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[]{Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some journals require a list of abbreviations or keywords to be
+%% supplied. These should be set up here, and will be printed after
+%% the title and author information, if needed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\abbreviations{IR,NMR,UV}
+\keywords{American Chemical Society, \LaTeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The manuscript does not need to include \maketitle, which is
+%% executed automatically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\pagestyle{fancy}
-\thispagestyle{plain}
-\fancypagestyle{plain}{
-%%%HEADER%%%
-\renewcommand{\headrulewidth}{0pt}
-}
-%%%END OF HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "tocentry" environment can be used to create an entry for the
+%% graphical table of contents. It is given here as some journals
+%% require that it is printed as part of the abstract page. It will
+%% be automatically moved as appropriate.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tocentry}
 
+Some journals require a graphical entry for the Table of Contents.
+This should be laid out ``print ready'' so that the sizing of the
+text is correct.
 
-%%%PAGE SETUP - Please do not change any commands within this section%%%
-\makeFNbottom
-\makeatletter
-\renewcommand\LARGE{\@setfontsize\LARGE{15pt}{17}}
-\renewcommand\Large{\@setfontsize\Large{12pt}{14}}
-\renewcommand\large{\@setfontsize\large{10pt}{12}}
-\renewcommand\footnotesize{\@setfontsize\footnotesize{7pt}{10}}
-\makeatother
+Inside the \texttt{tocentry} environment, the font used is Helvetica
+8\,pt, as required by \emph{Journal of the American Chemical
+Society}.
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\renewcommand\footnoterule{\vspace*{1pt}% 
-\color{cream}\hrule width 3.5in height 0.4pt \color{black}\vspace*{5pt}} 
-\setcounter{secnumdepth}{5}
+The surrounding frame is 9\,cm by 3.5\,cm, which is the maximum
+permitted for  \emph{Journal of the American Chemical Society}
+graphical table of content entries. The box will not resize if the
+content is too big: instead it will overflow the edge of the box.
 
-\makeatletter 
-\renewcommand\@biblabel[1]{#1}            
-\renewcommand\@makefntext[1]% 
-{\noindent\makebox[0pt][r]{\@thefnmark\,}#1}
-\makeatother 
-\renewcommand{\figurename}{\small{Fig.}~}
-\sectionfont{\sffamily\Large}
-\subsectionfont{\normalsize}
-\subsubsectionfont{\bf}
-\setstretch{1.125} %In particular, please do not alter this line.
-\setlength{\skip\footins}{0.8cm}
-\setlength{\footnotesep}{0.25cm}
-\setlength{\jot}{10pt}
-\titlespacing*{\section}{0pt}{4pt}{4pt}
-\titlespacing*{\subsection}{0pt}{15pt}{1pt}
-%%%END OF PAGE SETUP%%%
+This box and the associated title will always be printed on a
+separate page at the end of the document.
 
-%%%FOOTER%%%
-\fancyfoot{}
-\fancyfoot[LO,RE]{\vspace{-7.1pt}\includegraphics[height=9pt]{auxiliary/rsc_template_head_foot/LF}}
-\fancyfoot[CO]{\vspace{-7.1pt}\hspace{13.2cm}\includegraphics{auxiliary/rsc_template_head_foot/RF}}
-\fancyfoot[CE]{\vspace{-7.2pt}\hspace{-14.2cm}\includegraphics{auxiliary/rsc_template_head_foot/RF}}
-\fancyfoot[RO]{\footnotesize{\sffamily{1--\pageref{LastPage} ~\textbar  \hspace{2pt}\thepage}}}
-\fancyfoot[LE]{\footnotesize{\sffamily{\thepage~\textbar\hspace{3.45cm} 1--\pageref{LastPage}}}}
-\fancyhead{}
-\renewcommand{\headrulewidth}{0pt} 
-\renewcommand{\footrulewidth}{0pt}
-\setlength{\arrayrulewidth}{1pt}
-\setlength{\columnsep}{6.5mm}
-\setlength\bibsep{1pt}
-%%%END OF FOOTER%%%
+\end{tocentry}
 
-%%%FIGURE SETUP - please do not change any commands within this section%%%
-\makeatletter 
-\newlength{\figrulesep} 
-\setlength{\figrulesep}{0.5\textfloatsep} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The abstract environment will automatically gobble the contents
+%% if an abstract is not used by the target journal.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+  The first commercial white light-emitting diodes (LEDs) were introduced to the market in 1996. Since then, white LEDs have experienced major improvements in performance and efficiency. Significant decreases in cost have been driven by a rapid expansion of the market share of LED-based solid-state lighting (SSL), which in turn has driven down costs even further. Today, the technology is one of the key solutions in global climate change mitigation efforts. However, despite its significance, the extent and sources of the underlying improvements have not been systematically investigated. Understanding what has driven rapid progress in LEDs can provide lessons for accelerating innovation in a broad range of other demand-side clean energy technologies. With this aim, we gather and analyse systematic evidence on cost and performance improvements in white LEDs from cost and performance modelling, augmented by a literature review and interviews with experts in industry and academia. We find that the overall efficiency of the highest performing warm white LED packages has improved from $\eta_L=5.8\%$ in 2003 to $\eta_L=38.8\%$ in 2020. During the same period, we estimate that the cost of manufacturing low-power and mid-power LED packages at a U.S. location using state-of-the-art equipment has dropped from 1.1\$ to 0.05\$ (in 2020 USD) between 2003 and 2020, a 95.5\% decrease. We further show that technology spillovers — i.e., knowledge originating in other technologies, sectors, or scientific disciplines — affected all performance dimensions of LEDs, contributing no less than 8.5\% to total efficiency improvements and $\sim$100\% to the improvements in consumer experience metrics identified, thereby playing a key role in the widespread adoption of the technology. The increase in wafer size and manufacturing yield improvements were the primary causes of LED manufacturing cost reductions.
+\end{abstract}
 
-\newcommand{\topfigrule}{\vspace*{-1pt}% 
-\noindent{\color{cream}\rule[-\figrulesep]{\columnwidth}{1.5pt}} }
-
-\newcommand{\botfigrule}{\vspace*{-2pt}% 
-\noindent{\color{cream}\rule[\figrulesep]{\columnwidth}{1.5pt}} }
-
-\newcommand{\dblfigrule}{\vspace*{-1pt}% 
-\noindent{\color{cream}\rule[-\figrulesep]{\textwidth}{1.5pt}} }
-
-\makeatother
-%%%END OF FIGURE SETUP%%%
-
-%%%TITLE, AUTHORS AND ABSTRACT%%%
-\twocolumn[
-  \begin{@twocolumnfalse}
-{\includegraphics[height=30pt]{auxiliary/rsc_template_head_foot/journal_name}\hfill\raisebox{0pt}[0pt][0pt]{\includegraphics[height=55pt]{auxiliary/rsc_template_head_foot/RSC_LOGO_CMYK}}\\[1ex]
-\includegraphics[width=18.5cm]{auxiliary/rsc_template_head_foot/header_bar}}\par
-\vspace{1em}3
-\sffamily
-\begin{tabular}{m{4.5cm} p{13.5cm} }
-
-\includegraphics{auxiliary/rsc_template_head_foot/DOI} & \noindent\LARGE{\textbf{Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers}} \\
-\vspace{0.3cm} & \vspace{0.3cm} \\
-
- & \noindent\large{Michael Weinold \textit{$^{a, b \ddag}$}, Sergey Kolesnikov,\textit{$^b$} and Laura Diaz Anadon\textit{$^{b, c}$}} \\
-
-\includegraphics{auxiliary/rsc_template_head_foot/dates} & \noindent\normalsize{The first commercial white light-emitting diodes (LEDs) were introduced to the market in 1996. Since then, white LEDs have experienced major improvements in performance and efficiency. Significant decreases in cost have been driven by a rapid expansion of the market share of LED-based solid-state lighting (SSL), which in turn has driven down costs even further. Today, the technology is one of the key solutions in global climate change mitigation efforts. However, despite its significance, the extent and sources of the underlying improvements have not been systematically investigated. Understanding what has driven rapid progress in LEDs can provide lessons for accelerating innovation in a broad range of other demand-side clean energy technologies. With this aim, we gather and analyse systematic evidence on cost and performance improvements in white LEDs from cost and performance modelling, augmented by a literature review and interviews with experts in industry and academia. We find that the overall efficiency of the highest performing warm white LED packages has improved from $\eta_L=5.8\%$ in 2003 to $\eta_L=38.8\%$ in 2020. During the same period, we estimate that the cost of manufacturing low-power and mid-power LED packages at a U.S. location using state-of-the-art equipment has dropped from 1.1\$ to 0.05\$ (in 2020 USD) between 2003 and 2020, a 95.5\% decrease. We further show that technology spillovers — i.e., knowledge originating in other technologies, sectors, or scientific disciplines — affected all performance dimensions of LEDs, contributing no less than 8.5\% to total efficiency improvements and $\sim$100\% to the improvements in consumer experience metrics identified, thereby playing a key role in the widespread adoption of the technology. The increase in wafer size and manufacturing yield improvements were the primary causes of LED manufacturing cost reductions.}
-
-\end{tabular}
-
- \end{@twocolumnfalse} \vspace{0.6cm}
-
-  ]
-%%%END OF TITLE, AUTHORS AND ABSTRACT%%%
-
-%%%FONT SETUP - please do not change any commands within this section
-\renewcommand*\rmdefault{bch}\normalfont\upshape
-\rmfamily
-\section*{}
-\vspace{-1cm}
-
-
-%%%FOOTNOTES%%%
-
-\footnotetext{\textit{$^{a}$~ETH Zurich, Zurich, Switzerland. E-mail: michael.weinold@alumni.ethz.ch}}
-\footnotetext{\textit{$^{b}$~Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, United Kingdom.}}
-\footnotetext{\textit{$^{c}$~Belfer Center for Science and International Affairs, Harvard University, Cambridge, MA, United States.}}
-
-
-%Please use \dag to\cite the ESI in the main text of the article.
-%If you article does not have ESI please remove the the \dag symbol from the title and the footnotetext below.
-\footnotetext{\dag~Electronic Supplementary Information (ESI) available: [details of any Supplementary Information available should be included here]. See DOI: 00.0000/00000000.}
-%additional addresses can be cited as above using the lower-case letters, c, d, e... If all authors are from the same address, no letter is required
-
-\footnotetext{\ddag~Present address: Paul Scherrer Institute, Group for Technology Assessment, Villigen, Switzerland.}
-
-
-%%%END OF FOOTNOTES%%%
-
-%%%MAIN TEXT%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start the main part of the manuscript here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 A rapid reduction of global carbon dioxide emissions is urgently required in order to mitigate the effects of climate change \cite{Forster2019}. According to the United Nations, by the end of 2021, more than 130 countries have set or are considering setting a net zero emissions target by 2050 \cite{un2021climate}. The European Union, for example, has set a target of net zero emissions by 2050. It aims to meet this goal with the help of the European Green Deal, alongside other EU and national policies \cite{eu2020green}. The United Kingdom similarly has adopted a national strategy to achieve net-zero by 2050 \cite{noauthor_ieairena_2023}.
@@ -170,21 +135,13 @@ Achieving these ambitious and critically important targets will require both the
 
 There are a range of mechanisms that contribute to improvements in a technology over time, including targeted research and development (R\&D) efforts, economies of scale, learning by doing \cite{Arrow1971}, and economies of scope \cite{johansson2012global}\cite{national2016power}\cite{iea2020perspectives}. The role of these factors at different stages of the innovation life cycle \cite{ grubler2012policies}, from research and technology development to demonstration, market formation and diffusion, is an area of active research \cite{Mowery1979} \cite{kavlak2018evaluating} \cite{Ziegler2021}. Innovation is also driven by forces of supply and demand. Various \textit{"technology-push"} drivers reduce the costs of innovating, while \textit{"market-pull"} drivers increase the pay-offs from investing in innovation \cite{anadon2009policy}.
 
-\begin{figure*}[h]
- \centering
- \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/history_efficacy.pdf}
- \caption{Historical development of the luminous efficacy ($K$) of the most widely-used lighting technologies in human history. Data points indicate best performers by year of market introduction. Luminous efficacy is the measure of how efficiently a light source converts electrical energy into visible light that can be perceived by the human eye, taking into account the wavelength sensitivity of the eye. Dashed lines indicate an average improvement for each technology, computed from a 3rd-order polynomial fit to the data. The physical limit for an ideal light source with a colour rendering index of CRI=90, denoted as $K_max^{CRI90}$, is shown as a black horizontal line, as per calculations by Murphy et al. \cite{Murphy2012}. The magnified plot shows the progress in cool white LEDs from 1996 to 2020, with the dashed line indicating a linear rate of efficacy improvement of 10lm/W per year. For comparison, efficacies of best performers in legacy lighting technologies for 2020 are shown as coloured horizontal lines. Note the logarithmic scale of the vertical axis on the main plot and the linear scale on the magnified plot. Abbreviations: HID - High-Intensity Discharge; CFL - Compact Fluorescent Lamp; Hal. - Halogen, Incd. - Incandescent. Source: own synthesis of published data based on a visual approach proposed by Azevedo et al. \cite{azevedo2009transition}. See Supplementary Information, Section 5 (Complete List of Sources for Figures), for the full list of sources and references.}
- \label{fgr:history_efficacy}
-\end{figure*}
- 
 The stages and drivers of the innovation life-cycle for a particular technology play out within a broader innovation system \cite{grubler2012policies}\cite{Anadon2016}. Among these drivers, the role of external  knowledge transfer and technology spillovers in research and development of energy technologies is an understudied area  \cite{Stephan2021}. While the exact definition of spillovers in the literature depends on the context and the research question \cite{Liu2003}\cite{Nemet2012}, we follow Stephan et al. \cite{Stephan2021} and consider knowledge to be external - thus a spillover -  if it has been developed for application in other technologies, sectors, or scientific disciplines. There is emerging evidence that understanding spillovers and the knowledge network outside a technology may be an important factor in understanding \cite{Pichler2020} and shaping \cite{Clark2016}\cite{Stephan2021}\cite{Sun2021}\cite{kolesnikov2022technology} the future evolution of technologies.  
 
-Among demand-side technologies, the provision of lighting is a particularly important area for climate change mitigation efforts, as it currently   accounts for 15-19\% of global electricity consumption \cite{Zissis2016}\cite{doe_electricity}. It is also an area of rapid recent technological change: since the introduction of the first commercial white light-emitting diodes (LEDs) in 1996, lighting technology has experienced dramatic efficiency improvements.  As shown in Figure \ref{fgr:history_efficacy}, thanks to the introduction of LED-based solid-state lighting (SSL), the efficacy of lighting sources has increased by three orders of magnitude in just over 20 years, which is significantly faster than the historical progress observed in previous lighting technologies \cite{weinold2021quantifying}. For comparison, the highest performing light-emitting devices today reach efficacies of 220 lm/W \cite{lumistrips2021mid}, while an incandescent light bulb can only reach efficacies of up to 18 lm/W. Moreover, this rapid improvement in efficiency has been accompanied by a similarly impressive decrease in LED manufacturing costs and retail prices. Figure \ref{fgr:cost_lamp_small} shows how LED retail prices have fallen by two orders of magnitude, at an annual price per flux decline during the period of from 2008-2020 of 27.3\%, in line with previous estimates \cite{Gerke2020}.  
+Among demand-side technologies, the provision of lighting is a particularly important area for climate change mitigation efforts, as it currently   accounts for 15-19\% of global electricity consumption \cite{Zissis2016}\cite{doe_electricity}. It is also an area of rapid recent technological change: since the introduction of the first commercial white light-emitting diodes (LEDs) in 1996, lighting technology has experienced dramatic efficiency improvements.  As shown in Figure \ref{fgr:history_efficacy}, thanks to the introduction of LED-based solid-state lighting (SSL), the efficacy of lighting sources has increased by three orders of magnitude in just over 20 years, which is significantly faster than the historical progress observed in previous lighting technologies \cite{weinold2021quantifying}. For comparison, the highest performing light-emitting devices today reach efficacies of 220 lm/W \cite{lumistrips2021mid}, while an incandescent light bulb can only reach efficacies of up to 18 lm/W. Moreover, this rapid improvement in efficiency has been accompanied by a similarly impressive decrease in LED manufacturing costs and retail prices. Figure \ref{fgr:cost_lamp_small} shows how LED retail prices have fallen by two orders of magnitude, at an annual price per flux decline during the period of from 2008-2020 of 27.3\%, in line with previous estimates \cite{Gerke2020}.
 
-
-\begin{figure}
+\begin{figure}[h]
 \centering
-  \includegraphics[height=6.5cm]{2_SSL_EES/article/figures/cost_lamp_small.pdf}
+  \includegraphics[height=6.5cm]{2_SSL_EST/article/figures/cost_lamp_small.pdf}
   \caption{Historical development of retail sales prices (in 2020 USD) per luminous flux of LED-based luminaires, including light bulbs, spotlights and recessed lights from 2008 to 2020. Red curved and dashed lines represent average retail sales prices and price projections for LED based luminaires published by the U.S. Department of Energy (DOE) \cite{council2013assessment}. Shown for reference are the average prices for compact fluorescent (CFL) and incandescent light bulbs. Source: own synthesis of data on LED sales prices collected from various consumer watchdog databases and publications. Data on CFL sales prices collected from \cite{eger2018origin} as well as various consumer watchdog databases and publications. Incandescent light bulb price is assumed constant based on the average in the covered time period. See Supplementary Information, Section 5 (Complete List of Sources for Figures), for the full list of sources and references.}
   \label{fgr:cost_lamp_small}
 \end{figure}
@@ -195,26 +152,22 @@ Despite this impressive history, the sources of LED innovation have not received
 
 To address these questions, in this paper we identify a set of metrics suitable for tracking the historical progress of LED lighting technology. We then trace device efficiency and cost improvements, as well as changes in relevant consumer experience metrics from the time of introduction of the first commercial warm white LEDs in 2003 to 2020, the year with the most recent data available at the time of writing. Given the proprietary nature of knowledge in the SSL industry, we collect corresponding information using a multi-method approach combining a systematic literature review of scientific literature and industry reports with patent analysis and a series of elite interviews \cite{tansey2009process} with eminent experts from academia, public research institutions and industry. This approach allows us to identify innovations in white LED technology and examine their origins to discern technology spillovers among them. Data on performance improvements associated with individual innovations identified in patents, scientific publications, industry reports, and interviews is then augmented  by our calculations of device efficiency, including contributions of specific spillovers to the overall LED efficiency (see Supplementary Information for more detail). We further calculate LED manufacturing costs using a bottom-up cost model with process-step resolution that we developed. Finally, we discuss what our observations may mean for our understanding of the innovation process in innovation process in LED technology and for broader policy and industry efforts to accelerate clean energy innovation.
 
-
-
-\section{Previous Literature}
-\label{sec:prev_lit}
-
-The historical development development of light-emitting diodes from a novelty semiconductor experiment into powerful lighting devices has received a considerable amount of attention following the recognition of pioneering work on blue LED by Japanese researchers Shuji Nakamura, Isamu Akasaki and Hiroshi Amano with the 2014 Nobel Prize in Physics \cite{Akasaki2015}\cite{Nakamura2015}. The sources and disaggregated contributions of subsequent improvements in LED technology, however, have not been documented in the literature in a systematic fashion, though there were notable publications reporting on the progress in the design of devices \cite{Shchekin2006}\cite{krames2007led}\cite{laubsch2009high}\cite{hahn2014development}, or the technological improvements  underlying the improvement in overall device efficiency for best performers in 2009 \cite{tsao2010solid} and 2016 \cite{pattison2017solid}. 
-
-Several descriptive publications provide a very useful overview of selected scientific breakthroughs that have contributed to LED progress \cite{krames2007status}\cite{Phillips2007}\cite{Bierhuizen2007}\cite{Nakamura2013}\cite{feezell2018invention}\cite{Taki2019}. Additional studies provide more detail regarding the origin and impact of specific advances in LED technology as well as their integration into device manufacturing were published by authors working for key industry actors Lumileds\cite{MuellerMach2005}\cite{Shchekin2006}\cite{lumi2015lumi}\cite{Bhardwaj2017} and Osram (now amsOsram)\cite{Haerle2004}\cite{Baur2009}\cite{laubsch2009high}\cite{hahn2014development}. However, these studies typically include limited information on the macro-level chip design and cover disparate aspects of the technology over different time periods. Another important source of historical information are patents, which cover the entirety of the device architecture or manufacturing process, including those by Lumileds\cite{margalith2011thin}, Samsung\cite{jung2014phos}\cite{cha2019semiconductor} and Soraa\cite{cich2017high}.
-
-We summarize the information collected, analysed and classified on the progress in LED chip architectures and manufacturing processes from these and other disparate sources in Figure \ref{fgr:chip_architecture_overview}, where we show the evolution of LEDs from classical chips with lateral current spreading to chip-scale package flip-chip architectures. Despite the amount of literature published on the topic of LED history, we are not aware of a prior publication that comprehensively and consistently aggregates and analyzes known chip design, manufacturing, and material improvements to show the overall effect of these improvements on device efficiency or manufacturing cost over time. In addition, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating}\cite{kolesnikov2020novel}\cite{nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan2021}, has not yet been studied in the context of lighting. This is consistent with previous observations regarding the marginalization of end-use technologies in the analysis of energy innovation for climate change impact mitigation \cite{Wilson2012}\cite{Creutzig2018}.
-
-
-\begin{figure*}
+\begin{figure}[h]
  \centering
- \includegraphics[height=17cm]{2_SSL_EES/article/figures/chip_architecture_overview.pdf}
+ \includegraphics[width=\textwidth]{2_SSL_EST/article/figures/history_efficacy.pdf}
+ \caption{Historical development of the luminous efficacy ($K$) of the most widely-used lighting technologies in human history. Data points indicate best performers by year of market introduction. Luminous efficacy is the measure of how efficiently a light source converts electrical energy into visible light that can be perceived by the human eye, taking into account the wavelength sensitivity of the eye. Dashed lines indicate an average improvement for each technology, computed from a 3rd-order polynomial fit to the data. The physical limit for an ideal light source with a colour rendering index of CRI=90, denoted as $K_max^{CRI90}$, is shown as a black horizontal line, as per calculations by Murphy et al. \cite{Murphy2012}. The magnified plot shows the progress in cool white LEDs from 1996 to 2020, with the dashed line indicating a linear rate of efficacy improvement of 10lm/W per year. For comparison, efficacies of best performers in legacy lighting technologies for 2020 are shown as coloured horizontal lines. Note the logarithmic scale of the vertical axis on the main plot and the linear scale on the magnified plot. Abbreviations: HID - High-Intensity Discharge; CFL - Compact Fluorescent Lamp; Hal. - Halogen, Incd. - Incandescent. Source: own synthesis of published data based on a visual approach proposed by Azevedo et al. \cite{azevedo2009transition}. See Supplementary Information, Section 5 (Complete List of Sources for Figures), for the full list of sources and references.}
+ \label{fgr:history_efficacy}
+\end{figure}
+
+\clearpage
+\begin{figure}[h!]
+ \centering
+ \includegraphics[height=15cm]{2_SSL_EST/article/figures/chip_architecture_overview.pdf}
  \caption{Historical evolution of light-emitting diode chip architectures. Panel A: classical chip with lateral current spreading; Panel B: Osram’s thin GaN flip-chip (vertical) architecture; Panel C: flip-chip architecture; Panel D: chip-scale package flip-chip architecture. Shown are side views of chips without packages, along a cutaway line best suited to the features of each architecture. The cutaway surface is indicated by a red arrow with an eye on the overlaid top view of each chip. Note that the dimensions are not to scale, and smaller features are greatly exaggerated for clarity. Years indicated correspond to the earliest identified patent priority date. Black frames around certain designs indicate chip designs not brought to large-scale production. Chip architecture abbreviations: TF - Thin-Film; FC - Flip-Chip; CSP - Chip-Scale Package; Material abbreviations: GaN - Gallium Nitride, ITO - Indium Tin Oxide, MQW - Multiple Quantum Well. Source: adapted and compiled from multiple patents and industry publications. See Supplementary Information, Section 5 (Complete List of Sources for Figures), for the full list of sources and references.}
  \label{fgr:chip_architecture_overview}
-\end{figure*}
+\end{figure}
 
-\section{Metrics for technological progress in LEDs}
+\section{Metrics for Technological Progress in LEDs}
 
 Investigating the sources of rapid progress in LED technology over the past decades, in which white LEDs have come to dominate the lighting market \cite{zissis2021}, requires selecting appropriate metrics for tracking and quantifying this progress. The choice of metrics affects both what data sources can be used in the analysis and which research methodologies can be used to calculate and analyse such metrics. We select the metrics based on the following two general criteria. First, we focus only on metrics widely accepted and reported in industry because metrics proposed in the scientific literature but not reported by device manufacturers cannot be used to compare the performance of commercial LED devices over time. Second, the chosen metrics must be useful for understanding the impact of individual technological improvements on relevant performance and cost characteristics.
 
@@ -340,56 +293,6 @@ This cost metric is cumulative by definition, thus
 
 Yielded cost per step is dependent on the step order and blind to downstream information \cite{becker2001use}. Additional information on details of the computation of cost metrics and the different manufacturing steps is presented in Section 2 of the Supplementary Information.
 
-\section{Methods and Data Collection}
-\label{sec:methods}
-
-The evolution of LED device architecture and performance as well as the progress in understanding the underlying physical phenomena are well covered in the scholarly literature and patents, as described in Section \ref{sec:prev_lit}. However, information provided in such sources is insufficient for our goals on at least three accounts: First, existing work focuses only on selected performance parameters or overall device efficiency, rather than on providing a comprehensive coverage of the whole device sub-efficiencies for a particular LED product or design. Scientific publications also do not always disclose the underlying device architecture or the features responsible for the gains in performance. Second, not all relevant innovations are patented \cite{Pakes_1980}\cite{ Fontana_2013}. In the case of LED patents in particular, our interviews with industry experts suggest that the propensity to patent is the highest for knowledge related to macroscopic device architecture and chemical composition of phosphors, and the lowest for knowledge related to manufacturing process improvements and microscopic chip architecture that is difficult to reconstruct by reverse engineering. This means that relying only on patent literature would bias results by unduly emphasizing some focus areas and de-emphasizing others. Third, scientific publications and patents typically focus on experimental devices, rather than commercial products. While new LED features, designs and manufacturing methods reported in these sources can potentially result in significant performance gains or cost reductions, it is difficult to ascertain if these improvements have since been adopted in industry.  Furthermore, information on LED manufacturing cost and the effect of process improvements on the total cost is highly proprietary. Estimates are occasionally reported in the scientific literature and company publications, but these often do not disclose which parts of the manufacturing process are responsible for the largest contribution to the overall cost, or which improvements led to cost reductions.
-
-To overcome the limitations of these different methods for understanding technological progress, in this study we rely on a multi-method approach to data collection and analysis that combines information obtained from a review of the primary scientific literature, device datasheets and relevant patents with our own computations of device sub-efficiencies, information gained from industry publications, semi-structured interviews with experts from academia and industry, and bottom-up manufacturing cost modelling. We provide the details of implementation of each of these methods below.
-
-\subsection{Systematic Literature Review}
-
-We collected data on LED performance and characteristics in a systematic literature review that included scientific publications, patents, conference proceedings from the largest semiconductor and optoelectronics conferences, industry periodicals and roadmaps, as well as company presentations and reports. This review was structured around the three main goals: 1) tracking the evolution of LED technology over time as indicated by three groups of progress metrics selected above in Section \ref{subsec:metrics}; 2) identifying individual innovations that contributed to this evolution and whether or not they could be spillovers, and quantifying their impact on device performance and manufacturing cost; and 3) determining whether these innovations had originated within the LED technology domain, or in a field of research or technology outside of solid-state lighting, making them a technology spillovers. 
-
-Relevant sources for the review were found in an iterative search process that involved two components. The first was the search in specialized patent and publication databases as well as company websites. The second component was the analysis of backward citations in the identified sources, starting from the reviews mentioned in the Section \ref{sec:prev_lit} and then iteratively repeating it for all newly identified sources, until no further relevant and significant new sources were found. We also relied on backward citations for the identification of technology spillovers, considering cited documents as indicators of knowledge origins of an innovation and analyzing whether those documents belonged to the LED technology domain or not.
-
-\subsection{Semi-Structured Interviews}
-
-To supplement our data collection efforts, verify our findings and identify additional spillovers, we conducted a series of elite semi-structured interviews with eleven eminent experts from academia, industry and the public research sector. Experts were selected based on their engagement in  different sub-fields of LED research and manufacturing, as well as the recommendations from other interviewed experts, in essence expanding the list of experts that emerged from the initial literature review. All interviews were conducted between November 2019 and April 2022 by means of video conferencing and lasted for about one hour. A summary of the background of interviewed experts is provided in Table SI 3 in Section 6 of the Supplementary Information.
-
-The primary, structured part of the interviews explored which innovations were deemed most relevant to the evolution of device performance, consumer experience and manufacturing cost of LED packages. Thereafter, interviewees were asked to consider the extent to which these innovations may have originated outside of their respective field of expertise and the LED industry more broadly—i.e., which of the innovations may be considered spillovers. The remainder of the interview was focused on learning about particular aspects of the manufacturing processes relevant to cost and performance modelling, the current state of industry, and the circumstances surrounding the innovations and spillovers identified in the first part of the interview. Specific quantitative data was also provided by experts, helping fine-tune the parameters of the manufacturing cost model (described in Section \ref{sec:costmodel}) and verify device performance data.
-
-\subsection{Performance Metrics Calculations}
-\label{subsec:metrics}
-
-The contribution of individual technology innovations and spillovers to the progress in overall device efficiency over time is estimated by index decomposition analysis. Mathematically, this involves breaking down a chosen performance indicator into its constituent components, each representing a specific factor that contributes to the change in the indicator \cite{Ang1997}. Specifically, we use the additive logarithmic mean Divisia index method I (LMDI-I), also known as the Additive Sato-Vartia indicator \cite{deBoer2019}. It was developed by Boyd in 1987 \cite{Boyd1987} on the basis of Divisia Index, a method in statistical economics \cite{Diewert1988}, and subsequently refined.
-
-According to this method, for an overall device efficiency function $F$ that is the product of variables $a, b$ that represent sub-efficiencies, the contribution of the change in a single sub-efficiency variable $a$ between times $t=0$ and $t=T$ can be estimated as \cite{Ang2019}
-
-\begin{align}
-    \Delta a &= \frac{a_{t=T} - a_{t=0}}{\ln(a_{t=T}) - \ln(a_{t=0})} \times \ln \big ( \frac{a_{t=T}}{a_{t=0}} \big ) \\
-    & \stackrel{a_{t=0} \neq a_{t=T}}{=} L(F_{t=T}, F_{t=0}) \times \ln \big ( \frac{a_{t=T}}{a_{t=0}} \big )
-\end{align}
-
-where $L(F_{t=T}, F_{t=0})$ is the logarithmic mean of $F$ values at times $t=0$ and $t=T$. These terms contain no residuals, therefore it can be shown that the overall improvement in the device efficiency due to improvements in individual sub-efficiencies is equal to the sum of these improvements in individual sub-efficiencies: 
-
-\begin{equation}
-    \Delta a + \Delta b  = \Delta F
-\end{equation}
-
-To document historical improvements in LED device performance accurately, we need data on all sub-efficiencies for the selected device architectures and periods covered. However, the scope of data reporting in scientific literature and industry publications is typically limited to selected metrics of interest, rather than the full ensemble of sub-efficiencies that determine the overall device performance. For this reason, our data collection efforts were supplemented by performance calculations for individual sub-efficiencies where possible and necessary. Of the device sub-efficiencies, those related to the emission spectrum  were computed from the spectral data often reported in LED device specifications. In particular, we used the \texttt{colour-science} package for Python\cite{python-colour} to calculate the luminous efficacy of radiation, colour rendering performance and luminous efficacy of radiation of phosphor down-conversion of blue light on the basis of available LED emission spectra. This approach allowed us to  quantify the improvements related to phosphor development in LEDs. 
-
-\subsection{Bottom-Up Manufacturing Cost Model}
-\label{sec:costmodel}
-
-We address the limitations of data availability for the LED manufacturing cost by developing and applying a bottom-up LED manufacturing cost model with process-step resolution. In our case, it is enabled by the general availability of historical data on prices of relevant raw materials, components, and manufacturing equipment, and the relative cost data on manufacturing processes, which is occasionally published as part of industry press releases \cite{ledinside2013csp}\cite{seoul2015csp}. 
-
-We identified two existing cost models for LED manufacturing in the prior literature. The first is the LED Cosim model developed by the technology consultancy System Plus Consulting \cite{cosim2013} \cite{cosim2019}. Due to prohibitive licensing costs, this model could not be used in our study. The second model is the publicly available 2012 LEDCOM cost model prepared for the U.S. Department of Energy by Stephen Bland  \cite{ledcomv2}. It was set up to capture the manufacturing process for phosphor-converted LEDs of different power levels. However, given the remarkable changes in the performance, cost and architecture of LEDs since 2012, as shown in Figures 1-3, this model cannot fully capture the recent advances in LED technology, necessitating a significant modification to bring it up to date with the current state-of-the-art in LED manufacturing.   
-
-Given this situation, we developed our own bottom-up LED manufacturing cost model. The model structure is generally based on the 2012 LEDCOM cost model, but we expand it significantly both in scope and in its ability to capture historical trends. The model captures three historical time periods corresponding to different “eras” in LED manufacturing: the early period of the first high-power white LEDs around 2003, the period of accelerating consumer adoption of LED lighting around 2012, and the most recent period around 2020, the year of our main data collection efforts. For each of these three years, the most prevalent manufacturing equipment was identified through industry periodicals, archived website data from the \textit{Internet Archive}, and expert interviews. Because the architecture of LED chips has changed significantly since the introduction of the first commercial devices in 1996, three different chip architectures were initially considered in the model: classical chips, flip chips, and chip-scale package flip chips. The details of the manufacturing process for each architecture were collected from the scientific literature, textbooks and relevant patents. In addition, two LED life cycle analyses \cite{scholand2012life}\cite{casamayor2018comparative} were used to validate the model structure and extract some of the necessary quantitative model inputs. These studies captured a large number of LED manufacturing process steps and included the details on the use of metals, chemicals and electricity for each manufacturing step.
-
-The aggregate result of the cost model is the manufacturing cost per LED package for each of the three years considered, which includes all costs associated with producing the chip, including running costs of the factory. Costs associated with research and development, administrative overhead of the manufacturer or other investment costs are not considered. We also note that the purpose of our cost model is not to give specific estimates of LED manufacturing cost for a factory of any size, specific geographic location or total annual manufacturing volume. It instead assumes an hypothetical factory with an assumed location in the United States and associated overhead costs related to the operation of the factory. It also assumes the use of the most up-to-date equipment for that year. Even with these simplifying assumptions, the model reasonably identifies the impact that changes in single process steps can have on the total LED manufacturing cost. An important limitation of our cost modelling efforts is that, even though the model captures three different chip architectures in its structure, in the present study we were able to collect, estimate and present the full set of quantitative inputs and outputs only for the classical chip architecture of low- to mid-power devices. Populating the model with data for the remaining two architectures requires access to proprietary industry information, which we have not been able to get thus far.  
-
 \section{Results}
 
 \subsection{Improvements in Sub-Efficiencies and Overall Efficiency}
@@ -398,36 +301,31 @@ The historical development of a selection of the sub-efficiencies introduced in 
 
 Figure \ref{fgr:breakthroughs_efficiency} shows the overall magnitude of contributions of identified LED innovations and technology spillovers to improvements in LED efficiency over time across different sub-efficiencies. The list of technology spillovers identified in our study is provided in Table \ref{tab:spillovers} and discussed in Section \ref{subsec:spillovers}. The complete list of all LED innovations is provided in Table SI 2 in Section 4 of the Supplementary Information. Through the index decomposition analysis described in Section \ref{subsec:metrics}, we find that out of the overall LED efficiency increase of 32.9\% from 5.8\% to 38.8\% between 2003 and 2020, at least 2.8\% can be attributed specifically to technology spillovers identified in this study, corresponding to 8.5\% of the total LED efficiency improvements between 2003 and 2020.
 
-In Figure \ref{fgr:breakthroughs_efficiency} we also compare, for the first time, efficiency improvements across sub-efficiencies over time, contrasting them with the physical limits of the corresponding loss channels. We find that there has been consistent progress across all device sub-efficiencies in the recorded period. Specifically, between 2003 and 2020, forward voltage efficiency increased from 70\% to 99.5\%, internal quantum efficiency from 55\% to 90\%, electrical droop from 65\% to 90\%, light extraction efficiency from 60\% to 90\%, spectral efficiency from 74\% to 83\%, conversion efficiency (red) from 11\% to 45\%, conversion efficiency (green) from 19\% to 61\%. Notably, some sub-efficiencies for the most recent devices considered in our study are now within $\sim10\%$ of their respective physical limits. The exception is spectral efficiency which, at $\sim17\%$ below the physical limit, shows larger potential for further improvements. 
+In Figure \ref{fgr:breakthroughs_efficiency} we also compare, for the first time, efficiency improvements across sub-efficiencies over time, contrasting them with the physical limits of the corresponding loss channels. We find that there has been consistent progress across all device sub-efficiencies in the recorded period. Specifically, between 2003 and 2020, forward voltage efficiency increased from 70\% to 99.5\%, internal quantum efficiency from 55\% to 90\%, electrical droop from 65\% to 90\%, light extraction efficiency from 60\% to 90\%, spectral efficiency from 74\% to 83\%, conversion efficiency (red) from 11\% to 45\%, conversion efficiency (green) from 19\% to 61\%. Notably, some sub-efficiencies for the most recent devices considered in our study are now within $\sim10\%$ of their respective physical limits. The exception is spectral efficiency which, at $\sim17\%$ below the physical limit, shows larger potential for further improvements.
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/subefficiencies_progress.pdf}
- \caption{Historical improvements in light-emitting diode technology. Panels A1-A2 show they key metrics used to compute forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show the sub-efficiencies internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. \newline
- \textbf{Panel A1:} Device forward voltage at a test current of I=350mA. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Data points for devices released in 2020 by various manufacturers are shown in an inset plot.
- \textbf{Panel A2:} Efficiency droop at the test current of I=350mA.
- \textbf{Panel B1:} Internal quantum efficiency, for different chip architectures, by type of measurement used. Note that the artifact in the DOE Average around 2013 is due to a change in definition for internal quantum efficiency laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods: PL - Photoluminescence\cite{Shim_2018}, EL - Electroluminescence\cite{Getty_2009};  ABC Model\cite{Karpov_2014}, Ideality Factor\cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where applicable.
- \textbf{Panel B2:} Light extraction efficiency for different chip architectures, by type of specific technology used to improve light-extraction efficiency. The source of data points is shown for reference: simulation - ray-tracing computer simulation; experimental (absolute) - light-extraction efficiency given directly; experimenal (relative) - relative improvement over baseline chip architecture given. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
- Source: own synthesis of data from the full list of sources provided in the Supplementary Information, Section 5. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report\cite{beale_leds_2015}.}
+ \includegraphics[width=17cm]{2_SSL_EST/article/figures/subefficiencies_progress.pdf}
+ \caption{Historical improvements in light-emitting diode technology. Panels A1-A2 show they key metrics used to compute forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show the sub-efficiencies internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. \textbf{Panel A1:} Device forward voltage at a test current of I=350mA. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Data points for devices released in 2020 by various manufacturers are shown in an inset plot. \textbf{Panel A2:} Efficiency droop at the test current of I=350mA. \textbf{Panel B1:} Internal quantum efficiency, for different chip architectures, by type of measurement used. Note that the artifact in the DOE Average around 2013 is due to a change in definition for internal quantum efficiency laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods: PL - Photoluminescence\cite{Shim_2018}, EL - Electroluminescence\cite{Getty_2009};  ABC Model\cite{Karpov_2014}, Ideality Factor\cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where applicable. \textbf{Panel B2:} Light extraction efficiency for different chip architectures, by type of specific technology used to improve light-extraction efficiency. The source of data points is shown for reference: simulation - ray-tracing computer simulation; experimental (absolute) - light-extraction efficiency given directly; experimenal (relative) - relative improvement over baseline chip architecture given. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured. Source: own synthesis of data from the full list of sources provided in the Supplementary Information, Section 5. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report\cite{beale_leds_2015}.}
  \label{fgr:subeff}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_efficiency.pdf}
+ \includegraphics[width=\textwidth]{2_SSL_EST/article/figures/breakthroughs_efficiency.pdf}
  \caption{Contribution of innovations and technology spillovers to the historical progress in sub-efficiencies of phosphor-converted warm white LEDs with test currents of at least 350mA. Vertical bars represent LED technology innovations, with purple bars indicating innovations driven by technology spillovers (annotated and listed in an inset table) and grey bars indicating all other improvements identified in this study. Horizontal coloured lines indicate state-of-the-art sub-efficiency levels for the four years used in Figure \ref{fgr:waterfall}: 2003, 2010, 2016, and 2020. To provide additional historical context, data for 1997 is included for selected sub-efficiencies. "N/A" denotes sub-efficiencies where 1997 data could not be calculated to different reasons: $\eta_{Vf}$, $\eta_{droop}$ depend on the device current, which was below 350mA in 1997, making comparison with contemporary devices difficult. $\eta_{C(R)}$,$\eta_{C(Y/G)}$ and $\eta_S$ are relevant only to warm white spectrum LEDs, which were not available in 1997. Note that indium tin oxide (ITO) affects different sub-efficiencies depending on the chip architecture in question. For instance, in modern flip-chip architectures, light-extraction efficiency no longer depends on ITO, as can be seen from Figure \ref{fgr:chip_architecture_overview}. Physical limits on sub-efficiencies are indicated by black horizontal lines. The overall LED lamp efficiency, $\eta_L$, is displayed in the rightmost column. $\eta_{V_f}$ - forward voltage efficiency; $\eta_IQ$ - internal quantum efficiency; $\eta_Droop$ - efficiency droop; $\eta_{LE}$ - light extraction efficiency; $\eta_{C(R)}$ - conversion efficiency for red phosphors; $\eta_{C(Y/G)}$ - conversion efficiency for yellow/green phosphors; $\eta_S$ - spectral efficiency; PSS - patterned sapphire substrate, ITO - indium tin oxide current spreading layer; 258, SLA, PFS - different phosphors used in white LEDs, see Table \ref{tab:phosphors}.  Note that physical limit on $\eta_{V_f}$ is above 100\% due to quantum effects which depends on electrical device parameters \cite{david2016electrical}. Source: own elaboration based on data in Figure \ref{fgr:waterfall} and Figure \ref{fgr:subeff}, as detailed in Section \ref{sec:methods}.}
  \label{fgr:breakthroughs_efficiency}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2003.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2010.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2016.pdf}
- \includegraphics[width=17cm]{2_SSL_EES/article/figures/waterfall_performance_2020.pdf}
+ \includegraphics[width=17cm]{2_SSL_EST/article/figures/waterfall_performance_2003.pdf}
+ \includegraphics[width=17cm]{2_SSL_EST/article/figures/waterfall_performance_2010.pdf}
+ \includegraphics[width=17cm]{2_SSL_EST/article/figures/waterfall_performance_2016.pdf}
+ \includegraphics[width=17cm]{2_SSL_EST/article/figures/waterfall_performance_2020.pdf}
  \caption{Waterfall diagrams of the loss channels in a generic mid/high-power LED package for 2003, 2010, 2016 and 2020 (top to bottom panels), normalized to 1 Watt of electric power input (yellow bar on the left). Sub-efficiencies corresponding to each loss channel are listed below each column and described in Section \ref{sec:device_performance_metrics}. Numbers for each loss channel indicate energy losses both in relative terms of input power (in percent) at the point of the channel and absolute values (in Watts). Percentages for red, green and blue loss channels indicate losses of remaining red/green/blue light energy. The corresponding LED architectures and associated down-conversion phosphors are shown for reference: 2003 - flip-chip with YGAG phosphor; 2010 - flip-chip with 258 phosphor; 2016 - flip-chip with PFS phosphor; 2020 - flip-chip with SALON phosphor. A more complete overview of LED chip architectures is provided in Figure \ref{fgr:chip_architecture_overview}. Details on phosphor chemical composition are provided in Table \ref{tab:phosphors} with additional data on the spectral performance and development history collected in Section 4 in the Supplementary Information. Overall LED package efficiency is $\eta_L = 5.8\%$ in 2003, $\eta_L = 12.7\%$ in 2010, $\eta_L = 32.6\%$ in 2016 and $\eta_L = 38.8\%$ in 2010. Abbreviations: Scat. = Scattering. Source (Efficiency): own elaboration based on data in Figure \ref{fgr:subeff}, as detailed in Section \ref{sec:methods}. Source (spectral data): Adapted from publications on the respective phosphors: YGAG (2003)\cite{Mueller2002}, 258 (2010)\cite{MuellerMach2005}, PFS (2016)\cite{Murphy2015}, SALON (2019)\cite{Hoerder2019}.}
  \label{fgr:waterfall}
-\end{figure*}
+\end{figure}
 
 \subsection{Improvements in Consumer Experience Metrics}
 
@@ -435,7 +333,7 @@ Historical improvements in consumer experience metrics for phosphor-converted wa
 
 Notably, from detailed descriptions of the history of inventions in this list, which we provide in Section 5 of the Supplementary Information, we find that only a single invention related to LED consumer experience improvements was originally developed specifically for application in solid-state lighting: the 2016 SALON phosphor compound \cite{seibald2019phosphor}\cite{Hoerder2019}. All other inventions in the list were either originally developed for non-LED applications or prominently used knowledge from areas of science and technology beyond LED or SSL. We discuss the details of the corresponding technology spillovers in Section \ref{subsec:spillovers} below. 
 
-\begin{table*}[h!]
+\begin{table}[h!]
     \small
     \centering
     \begin{tabularx}{\textwidth}{|l|l|l|X|X|l|}
@@ -451,14 +349,14 @@ Notably, from detailed descriptions of the history of inventions in this list, w
     \end{tabularx}
     \caption{LED down-conversion materials (phosphors and quantum dots) related to improvements in consumer experience metrics identified in this study. The \textit{year} column represents the earliest reported application of invention in white LEDs. These differ from the years used in Figure \ref{fgr:consumer_experience} which correspond to the earliest publication of spectral data for representative LED products that relied on those materials. The \textit{SI Sec.} column refers to the corresponding section in the Supplementary Information that contains references and a detailed description of the history of corresponding invention. Abbreviations: Desig. - Designation, Sec. - Section.}
     \label{tab:phosphors}
-\end{table*}
+\end{table}
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
  \centering
- \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/breakthroughs_consumer-experience.pdf}
+ \includegraphics[width=\textwidth]{2_SSL_EST/article/figures/breakthroughs_consumer-experience.pdf}
  \caption{Historical improvements in consumer experience metrics of phosphor-converted white LEDs. Data points show the color temperature and colour rendering index performance of the earliest identified representative white LED products with published spectral data that used phosphors listed in Table \ref{tab:phosphors}, each indicated by the phosphor label and publication year. Corresponding spectral data used to calculate colour temperature values is provided in Figure SI 11 in section 5 of the Supplementary Information. Three data points representing compact fluorescent lamps (CFLs)\cite{cie_reference}, shown as black triangles, are provided for comparison. Horizontal lines represent typical colour temperatures of “traditional” light sources, shown for reference. The desirable range of colour temperatures for home illumination, indicated by a vertical red arrow, lies between two horizontal orange lines representing typical incandescent light and warm daylight colour temperatures. Horizontal red arrow indicates desirable higher values of colour rendering index (CRI). LED products based on the following phosphor innovations from the following LED manufacturers are represented : YAG - Nichia, 1998 \cite{bando1998development}; YGAG - Lumileds, 2002 \cite{Mueller2002}; 258 - Lumileds, 2005 \cite{MuellerMach2005}; SLA - Lumileds, 2014 \cite{Pust2014}; PFS - GE, 2015 \cite{Murphy2015}; QD - Lumileds, 2017 \cite{lumileds2016qd}, Osram, 2019 \cite{osram2019qd}; SALON - Osram, 2019 \cite{Hoerder2019}.}
  \label{fgr:consumer_experience}
-\end{figure*}
+\end{figure}
 
 \subsection{Improvements in Manufacturing Cost}
 
@@ -468,14 +366,7 @@ Among the factors contributing to the LED cost reductions over time, improved ma
 
 Our findings are further supported by a preliminary sensitivity analysis, presented in Section 2 of the Supplementary Information section, where we find that the sensitivity of the cost model to variation in its main parameters decreases over time with the increase of the number of DPW. We also provide a comparison of our model with past cost calculations and projections published by the US DOE on the basis of the LEDCOM cost model\cite{ledcomv2} and industry data reported to the DOE as part of SSL round tables\cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid} in Section 2 of the Supplementary Information.
 
-\begin{figure*}[h!]
- \centering
- \includegraphics[width=17.5cm]{2_SSL_EES/article/figures/costmodel_results_years.pdf}
- \caption{Manufacturing cost structure modelled for a single low-to-mid power GaN, classic chip, phosphor-converted white LED package, assuming an ideal factory with state-of-the-art equipment at a U.S. location. Consecutive steps shown on the x-axis. Panels A-C: Waterfall diagrams of LED manufacturing cost split by manufacturing process steps for years 2003, 2012 and 2020. Process steps on the horizontal axis are sequenced from left to right in the same order as in the modelled LED manufacturing process. Panel F: Cumulative manufacturing yield after each process step for years 2003, 2012 and 2020. For a visual representation of the overview of the manufacturing process, compare the diagrams in Section 2 of the Supplementary Information. Abbreviations: Litho – Lithographic Process, Insp. – Inspection, Depn. – Deposition, CMP - Chemical-Mechanical Planarization}
- \label{fgr:costmodel}
-\end{figure*}
-
-\begin{table*}[h]
+\begin{table}[h]
     \small
     \centering
     \begin{tabularx}{\textwidth}{|l|l|l|X|X|X|l|X|}
@@ -493,7 +384,7 @@ Our findings are further supported by a preliminary sensitivity analysis, presen
     \end{tabularx}
     \caption{Technology spillovers involved in white LED technology innovations identified in this study. Note: LED innovations are ordered by the year in which a technology spillover into LED occurred, provided in the Spillover to LED column. Initial discovery is the year of the earliest identified discovery of the original idea or invention outside the LED domain. Commercial application is the year of the first recorded application of that idea or invention in a commercial LED product. Origin column represents knowledge domains in which spillovers initially emerged, where (S) denotes a scientific discipline and (T) is an area of technology. References column lists literature sources for the represented innovations and spillovers. Area of improvement represents the impact of spillovers on different aspects of white LED technology, e.g., improvements in particular sub-efficiencies. Abbreviations: Disc. - Year of Discovery, S/O - Year of Spillover to LED, Comm. - Year of Commercial Application., Ref. - References.}
     \label{tab:spillovers}
-\end{table*}
+\end{table}
 
 \section{Discussion}
 
@@ -534,24 +425,34 @@ Our analysis of the sources, mechanisms and enablers of the identified technolog
 
 There are various important avenues of future research that are opened up by our analysis. First, future work could expand the cost model by collecting and including data for a broader set of chip architectures and analyzing the impact of individual innovations and spillovers on the costs as opposed to performance. Second, a deeper dive on the role of learning-by-doing is needed both in the cost and performance analysis. Third, building on the work on LED sub-efficiencies and physical limits, future efforts could focus on identifying priority areas for further efficiency improvements in LEDs and SSL in general. Finally, by comparing the drivers of innovation, technology spillovers, cost reductions and performance improvements at a granular level across different clean energy technologies, we can identify patterns or differences that would help us formulate recommendations for industry and policymakers aimed at accelerating further clean energy innovation for climate change mitigation. 
 
-\section*{Conflicts of interest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The "Acknowledgement" section can be given in all manuscript
+%% classes.  This should be given within the "acknowledgement"
+%% environment, which will make the correct section or running title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgement}
 
-There are no conflicts to declare.
+This research was supported by the grant from the Alfred P. Sloan Foundation titled \textit{“What factors drive innovation in energy technologies? The role of technology spillovers and government investment”}. Michael Weinold gratefully acknowledges support from the Swiss Study Foundation. The authors thank Venkatesh Narayanamurti, Gabriel Chan, Anna Goldstein, Didier Sornette, and participants of the SPIE West 2021 Conference and C-EENRG Seminar Series of the University of Cambridge for many helpful discussions and feedback. The authors further express their gratitude to all interviewees for their willingness to participate in this study and share their insights. 
 
-\section*{Acknowledgements}
-This research was supported by the grant from the Alfred P. Sloan Foundation titled \textit{“What factors drive innovation in energy technologies? The role of technology spillovers and government investment”}. Michael Weinold further gratefully acknowledges support from the Swiss Study Foundation. We would like to thank Venkatesh Narayanamurti, Gabriel Chan, Anna Goldstein, Didier Sornette, and participants of the SPIE West 2021 Conference and C-EENRG Seminar Series of the University of Cambridge for many helpful discussions and feedback. We also express our deepest gratitude to all interviewees for their willingness to participate in this study and share their invaluable insights with us. 
+\end{acknowledgement}
 
-%%%END OF MAIN TEXT%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The same is true for Supporting Information, which should use the
+%% suppinfo environment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{suppinfo}
 
-%The \balance command can be used to balance the columns on the final page if desired. It should be placed anywhere within the first column of the last page.
+This will usually read something like: ``Experimental procedures and
+characterization data for all new compounds. The class will
+automatically add a sentence pointing to the information on-line:
 
-\balance
+\end{suppinfo}
 
-%If notes are included in your references you can change the title from 'References' to 'Notes and references' using the following command:
-%\renewcommand\refname{Notes and references}
-
-%%%REFERENCES%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appropriate \bibliography command should be placed here.
+%% Notice that the class file automatically sets \bibliographystyle
+%% and also names the section correctly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{bibliography}
-\bibliographystyle{auxiliary/rsc_style_files/bibliography_rsc} %the RSC's .bst file
 
 \end{document}

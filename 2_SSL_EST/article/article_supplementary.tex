@@ -398,7 +398,7 @@ Sapphire wafers form the substrate on which all other layers of the light-emitti
 
 \begin{figure}[]
 	\centering
-    \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_sensitivity.pdf}
+    \includegraphics[width=\textwidth]{2_SSL_EST/article/figures/costmodel_sensitivity.pdf}
 	\caption{Sensitivity analysis for selected cost model parameters. Panel a represents the tested range of variation of parameters indicated on horizontal axis along with their respective measurement units, as represented in \cref{tab:sensitivity}. Panel b shows the resulting range of variation in the manufacturing cost. Ranges are represented for three years considered in the cost model, where corresponding data is available, by whiskers of the following colour: 2003 – blue, 2012 – green, 2020 – red. Note the overall trend of decreasing sensitivity to cost model parameters as the number of die per wafer increases over time. Abbreviations: resp. - respective; yield sav. from insp. - yield savings from inspection.}
 	\label{fig:sensitivity}
 \end{figure}
@@ -453,7 +453,7 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 
 \begin{figure}[h]
 	\centering
-    \includegraphics[width=\textwidth]{2_SSL_EES/article/figures/costmodel_calibration.pdf}
+    \includegraphics[width=\textwidth]{2_SSL_EST/article/figures/costmodel_calibration.pdf}
 	\caption{Comparison of LED manufacturing cost structure between our manufacturing cost model (bottom panel) and previously published US DOE manufacturing cost calculations and projections based on industry data and LEDCOM model (top panel). Hatched bars are projections given by US DOE for 2018 and 2020. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in Section \cref{sec:costmodel}.}
 	\label{fig:costmodel_calibration}
 \end{figure}
@@ -601,12 +601,12 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \begin{figure}[H]
 	\centering
-    \includegraphics[width=0.95\textwidth]{2_SSL_EES/article/figures/phosphor_spectrum-comparison.pdf}
+    \includegraphics[width=0.95\textwidth]{2_SSL_EST/article/figures/phosphor_spectrum-comparison.pdf}
 	\caption{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data, shown in Figure 7 in the main article, that used phosphor innovations listed in Table 1 in the main article, each indicated by the phosphor label and spectral data publication year. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Figure 7 in the main article. The desirable direction of improvements towards higher luminous efficacy at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the two bottom panels using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: Corresponding spectral data. The luminosity function \cite{cie-term-lumeff}, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Note that peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable, as the photons of the corresponding energy are lost to the human eye and count towards the spectral loss channel. Plot legends indicate the years of publication of the spectral data and phosphor mixtures used in corresponding LED devices, with the following designations for additional phosphor mix components: ? -  other parts of phosphor mixture not disclosed, G$^*$ - \ch{CaSrS:Eu^{2+}}, Y$^\star$ - $\beta-$SiAlON:Eu$^{2+}$, G$^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, O$^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Sources: top panel - own elaboration based on spectral data; bottom two panels: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
 \label{fig:phosphor_spectrum}
 \end{figure}
 
-\section{List of Interviewees}
+\section{List of InterviewEST}
 
 \begin{table}[h!]
 \small
@@ -634,7 +634,16 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 \end{table}
 
 \clearpage
-\newpage
+\section{Previous Literature}
+\label{sec:prev_lit}
+
+The historical development development of light-emitting diodes from a novelty semiconductor experiment into powerful lighting devices has received a considerable amount of attention following the recognition of pioneering work on blue LED by Japanese researchers Shuji Nakamura, Isamu Akasaki and Hiroshi Amano with the 2014 Nobel Prize in Physics \cite{Akasaki2015}\cite{Nakamura2015}. The sources and disaggregated contributions of subsequent improvements in LED technology, however, have not been documented in the literature in a systematic fashion, though there were notable publications reporting on the progress in the design of devices \cite{Shchekin2006}\cite{krames2007led}\cite{laubsch2009high}\cite{hahn2014development}, or the technological improvements  underlying the improvement in overall device efficiency for best performers in 2009 \cite{tsao2010solid} and 2016 \cite{pattison2017solid}. 
+
+Several descriptive publications provide a very useful overview of selected scientific breakthroughs that have contributed to LED progress \cite{krames2007status}\cite{Phillips2007}\cite{Bierhuizen2007}\cite{Nakamura2013}\cite{feezell2018invention}\cite{Taki2019}. Additional studies provide more detail regarding the origin and impact of specific advances in LED technology as well as their integration into device manufacturing were published by authors working for key industry actors Lumileds\cite{MuellerMach2005}\cite{Shchekin2006}\cite{lumi2015lumi}\cite{Bhardwaj2017} and Osram (now amsOsram)\cite{Haerle2004}\cite{Baur2009}\cite{laubsch2009high}\cite{hahn2014development}. However, these studies typically include limited information on the macro-level chip design and cover disparate aspects of the technology over different time periods. Another important source of historical information are patents, which cover the entirety of the device architecture or manufacturing process, including those by Lumileds\cite{margalith2011thin}, Samsung\cite{jung2014phos}\cite{cha2019semiconductor} and Soraa\cite{cich2017high}.
+
+We summarize the information collected, analysed and classified on the progress in LED chip architectures and manufacturing processes from these and other disparate sources in Figure \ref{fgr:chip_architecture_overview}, where we show the evolution of LEDs from classical chips with lateral current spreading to chip-scale package flip-chip architectures. Despite the amount of literature published on the topic of LED history, we are not aware of a prior publication that comprehensively and consistently aggregates and analyzes known chip design, manufacturing, and material improvements to show the overall effect of these improvements on device efficiency or manufacturing cost over time. In addition, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating}\cite{kolesnikov2020novel}\cite{nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan2021}, has not yet been studied in the context of lighting. This is consistent with previous observations regarding the marginalization of end-use technologies in the analysis of energy innovation for climate change impact mitigation \cite{Wilson2012}\cite{Creutzig2018}.
+
+\clearpage
 \section{Complete List of Sources for Figures}
 \label{sec:sources}
 
