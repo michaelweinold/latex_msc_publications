@@ -120,7 +120,7 @@
 
 \newpage
 
-\section{Luminous Efficacy Metrics}
+\section{Metrics}
 
 Figure 1 in the main publication uses luminous efficacy of radiation as the primary metric to describe progress in lighting technologies. Care must be taken not to confuse this metric with luminous efficacy of source, which is used in \ref{fig:phosphor_spectrum}.
 
@@ -155,11 +155,89 @@ The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio 
 
 This metric is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with the \textit{luminous efficacy of radiation}, which depends only on the spectral characteristics of a light source. As the luminous efficacy of a light source $\eta$ captures the overall device efficacy, it depends on a large number of other device properties and parameters. This makes attribution of changes in this metric to individual changes in device design or manufacturing difficult. For this reason, we do not use this metric in our study.
 
+\subsection{Sub-Efficiencies}
+
+\subsubsection{Forward Voltage Efficiency $\eta_{V_f}$}
+
+Device forward voltage efficiency\footnote{"Joule Efficiency" $\epsilon_J$ in Tsao et al. \cite{tsao2010solid}} (VfE) describes all electrical losses at the interface between the electrodes and the semiconductor and in the bulk. These losses can be due to tunneling and Ohmic resistance at the interface, as well as Ohmic resistance and other electrical losses within the bulk of the semiconductor. It is defined as
+
+\begin{equation}
+    \eta_{V_f} = \frac{E_{h\nu}}{V_f}
+\end{equation}
+
+where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltage \cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Light Extraction Efficiency $\eta_{LE}$}
+
+Device light-extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
+
+\begin{equation}
+    \eta_{LE}=\frac{\text{\# of photons out}}{\text{\# of photons created}} = \frac{P_{opt}}{P_{int}}
+\end{equation}
+
+where $P_{opt}$ is the optical power of the device and $P_{int}$ is the internal power of the device\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
+
+Internal quantum efficiency (IQE) describes non-radiative recombinatory processes in the semiconductor bulk. It is related to the external quantum efficiency through
+\begin{equation}
+\label{eqn:ieq-eqe}
+    \eta_{EQ} = \eta_{IQ} \times \eta_{LE}
+\end{equation}
+
+and defined as
+
+\begin{equation}
+    \eta_{IQ} = \frac{\# \text{of photons created}}{\# \text{of electron-hole pairs in}}
+\end{equation}
+
+and depends on the current density of the device\cite{schubert2018light}\cite{tsao2010solid}. 
+
+\subsubsection{Droop $\eta_{droop}$}
+
+Efficiency droop describes the decrease of device internal quantum efficiency at high current densities, which is caused by a number of different physical effects\cite{David2020}. This is often treated separately from internal quantum efficiency in the literature due to its importance in high-power devices. It is defined as
+
+\begin{equation}
+    \eta_{droop} = 1 - \frac{\eta_{IQE}}{\eta_{IQE}(A \rightarrow 0)}
+\end{equation}
+
+where $\eta_{IQE}(A \rightarrow 0)$ denotes the internal quantum efficiency at low current densities. In practice, droop is often given as the percentage difference between the ideal luminous intensity curve $\phi_{ideal}$ and the real luminous intensity curve $\phi$ at a set diode test current $A_{test}$ as
+
+\begin{equation}
+\label{eqn:droop}
+    D = \frac{\phi_{ideal}(A_{test})-\phi(A_{test})}{\phi_{ideal}(A_{test})/100}
+\end{equation}
+
+Therefore, according to this definition, a lack of droop corresponds to a droop efficiency of $\eta_{droop} = 100\%$\cite{schubert2018light}\cite{tsao2010solid}.
+
+\subsubsection{Conversion Efficiency $\eta_{C}$}
+
+Light conversion efficiency (LCE) describes losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and well as scattering/absorption losses. It is defined as
+
+\begin{equation}
+    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
+\end{equation}
+
+where $E_i$ denotes the total energy of light at the color corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
+
+\subsubsection{Spectral Efficiency $\eta_{S}$}
+
+Spectral efficiency (SE) describes losses in the conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet are lost to illumination purposes. It is defined as
+
+\begin{equation}
+    \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
+\end{equation}
+
+where $K$ is the luminous efficacy of radiation of the light source, which can be computed from the device spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
+
+
 \newpage
-\section{Manufacturing Cost Model}
+\section{Methodology}
 \label{sec:costmodel}
 
-\subsection{Structure of the Model}
+\subsection{Manufacturing Cost Model}
+
+\subsubsection{Structure of the Model}
 
 \begin{figure}[h!]
     \centering
@@ -172,7 +250,7 @@ The cost model adapted for this publication is a microeconomic manufacturing cos
 
 A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
 
-\subsection{Manufacturing Process Steps by Chip Architecture}
+\subsubsection{Manufacturing Process Steps by Chip Architecture}
 
 \cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering of the manufacturing process of three different chip architectures considered in the cost model.
 
@@ -222,7 +300,7 @@ A schematic diagram of the cost model is presented in \cref{fig:costmodel-schema
         \end{figure}
     \end{landscape}
 
-\subsection{Computation of Manufacturing Cost}
+\subsubsection{Computation of Manufacturing Cost}
 \label{subsec:cost_computation}
 
 The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
@@ -312,7 +390,7 @@ where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
 \end{myequation}
 Note that in keeping with the categorization introduced by the United States Department of Energy (cf. eg. \cite{doe_ssl_rnd_2019}), certain steps from these two categories are reported separately. In the wafer processing category, the epitaxy step is reported separately due to its complexity and the large share of cost carried. In the wafer processing category, the phosphor step is reported separately.
 
-\subsection{Computation of Yielded Cost}
+\subsubsection{Computation of Yielded Cost}
 
 Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield is multiplied. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$ with associated cost (before considering yield) $C_1$ and yield $Y_1$:
 
@@ -382,7 +460,7 @@ This itemized approach serves as a convenient approximation, but its cumulative 
 where $n$ is the total number of steps. This is due to the approximation introduced through the series approximation in  \cref{eqn:series}.
 
 \newpage
-\subsection{Example of Input Data Considered: Sapphire Wafers}
+\subsubsection{Example of Input Data Considered: Sapphire Wafers}
 
 Sapphire wafers form the substrate on which all other layers of the light-emitting diode are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace by 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in the bottom panel of \cref{fig:wafers}. This can be attributed not only to the lighting industry, but more importantly to increased supply as a result of increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}. Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing. The market has been dominated by U.S.-based \textit{Rubicon Technology} and Russian-based \textit{Monocrystal}. he evolution of sapphire wafer prices and diameters used in LED manufacturing over the years is shown in top panel of \cref{fig:wafers}.
 
@@ -394,7 +472,7 @@ Sapphire wafers form the substrate on which all other layers of the light-emitti
 \end{figure}
 
 \newpage
-\subsection{Preliminary Sensitivity Analysis}
+\subsubsection{Preliminary Sensitivity Analysis}
 
 \begin{figure}[]
 	\centering
@@ -447,7 +525,7 @@ A sensitivity analysis of the cost model has been performed using parameter vari
 \end{table}
 
 \newpage
-\subsection{Comparison with Reported Industry Data and DOE Projections}
+\subsubsection{Comparison with Reported Industry Data and DOE Projections}
 
 We conducted a comparison of the LED manufacturing cost structure produced by our cost model with previously reported US DOE calculations and projections based on the LEDCOM model and industry data provided as part of industry round table discussions (see \cref{fig:costmodel_calibration}). We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual US-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers is located in Asia. We also note that the share of the substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL}\cite{Xie2013}\cite{ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections
 
@@ -459,7 +537,7 @@ We conducted a comparison of the LED manufacturing cost structure produced by ou
 \end{figure}
 
 \newpage
-\section{Computation of Contribution of Individual Variables}
+\subsection{Computation of Contribution of Individual Variables}
 \label{sec:contribution_variables}
 
 To quantify the drivers of changes in manufacturing cost or device performance among many contributing factors, one would need to identify the magnitude of contribution to these changes made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the manufacturing cost or performance function of a device at time $t$,
@@ -499,7 +577,9 @@ where for $F(t)$ a constant $F(t) \approx \tilde{F} $ can be chosen such that $\
 \end{myequation}
 We use this approach to estimate the effect of individual innovations and spillovers on LED device performance, as discussed in section 4.3 and shown in Figure 5 in the main article. Due to time constraints, we leave the quantification of the impact of different drivers of cost reductions with this methodological approach for our future work.
 
-\section{Non-Phosphor-Related LED Innovations}
+\section{LED Innovations}
+
+\subsection{Non-Phosphor-Related}
 
 \cref{tab:innovations} summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting key white LED sub-efficiencies, as discussed in section 5.1 and shown in Figures 4-6 in the main article. Note that phosphor-related LED innovations affecting consumer experience metrics, along with spectral efficiency, are presented separately in Table 1 in the main publication and discussed in detail in \cref{sec:innovation_phosphor}.
 
@@ -568,20 +648,20 @@ We use this approach to estimate the effect of individual innovations and spillo
     \label{tab:innovations}
 \end{table}
 
-\section{Phosphor-Related LED Innovations}
+\subsection{Phosphor-Related}
 \label{sec:innovation_phosphor}
 
 This section provides additional details for phosphor-related LED innovations identified in this study as affecting both spectral sub-efficiencies and consumer experience metrics and discussed in section 5.2, Table 1 and Figures 5-7 in the main article.
 
-\subsection{History of Identified Phosphor-Related LED Innovations}
+\subsubsection{History of Identified Phosphor-Related LED Innovations}
 
-\subsubsection{YAG and YGAG Phosphors}
+\paragraph{YAG and YGAG Phosphors}
 
 Prior to Nakamura’s invention of highly efficient blue LEDs in the 1990s, Japan’s Nichia Corporation had not sold commercially successful semiconductor products, instead specializing in phosphors for cathode ray tubes (CRT) and fluorescent lamps \cite{nakamura2013blue}  . Nevertheless, extensive firm expertise in this area helped Nichia’s Yoshinori Shimizu formulate the principles of using CRT phosphors to convert blue light from Nakamura’s LEDs into white light in 1994 \cite{shimizu1994sheet}\cite{cho2017white}. By 1996, Shimizu and his colleagues developed \cite{bando1996}\cite{shimizu1999light} the first practical LED application of a well-known Yttrium Aluminium Garnet (YAG) CRT phosphor activated with cerium \cite{blasse1967new}, enabling the first commercial white LED products manufactured and sold by Nichia since late 1996 \cite{bando1998development}\cite{cho2017white}. 
 
 Importantly, the YAG phosphor does not exhibit the spectral properties desirable in general illumination applications (see Figure 7 in the main article). An early solution to this problem, which was first discovered in the late 1967 \cite{holloway1969optical} and suggested for LEDs by the same team at Nichia in 1996 \cite{bando1998development}\cite{shimizu1999light}, was to use the gadolinium-doped red-shifted YAG phosphor (YGAG). Used in combination with red-emitting sulfide phosphors, by 2002 it helped bring to the market the first generation of warm white light LED products, e.g., those produced by Lumileds \cite{Mueller2002}. However, sulfide phosphors led to accelerated deterioration of sensitive parts of LED devices and became less efficient as operating temperatures increased. New chemically stable and non-toxic red phosphors were needed. 
 
-\subsubsection{258, SLA and SALON phosphors}
+\paragraph{258, SLA and SALON phosphors}
 
 In 1997, Hubert Huppertz and Wolfgang Schnick, working at the University of Bayreuth in Germany, synthesized the first compound in a new class of rare earth nitridosilicate materials \cite{Huppertz1997} later dubbed “258” due to a proportion of elements in its chemical formula. The luminescent properties of these materials were identified by the Schnick’s group, by then at Ludwig-Maximilians University of Munich, in 2000 \cite{Hppe2000} after a suggestion made to Schnick at a conference following earlier reports of good luminosity properties of europium-doped compounds \cite{Qiua1998}. U.S.-based LED manufacturer Lumileds applied for a patent for the first class of red LED phosphors based on the 258 nitridosilicate chemistry in 2002 \cite{mueller2004phosphor}. The first use of the 258 phosphor in a commercial “Luxeon” LED package was then reported in a joint publication co-authored by inventors from Lumileds and researchers from the Schnick’s group in 2005 \cite{MuellerMach2005}.
 
@@ -589,15 +669,15 @@ Further efforts in LED phosphor development were directed towards synthesizing a
 
 The most recent red narrow-band phosphor innovation included in Table 1 and Figure 7 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first U.S. patent application for this phosphor was filed in 2017 \cite{seibald2019phosphor}. The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
 
-\subsubsection{PFS Phosphor}
+\paragraph{PFS Phosphor}
 
 Down conversion with ultra-narrow-band phosphor can achieve the highest spectral efficiency. However, few such phosphors have been identified, with even less exhibiting desirable material properties such as thermal stability \cite{Phillips2007}. The first commercially successful ultra-narrow-band red phosphor was developed by General Electric (GE). It is based on a potassium fluorosilicate (PFS) compound activated with manganese ions. Its luminescence was first recorded by Adrian Paulusz at GE in 1972 \cite{paulusz1973efficient}. In the early 2000s, while searching for potential new LED phosphor materials for GE’s lighting business at GE Lumination, Emil Radkov rediscovered Paulusz’s findings in the literature. Following extensive research on PFS chemical synthesis and material properties conducted in collaboration with the University of Sofia in Bulgaria, Radkov’s Alma Mater, the PFS phosphor had been under development at GE since 2005 \cite{radkov2006red}\cite{radkov2009red}. This work, supported by public funding from the U.S. Department of Energy (DOE) Solid-State Lighting program \cite{doesslprogram}, resulted in a series of critical improvements in the PFS phosphor properties \cite{Setlur2010}\cite{lyons2012color}, eventually enabling its commercialization under the “TriGain” brand in 2015 \cite{trigain_spectrum}\cite{setlur2015trigain}\cite{Murphy2015}.
 
-\subsubsection{Quantum Dots for Light Down-Conversion}
+\paragraph{Quantum Dots for Light Down-Conversion}
 
 Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{Chen_2005}\cite{Hsueh_Shih_Chen_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
 
-\subsection{Spectral Data for Identified LED Phosphor Innovations}
+\paragraph{Spectral Data for Identified LED Phosphor Innovations}
 
 \begin{figure}[H]
 	\centering
@@ -606,7 +686,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 \label{fig:phosphor_spectrum}
 \end{figure}
 
-\section{List of InterviewEST}
+\section{List of Interviews}
 
 \begin{table}[h!]
 \small
@@ -632,6 +712,37 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
     \end{tabular}
     \label{tab:interviews}
 \end{table}
+
+\clearpage
+\section{Results}
+
+\subsection{Historical Progress in Sub-Efficiencies}
+
+The historical progress in the different sub-efficiencies contributing to overall efficiency (lamp efficiency) is shown in \cref{fgr:subeff}. Context for figure panels is provided below:
+
+\textbf{Panel A1:} Device forward voltage at a test current of I=350mA. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Data points for devices released in 2020 by various manufacturers are shown in an inset plot. \
+
+\textbf{Panel A2:} Efficiency droop at the test current of I=350mA. \
+
+\textbf{Panel B1:} Internal quantum efficiency, for different chip architectures, by type of measurement used. Note that the artifact in the DOE Average around 2013 is due to a change in definition for internal quantum efficiency laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods: PL - Photoluminescence\cite{Shim_2018}, EL - Electroluminescence\cite{Getty_2009};  ABC Model\cite{Karpov_2014}, Ideality Factor\cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where applicable. \
+
+\textbf{Panel B2:} Light extraction efficiency for different chip architectures, by type of specific technology used to improve light-extraction efficiency. The source of data points is shown for reference: simulation - ray-tracing computer simulation; experimental (absolute) - light-extraction efficiency given directly; experimenal (relative) - relative improvement over baseline chip architecture given. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured. 
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=15.5cm]{2_SSL_EST/article/figures/subefficiencies_progress.pdf}
+ \caption{Historical improvements in light-emitting diode technology. Panels A1-A2 show they key metrics used to compute forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show the sub-efficiencies internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the full list of sources provided in \cref{sec:sources}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
+ \label{fgr:subeff}
+\end{figure}
+
+\subsection{Manufacturing Cost Model}
+
+\begin{figure*}[h!]
+ \centering
+ \includegraphics[width=15.5cm]{2_SSL_EST/article/figures/costmodel_results_years.pdf}
+ \caption{Manufacturing cost structure modelled for a single low-to-mid power GaN, classic chip, phosphor-converted white LED package, assuming an ideal factory with state-of-the-art equipment at a U.S. location. Consecutive steps shown on the x-axis. Panels A-C: Waterfall diagrams of LED manufacturing cost split by manufacturing process steps for years 2003, 2012 and 2020. Process steps on the horizontal axis are sequenced from left to right in the same order as in the modelled LED manufacturing process. Panel F: Cumulative manufacturing yield after each process step for years 2003, 2012 and 2020. For a visual representation of the overview of the manufacturing process, compare the diagrams in Section 2 of the Supplementary Information. Abbreviations: Litho – Lithographic Process, Insp. – Inspection, Depn. – Deposition, CMP - Chemical-Mechanical Planarization}
+ \label{fgr:costmodel}
+\end{figure*}
 
 \clearpage
 \section{Previous Literature}
