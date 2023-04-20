@@ -117,7 +117,7 @@
         \newline
         $^1$ Technology Assessment Group, Paul Scherrer Institute, Switzerland \\
         $^2$ ETH Zurich, Zurich, Switzerland \\
-        $^3$ C-EENRG, Dept. of Land Economy, University of Cambridge, UK \\
+        $^3$ CEENRG, Dept. of Land Economy, University of Cambridge, UK \\
         $^4$ Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
     }
 }
@@ -128,10 +128,10 @@
 
 \section{Metrics}
 
-Figure 1 in the main publication uses luminous efficacy of radiation as the primary metric to describe progress in lighting technologies. Care must be taken not to confuse this metric with luminous efficacy of source, which is used in \cref{fig:phosphor_spectrum}.
-
 \subsection{Luminous Efficacy of Radiation}
 \label{subsec:ler}
+
+Figure 1 in the main publication uses luminous efficacy of radiation as the primary metric to describe progress in lighting technologies. Care must be taken not to confuse this metric with luminous efficacy of source, which is used in \cref{fig:phosphor_spectrum}.
 
 This metric describes the match of a light-emitting diode package spectrum to the human visual system. Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength-dependent human sensitivity to light \cite{cie-term-effrad}
 
@@ -247,17 +247,15 @@ This subsection provides the details for the main methods and data sources used 
 
 \subsection{Systematic Literature Review}
 
-We collected data on LED performance and characteristics in a systematic literature review that included scientific publications, patents, conference proceedings from the largest semiconductor and optoelectronics conferences, industry periodicals and roadmaps, as well as company presentations and reports. This review was structured around the three main goals: 1) tracking the evolution of LED technology over time as indicated by three groups of progress metrics selected above in \cref{subsec:metrics}; 2) identifying individual innovations that contributed to this evolution and whether or not they could be spillovers, and quantifying their impact on device performance and manufacturing cost; and 3) determining whether these innovations had originated within the LED technology domain, or in a field of research or technology outside of solid-state lighting, making them a technology spillovers. 
+We collected data on LED performance and characteristics in a systematic literature review that included scientific publications, patents, conference proceedings from the largest semiconductor and optoelectronics conferences, industry periodicals and roadmaps, as well as company presentations and reports. This review was structured around the three main goals: 1) tracking the evolution of LED technology over time as indicated by three groups of progress metrics introduced in the main article; 2) identifying individual innovations that contributed to this evolution and whether or not they could be spillovers, and quantifying their impact on device performance and manufacturing cost; and 3) determining whether these innovations had originated within the LED technology domain, or in a field of research or technology outside of solid-state lighting, making them a technology spillovers. 
 
-Relevant sources for the review were found in an iterative search process that involved two components. The first was the search in specialized patent and publication databases as well as company websites. The second component was the analysis of backward citations in the identified sources, starting from the reviews mentioned in the \cref{sec:prev_lit} and then iteratively repeating it for all newly identified sources, until no further relevant and significant new sources were found. We also relied on backward citations for the identification of technology spillovers, considering cited documents as indicators of knowledge origins of an innovation and analyzing whether those documents belonged to the LED technology domain or not.
+Relevant sources for the review were found in an iterative search process that involved two components. The first was the search in specialized patent and publication databases as well as company websites. The second component was the analysis of backward citations in the identified sources, starting from the reviews mentioned in section Previous Literature in the main article and then iteratively repeating it for all newly identified sources, until no further relevant and significant new sources were found. We also relied on backward citations for the identification of technology spillovers, considering cited documents as indicators of knowledge origins of an innovation and analyzing whether those documents belonged to the LED technology domain or not.
 
 \subsection{Semi-Structured Interviews}
 
-To supplement our data collection efforts, verify our findings and identify additional spillovers, we conducted a series of elite semi-structured interviews with eleven eminent experts from academia, industry and the public research sector. Experts were selected based on their engagement in  different sub-fields of LED research and manufacturing, as well as the recommendations from other interviewed experts, in essence expanding the list of experts that emerged from the initial literature review. All interviews were conducted between November 2019 and April 2022 by means of video conferencing and lasted for about one hour. A summary of the background of interviewed experts is provided in Table SI 3 in Section 6 of the Supplementary Information.
+To supplement our data collection efforts, verify our findings and identify additional spillovers, we conducted a series of elite semi-structured interviews with eleven eminent experts from academia, industry and the public research sector. Experts were selected based on their engagement in  different sub-fields of LED research and manufacturing, as well as the recommendations from other interviewed experts, in essence expanding the list of experts that emerged from the initial literature review. All interviews were conducted between November 2019 and April 2022 by means of video conferencing and lasted for about one hour. A summary of the background of interviewed experts is provided in \cref{tab:interviews}.
 
 The primary, structured part of the interviews explored which innovations were deemed most relevant to the evolution of device performance, consumer experience and manufacturing cost of LED packages. Thereafter, interviewees were asked to consider the extent to which these innovations may have originated outside of their respective field of expertise and the LED industry more broadly—i.e., which of the innovations may be considered spillovers. The remainder of the interview was focused on learning about particular aspects of the manufacturing processes relevant to cost and performance modelling, the current state of industry, and the circumstances surrounding the innovations and spillovers identified in the first part of the interview. Specific quantitative data was also provided by experts, helping fine-tune the parameters of the manufacturing cost model (described in \cref{sec:costmodel}) and verify device performance data.
-
-A summary of the background of interviewed experts is provided in \cref{tab:interviews}.
 
 \begin{table}[H]
 \small
@@ -272,10 +270,10 @@ A summary of the background of interviewed experts is provided in \cref{tab:inte
         3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
         4 & Academia & Professor & Austria & Phosphors \\ \hline
         5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
-        6 & consulting & Consultant, former sr. technical advisor & USA & Device architecture \\ \hline
+        6 & Consulting & Consultant, former sr. technical advisor & USA & Device architecture \\ \hline
         7 & Academia & Professor & Germany & Phosphors \\ \hline
-        8 & government & R\&D manager & USA & Device architecture \\ \hline
-        9 & consulting & Consultant & USA & Device applications \\ \hline
+        8 & Government & R\&D manager & USA & Device architecture \\ \hline
+        9 & Consulting & Consultant & USA & Device applications \\ \hline
         10 & Academia & Professor & France & Device physics \\ \hline
         11 & Industry & Sr scientist, former head of R\&D & USA & Device architecture \\ \hline
         12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
@@ -311,6 +309,20 @@ To document historical improvements in LED device performance accurately, we nee
 The model structure is generally based on the 2012 LEDCOM cost model, but we expand it significantly both in scope and in its ability to capture historical trends. The model captures three historical time periods corresponding to different “eras” in LED manufacturing: the early period of the first high-power white LEDs around 2003, the period of accelerating consumer adoption of LED lighting around 2012, and the most recent period around 2020, the year of our main data collection efforts. For each of these three years, the most prevalent manufacturing equipment was identified through industry periodicals, archived website data from the \textit{Internet Archive}, and expert interviews. Because the architecture of LED chips has changed significantly since the introduction of the first commercial devices in 1996, three different chip architectures were initially considered in the model: classical chips, flip chips, and chip-scale package flip chips. The details of the manufacturing process for each architecture were collected from the scientific literature, textbooks and relevant patents. In addition, two LED life cycle analyses \cite{scholand2012life}\cite{casamayor2018comparative} were used to validate the model structure and extract some of the necessary quantitative model inputs. These studies captured a large number of LED manufacturing process steps and included the details on the use of metals, chemicals and electricity for each manufacturing step.
 
 The aggregate result of the cost model is the manufacturing cost per LED package for each of the three years considered, which includes all costs associated with producing the chip, including running costs of the factory. Costs associated with research and development, administrative overhead of the manufacturer or other investment costs are not considered. We also note that the purpose of our cost model is not to give specific estimates of LED manufacturing cost for a factory of any size, specific geographic location or total annual manufacturing volume. It instead assumes an hypothetical factory with an assumed location in the United States and associated overhead costs related to the operation of the factory. It also assumes the use of the most up-to-date equipment for that year. Even with these simplifying assumptions, the model reasonably identifies the impact that changes in single process steps can have on the total LED manufacturing cost. An important limitation of our cost modelling efforts is that, even though the model captures three different chip architectures in its structure, in the present study we were able to collect, estimate and present the full set of quantitative inputs and outputs only for the classical chip architecture of low- to mid-power devices. Populating the model with data for the remaining two architectures requires access to proprietary industry information, which we have not been able to get thus far.  
+
+The cost model we developed relies on a cumulative approach to yielded cost\cite{becker2001use}. In this approach, the yielded cost of process step $1$ is defined as the ratio between the total cost of step 1 $C_1$ and the yield of step 1 $Y_1$:
+
+\begin{equation}
+    C_{Y_1} = \frac{C_1}{Y_1}, \ C_{Y_2} = C_{Y_{2 \rightarrow 3}} - C_{Y_1} = \frac{C_1(1-Y_2)+C_2}{Y_1Y_2}, \ C_{Y_3}=\dots
+\end{equation}
+
+This cost metric is cumulative by definition, thus
+
+\begin{equation}
+    \sum_i C_{Y_i} = \frac{\sum_i C_i}{\prod_i Y_i}
+\end{equation}
+
+Yielded cost per step is dependent on the step order and blind to downstream information \cite{becker2001use}.
 
 \subsubsection{Structure of the Model}
 
