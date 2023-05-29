@@ -1,106 +1,34 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% This is a (brief) model paper using the achemso class
-%% The document class accepts keyval options, which should include
-%% the target journal and optionally the manuscript type. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[journal=jacsat,manuscript=article]{achemso}
+\documentclass[parskip=full]{article}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Place any additional packages needed here.  Only include packages
-%% which are essential, to avoid problems later. Do NOT use any
-%% packages which require e-TeX (for example etoolbox): the e-TeX
-%% extensions are not currently available on the ACS conversion
-%% servers.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
-\usepackage{tabularx}
-\usepackage[usenames,dvipsnames]{xcolor}
+% functionality
+\input{auxiliary/preamble/1_preamble_functionality_main}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% If issues arise when submitting your manuscript, you may want to
-%% un-comment the next line.  This provides information on the
-%% version of every file you have used.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%\listfiles
+% layout
+\input{auxiliary/preamble/2_preamble_layout_report}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Place any additional macros here.  Please use \newcommand* where
-%% possible, and avoid layout-changing macros (which are not used
-%% when typesetting).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography
+\input{auxiliary/preamble/1_preamble_functionality_bibliography}
+\addbibresource{bibliography.bib}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Meta-data block
-%% ---------------
-%% Each author should be given as a separate \author command.
-%%
-%% Corresponding authors should have an e-mail given after the author
-%% name as an \email command. Phone and fax numbers can be given
-%% using \phone and \fax, respectively; this information is optional.
-%%
-%% The affiliation of authors is given after the authors; each
-%% \affiliation command applies to all preceding authors not already
-%% assigned an affiliation.
-%%
-%% The affiliation takes an option argument for the short name.  This
-%% will typically be something like "University of Somewhere".
-%%
-%% The \altaffiliation macro should be used for new address, etc.
-%% On the other hand, \alsoaffiliation is used on a per author basis
-%% when authors are associated with multiple institutions.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% METADATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\author{Michael Weinold}
-\email{mweinold@ethz.ch}
-\affiliation[PSI]{Technology Assessment Group, Paul Scherrer Institute, Villigen, Switzerland}
-\alsoaffiliation[ETHZ]
-{Chair for Entrepreneurial Risk, ETH Zurich, Zurich, Switzerland}
-\alsoaffiliation[UCAM]
-{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, United Kingdom}
+\hypersetup{
+    pdftitle={Hybrid Life-Cycle Methods},
+    pdfauthor={Michael Weinold, Guillaume Majeau-Bettez, Russell McKenna},
+}
 
+%% MAIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\author{Sergey Kolesnikov}
-\affiliation[UCAM]
-{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, United Kingdom}
-
-
-\author{Laura Diaz Anadon}
-\affiliation[UCAM]{Cambridge Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, United Kingdom}
-\alsoaffiliation[UHarv]
-{Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The document title should be given as usual. Some journals require
-%% a running title from the author: this should be supplied as an
-%% optional argument to \title.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[]{Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Some journals require a list of abbreviations or keywords to be
-%% supplied. These should be set up here, and will be printed after
-%% the title and author information, if needed.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\abbreviations{IR,NMR,UV}
-\keywords{American Chemical Society, \LaTeX}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The manuscript does not need to include \maketitle, which is
-%% executed automatically.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The "tocentry" environment can be used to create an entry for the
-%% graphical table of contents. It is given here as some journals
-%% require that it is printed as part of the abstract page. It will
-%% be automatically moved as appropriate.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+M. Weinold$^{1,2,3}$, S. Kolesnikov$^3$, L.D. Anadon$^{3,4}$ \\
+        "Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers" \textit{Environmental Science \& Technology} (2023) \\
+        \newline
+        $^1$ Technology Assessment Group, Paul Scherrer Institute, Switzerland \\
+        $^2$ ETH Zurich, Zurich, Switzerland \\
+        $^3$ CEENRG, Dept. of Land Economy, University of Cambridge, UK \\
+        $^4$ Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The abstract environment will automatically gobble the contents
-%% if an abstract is not used by the target journal.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
   The first commercial white light-emitting diodes (LEDs) were introduced to the market in 1996. Since then, white LEDs have experienced major improvements in performance and efficiency. Significant decreases in cost have been driven by a rapid expansion of the market share of LED-based solid-state lighting (SSL), which in turn has driven down costs even further. Today, the technology is one of the key solutions in global climate change mitigation efforts. However, despite its significance, the extent and sources of the underlying improvements have not been systematically investigated. Understanding what has driven rapid progress in LEDs can provide lessons for accelerating innovation in a broad range of other demand-side clean energy technologies. With this aim, we gather and analyse systematic evidence on cost and performance improvements in white LEDs from cost and performance modelling, augmented by a literature review and interviews with experts in industry and academia. We find that the overall efficiency of the highest performing warm white LED packages has improved from $\eta_L=5.8\%$ in 2003 to $\eta_L=38.8\%$ in 2020. During the same period, we estimate that the cost of manufacturing low-power and mid-power LED packages at a U.S. location using state-of-the-art equipment has dropped from 1.1\$ to 0.05\$ (in 2020 USD) between 2003 and 2020, a 95.5\% decrease. We further show that technology spillovers — i.e., knowledge originating in other technologies, sectors, or scientific disciplines — affected all performance dimensions of LEDs, contributing no less than 8.5\% to total efficiency improvements and $\sim$100\% to the improvements in consumer experience metrics identified, thereby playing a key role in the widespread adoption of the technology. The increase in wafer size and manufacturing yield improvements were the primary causes of LED manufacturing cost reductions.
 \end{abstract}
@@ -244,7 +172,7 @@ Notably, from detailed descriptions of the history of inventions in this list, w
 \begin{table}[h!]
     \footnotesize
     \centering
-    \begin{tabularx}{\textwidth}{|l|l|l|X|X|l|}
+    \begin{NiceTabularX}{\textwidth}{|l|l|l|X|X|l|}
     \hline
         \textbf{Year} & \textbf{Desig.} & \textbf{Chemical formula} & \textbf{Description} & \textbf{Significance} & \textbf{SI Sec.} \\ \hline
         1996 & YAG & $Y_3 Al_5 O_{12}:Ce$ & Yttrium aluminium garnet (YAG) phosphor activated with cerium & First LED phosphor, enabled white LEDs & SI 3.2.2.1 \\ \hline
@@ -254,7 +182,7 @@ Notably, from detailed descriptions of the history of inventions in this list, w
         2005 & PFS & $K_2 SiF_6: Mn^{4+}$ & Manganese-activated potassium fluorosilicate (PFS) phosphor & First ultra-narrow-band red LED phosphor & SI 3.2.2.3 \\ \hline
         2013 & SLA & $Sr[Li Al]_3 N_4 ]:Eu^{2+}$ & Europium-doped cuboidal nitridolithoaluminate phosphor & Improved narrow-band red phosphor & SI 3.2.2.2 \\ \hline
         2016 & SALON & $Sr[Li_2 Al_2 O_2 N_2]:Eu^{2+}$ & Europium-doped oxonitride phosphor & High-performance ultra-narrow-band red phosphor & SI 3.2.2.2 \\ \hline
-    \end{tabularx}
+    \end{NiceTabularX}
     \caption{LED down-conversion materials (phosphors and quantum dots) related to improvements in consumer experience metrics identified in this study. The \textit{Year} column represents the earliest reported application of invention in white LEDs. These differ from the years used in Figure \ref{fgr:consumer_experience} which correspond to the earliest publication of spectral data for representative LED products that relied on those materials. The \textit{SI Sec.} column refers to the corresponding section in the Supplementary Information that contains references and a detailed description of the history of corresponding invention. Abbreviations: Desig. - Designation, Sec. - Section.}
     \label{tab:phosphors}
 \end{table}
@@ -286,7 +214,7 @@ Our findings are further supported by a preliminary sensitivity analysis, presen
     \tiny
     \centering
     \caption{Technology spillovers involved in white LED technology innovations identified in this study.}
-    \begin{tabularx}{\textwidth}{|l|l|l|X|X|X|l|X|}
+    \begin{NiceTabularX}{\textwidth}{|l|l|l|X|X|X|l|X|}
     \hline
         \textbf{Disc.} & \textbf{S/O} & \textbf{Comm.} & \textbf{LED Innovation} & \textbf{Spillover} & \textbf{Origin} & \textbf{Ref.} & \textbf{Area of Improvement} \\ \hline
         1926 & 1994 & 1996 & LED phosphors & Use of phosphors for light down conversion in LEDs & Materials science (S), Cathode ray tubes (T) & \cite{bright1972electric,shimizu1994sheet,cho2017white} & Enabled light down conversion in LEDs \\ \hline
@@ -298,7 +226,7 @@ Our findings are further supported by a preliminary sensitivity analysis, presen
         1984 & 2003 & 2009 & Quantum dot-based phosphor & Use of quantum dots for light down conversion in LEDs & Solid-state physics (S), Photochemistry (S), Nanotechnology (T) &\cite{fojtik1984photo,simmonsfinal,ledprof_nexxusqd,bourzac2013quantum} & $\eta_S$, $\eta_C$ \\ \hline
         1972 & 2005 & 2015 & PFS phosphor & Use of knowledge in luminescent materials and skills in "wet" chemical synthesis to synthesize PFS compound and optimize it as LED phosphor & Chemistry (S), Materials science (S) &\cite{paulusz1973efficient,radkov2009red,Murphy2015} & $\eta_S$, $\eta_C$ \\ \hline
         2008 & 2013 & 2015 & SLA phosphor & Use of knowledge about existing cuboidal nitride compounds to identify and synthesize structurally similar SLA phosphor & Structural chemistry (S), Materials science (S), Solid-state physics (S) &\cite{Park2008New,schmidt2013new,Pust2014} & $\eta_S$, $\eta_C$ \\ \hline
-    \end{tabularx}
+    \end{NiceTabularX}
     \begin{tabular}{@{}p{\linewidth}@{}}
         Note: Disc. - Year of initial discovery; S/O - Year of spillover to LED; Comm. - Year of commercial application; Ref. - References. LED innovations are ordered by the year in which a technology spillover into LED occurred, provided in the S/O column. The year of initial discovery is the year of the earliest identified discovery of the original idea or invention outside the LED domain. The year of commercial application is the year of the first recorded application of that idea or invention in a commercial LED product. Origin column represents knowledge domains in which spillovers initially emerged, where (S) denotes a scientific discipline and (T) is an area of technology. Ref. column lists literature sources for the represented innovations and spillovers. Area of Improvement column represents the impact of spillovers on different aspects of white LED technology, e.g., improvements in particular sub-efficiencies.
     \end{tabular}
@@ -344,32 +272,13 @@ Our analysis of the sources, mechanisms and enablers of the identified technolog
 
 There are various important avenues of future research that are opened up by our analysis. First, future work could expand the cost model by collecting and including data for a broader set of chip architectures and analyzing the impact of individual innovations and spillovers on the costs as opposed to performance. Second, a deeper dive on the role of learning-by-doing is needed both in the cost and performance analysis. Third, building on the work on LED sub-efficiencies and physical limits, future efforts could focus on identifying priority areas for further efficiency improvements in LEDs and SSL in general. Finally, by comparing the drivers of innovation, technology spillovers, cost reductions and performance improvements at a granular level across different clean energy technologies, we can identify patterns or differences that would help us formulate recommendations for industry and policymakers aimed at accelerating further clean energy innovation for climate change mitigation. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The "Acknowledgement" section can be given in all manuscript
-%% classes.  This should be given within the "acknowledgement"
-%% environment, which will make the correct section or running title.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{acknowledgement}
 
 This research was supported by the grant from the Alfred P. Sloan Foundation titled \textit{“What factors drive innovation in energy technologies? The role of technology spillovers and government investment”}. Michael Weinold gratefully acknowledges support from the Swiss Study Foundation. The authors thank Venkatesh Narayanamurti, Gabriel Chan, Anna Goldstein, Didier Sornette, and participants of the SPIE West 2021 Conference and C-EENRG Seminar Series of the University of Cambridge for many helpful discussions and feedback. The authors further express their gratitude to all interviewees for their willingness to participate in this study and share their insights. 
 
-\end{acknowledgement}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The same is true for Supporting Information, which should use the
-%% suppinfo environment.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{suppinfo}
 
 Additional context and governing equations of metrics used to quantify progress in solid-state lighting, including the constituent sub-efficiencies of overall lamp efficiency. Detailed description of the multi-method approach used, including the systematic literature review, semi-structured interviews, the manufacturing cost model and performance calculations. Methodological details on dis-aggregation of the contribution of variables to overall lamp efficiency. Additional results, including a breakdown of manufacturing cost and a detailed description of the technology spillovers in phosphor materials for light down-conversion. Complete list of sources for Figures \ref{fgr:history_efficacy} and \ref{fgr:chip_architecture_overview}.
 
-\end{suppinfo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The appropriate \bibliography command should be placed here.
-%% Notice that the class file automatically sets \bibliographystyle
-%% and also names the section correctly.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliography{bibliography}
+\newpage
+\printbibliography
 
 \end{document}
