@@ -1,0 +1,1 @@
+pandoc -s article_draft_est.tex --citeproc --bibliography=bibliography.bib -o ~/Downloads/output.docx
