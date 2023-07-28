@@ -1,0 +1,2 @@
+pandoc -s 2_SSL_NE/article/article_supplementary.tex --citeproc --bibliography=2_SSL_NE/article/bibliography.bib -o ~/Downloads/NE_article_supplement.docx
+pandoc -s 2_SSL_NE/article/article_methods.tex --citeproc --bibliography=2_SSL_NE/article/bibliography.bib -o ~/Downloads/NE_article_methods.docx
