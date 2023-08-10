@@ -6,6 +6,20 @@
 % layout
 \input{2_SSL_NE/article/auxiliary/preamble/2_preamble_layout_paperdraft}
 
+% nature energy custom code
+
+\newcounter{supplementarynote}
+\renewcommand{\thesupplementarynote}{\arabic{supplementarynote}}
+\newcommand{\supplementarynote}{%
+  \refstepcounter{supplementarynote}%
+  Supplementary Note~\thesupplementarynote:~%
+}
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\supplementarynote}
+  {0em} % Adjust this value to control the spacing
+  {}
+\renewcommand{\thesection}{\thesupplementarynote}
 
 % bibliography
 \input{auxiliary/preamble/1_preamble_functionality_bibliography}
@@ -14,7 +28,7 @@
 %% CUSTOM SETUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % custom figure and table numbering
-\renewcommand{\thefigure}{SI\arabic{figure}}
+\renewcommand{\thefigure}{Supplementary Figure \arabic{figure}}
 \renewcommand{\thetable}{SI\arabic{table}}
 
 % custom equation numbering
@@ -31,7 +45,7 @@
 %% METADATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{
-    pdftitle={Hybrid Life-Cycle Methods},
+    pdftitle={Supplement},
     pdfauthor={Michael Weinold, Sergey Kolesnikov, Laura Diaz Anadon},
 }
 
@@ -45,10 +59,10 @@
         \textit{\textsc{Supplementary Information}} for: \\
         \newline 
         M. Weinold$^{1,2,3}$, S. Kolesnikov$^3$, L.D. Anadon$^{3,4}$ \\
-        "Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers" \textit{Nature Energy} (2023) \\
+        "Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers" (2023) \\
         \newline
         $^1$ Technology Assessment Group, Paul Scherrer Institute, Switzerland \\
-        $^2$ ETH Zurich, Zurich, Switzerland \\
+        $^2$ Group for Energy Systems Analysis, Department of Mechanical and Process Engineering, ETH Zurich, Zurich, Switzerland \\
         $^3$ CEENRG, Dept. of Land Economy, University of Cambridge, UK \\
         $^4$ Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
     }
