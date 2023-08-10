@@ -72,9 +72,30 @@
 
 \newpage
 
+\section{Previous Literature on Technological Progress in LEDs}
+
+\section{Previous Literature}
+\label{sec:prev_lit}
+
+The historical development development of light-emitting diodes from a novelty semiconductor experiment into powerful lighting devices has received a considerable amount of attention following the recognition of pioneering work on blue LED by Japanese researchers Shuji Nakamura, Isamu Akasaki and Hiroshi Amano with the 2014 Nobel Prize in Physics \cite{Nakamura2015}. The sources and disaggregated contributions of subsequent improvements in LED technology, however, have not been documented in the literature in a systematic fashion, though there were notable publications reporting on the progress in the design of devices \cite{Shchekin2006,krames2007led,laubsch2009high,hahn2014development}, or the technological improvements  underlying the improvement in overall device efficiency for best performers in 2009 \cite{tsao2010solid} and 2016 \cite{pattison2017solid}. 
+
+Several descriptive publications provide a very useful overview of selected scientific breakthroughs that have contributed to LED progress \cite{krames2007status,Phillips2007,Bierhuizen2007,Nakamura2013,feezell2018invention,Taki2019}. Additional studies provide more detail regarding the origin and impact of specific advances in LED technology as well as their integration into device manufacturing were published by authors working for key industry actors Lumileds\cite{MuellerMach2005,Shchekin2006,lumi2015lumi,Bhardwaj2017} and Osram (now amsOsram)\cite{Haerle2004,Baur2009,laubsch2009high,hahn2014development}. However, these studies typically include limited information on the macro-level chip design and cover disparate aspects of the technology over different time periods. Another important source of historical information are patents, which cover the entirety of the device architecture or manufacturing process, including those by Lumileds\cite{margalith2011thin}, Samsung\cite{jung2014phos,cha2019semiconductor} and Soraa\cite{cich2017high}.
+
+Despite the amount of literature published on the topic of LED history, we are not aware of a prior publication that comprehensively and consistently aggregates and analyzes known chip design, manufacturing, and material improvements to show the overall effect of these improvements on device efficiency or manufacturing cost over time. Existing publications, including those mentioned above, are typically subject to one of the following key limitations:
+
+\begin{itemize}
+    \item Publications often look only at progress across a select few LED device sub-efficiencies, often during a very short time period and, most importantly, only at devices manufactured by one specific company, e.g., OSRAM Opto Semiconductors in \cite{hahn2014development} or Lumileds in \cite{Bhardwaj2017}.
+    \item Publications do not report on a number of potentially sensitive or proprietary advances, especially following the market entry of Chinese LED manufacturing companies as a result of the 12th Five-Year Plan (cf. \cite{guo2017china}).
+    \item Publications typically do not look at the overall LED efficiency and its underlying physical limits and tend to overlook the metrics of progress related to consumer experience. 
+\end{itemize}
+
+Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating}\cite{kolesnikov2020novel}\cite{nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan_2021}, has not yet been studied in the context of lighting.
+
+In our study, we overcome the limitations of previous literature by, first, synthesizing data provided in multiple publications across an ensemble of various cost, performance and consumer experience metrics for tracking progress in LED technology over an extended period of time. Second, our key advantage and contribution compared to these publications is a multi-method approach that we take to fill in the data gaps and augment information obtained from the literature sources by our own performance calculations, a bottom-up cost model and a series of expert interviews. This enabled us to synthesize evidence from multiple sources and, for the first time, reconstruct a comprehensive picture of the historical progress in white LED technology throughout its entire history.
+
 \section{Metrics for Technological Progress in LEDs}
 
-This section provides additional background and details for the physical, economic and consumer experience metrics that were chosen to quantify multi-dimensional progress in light-emitting diode technology.
+This Supplementary Note provides additional background and details for the physical, economic and consumer experience metrics that were chosen to quantify multi-dimensional progress in light-emitting diode technology.
 
 \subsection{Overview}
 
@@ -456,7 +477,7 @@ The sources for \cref{fgr:subeff} are grouped by sub-efficiencies represented on
     \hline
     Panel A2 (Droop) & Data calculated from luminous intensity curves of respective device datasheets: \cite{datasheet_osram_topled}\cite{osram2008data}\cite{osram2008gdplus}\cite{osram2018csp}\cite{datasheet_lumileds_lux1}\cite{lumi2008data}\cite{lumi2016data_1}\cite{lumi2016data_2}\cite{samsung2018data} \\
     \hline
-    Panel B1 (IQE) & own research, compare \cite{zenodo_weinold_led_history} \newline
+    Panel B1 (IQE) & Data extracted from respective device datasheets and scientific publications (for a complete list, compare \cite{zenodo_weinold_led_history}). Additional data was extracted from government reports: \newline
 \cite{doe_ssl_multiyear_2006}\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2009}\cite{doe_ssl_multiyear_2010}\cite{doe_ssl_multiyear_2011}\cite{doe_ssl_multiyear_2012}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_multiyear_2014}\cite{doe_ssl_rnd_2015}\cite{doe_ssl_rnd_2016} \\
     \hline
     Panel B2 (LEE) & \cite{lee2005analysis}\cite{krames2007status}\cite{Jang2004}\cite{Horng2013}\cite{Liao2010}\cite{HungWenHuang2005}\cite{Leem2007}\cite{Huang2008}\cite{Wang2009}\cite{Huh2003}\cite{Horng2008}\cite{Gao2008}\cite{Chang2003}\cite{Zhou2012} \newline \cite{ChunJuTun2006}\cite{Hua2009}\cite{Matioli2010}
