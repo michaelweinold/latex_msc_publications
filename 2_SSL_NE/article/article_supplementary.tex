@@ -107,32 +107,87 @@ Historically, the progress in LED technology has been commonly described by poin
 During the years following the market introduction of white LEDs, the primary metric of progress in solid-state lighting was typically luminous flux. This was because the luminous flux (total brightness) of early white LEDs was too small to allow for the economical combination of multiple LEDs into lamps for general illumination purposes. In 2000, the highest performing devices yielded around 10lm, just below the output of a candle as defined in the unit candela (1cd=12.57lm)\cite{haitz2011solid}. Progress in this metric was commonly rendered together with the associated reduction in retail prices as “Haitz’s Law” \cite{haitz1999case,haitz2011solid}. Today, however, the devices with the highest performance yield in excess of 1600 lm, the equivalent of a 100 W incandescent bulb \cite{cree2020bright}. LED brightness has thereby become sufficient to enable the construction of lamps from multiple LED devices, with contemporary improvements focusing instead on higher efficiency and quality of light instead of brightness. Even though a large number of scientific publications and industry periodicals continue to focus on brightness as a metric of progress in lighting, we find that, at this point in time, this metric is insufficient to capture the complexity of the multitude of efficiency improvements that have been driving the overall LED efficiency \cite{weinold2021compound}. Specifically, the stagnating levels of luminous flux in the highest performing devices do not capture the outcomes of a major area of LED research, which is improving electrical efficiency at constant brightness.
 
 We therefore use a combination of the total device efficiency ("lamp efficiency") and the sub-efficiencies that describe the different physical loss channels within the device to describe progress in light-emitting diode technology. In line with previous publications \cite{schubert2018light,tsao2010solid}, we use the sub-efficiencies: forward voltage efficiency $\eta_{V_f}$, light extraction efficiency $\eta_{LE}$, internal quantum efficiency $\eta_{IQ}$, droop $\eta_{droop}$, conversion efficiency $\eta_{C}$, spectral efficiency $\eta_{S}$. The equations defining these sub-efficiencies are provided in the Supplementary Information in Section 1.3. The overall efficiency ("Lamp Efficiency") $\eta_L$ of a light-emitting diode package is the product of all considered sub-efficiencies:
-
+%
 \begin{equation}
     \eta_L = \prod_{i=(V_f, \dots, S)} \eta_i
 \end{equation}
-
+%
 This metric describes the cumulative electrical and optical losses within the device, as well as the light conversion losses in the phosphor layer.
 
-\subsection{Consumer Experience Metrics}
+\subsubsection{Forward Voltage Efficiency $\eta_{V_f}$}
 
-The perceived quality of light is entirely determined by the emission spectrum of a light source \cite{ies_handbook}. Any metric relevant to customer experience can thus be calculated from the spectrum alone. The spectrum of an LED light source is determined by the emission wavelength of the LED itself and the absorption and emission spectra  of the down-conversion phosphor used in the device. It is typically included in the product datasheets provided by manufacturers, which enables the calculation of all relevant spectrum-based metrics for these devices. Based on the prevalence in scholarly literature and industry publications, for this study we choose two consumer experience metrics: Colour Rendering Index (CRI) and Colour Temperature. We do not consider flicker, the unintended high-frequency temporal modulation of light, which is another important consumer experience metric for lighting and a subject of recent regulation by the European Union \cite{weinold2020long}. This effect is caused not by LEDs themselves, but rather by inadequately designed electrical ballasts \cite{Lehman2014}. As a result, it is beyond the scope of this work. 
+Device forward voltage efficiency\footnote{"Joule Efficiency" $\epsilon_J$ in Tsao et al. \cite{tsao2010solid}} (FVE) describes all electrical losses at the interface between the electrodes and the semiconductor and in the bulk. These losses can be due to tunneling and Ohmic resistance at the interface, as well as Ohmic resistance and other electrical losses within the bulk of the semiconductor. It is defined as
+%
+\begin{equation}
+    \eta_{V_f} = \frac{E_{h\nu}}{V_f}
+\end{equation}
+%
+where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltage \cite{schubert2018light}\cite{tsao2010solid}.
 
-\subsubsection{Color Rendering Index (CRI)}
+\subsubsection{Light Extraction Efficiency $\eta_{LE}$}
 
-The Colour Rendering Index (CRI) of a light source describes its ability to render the colours of an object faithfully when compared to illumination under a reference light source, such as standard daylight \cite{khan2015led}. The way it is calculated is defined by the International Illumination Commission (CIE) \cite{cie_cri_1995}. CRI has certain limitations when applied to solid-state light sources \cite{david2013cri}. However, despite repeated attempts at constructing more elaborate colour rendering metrics \cite{Houser2013}, CRI has remained the de facto industry standard for describing colour fidelity of light sources \cite{DOE2016LED}. High colour rendering performance of lighting is a requirement in workplace environments, retail stores, clinical operating environments and art exhibitions \cite{khanh2017color}. It should be noted that some niche applications prioritize high colour saturation over high CRI, for instance, in food display or fabric retail applications \cite{david2013cri}. However, these niche applications remain outside our focus on general illumination. Due to a broad availability and importance of CRI data for consumers of various LED lighting sources, we adopt CRI as the key metric to track progress in consumer experience in LED lighting, despite its limitations. 
+LED light-extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
+%
+\begin{equation}
+    \eta_{LE}=\frac{\text{\# of photons out}}{\text{\# of photons created}} = \frac{P_{opt}}{P_{int}}
+\end{equation}
+%
+where $P_{opt}$ is the optical power of the device and $P_{int}$ is the internal power of the device\cite{schubert2018light}\cite{tsao2010solid}.
 
-\subsubsection{Colour Temperature}
+\subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
 
-The Colour Temperature of a light source describes the equivalent temperature of an ideal black body which emits light of a colour comparable to that of the light source \cite{commission2011cie}. Warm white light sources are widely used in general illumination, while cold white light sources are used in workplace illumination and outdoor lighting. Early white LEDs produced only cool white light \cite{mueller2000light}. The introduction of first commercial warm white LED light bulbs played a significant part in increasing adoption of LED-based lighting among consumers, as their spectrum more closely resembled the warm white colour temperature of incandescent light bulbs \cite{al2016optics}. For this reason, we also adopt colour temperature as a metric for tracking progress in consumer experience in LED lighting.
+Internal quantum efficiency (IQE) describes non-radiative recombinatory processes in the semiconductor bulk. It is related to the external quantum efficiency through
+%
+\begin{equation}
+\label{eqn:ieq-eqe}
+    \eta_{EQ} = \eta_{IQ} \times \eta_{LE}
+\end{equation}
+%
+It is defined as
+%
+\begin{equation}
+    \eta_{IQ} = \frac{\# \text{of photons created}}{\# \text{of electron-hole pairs in}}
+\end{equation}
+%
+and depends on the current density of the device\cite{schubert2018light}\cite{tsao2010solid}. 
 
-\subsection{Manufacturing Cost}
+\subsubsection{Droop $\eta_{droop}$}
 
-In selecting metrics for tracking the progress in manufacturing cost reductions in LED, we must highlight the complexity of this task. Access to manufacturing cost data at the chip level is usually restricted due to its proprietary nature and is available only for selected products. Using sales price information instead of the cost for the same purpose seems a promising alternative, as prices can be easily obtained directly from manufacturers for current products. However, historical data on prices for different chip architectures and different years is similarly difficult to obtain. In addition, sales price includes components not relevant to progress in the technology, such as profit margins and overhead costs, and is affected by policies such as rebates and purchase subsidies. Historical information on these factors and price components, as well as their impact on the manufacturing cost for each LED product under consideration is even harder to obtain, making the use of LED sales prices as a direct metric of technology progress very difficult in practice. 
+Efficiency droop describes the decrease of LED internal quantum efficiency at high current densities, which is caused by a number of different physical effects\cite{David2020}. This energy loss channel is often treated separately from internal quantum efficiency in the literature due to its importance in high-power devices. It is defined as
+%
+\begin{equation}
+    \eta_{droop} = 1 - \frac{\eta_{IQ}}{\eta_{IQ}(A \rightarrow 0)}
+\end{equation}
+%
+where $\eta_{IQ}(A \rightarrow 0)$ denotes the internal quantum efficiency at low current densities. In practice, droop is often given as the percentage difference between the ideal luminous intensity curve $\phi_{ideal}$ and the real luminous intensity curve $\phi$ at a set diode test current $A_{test}$
+%
+\begin{equation}
+\label{eqn:droop}
+    D = \frac{\phi_{ideal}(A_{test})-\phi(A_{test})}{\phi_{ideal}(A_{test})/100}
+\end{equation}
+%
+Therefore, according to this definition, a lack of droop corresponds to a droop efficiency of $\eta_{droop} = 100\%$\cite{schubert2018light}\cite{tsao2010solid}.
 
-We address the limitations of data availability for the chip-level LED manufacturing costs and sales prices by developing and applying a bottom-up LED manufacturing cost model with process-step resolution. In our case, it is enabled by the general availability of historical data on prices of relevant raw materials, components, and manufacturing equipment, and the relative cost data on manufacturing processes, which is occasionally published as part of industry press releases \cite{ledinside2013csp}\cite{seoul2015csp}. 
+\subsubsection{Light Conversion Efficiency $\eta_{C}$}
 
-We describe the details of our manufacturing cost model, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model's limitations, in Supplementary Information section 2.4. The model structure is generally based on the 2012 LEDCOM cost model \cite{ledcomv2}, but we expand it significantly both in scope and in its ability to capture historical trends. The model captures three historical time periods corresponding to different “eras” in LED manufacturing: the early period of the first high-power white LEDs around 2003, the period of accelerating consumer adoption of LED lighting around 2012, and the most recent period around 2020, the year of our main data collection efforts. The aggregate result of the cost model is the manufacturing cost per LED package for each of the three years considered, which includes all costs associated with producing the chip, including running costs of the factory.
+Light conversion efficiency (LCE) describes the losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and well as scattering/absorption losses. It is defined as
+%
+\begin{equation}
+    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
+\end{equation}
+%
+where $E_i$ denotes the total energy of light at the color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
+
+\subsubsection{Spectral Efficiency $\eta_{S}$}
+
+Spectral efficiency (SE) describes losses in the conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet are lost to illumination purposes. It is defined as
+
+\begin{equation}
+    \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
+\end{equation}
+
+where $K$ is the luminous efficacy of radiation of the light source, which can be computed from the device spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
+
 
 \subsection{Luminous Efficacy of Radiation}
 \label{subsec:ler}
@@ -167,86 +222,28 @@ The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio 
 
 This metric is often cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. Care must be taken not to confuse this efficacy metric with the \textit{luminous efficacy of radiation}, which depends only on the spectral characteristics of a light source. As the luminous efficacy of a light source $\eta$ captures the overall device efficacy, it depends on a large number of other device properties and parameters. This makes attribution of changes in this metric to individual changes in device design or manufacturing difficult. For this reason, we do not use this metric in our study.
 
-\subsection{Sub-Efficiencies}
+\subsection{Consumer Experience Metrics}
 
-This subsection provides definitions and equations for the LED device sub-efficiencies introduced in the Metrics section in the main text.
+The perceived quality of light is entirely determined by the emission spectrum of a light source \cite{ies_handbook}. Any metric relevant to customer experience can thus be calculated from the spectrum alone. The spectrum of an LED light source is determined by the emission wavelength of the LED itself and the absorption and emission spectra of the down-conversion phosphor used in the device. It is typically included in the product datasheets provided by manufacturers, which enables the calculation of all relevant spectrum-based metrics for these devices. Based on the prevalence in scholarly literature and industry publications, for this study we choose two consumer experience metrics: colour rendering index (CRI) and colour temperature (CT). We do not consider flicker, the unintended high-frequency temporal modulation of light, which is another important consumer experience metric for lighting and a subject of recent regulation by the European Union \cite{weinold2020long}. This effect is caused not by LEDs themselves, but rather by inadequately designed electrical ballasts \cite{Lehman2014}. As a result, it is beyond the scope of this work. 
 
-\subsubsection{Forward Voltage Efficiency $\eta_{V_f}$}
+\subsubsection{Color Rendering Index (CRI)}
 
-Device forward voltage efficiency\footnote{"Joule Efficiency" $\epsilon_J$ in Tsao et al. \cite{tsao2010solid}} (VfE) describes all electrical losses at the interface between the electrodes and the semiconductor and in the bulk. These losses can be due to tunneling and Ohmic resistance at the interface, as well as Ohmic resistance and other electrical losses within the bulk of the semiconductor. It is defined as
+The colour rendering index (CRI) of a light source describes its ability to render the colours of an object faithfully when compared to illumination under a reference light source, such as standard daylight \cite{khan2015led}. The way it is calculated is defined by the International Illumination Commission (CIE) \cite{cie_cri_1995}. CRI has certain limitations when applied to solid-state light sources \cite{david2013cri}. \cite{Houser2013}, CRI has remained the de facto industry standard for describing colour fidelity of light sources \cite{DOE2016LED}. High colour rendering performance of lighting is a requirement in workplace environments, retail stores, clinical operating environments and art exhibitions \cite{khanh2017color}. It should be noted that some niche applications prioritize high colour saturation over high CRI, for instance, in food display or fabric retail applications \cite{david2013cri}. However, these niche applications remain outside our focus on general illumination. Due to a broad availability and importance of CRI data for consumers of various LED lighting sources, we adopt CRI as the key metric to track progress in consumer experience in LED lighting, despite its limitations.
 
-\begin{equation}
-    \eta_{V_f} = \frac{E_{h\nu}}{V_f}
-\end{equation}
+\subsubsection{Colour Temperature}
 
-where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltage \cite{schubert2018light}\cite{tsao2010solid}.
+The colour temperature (CT) of a light source describes the equivalent temperature of an ideal black body which emits light of a colour comparable to that of the light source \cite{commission2011cie}. Warm white light sources are widely used in general illumination, while cold white light sources are used in workplace illumination and outdoor lighting. Early white LEDs produced only cool white light \cite{mueller2000light}. The introduction of first commercial warm white LED light bulbs played a significant role in increasing adoption of LED-based lighting among consumers, as their spectrum more closely resembled the warm white colour temperature of incandescent light bulbs \cite{al2016optics}. For this reason, we also adopt CT as a metric for tracking progress in consumer experience in LED lighting.
 
-\subsubsection{Light Extraction Efficiency $\eta_{LE}$}
+\subsection{Cost Metrics}
 
-Device light-extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
+In selecting metrics for tracking the progress in manufacturing cost reductions in LED, we must highlight the complexity of this task. Access to manufacturing cost data at the chip level is usually restricted due to its proprietary nature and is available only for selected products. Using sales price information instead of the cost for the same purpose seems a promising alternative, as prices can be easily obtained directly from manufacturers for current products. However, historical data on prices for different chip architectures and different years is similarly difficult to obtain. In addition, sales price includes components not relevant to progress in the technology, such as profit margins and overhead costs, and is affected by policies such as rebates and purchase subsidies. Historical information on these factors and price components, as well as their impact on the manufacturing cost for each LED product under consideration is even harder to obtain, making the use of LED sales prices as a direct metric of technology progress very difficult in practice. 
 
-\begin{equation}
-    \eta_{LE}=\frac{\text{\# of photons out}}{\text{\# of photons created}} = \frac{P_{opt}}{P_{int}}
-\end{equation}
+We address the limitations of data availability for the chip-level LED manufacturing costs and sales prices by developing and applying a bottom-up LED manufacturing cost model with process-step resolution. In our case, it is enabled by the general availability of historical data on prices of relevant raw materials, components, and manufacturing equipment, and the relative cost data on manufacturing processes, which is occasionally published as part of industry press releases \cite{ledinside2013csp}\cite{seoul2015csp}. 
 
-where $P_{opt}$ is the optical power of the device and $P_{int}$ is the internal power of the device\cite{schubert2018light}\cite{tsao2010solid}.
-
-\subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
-
-Internal quantum efficiency (IQE) describes non-radiative recombinatory processes in the semiconductor bulk. It is related to the external quantum efficiency through
-\begin{equation}
-\label{eqn:ieq-eqe}
-    \eta_{EQ} = \eta_{IQ} \times \eta_{LE}
-\end{equation}
-
-and defined as
-
-\begin{equation}
-    \eta_{IQ} = \frac{\# \text{of photons created}}{\# \text{of electron-hole pairs in}}
-\end{equation}
-
-and depends on the current density of the device\cite{schubert2018light}\cite{tsao2010solid}. 
-
-\subsubsection{Droop $\eta_{droop}$}
-
-Efficiency droop describes the decrease of device internal quantum efficiency at high current densities, which is caused by a number of different physical effects\cite{David2020}. This is often treated separately from internal quantum efficiency in the literature due to its importance in high-power devices. It is defined as
-
-\begin{equation}
-    \eta_{droop} = 1 - \frac{\eta_{IQE}}{\eta_{IQE}(A \rightarrow 0)}
-\end{equation}
-
-where $\eta_{IQE}(A \rightarrow 0)$ denotes the internal quantum efficiency at low current densities. In practice, droop is often given as the percentage difference between the ideal luminous intensity curve $\phi_{ideal}$ and the real luminous intensity curve $\phi$ at a set diode test current $A_{test}$ as
-
-\begin{equation}
-\label{eqn:droop}
-    D = \frac{\phi_{ideal}(A_{test})-\phi(A_{test})}{\phi_{ideal}(A_{test})/100}
-\end{equation}
-
-Therefore, according to this definition, a lack of droop corresponds to a droop efficiency of $\eta_{droop} = 100\%$\cite{schubert2018light}\cite{tsao2010solid}.
-
-\subsubsection{Conversion Efficiency $\eta_{C}$}
-
-Light conversion efficiency (LCE) describes losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and well as scattering/absorption losses. It is defined as
-
-\begin{equation}
-    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
-\end{equation}
-
-where $E_i$ denotes the total energy of light at the color corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
-
-\subsubsection{Spectral Efficiency $\eta_{S}$}
-
-Spectral efficiency (SE) describes losses in the conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet are lost to illumination purposes. It is defined as
-
-\begin{equation}
-    \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
-\end{equation}
-
-where $K$ is the luminous efficacy of radiation of the light source, which can be computed from the device spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
+We describe the details of our manufacturing cost model, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model's limitations, in Supplementary Information section 2.4. The model structure is generally based on the 2012 LEDCOM cost model \cite{ledcomv2}, but we expand it significantly both in scope and in its ability to capture historical trends. The model captures three historical time periods corresponding to different “eras” in LED manufacturing: the early period of the first high-power white LEDs around 2003, the period of accelerating consumer adoption of LED lighting around 2012, and the most recent period around 2020, the year of our main data collection efforts. The aggregate result of the cost model is the manufacturing cost per LED package for each of the three years considered, which includes all costs associated with producing the chip, including running costs of the factory.
 
 
-\newpage
-
+\clearpage
 \section{Methodological Details}
 
 This Supplementary Note provides additional details for the main methods and data sources used in our mixed-methods research approach described in the Methods section in the main text.
