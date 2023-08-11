@@ -87,7 +87,7 @@ Despite the amount of literature published on the topic of LED history, we are n
     \item Publications typically do not look at the overall LED efficiency and its underlying physical limits and tend to overlook the metrics of progress related to consumer experience. 
 \end{itemize}
 
-Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating}\cite{kolesnikov2020novel}\cite{nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan_2021}, has not yet been studied in the context of lighting.
+Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating,kolesnikov2020novel,nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan_2021}, has not yet been studied in the context of lighting.
 
 In our study, we overcome the limitations of previous literature by, first, synthesizing data provided in multiple publications across an ensemble of various cost, performance and consumer experience metrics for tracking progress in LED technology over an extended period of time. Second, our key advantage and contribution compared to these publications is a multi-method approach that we take to fill in the data gaps and augment information obtained from the literature sources by our own performance calculations, a bottom-up cost model and a series of expert interviews. This enabled us to synthesize evidence from multiple sources and, for the first time, reconstruct a comprehensive picture of the historical progress in white LED technology throughout its entire history.
 
@@ -99,12 +99,12 @@ This Supplementary Note provides additional background and details for the physi
 
 Investigating the sources of rapid progress in LED technology over the past decades, in which white LEDs have come to dominate the lighting market \cite{zissis2021}, requires selecting appropriate metrics for tracking and quantifying this progress. The choice of metrics affects both what data sources can be used in the analysis and which research methodologies can be used to calculate and analyse such metrics. We select the metrics based on the following two general criteria. First, we focus only on metrics widely accepted and reported in industry because metrics proposed in the scientific literature but not reported by device manufacturers cannot be used to compare the performance of commercial LED devices over time. Second, the chosen metrics must be useful for understanding the impact of individual technological improvements on relevant performance and cost characteristics.
 
-Historically, the progress in LED technology has been commonly described by pointing to impressive improvements in LED device performance, more specifically device brightness, as well as electrical efficiency, and manufacturing cost reductions \cite{Taki2019}. However, metrics related to consumer experience from using white LEDs as a lighting source, such as the perceived temperature of a white light source and its ability to faithfully render colours, have also played a significant part in the market adoption of new lighting technologies \cite{Menanteau2000}\cite{Sandahl2006}\cite{CAIRD2008}\cite{murphy2012governing} and received substantial attention in LED research and development efforts \cite{azevedo2009transition,cho2017white}. Therefore, a comprehensive analysis of the evolution in white LED technology must take into consideration advances in 1) physical device performance; 2) consumer experience; and 3) LED device manufacturing costs. Next, we introduce and discuss the metrics that we use to track progress in each of these three areas.
+Historically, the progress in LED technology has been commonly described by pointing to impressive improvements in LED device performance, more specifically device brightness, as well as electrical efficiency, and manufacturing cost reductions \cite{Taki2019}. However, metrics related to consumer experience from using white LEDs as a lighting source, such as the perceived temperature of a white light source and its ability to faithfully render colours, have also played a significant part in the market adoption of new lighting technologies \cite{Menanteau2000,Sandahl2006,CAIRD2008,murphy2012governing} and received substantial attention in LED research and development efforts \cite{azevedo2009transition,cho2017white}. Therefore, a comprehensive analysis of the evolution in white LED technology must take into consideration advances in 1) physical device performance; 2) consumer experience; and 3) LED device manufacturing costs. Next, we introduce and discuss the metrics that we use to track progress in each of these three areas.
 
 \subsection{Device Performance Metrics}
 \label{sec:device_performance_metrics}
 
-During the years following the market introduction of white LEDs, the primary metric of progress in solid-state lighting was typically luminous flux. This was because the luminous flux (total brightness) of early white LEDs was too small to allow for the economical combination of multiple LEDs into lamps for general illumination purposes. In 2000, the highest performing devices yielded around 10lm, just below the output of a candle as defined in the unit candela (1cd=12.57lm)\cite{haitz2011solid}. Progress in this metric was commonly rendered together with the associated reduction in retail prices as “Haitz’s Law”\cite{haitz1999case,haitz2011solid}. Today, however, the devices with the highest performance yield in excess of 1600lm, the equivalent of a 100W incandescent bulb \cite{cree2020bright}. LED brightness has thereby become sufficient to enable the construction of lamps from multiple LED devices, with contemporary improvements focusing instead on higher efficiency and quality of light instead of brightness. Even though a large number of scientific publications and industry periodicals continue to focus on brightness as a metric of progress in lighting, we find that, at this point in time, this metric is insufficient to capture the complexity of the multitude of efficiency improvements that have been driving overall LED efficiency \cite{weinold2021compound}. Specifically, the stagnating levels of luminous flux in the highest performing devices do not capture the outcomes of a major area of LED research, which is improving electrical efficiency at constant brightness.
+During the years following the market introduction of white LEDs, the primary metric of progress in solid-state lighting was typically luminous flux. This was because the luminous flux (total brightness) of early white LEDs was too small to allow for the economical combination of multiple LEDs into lamps for general illumination purposes. In 2000, the highest performing devices yielded around 10lm, just below the output of a candle as defined in the unit candela (1cd=12.57lm)\cite{haitz2011solid}. Progress in this metric was commonly rendered together with the associated reduction in retail prices as “Haitz’s Law” \cite{haitz1999case,haitz2011solid}. Today, however, the devices with the highest performance yield in excess of 1600 lm, the equivalent of a 100 W incandescent bulb \cite{cree2020bright}. LED brightness has thereby become sufficient to enable the construction of lamps from multiple LED devices, with contemporary improvements focusing instead on higher efficiency and quality of light instead of brightness. Even though a large number of scientific publications and industry periodicals continue to focus on brightness as a metric of progress in lighting, we find that, at this point in time, this metric is insufficient to capture the complexity of the multitude of efficiency improvements that have been driving the overall LED efficiency \cite{weinold2021compound}. Specifically, the stagnating levels of luminous flux in the highest performing devices do not capture the outcomes of a major area of LED research, which is improving electrical efficiency at constant brightness.
 
 We therefore use a combination of the total device efficiency ("lamp efficiency") and the sub-efficiencies that describe the different physical loss channels within the device to describe progress in light-emitting diode technology. In line with previous publications \cite{schubert2018light,tsao2010solid}, we use the sub-efficiencies: forward voltage efficiency $\eta_{V_f}$, light extraction efficiency $\eta_{LE}$, internal quantum efficiency $\eta_{IQ}$, droop $\eta_{droop}$, conversion efficiency $\eta_{C}$, spectral efficiency $\eta_{S}$. The equations defining these sub-efficiencies are provided in the Supplementary Information in Section 1.3. The overall efficiency ("Lamp Efficiency") $\eta_L$ of a light-emitting diode package is the product of all considered sub-efficiencies:
 
@@ -246,6 +246,37 @@ where $K$ is the luminous efficacy of radiation of the light source, which can b
 
 
 \newpage
+
+\section{Methodological Details}
+
+This Supplementary Note provides additional details for the main methods and data sources used in our mixed-methods research approach described in the Methods section in the main text.
+
+\subsection{Background of Interviewed Experts}
+
+\begin{table}[H]
+\small
+    \centering
+    \caption{Anonymized list of interviewed LED experts.}
+    \vspace{5mm}
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Expertise} \\ \hline
+        1 & Academia & Senior researcher & UK & Epitaxy \\ \hline
+        2 & Industry & Consultant, former senior researcher & USA & Device architecture \\ \hline
+        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
+        4 & Academia & Professor & Austria & Phosphors \\ \hline
+        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
+        6 & Consulting & Consultant, former senior technical advisor & USA & Device architecture \\ \hline
+        7 & Academia & Professor & Germany & Phosphors \\ \hline
+        8 & Government & R\&D manager & USA & Device architecture \\ \hline
+        9 & Consulting & Consultant & USA & Device applications \\ \hline
+        10 & Academia & Professor & France & Device physics \\ \hline
+        11 & Industry & Senior scientist, former head of R\&D & USA & Device architecture \\ \hline
+        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
+        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
+    \end{tabular}
+    \label{tab:interviews}
+\end{table}
 
 \clearpage
 \section{Additional Results}
