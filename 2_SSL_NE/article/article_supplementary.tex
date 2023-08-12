@@ -406,6 +406,181 @@ where
     s &\dots \text{cutting street width} \\
 \end{align*}
 
+\cref{fig:dpw} shows the results of DPW calculations using \cref{eqn:dpw} for different wafer diameters $d$ that were most commonly used in LED manufacturing in $d(2002)=50$mm, $d(2010)=100$mm and $d(2020)=200$mm. We can see that DPW dramatically increases over time.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5.5cm]{./figures/die-per-wafer.pdf}
+    \caption{Number of die per wafer for the different wafer sizes used in different years: (DPW) $d(2002)=50$mm$\rightarrow851$DPW, $d(2010)=100$mm$\rightarrow5370$DPW, $d(2020)=200$mm$ \rightarrow26,838$DPW. Source: own estimates, based on \cref{eqn:dpw} and the dominant wafer size of the considered year, informed by expert interviews. For detailed statistics on changes in wafer size, compare also \cref{fig:wafers}.}
+    \label{fig:dpw}
+\end{figure}
+
+\cref{eqn:cost_wafer_full} then gives us for the cost of a manufacturing step $C_i$ in the wafer processing category
+%
+\begin{equation}
+\label{eqn:cost_wafer_full}
+\begin{split}
+    C_i \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] &= \bigg (  \frac{\pi}{4}  \bigg ( \frac{d-2e}{\sqrt{a}+s/2} \bigg ) ^2 - \frac{\pi}{\sqrt{2}}\frac{d-2e}{(\sqrt{a}+s/2)^2} \bigg )^{-1} \times \\
+    &  \frac{1}{y_i}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i \bigg( \frac{t_i}{w_i u_i} \bigg) + \sum_{x} v_x c_x \bigg\}
+\end{split}
+\end{equation}
+%
+and the cost of a manufacturing step $C_j$ in the packaging category
+%
+\begin{equation}
+\label{eqn:cost_die}
+    C_j \bigg[ \frac{ \text{USD}(2020) }{ \text{die} } \bigg] = \frac{1}{y_j}  \bigg\{ \bigg((c_e*p) + c_l + c_m + c_d + c_o \bigg)_i  \frac{c_j}{u_j} + \sum_{x} a v_x c_x \bigg\}
+\end{equation}
+where $c_j$ is $\text{throughput}^{-1}$. The total cost is thus
+%
+\begin{equation}
+\label{eqn:cost_total}
+\begin{split}
+    C= P_s &+ \sum_i \bigg \{ \frac{1}{DPW} \frac{1}{y_i} \bigg[ \frac{t_i}{w_i u_i} \bigg((e*p) + l + m + d +o \bigg)_i  + \sum_{x} v_x p_x \bigg] \bigg \} + \\
+    & + \sum_j \bigg \{ \frac{1}{y_j} \bigg[ \frac{c_j}{u_j}  \bigg((e*p) + l + m + d + o \bigg)_i + \sum_{x} a v_x p_x \bigg ] \bigg\}
+\end{split}
+\end{equation}
+
+\subsubsection{Computation of Yielded Cost}
+
+Devices may be damaged or otherwise rendered unusable during the manufacturing process. The ratio between the number of good devices per step and the number of handled devices per step is known as the yield. Optimizing this yield is critical for reducing manufacturing cost \cite{Kumar2006}. This is because cumulative yield quickly drops as the yield from manufacturing steps with below 100\% yield compounds. We must thus consider not only the manufacturing cost per process step, but also the cost including the yield \cite{becker2001use}\cite{becker2001using}. While there are different mathematical approaches to including yield, we follow the definition in \cite{becker2001use}. We write for the yielded cost $C_{Y_i}$ of a step $i$ with associated cost (before considering yield) $C_1$ and yield $Y_1$, starting from steps $1,2,\dots,i$:
+%
+\begin{equation}
+\label{eqn:C_2}
+    C_{Y_1} = \frac{C_1}{Y_1}
+\end{equation}
+\begin{equation}
+    C_{Y_2} = \frac{C_1 + C_2}{Y_1 Y_2} - C_{Y_1} = \frac{C_1 + C_2}{Y_1 Y_2} - \frac{C_1}{Y_1} = \frac{1}{Y_1 Y_2} \bigg ( C_1 (1-Y_2) +C_2 \bigg)
+\end{equation}
+\begin{equation}
+    C_{Y_i} = \frac{ \sum_{x \leq i} C_x }{ \prod_{x \leq i} Y_x } - \frac{ \sum_{x<i} C_x }{ \prod_{x<i} Y_x }
+\end{equation}
+%
+If a step is applied more than once, we can conveniently rewrite this in a form suited to computation within the \textit{Excel} worksheet. Assuming step $2$ is used twice, we get for the yielded cost of this step an equation of the form
+%
+\begin{equation}
+\label{eqn:C_2^2}
+    C_{Y_2}^{(2 \times)} = \bigg( \frac{C_1 + C_2}{Y_1 Y_2} - \frac{C_1}{Y_1} \bigg) + \bigg( \frac{C_1 + 2 C_2}{Y_1 Y_2^2} - \frac{C_1 + C_2}{Y_1 Y_2}     \bigg)
+\end{equation}
+%
+\begin{equation}
+    = \frac{1}{Y_1 Y_2^2} \bigg( C_1 (1-Y_2^2) +2C_2 \bigg)
+\end{equation}
+%
+which can be compared to  \cref{eqn:C_2} to find a more general form:
+%
+\begin{equation}
+    C_{Y_2}^{(n \times)} = \frac{1}{Y_1 Y_2^n} \bigg( C_1 (1-Y_2^n)+nC_2\bigg)
+\end{equation}
+%
+It can be shown by induction that the general form of a term for a step $i>1$ repeated $n$ times can be expressed as:
+%
+\begin{equation}
+\label{eqn:yielded_cost}
+    C_{Y_{i>1}}^{(n \times)} = \frac{1}{Y_i^{n-1} \prod_{x \leq i} Y_x} \bigg( nC_i + \sum_{x < i} C_x (1-Y_i^n) \bigg)
+\end{equation}
+%
+This cumulative approach to yielded cost is different from the approach taken in the original \textit{LEDCOM} model \cite{ledcomv2}. It uses what in the literature is described as an \textit{"itemized approach"} to yielded cost \cite{becker2001use}. In this approach, the yielded cost of a single process step $f$ is described as
+%
+\begin{equation}
+    f_\text{single} = \frac{k+s}{y}
+\end{equation}
+%
+where
+%
+\begin{align*}
+    k &\dots \text{material cost of previous step} \\
+    s &\dots \text{step cost}
+\end{align*}
+%
+For process steps that are performed more than once, a series expression is used
+%
+\begin{equation}
+    f_{\times 2} =  \frac{\frac{k+s}{y}+s}{y}
+\end{equation}
+\begin{equation}
+\label{eqn:series}
+    f_{\times n} = \frac{k + s(1+y+y^2+ \dots + y^{n-1})}{y^n}
+\end{equation}
+%
+This itemized approach serves as a convenient approximation, but its cumulative contributions do not equal the total yielded cost of the entire manufacturing process
+%
+\begin{equation}
+    f_\text{total} = \frac{\sum_i^n s_k}{\prod_i^n y_i} \neq \sum_i^n f_i
+\end{equation}
+%
+where $n$ is the total number of steps. This is due to the approximation introduced in \cref{eqn:series}.
+
+\subsubsection{Example of Input Data Considered: Sapphire Wafers}
+
+Sapphire wafers form the substrate on which all other layers of the light-emitting diode are grown. Being transparent to radiation in the visible spectrum, it is not removed after growth in the Classical architecture or the Thin-Film Flip-Chip architecture. In the Vertical Thin-Film architecture, it is removed by means of a laser-lift-off process. Wafers can be either unpatterned or patterned, where the latter has become commonplace by 2020 due to the beneficial properties that microstructures on the surface have on layer growth \cite{wuu2009defect} and light-extraction efficiency \cite{lee2006enhancing}. The price of sapphire substrates has decreased significantly since the year 2000, as shown in the top panel of \cref{fig:wafers}. This can be attributed not only to their role in the solid state lighting industry, but more importantly to increased supply in response to increased demand from electronics manufacturing \cite{yole2015sapphire}, where sapphire glass is used to protect screens and sensor interfaces from scratches \cite{khattak2016world}.
+
+Wafer sizes used in manufacturing have also increased, due to the favourable economics of large wafer processing (see top panel of \cref{fig:wafers}). The market has been dominated by U.S.-based \textit{Rubicon Technology} and Russian-based \textit{Monocrystal}. We use the market average for the sapphire wafer price in different years as a direct input into the cost model, and the dominant wafer diameter (see bottom panel in \cref{fig:wafers}) in different years as an input to calculate DPW in \cref{eqn:dpw}.
+
+\begin{figure}[h!]
+    \includegraphics[width=15cm]{./figures/sapphire_prices.pdf}
+    \includegraphics[width=14.5cm]{./figures/wafer_size.pdf}
+	\caption{Historical data for sapphire substrate prices of different surface properties and diameters. Shown is data for polished surface (NPS) and patterned substrates (PSS). \textit{Monocrystal} denotes the Russian manufacturer of the same name. Dashed lines are projections from the previous year. Sources: \cite{monocrystal2020private}\cite{yole2011sapphire}\cite{yole2015sapphire}. Bottom: Prevalence of sapphire wafer size used in the manufacturing of light-emitting diodes. Hatched bars are projections. Sources: \cite{veeco2013}\cite{Scholand2012}\cite{yole2015sapphire}}
+	\label{fig:wafers}
+\end{figure}
+
+\subsubsection{Computation of Contribution of Individual Variables}
+\label{sec:contribution_variables}
+
+To quantify the drivers of changes in manufacturing cost or device performance among many contributing factors, one would need to identify the magnitude of contribution to these changes made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $C$ which describes the manufacturing cost or performance function of a device at time $t$,
+%
+\begin{equation}
+F=ab+cd
+\end{equation}
+%
+and input variables $a,b,c,d$, we are looking for the contribution $\Delta F_{a}$ made by a single variable $a$ to the total change in the function value $\Delta F$ between points $t_0,t_1$ such, that
+%
+\begin{equation}
+\Delta F = F(t_1)-F(t_0) = \sum_{i=a, \dots, d} \Delta F_i
+\end{equation}
+%
+Index decomposition analysis has been developed to solve this problem \cite{Boyd1987}. A short derivation, based on \cite{kavlak2018evaluating} is provided here:
+
+The infinitesimal contribution to the total function value by the infinitesimal change in an input variable is defined through the total differential of the function as
+%
+\begin{equation}
+\text{d}F(x_1 (t), x_2(t), \dots) = \sum_i \frac{\partial F }{\partial x_i}     \frac{\text{d}x_i}{\text{d}t} = \sum_i \frac{\partial F }{\partial x_i}  \Delta x_i
+\end{equation}
+%
+where $x_i$ is an input cost variable. The contribution of the change $\Delta x_1$ in variable $x_1$ to the total function value $F$ over the period $t_0 < t < t_1 $ is then
+%
+\begin{equation}
+\Delta F_{x_1} = \int_{t=t_1}^{t_2} \frac{\partial F }{\partial x_1} \frac{\text{d}x_1}{\text{d}t} \text{d}t
+\label{eqn:integral_1}
+\end{equation}
+%
+However, data on the input variables in our study is often not available in continuous time. Disaggregating the contribution of single variables to the change in the cost or performance is thus not straightforward in our model. This problem does not arise in cost models which compute cost changes directly, such as \cite{nemet2012solar} \cite{goodrich2013assessing}. In our work, we propose to address this problem by following an approach developed by Kavlak et al. \cite{kavlak2018evaluating}. For the detailed derivation, we refer to this publication.
+
+The function $F$ as a function of a vector of input model variables $\vec{r}=(r_1,r_2,\dots)$ is defined as
+%
+\begin{equation}
+    F(\vec{r}) = F(r_1,r_2, \dots) = \sum_i F_i
+\end{equation}
+where
+\begin{equation}
+    F_i(\vec{r}) = F_i^0 \prod_w g_{iw}(r_w)
+\end{equation}
+%
+which can be written as a constant part $F$ and a part describing the dependence of the $i$-th cost component on the $w$-th variable.
+%
+Using logarithmic differentiation, the integral from  \cref{eqn:integral_1} can be rewritten as
+\begin{equation}
+    \Delta F_x = \int_{t=t_0}^{t_1} F(t) \frac{ \partial \ln F }{ \partial x } \frac{ \text{d} x }{ \text{d} t} \text{d} t
+\end{equation}
+%
+where for $F(t)$ a constant $F(t) \approx \tilde{F} $ can be chosen such that $\Delta F_{x_i} = \Delta F$. In practice, this constant value can be approximated through the geometric and arithmetic means $\tilde{F} \approx \frac{2}{3} F_i^\text{geo} + \frac{1}{3} \overline{F_i}$ \cite{kavlak2018evaluating}. The contribution of a single cost model variable $r_z$ can then be written as
+%
+\begin{equation}
+    \Delta F_z (t_1,t_2) \approx \sum_i \tilde{F_i} \ln \frac{g_{iz}(t_2)}{g_{iz}(t_1)}
+\end{equation}
+%
+We use this approach to estimate the effect of individual innovations and spillovers on LED device performance, as discussed in section 4.3 and shown in Figure 5 in the main article. Due to time constraints, we leave the quantification of the impact of different drivers of cost reductions with this methodological approach for our future work.
+
 \clearpage
 \section{Identified LED Innovations and Performance Improvements}
 
