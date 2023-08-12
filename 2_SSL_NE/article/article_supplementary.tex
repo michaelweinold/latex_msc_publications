@@ -588,7 +588,7 @@ This Supplementary Note provides details for the identified LED innovations and 
 
 \subsection{Historical Progress in Sub-Efficiencies}
 
-The historical progress in the different sub-efficiencies contributing to overall efficiency (lamp efficiency) is shown in \cref{fgr:subeff}. Context for figure panels is provided below:
+Empirical data on the historical progress in metrics related to four different sub-efficiencies contributing to the overall LED efficiency (lamp efficiency $\eta_L$) is shown in \cref{fgr:subeff}. Specifically, the figure includes data for forward voltage used to calculate to forward voltage efficiency $\eta_{V_f}$ (Panel A1); efficiency droop $\eta_droop$ (Panel A2); internal quantum efficiency $\eta_IQ$ (Panel B1); and light extraction efficiency $\eta_LE$ (Panel B2). Additional information and context for individual panels in Supplementary \cref{fgr:subeff} are provided below.
 
 \textbf{Panel A1:} Device forward voltage at a test current of I=350mA. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Data points for devices released in 2020 by various manufacturers are shown in an inset plot. \
 
@@ -598,11 +598,13 @@ The historical progress in the different sub-efficiencies contributing to overal
 
 \textbf{Panel B2:} Light extraction efficiency for different chip architectures, by type of specific technology used to improve light-extraction efficiency. The source of data points is shown for reference: simulation - ray-tracing computer simulation; experimental (absolute) - light-extraction efficiency given directly; experimenal (relative) - relative improvement over baseline chip architecture given. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured. 
 
+Notably, \cref{fgr:subeff} does not include sub-efficiencies related to spectral performance of LEDs: spectral efficiency $\eta_S$ and conversion efficiencies of different phosphors $η_{C_R}$ and $\eta_{C_{Y/G}}$. Typically, there is no direct empirical data available for these metrics in the literature, which made their inclusion in the empirical \cref{fgr:subeff} not relevant. Instead, we calculate the values of these metrics used in Figures 4 and 5 in the main text from spectral and luminous efficacy radiation data presented in \cref{fig:phosphor_spectrum}.
+
 \begin{figure}[h!]
- \centering
- \includegraphics[width=15.5cm]{./figures/subefficiencies_progress.pdf}
- \caption{Historical improvements in light-emitting diode technology. Panels A1-A2 show they key metrics used to compute forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show the sub-efficiencies internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the full list of sources provided in \cref{sec:sources}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
- \label{fgr:subeff}
+\centering
+\includegraphics[width=15.5cm]{./figures/subefficiencies_progress.pdf}
+\caption{Historical improvements in light-emitting diode technology. Panels A1-A2 show they key metrics used to compute forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show the sub-efficiencies internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the full list of sources provided in \cref{sec:sources}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
+\label{fgr:subeff}
 \end{figure}
 
 \subsection{Non-Phosphor-Related LED Innovations}
