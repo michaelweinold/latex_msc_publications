@@ -129,27 +129,18 @@ where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltag
 LED light-extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
 %
 \begin{equation}
-    \eta_{LE}=\frac{\text{\# of photons out}}{\text{\# of photons created}} = \frac{P_{opt}}{P_{int}}
+    \eta_{LE} = \frac{P_{opt}}{P_{int}} = \frac{\text{\# of photons out/s}}{\text{\# of photons created/s}}
 \end{equation}
 %
-where $P_{opt}$ is the optical power of the device and $P_{int}$ is the internal power of the device\cite{schubert2018light}\cite{tsao2010solid}.
+where $P_{opt}$ is the optical power emitted from the device $P_{int}$ is the optical power emitted from the active region into other parts of the device (internal) \cite{schubert2018light}\cite{tsao2010solid}.
 
 \subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
 
-Internal quantum efficiency (IQE) describes non-radiative recombinatory processes in the semiconductor bulk. It is related to the external quantum efficiency through
+Internal quantum efficiency (IQE) describes non-radiative recombinatory processes in the semiconductor bulk. It is defined as
 %
 \begin{equation}
-\label{eqn:ieq-eqe}
-    \eta_{EQ} = \eta_{IQ} \times \eta_{LE}
+    \eta_{IQ} = \frac{\# \text{of photons created/s}}{\# \text{of electron-hole pairs in/s}}
 \end{equation}
-%
-It is defined as
-%
-\begin{equation}
-    \eta_{IQ} = \frac{\# \text{of photons created}}{\# \text{of electron-hole pairs in}}
-\end{equation}
-%
-and depends on the current density of the device\cite{schubert2018light}\cite{tsao2010solid}. 
 
 \subsubsection{Droop $\eta_{droop}$}
 
@@ -170,7 +161,7 @@ Therefore, according to this definition, a lack of droop corresponds to a droop 
 
 \subsubsection{Light Conversion Efficiency $\eta_{C}$}
 
-Light conversion efficiency (LCE) describes the losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and well as scattering/absorption losses. It is defined as
+Light conversion efficiency (LCE) describes the losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and  scattering/absorption losses. It is defined as
 %
 \begin{equation}
     \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
@@ -239,7 +230,7 @@ In selecting the metrics for tracking progress in manufacturing cost reductions 
 
 We address the limitations of data availability for the chip-level LED manufacturing costs and sales prices by developing and applying a bottom-up LED manufacturing cost model with process-step resolution. In our case, it is enabled by the general availability of historical data on prices of relevant raw materials, components, and manufacturing equipment, and the relative cost data on manufacturing processes, which is occasionally published as part of industry press releases \cite{ledinside2013csp}\cite{seoul2015csp}. 
 
-We describe our manufacturing cost model in the Methods section in the main text of the article, and discuss its details, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model’s limitations, in \cref{sec:method_details}. The outcome of the cost model is the cumulative yielded manufacturing cost per LED package, which includes all costs associated with producing the chip, including running costs of the factory.
+We describe our manufacturing cost model in the Methods section in the main text of the article, and discuss its details, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model’s limitations, in \cref{sec:costmodel_details}. The outcome of the cost model is the cumulative yielded manufacturing cost per LED package, which includes all costs associated with producing the chip, including running costs of the factory.
 
 \clearpage
 \section{Methodological Details}
@@ -275,12 +266,13 @@ This Supplementary Note provides additional details for the main methods and dat
 \end{table}
 
 \subsection{Manufacturing Cost Model Details}
+\label{sec:costmodel_details}
 
 \subsubsection{Structure of the Model}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{./figures/cost_model.pdf}
+    \includegraphics[width=0.95\textwidth]{./figures/costmodel.pdf}
     \caption{Schematic diagram of the cost model showing inputs to each step and computational steps leading to the cost model outputs. For the description of cost variables, see definitions in \cref{eqn:cost_wafer}. For the computation of total cost, see \cref{subsec:cost_computation}. For the computation of changes in total cost, see \cref{sec:contribution_variables}.}
     \label{fig:costmodel-schematic}
 \end{figure}
