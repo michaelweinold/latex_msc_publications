@@ -215,58 +215,6 @@ Sapphire wafers form the substrate on which all other layers of the light-emitti
 	\label{fig:wafers}
 \end{figure}
 
-\newpage
-\subsubsection{Preliminary Sensitivity Analysis}
-
-\begin{figure}[]
-	\centering
-    \includegraphics[width=\textwidth]{./figures/costmodel_sensitivity.pdf}
-	\caption{Sensitivity analysis for selected cost model parameters. Panel a represents the tested range of variation of parameters indicated on horizontal axis along with their respective measurement units, as represented in \cref{tab:sensitivity}. Panel b shows the resulting range of variation in the manufacturing cost. Ranges are represented for three years considered in the cost model, where corresponding data is available, by whiskers of the following colour: 2003 – blue, 2012 – green, 2020 – red. Note the overall trend of decreasing sensitivity to cost model parameters as the number of die per wafer increases over time. Abbreviations: resp. - respective; yield sav. from insp. - yield savings from inspection.}
-	\label{fig:sensitivity}
-\end{figure}
-
-A sensitivity analysis of the cost model has been performed using parameter variations listed in table \cref{tab:sensitivity}. The amount of parameter variation was chosen to encompass the identified range of parameter values in different manufacturing setups for each considered year. As an example, the lower range in the variation for the price of metals used in the model (+50\%,-0\%) was chosen because the prices quotes from the United State Geological Survey price database. Industry metals are not sold below the price of the raw material and often the markup is small compared to the price of the material. The upper range was chosen because a survey of industrial metal suppliers for semiconductor manufacturing showed that the largest markup was below 50\%. The results of the analysis are shown in  \cref{fig:sensitivity}. The cost model is generally more sensitive to the variation in parameters at smaller wafer diameters. The most sensitive parameters are global parameters, such as yield or average equipment throughput.
-
-\begin{table}[]
-\small
-    \caption{Cost model sensitivity analysis parameter list. The results of the sensitivity analysis for the parameters in this table are presented in \cref{fig:sensitivity}.}
-    \vspace{5mm}
-    \begin{NiceTabularX}{\textwidth}{ |X|X|l|l|l|l|l|l|X|}
-        \hline
-            \textit{Parameter} & \textit{Unit} & \textit{2003} & $\pm [\%]$ & \textit{2012} & $\pm [\%]$ & \textit{2020} & $\pm [\%]$ & Source \\
-        \hline
-            Cleanroom Cost & \text{USD}/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & \cite{mddi1997cleanroom}\cite{ledcomv2} \newline \cite{bakshi2009euv}\cite{gajera2006process} \\
-        \hline
-            Person-hour & FTE & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & I \\
-        \hline
-            Equip. Discount & \% of \text{USD} & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I \newline \cite{Appleyard_2001} \\
-        \hline
-            Overall Yield & \% & 100\% & +25,-25 & 100\% & +25,-15 & 100\% & +25,-25 & I, \cite{lumi2012yield}\cite{ledsmag2012} \newline \cite{systemplus2015reverse}\cite{ledcomv2} \\
-        \hline
-            Inspec. Yield Savings & \%/inspec. & 0.5\% & +80,-80 & 0.5\% & +80,-80 & 0.5\% & +80,-80 & \cite{mckinseyyield} \\
-        \hline
-            Overall Throughput & UPH or h$^{-1}$ & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & Datasheets \\
-        \hline
-            Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I and \cref{fig:wafers} \\
-        \hline
-            Edge Exclusion & mm & 7 & +0,-50 & 5 & +40,-0 & 5 & +40,-20 & \cite{ledsmagexclusion}\cite{rubiconexclusion} \newline \cite{xiamenexclusion}\cite{american2007annual} \\
-        \hline
-            Cutting Width & $\mu$m & 100 & +50,-25 & 75 & +33.3,-20 & 20 & +300,-50 & \cite{masaki2000division}\cite{ils2005width} \newline \cite{photonics2010width}\cite{discowidth} \\
-        \hline
-            Metal Prices & \text{USD}/kg & 100\% & +50,-0 & 100\% & +50,-0 & 100\% & +50,-0 & Datasheets \\
-        \hline
-            Electricity Price & \text{USD}/kWh & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
-        \hline
-            Saph. Subst. Price & \text{USD} & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & \cref{fig:wafers} \\
-        \hline
-            Phosphor Prices & \text{USD}/g & 100\% & +50,-50 & 150 & +0,-0 & 200 & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
-        \hline
-        \end{NiceTabularX}
-    \vspace{5mm}
-    
-    Note: The units for the values in columns \textit{2003}-\textit{2020} are indicated in the column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines. Abbreviations: FTE - full-time equivalent; UPH - units per hour; Equip. Discount - equipment discount (sales rebate for large purchases); Inspec. Yield Savings - yield savings from inspection (early detection and alleviation of issues in the manufacturing workflow).
-    \label{tab:sensitivity}
-\end{table}
 
 \newpage
 \subsection{Computation of Contribution of Individual Variables}
