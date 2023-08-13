@@ -7,19 +7,9 @@
 \input{2_SSL_NE/article/auxiliary/preamble/2_preamble_layout_paperdraft}
 
 % nature energy custom code
-
-\newcounter{supplementarynote}
-\renewcommand{\thesupplementarynote}{\arabic{supplementarynote}}
-\newcommand{\supplementarynote}{%
-  \refstepcounter{supplementarynote}%
-  Supplementary Note~\thesupplementarynote:~%
-}
-\titleformat{\section}
-  {\normalfont\large\bfseries}
-  {\supplementarynote}
-  {0em} % Adjust this value to control the spacing
-  {}
-\renewcommand{\thesection}{\thesupplementarynote}
+\makeatletter
+\renewcommand{\@seccntformat}[1]{Supplementary Note \csname the#1\endcsname\quad}
+\makeatother
 
 % bibliography
 \input{auxiliary/preamble/1_preamble_functionality_bibliography}
