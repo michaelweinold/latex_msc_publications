@@ -6,31 +6,19 @@
 % layout
 \input{2_SSL_NE/article/auxiliary/preamble/2_preamble_layout_paperdraft}
 
-% nature energy custom code
+% custom section designations
 \makeatletter
-\renewcommand{\@seccntformat}[1]{Supplementary Note \csname the#1\endcsname\quad}
+\renewcommand{\@seccntformat}[1]{Supplementary Note \csname the#1\endcsname: } % https://tex.stackexchange.com/a/693618
 \makeatother
+% custom equation designations
+\renewcommand{\figurename}{Supplementary Figure}
+\renewcommand{\tablename}{Supplementary Table}
 
 % bibliography
 \input{auxiliary/preamble/1_preamble_functionality_bibliography}
 \addbibresource{bibliography.bib}
 
 %% CUSTOM SETUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% custom figure and table numbering
-\renewcommand{\thefigure}{Supplementary Figure \arabic{figure}}
-\renewcommand{\thetable}{SI\arabic{table}}
-
-% custom equation numbering
-% https://tex.stackexchange.com/a/184641/
-\newcounter{defcounter}
-\setcounter{defcounter}{0}
-\newenvironment{myequation}{%
-\addtocounter{equation}{-1}
-\refstepcounter{defcounter}
-\renewcommand\theequation{SI\thedefcounter}
-\begin{equation}}
-{\end{equation}}
 
 %% METADATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -174,10 +162,10 @@ where $K$ is the luminous efficacy of radiation of the light source, which can b
 
 The luminous efficacy \textit{of radiation} $K$ describes the match of a light-emitting diode package spectrum to the human visual system. Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength-dependent human sensitivity to light \cite{cie-term-effrad}
 %
-\begin{myequation}
+\begin{equation}
 \label{eqn:ler}
     K [\text{lm/W}_{opt}]= \frac{\int_0^\infty K( \lambda ) \phi \text{d} \lambda}{\int_0^\infty \phi \text{d} \lambda}
-\end{myequation}
+\end{equation}
 %
 where
 %
@@ -196,9 +184,9 @@ Care must be taken not to confuse this metric with luminous efficacy of source d
 
 The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power $P_{el}$ \cite{cie-term-effsrc}. It is often used to describe general progress in lighting technologies.
 %
-\begin{myequation}
+\begin{equation}
     \eta [\text{lm/W}_{el}]= \frac{\phi}{P_{el}}
-\end{myequation}
+\end{equation}
 %
 This metric is also frequently cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. However, as noted in \cref{subsec:ler}, care must be taken not to confuse this efficacy metric with the \textit{luminous efficacy of radiation}, which depends only on the spectral characteristics of a light source. As the luminous efficacy of a light source $\eta$ captures the overall device efficacy, it depends on a large number of other device properties and parameters. This makes attribution of changes in this metric to individual changes in device design or manufacturing difficult. For this reason, we do not use this metric only to show historical progress across different lighting technologies in Figure 1 in the main text of the article.
 
