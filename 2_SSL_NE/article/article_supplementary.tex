@@ -151,13 +151,13 @@ Therefore, according to this definition, a lack of droop corresponds to a droop 
 
 \subsubsection{Light Conversion Efficiency $\eta_{C}$}
 
-Light conversion efficiency (LCE) describes the losses in the conversion process of blue light that is the basis for all phosphor-converted white LEDs. These losses are the sum of the Stokes loss and  scattering/absorption losses. It is defined as
+Light conversion efficiency (LCE) describes the sum of all losses in the process of converting the blue light that is the basis for all phosphor-converted white LEDs. Specifically, energy is lost due to three distinct effects. First, the inherent wavelength-conversion loss or \textit{Stokes shift} as the difference between the original blue wavelength and the down-converted red, yellow or green wavelength. Second, non-radiative processes in the phosphor material. Third, scattering and absorption processes in the phosphor material. These three effects are listed individually in \cref{fgr:waterfall}. The overall light conversion efficiency is defined as
 %
 \begin{equation}
     \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
 \end{equation}
 %
-where $E_i$ denotes the total energy of light at the color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
+where $E_i$ denotes the total energy of light at color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
 
 \subsubsection{Spectral Efficiency $\eta_{S}$}
 
@@ -272,6 +272,7 @@ The LED cost model developed for this publication is a microeconomic manufacturi
 A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
 
 \subsubsection{Manufacturing Process Steps by Chip Architecture}
+\label{subsec:manufacturing_steps}
 
 \cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering for the manufacturing process of three different chip architectures considered in the cost model.
 
