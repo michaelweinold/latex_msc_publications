@@ -4,7 +4,7 @@
 ]{biblatex}
 
 % show DOI URL (https://doi.org/XXX.XXXXX.XXXX), instead of publisher URL (https://springer.com/XXXX)
-% compare https://tex.stackexchange.com/a/616241
+% cf. https://tex.stackexchange.com/a/616241
 \DeclareSourcemap{
   \maps[datatype = bibtex]{
     \map{
@@ -23,13 +23,3 @@
     \clearfield{urlyear}
     \clearfield{urlmonth}
 }
-
-% add exact location of equation in source citation (eg. 'cf. [1] (1.123)')
-% compare https://tex.stackexchange.com/a/668944
-\usepackage{mathtools}
-\newtagform{tagcite}{(}{)}
-\newcommand*{\tagcite}[2]{%
-    \renewtagform{tagcite}{(}{, cf.\@ \cite{#1} (#2))}
-    \usetagform{tagcite}
-}
-\AfterEndEnvironment{equation}{\usetagform{default}}
