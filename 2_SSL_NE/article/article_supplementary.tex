@@ -15,7 +15,9 @@
 \makeatother
 % custom equation designations
 \renewcommand{\figurename}{Supplementary Figure}
+\crefname{figure}{Supplementary Figure}{Supplementary Figures}
 \renewcommand{\tablename}{Supplementary Table}
+\crefname{table}{Supplementary Table}{Supplementary Tables}
 
 % bibliography
 \input{auxiliary/preamble/1_preamble_functionality_bibliography}
@@ -27,7 +29,7 @@
 
 \hypersetup{
     pdftitle={Supplement},
-    pdfauthor={Michael Weinold, Sergey Kolesnikov, Laura Diaz Anadon},
+    pdfauthor={Michael Philipp Weinold, Sergey Kolesnikov, Laura Diaz Anadon},
 }
 
 %% MAIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,21 +41,20 @@
     \parbox{\textwidth}{
         \textit{\textsc{Supplementary Information}} for: \\
         \newline 
-        M. Weinold$^{1,2,3}$, S. Kolesnikov$^3$, L.D. Anadon$^{3,4}$ \\
-        "Rapid technological progress in white light-emitting diodes and its sources in innovation and technology spillovers" (2023) \\
+        M. P. Weinold$^{1,2,3}$, S. Kolesnikov$^1$, L.D. Anadon$^{1,4}$ \\
         \newline
-        $^1$ Technology Assessment Group, Paul Scherrer Institute, Switzerland \\
+        $^1$ Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, UK \\
         $^2$ Group for Energy Systems Analysis, Department of Mechanical and Process Engineering, ETH Zurich, Zurich, Switzerland \\
-        $^3$ CEENRG, Dept. of Land Economy, University of Cambridge, UK \\
+        $^3$ Technology Assessment Group, Paul Scherrer Institute, Villigen, Switzerland \\
         $^4$ Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
     }
 }
 
+\clearpage
 \tableofcontents
 
-\newpage
-
-\section{Previous Literature on Technological Progress in LEDs}
+\clearpage
+\section{Previous Literature on Techological Progress in LEDs}
 \label{sec:prev_lit}
 
 The historical development development of light-emitting diodes from a novelty semiconductor experiment into powerful lighting devices has received a considerable amount of attention following the recognition of pioneering work on blue LED by Japanese researchers Shuji Nakamura, Isamu Akasaki and Hiroshi Amano with the 2014 Nobel Prize in Physics \cite{Nakamura2015}. The sources and disaggregated contributions of subsequent improvements in LED technology, however, have not been documented in the literature in a systematic fashion, though there were notable publications reporting on the progress in the design of devices \cite{Shchekin2006,krames2007led,laubsch2009high,hahn2014development}, or the technological improvements  underlying the improvement in overall device efficiency for best performers in 2009 \cite{tsao2010solid} and 2016 \cite{pattison2017solid}. 
@@ -68,7 +69,7 @@ Despite the amount of literature published on the topic of LED history, we are n
     \item Publications typically do not look at the overall LED efficiency and its underlying physical limits and tend to overlook the metrics of progress related to consumer experience. 
 \end{itemize}
 
-Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating,kolesnikov2020novel,nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan_2021}, has not yet been studied in the context of lighting.
+Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating,kolesnikov2020novel,nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan2021}, has not yet been studied in the context of lighting.
 
 In our study, we overcome the limitations of previous literature by, first, synthesizing data provided in multiple publications across an ensemble of various cost, performance and consumer experience metrics for tracking progress in LED technology over an extended period of time. Second, our key advantage and contribution compared to these publications is a multi-method approach that we take to fill in the data gaps and augment information obtained from the literature sources by our own performance calculations, a bottom-up cost model and a series of expert interviews. This enabled us to synthesize evidence from multiple sources and, for the first time, reconstruct a comprehensive picture of the historical progress in white LED technology throughout its entire history.
 
@@ -107,13 +108,13 @@ where $E_{h\nu}$ denotes the photon energy and $V_f$ is the diode forward voltag
 
 \subsubsection{Light Extraction Efficiency $\eta_{LE}$}
 
-LED light-extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
+LED light extraction efficiency (LEE) describes the  losses due to absorption in the material after electron-hole recombination and the associated emission of a photon. It is defined as
 %
 \begin{equation}
     \eta_{LE} = \frac{P_{opt}}{P_{int}} = \frac{\text{\# of photons out/s}}{\text{\# of photons created/s}}
 \end{equation}
 %
-where $P_{opt}$ is the optical power emitted from the device $P_{int}$ is the optical power emitted from the active region into other parts of the device (internal) \cite{schubert2018light}\cite{tsao2010solid}.
+where $P_{opt}$ is the optical power emitted from the device and  $P_{int}$ is the optical power emitted from the active region into other parts of the device (internal) \cite{schubert2018light}\cite{tsao2010solid}.
 
 \subsubsection{Internal Quantum Efficiency $\eta_{IQ}$}
 
@@ -142,28 +143,30 @@ Therefore, according to this definition, a lack of droop corresponds to a droop 
 
 \subsubsection{Light Conversion Efficiency $\eta_{C}$}
 
-Light conversion efficiency (LCE) describes the sum of all losses in the process of converting the blue light that is the basis for all phosphor-converted white LEDs. Specifically, energy is lost due to three distinct effects. First, the inherent wavelength-conversion loss or \textit{Stokes shift} as the difference between the original blue wavelength and the down-converted red, yellow or green wavelength. Second, non-radiative processes in the phosphor material. Third, scattering and absorption processes in the phosphor material. These three effects are listed individually in \cref{fgr:waterfall}. The overall light conversion efficiency is defined as
+Light conversion efficiency (LCE) describes the sum of all losses in the process of converting the blue light that is the basis for all phosphor-converted white LEDs. Specifically, energy is lost due to three distinct effects. The first effect is the inherent wavelength-conversion loss or \textit{Stokes shift} as the difference between the original blue wavelength and the down-converted red, yellow or green wavelength. The second effect are non-radiative processes in the phosphor material. The third , scattering and absorption processes in the phosphor material. These three effects are listed individually in Figure 4. The overall light conversion efficiency is defined as
 %
 \begin{equation}
     \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
 \end{equation}
 %
-where $E_i$ denotes the total energy of light at color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
+where $E_{\textcolor{blue}{B}}$ is the total energy of blue light before down-conversion and $E_i$ denotes the total energy of light at color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
 
 \subsubsection{Spectral Efficiency $\eta_{S}$}
 
-Spectral efficiency (SE) describes losses in the conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet are lost to illumination purposes. It is defined as
+Spectral efficiency (SE) describes losses in the light down conversion process due to the wavelength-dependent efficiency of the human eyes. Photons converted into the infrared or ultraviolet light are lost to illumination purposes. It is defined as
 %
 \begin{equation}
     \eta_{S} = \frac{K}{K_{max}(CRI,CCT)}
 \end{equation}
 %
-where $K$ is the luminous efficacy of radiation of the light source, which can be computed from the device spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
+where $K$ is the luminous efficacy of radiation of the light source, defined in \cref{eqn:ler}, which can be computed from the device spectrum and the luminosity function, which describes the sensitivity of the human eye. $K_{max}$ is the maximum luminous efficacy of radiation of a perfect light source with the same color rendering index performance and correlated color temperature as the light source in question\cite{schubert2018light}\cite{tsao2010solid}.
 
 \subsubsection{Luminous Efficacy of Radiation}
 \label{subsec:ler}
 
-The luminous efficacy \textit{of radiation} $K$ describes the match of a light-emitting diode package spectrum to the human visual system. Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source with the wavelength-dependent human sensitivity to light \cite{cie-term-effrad}
+The luminous efficacy \textit{of radiation} $K$ is a supplementary metric used in our calculations of SE, rather than directly in our analysis of the improvements in LED performance. Care must be taken not to confuse this metric with the luminous efficacy of a light source, described in \cref{subsec:les}.
+
+The luminous efficacy \textit{of radiation} $K$ describes the match of the spectrum of a light-emitting diode to the human visual system. Efficacy in lighting is dependent on the luminosity function, which describes the wavelength-dependent sensitivity of the human eye. A light source emitting very \textit{efficiently} in the infrared yet emitting no visible light has a very low \textit{efficacy}. The luminous efficacy of radiation $K$ is mathematically defined as the normalized, integrated product of the spectral radiant flux of a light source $\phi$ with the wavelength-dependent human sensitivity to light \cite{cie-term-effrad}
 %
 \begin{equation}
 \label{eqn:ler}
@@ -180,12 +183,10 @@ where
 %
 This metric can be computed from spectral data alone and does not require additional spectral normalization. It enables straightforward comparison between the performance of different downconversion phosphors, as shown in the top panel of \cref{fig:phosphor_spectrum}. Light sources emitting in the far red or blue part of the spectrum have lower efficacy of radiation.
 
-Care must be taken not to confuse this metric with luminous efficacy of source described in \cref{subsec:les}.
-
 \subsubsection{Luminous Efficacy of Source}
 \label{subsec:les}
 
-The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux and the consumed electrical power $P_{el}$ \cite{cie-term-effsrc}. It is often used to describe general progress in lighting technologies.
+The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio between the emitted luminous flux $\phi$ and the consumed electrical power $P_{el}$ \cite{cie-term-effsrc}.
 %
 \begin{equation}
     \eta [\text{lm/W}_{el}]= \frac{\phi}{P_{el}}
@@ -199,7 +200,7 @@ The perceived quality of light is entirely determined by the emission spectrum o
 
 \subsubsection{Color Rendering Index (CRI)}
 
-The colour rendering index (CRI) of a light source describes its ability to render the colours of an object faithfully when compared to illumination under a reference light source, such as standard daylight \cite{khan2015led}. The way it is calculated is defined by the International Illumination Commission (CIE) \cite{cie_cri_1995}. CRI has certain limitations when applied to solid-state light sources \cite{david2013cri}. \cite{Houser2013}, CRI has remained the de facto industry standard for describing colour fidelity of light sources \cite{DOE2016LED}. High colour rendering performance of lighting is a requirement in workplace environments, retail stores, clinical operating environments and art exhibitions \cite{khanh2017color}. It should be noted that some niche applications prioritize high colour saturation over high CRI, for instance, in food display or fabric retail applications \cite{david2013cri}. However, these niche applications remain outside our focus on general illumination. Due to a broad availability and importance of CRI data for consumers of various LED lighting sources, we adopt CRI as the key metric to track progress in consumer experience in LED lighting, despite its limitations.
+The colour rendering index (CRI) of a light source describes its ability to render the colours of an object faithfully when compared to illumination under a reference light source, such as standard daylight \cite{khan2015led}. The way it is calculated is defined by the International Illumination Commission (CIE) \cite{cie_cri_1995}. CRI has certain limitations when applied to solid-state light sources \cite{david2013cri}. However, despite repeated attempts at constructing more elaborate colour rendering metrics \cite{Houser2013}, CRI has remained the de facto industry standard for describing colour fidelity of light sources \cite{DoE2016LED}. High colour rendering performance of lighting is a requirement in workplace environments, retail stores, clinical operating environments and art exhibitions \cite{khanh2017color}. It should be noted that some niche applications prioritize high colour saturation over high CRI, for instance, in food display or fabric retail applications \cite{david2013cri}. However, these niche applications remain outside our focus on general illumination. Due to a broad availability and importance of CRI data for consumers of various LED lighting sources, we adopt CRI as the key metric to track progress in consumer experience in LED lighting, despite its limitations.
 
 \subsubsection{Colour Temperature}
 
