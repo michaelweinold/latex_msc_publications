@@ -147,10 +147,10 @@ Therefore, according to this definition, a lack of droop corresponds to a droop 
 Light conversion efficiency (LCE) describes the sum of all losses in the process of converting the blue light that is the basis for all phosphor-converted white LEDs. Specifically, energy is lost due to three distinct effects. The first effect is the inherent wavelength-conversion loss or \textit{Stokes shift} as the difference between the original blue wavelength and the down-converted red, yellow or green wavelength. The second effect are non-radiative processes in the phosphor material. The third , scattering and absorption processes in the phosphor material. These three effects are listed individually in Figure 4. The overall light conversion efficiency is defined as
 %
 \begin{equation}
-    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor{yellow}{Y},\textcolor{teal}{G}} E_i}
+    \eta_{C} = \frac{E_{\textcolor{blue}{B}}}{\sum_{i=\textcolor{red}{R},\textcolor{orange}{O},\textcolor[RGB]{225, 180, 0}{Y},\textcolor{teal}{G}} E_i}
 \end{equation}
 %
-where $E_{\textcolor{blue}{B}}$ is the total energy of blue light before down-conversion and $E_i$ denotes the total energy of light at color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor{yellow}{Y}ellow, \textcolor{teal}{G}reen.
+where $E_{\textcolor{blue}{B}}$ is the total energy of blue light before down-conversion and $E_i$ denotes the total energy of light at color $i$ corresponding to the down-converted photon wavelength \cite{schubert2018light}\cite{tsao2010solid}. Since every individual phosphor component in the device has its own associated conversion losses, the denominator sums over all phosphor components, i.e. \textcolor{red}{R}ed, \textcolor{orange}{O}range, \textcolor[RGB]{225, 180, 0}{Y}ellow, \textcolor{teal}{G}reen.
 
 \subsubsection{Spectral Efficiency $\eta_{S}$}
 
@@ -722,22 +722,21 @@ A sensitivity analysis of the cost model has been performed using parameter vari
 \begin{table}[]
 \small
     \caption{List of LED manufacturing cost model parameters considered in sensitivity analysis}
-    \vspace{5mm}
-    \begin{NiceTabularX}{\textwidth}{ |X|X|l|l|l|l|l|l|X|}
+    \begin{NiceTabularX}{1.1\textwidth}{ |X|X|l|l|l|l|l|l|X|}
         \hline
             \textit{Parameter} & \textit{Unit} & \textit{2003} & $\pm [\%]$ & \textit{2012} & $\pm [\%]$ & \textit{2020} & $\pm [\%]$ & Source \\
         \hline
             Cleanroom Cost & \text{USD}/m$^2$ & 3000 & +16,-16 & 3000 & +16,-16 & 3000 & +16,-16 & \cite{mddi1997cleanroom}\cite{ledcomv2} \newline \cite{bakshi2009euv}\cite{gajera2006process} \\
         \hline
-            Person-hour & FTE & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & I \\
+            Labor Rate & \$/h & 30 & +50,-50 & 30 & +50,-50 & 30 & +50,-50 & I \\
         \hline
             Equip. Discount & \% of \text{USD} & 0\% & +25,-25 & 0\% & +25,-25 & 0\% & +25,-25 & I \newline \cite{Appleyard_2001} \\
         \hline
-            Overall Yield & \% & 100\% & +25,-25 & 100\% & +25,-15 & 100\% & +25,-25 & I, \cite{lumi2012yield}\cite{ledsmag2012} \newline \cite{systemplus2015reverse}\cite{ledcomv2} \\
+            Overall Yield & \% & 31\% & +25,-25 & 57\% & +25,-15 & 74\% & +25,-25 & I, \cite{lumi2012yield}\cite{ledsmag2012} \newline \cite{systemplus2015reverse}\cite{ledcomv2} \\
         \hline
             Inspec. Yield Savings & \%/inspec. & 0.5\% & +80,-80 & 0.5\% & +80,-80 & 0.5\% & +80,-80 & \cite{mckinseyyield} \\
         \hline
-            Overall Throughput & UPH or h$^{-1}$ & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & Datasheets \\
+            Overall Throughput & UPH or h$^{-1}$ & varies & +50,-50 & varies & +50,-50 & varies & +50,-50 & Equipment Datasheets \\
         \hline
             Wafer Diameter & mm & 100 & +0,-50 & 150 & +33.3,-33.3 & 200 & +0,-25 & I and \cref{fig:wafers} \\
         \hline
@@ -745,16 +744,16 @@ A sensitivity analysis of the cost model has been performed using parameter vari
         \hline
             Cutting Width & $\mu$m & 100 & +50,-25 & 75 & +33.3,-20 & 20 & +300,-50 & \cite{masaki2000division}\cite{ils2005width} \newline \cite{photonics2010width}\cite{discowidth} \\
         \hline
-            Metal Prices & \text{USD}/kg & 100\% & +50,-0 & 100\% & +50,-0 & 100\% & +50,-0 & Datasheets \\
+            Metal Prices & \text{USD}/kg & varies & +50,-0 & varies & +50,-0 & varies & +50,-0 & Datasheets \\
         \hline
-            Electricity Price & \text{USD}/kWh & 100\% & +50,-50 & 100\% & +50,-50 & 100\% & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
+            Electricity Price & \text{USD}/kWh & 0.07 & +50,-50 & 0.08 & +50,-50 & 0.06 & +50,-50 & \cite{eia2000electric}\cite{eia2019electric} \\
         \hline
             Saph. Subst. Price & \text{USD} & 40 & +12.5,-12.5 & 10 & +100,-20 & 3 & +66.6,-33.3 & \cref{fig:wafers} \\
         \hline
-            Phosphor Prices & \text{USD}/g & 100\% & +50,-50 & 150 & +0,-0 & 200 & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
+            Phosphor Prices & \text{USD}/g & varies & +50,-50 & varies & +0,-0 & varies & +0,-0 & I, \cite{yole_phosphor_2012}\cite{yole2017phosphor} \\
         \hline
         \end{NiceTabularX}
-    \caption*{The results of the sensitivity analysis for the parameters in this table are presented in \cref{fig:sensitivity}. Note: The units for the values in columns \textit{2003}-\textit{2020} are indicated in the column \textit{Units}. If values in columns \textit{2003}-\textit{2020} are instead given in \%, this indicates that the parameters were varied by a set percentage from their respective model baselines. Abbreviations: FTE - full-time equivalent; UPH - units per hour; Equip. Discount - equipment discount (sales rebate for large purchases); Inspec. Yield Savings - yield savings from inspection (early detection and alleviation of issues in the manufacturing workflow). ’I’ in the Source column indicates expert interviews as the source of information.}
+    \caption*{The results of the sensitivity analysis for the parameters in this table are presented in \cref{fig:sensitivity}. Note: Baseline values are provided only for \textit{global} model parameters in the columns \textit{2003, 2012, 2020}. For \textit{non-global} model parameters (those which vary by equipment) only the variation, in percent of the individual baseline values is provided. The corresponding units for the values in columns \textit{2003}-\textit{2020} are indicated in the column \textit{Units}. The variation employed during the sensitivity analysis is provided in the columns $\pm [\%]$. Abbreviations: UPH - units per hour; Equip. Discount - equipment discount (sales rebate for large purchases); Inspec. Yield Savings - yield savings from inspection (early detection and alleviation of issues in the manufacturing workflow); Saph. Subst. - Sapphire Substrate. ’I’ in the Source column indicates expert interviews as the source of information.}
     \label{tab:sensitivity}
 \end{table}
 
