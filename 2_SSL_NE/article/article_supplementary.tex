@@ -92,18 +92,44 @@ We use a well-established distinction between metrics. Those metrics which are r
 A highly cited and frequently called-upon metric is \textit{flux/package}, as described in what has become known as Haitz's law. An observation rather than a law of nature, it describes increasing device performance and decreasing manufacturing cost. Originally introduced in 2000 \cite{haitz1999case}, it has been updated frequently since then. Unfortunately, the way Haitz's law is frequently used is  problematic due to the misleading conclusions it suggests. While the original version presented by Haitz displays the increasing performance of light-emitting diode chips, the graphs have been extended with datapoints from lamps which contain an unspecified number of chips. The metric therefore loses its value in describing technological progress at the chip-level. The continuing rise in performance inferred from this chart is disconnected from the actual, much lower, performance of single chips \cite{weinold2021compound}. This is shown in \cref{fig:haitz-org}-\cref{fig:haitz}.
 
 \begin{figure}[h!]
-    \includegraphics[width=\textwidth]{./figures/haitz_law_old_both.pdf}
-    \caption{Historical increase in flux for white light-emitting diode packages (\textit{"Haitz's Law"}), as it is often reproduced in literature. The original data by Haitz for red LEDs from 2000 is indicated for reference. Note the different range on the abscissa compared to \cref{fig:haitz}. Sources for red data: \cite{haitz1999case}\cite{haitz2011solid}. Sources for white-light data: figure \cref{fig:haitz}.}
+\vspace{-10mm}
+    \includegraphics[width=0.9\textwidth]{./figures/haitz_law_old_both.pdf}
+    \caption{\textit{"Haitz's Law"}, as it is often reproduced in literature. The original data by Haitz for red LEDs from 2000 is indicated for reference. Note the different range on the abscissa compared to \cref{fig:haitz_new}. Sources: \cite{haitz1999case}\cite{haitz2011solid} and  \cref{fig:haitz_new}.}
     \label{fig:haitz-org}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{./figures/haitz_law_white.pdf}
-    \caption{Historical increase in flux for white light-emitting diode chips and packages, inspired by \textit{"Haitz's Law"}. Note that the increase in flux per single chip is not increasing as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers from press releases, datasheets and and industry periodicals. \\ Sources for cost: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid} \\ Sources for flux: \cite{haitz2007seoul}\cite{haitz2010osram}\cite{haitz2010lumi-1}\cite{haitz2010cree} \cite{haitz2011lumi-1}\cite{haitz2014nichia}\cite{haitz2015cree-1}\cite{haitz2015cree-2}\cite{haitz2018cree}\cite{haitz2019osram}\cite{haitz2019lumi-1}\cite{haitz2019lumi-1}\cite{haitz2020lumi-1} \cite{haitz2013cob}\cite{haitz2016cob}\cite{haitz2017cob}\cite{haitz2019cob}\cite{haitz2019lumi-1}\cite{haitz2019lumi-2}}
-    \label{fig:haitz}
-    \vspace{-20mm}
+    \caption{Adaption of \textit{"Haitz's Law"}. Note that the increase in flux per single chip is not increasing as starkly as the flux for multi-chip packages. Shown are datapoints for best commercial performers. See \cref{sec:sources} for the full list of sources and references.}
+    \label{fig:haitz_new}
 \end{figure}
+
+\section{Background of Interviewed Experts}
+
+\begin{table}[H]
+\small
+    \centering
+    \caption{Anonymized list of interviewed LED experts.}
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Area of Expertise} \\ \hline
+        1 & Academia & Senior researcher & UK & Epitaxy \\ \hline
+        2 & Industry & Consultant, former senior researcher & USA & Device architecture \\ \hline
+        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
+        4 & Academia & Professor & Austria & Phosphors \\ \hline
+        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
+        6 & Consulting & Consultant, former senior technical advisor & USA & Device architecture \\ \hline
+        7 & Academia & Professor & Germany & Phosphors \\ \hline
+        8 & Government & R\&D manager & USA & Device architecture \\ \hline
+        9 & Consulting & Consultant & USA & Device applications \\ \hline
+        10 & Academia & Professor & France & Device physics \\ \hline
+        11 & Industry & Senior scientist, former head of R\&D & USA & Device architecture \\ \hline
+        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
+        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
+    \end{tabular}
+    \label{tab:interviews}
+\end{table}
 
 \clearpage
 \section{Metrics: Device Performance}
@@ -240,35 +266,18 @@ We address the limitations of data availability for the chip-level LED manufactu
 We describe our manufacturing cost model in the Methods section in the main text of the article, and discuss its details, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model’s limitations, in \cref{sec:costmodel_details}. The outcome of the cost model is the cumulative yielded manufacturing cost per LED package, which includes all costs associated with producing the chip, including running costs of the factory.
 
 \clearpage
-\section{Methods: Background of Interviewed Experts}
-
-\begin{table}[H]
-\small
-    \centering
-    \caption{Anonymized list of interviewed LED experts.}
-    \begin{tabular}{|l|l|l|l|l|}
-    \hline
-        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Area of Expertise} \\ \hline
-        1 & Academia & Senior researcher & UK & Epitaxy \\ \hline
-        2 & Industry & Consultant, former senior researcher & USA & Device architecture \\ \hline
-        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
-        4 & Academia & Professor & Austria & Phosphors \\ \hline
-        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
-        6 & Consulting & Consultant, former senior technical advisor & USA & Device architecture \\ \hline
-        7 & Academia & Professor & Germany & Phosphors \\ \hline
-        8 & Government & R\&D manager & USA & Device architecture \\ \hline
-        9 & Consulting & Consultant & USA & Device applications \\ \hline
-        10 & Academia & Professor & France & Device physics \\ \hline
-        11 & Industry & Senior scientist, former head of R\&D & USA & Device architecture \\ \hline
-        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
-        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
-    \end{tabular}
-    \label{tab:interviews}
-\end{table}
-
-\clearpage
 \section{Methods: Cost Model Structure}
 \label{sec:costmodel_structure}
+
+The LED cost model developed for this publication is a bottom-up microeconomic manufacturing cost model with process-step resolution. Within the timeframe and scope laid out in the main text of this publication, it returns the total manufacturing cost of GaN-based phosphor-converted warm white light-emitting diode packages. The model assumes production at a \textit{"virtual"} factory which employs the highest performing equipment available in each year. Performance in this context comprises throughput, associated yield and resource consumption. It assumes North American utility prices as well as labour rates, which have remained constant over the time period of interest. Compared to other parameters, these fixed costs have little impact on the overall cost, as shown in \cref{fig:sensitivity} and \cref{fig:costmodel_calibration}. The equipment used to model the manufacturing processes has been chosen from the catalogues of current market leaders in semiconductor equipment manufacturing. This choice was made based on the specialization of the equipment, as some manufacturers offer product lines aimed specifically at light-emitting diode manufacturing. When more than one type of manufacturing equipment was available, the higher volume variant was chosen. The model does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters. 
+
+A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
+
+\textit{Semi}, the global industry association representing the electronics and semiconductor manufacturing industry, has published standards for manufacturing cost modeling. These include term definitions and equations for calculating cost and the associated quantities, such as equipment depreciation. This standard has been widely adopted industry and provides a standardized comparative analysis of the economics of the manufacturing chain \cite{ragona2002cost}\cite{wouters2018industry}. An overview of the parameters used in the model, according to \textit{SEMI Standard 35} is provided in \cref{semi_pyramid}. Note that the full ensemble of inputs are required only for an industry cost model used by manufacturers for detailed forecasting. As per the scope of our model, we need only a selection of these inputs. Any inputs unrelated to the manufacturing process itself can be disregarded. These include taxes, equipment installation, delivery facilities, customer orders etc.
+
+While generally comprehensive, the model is limited by the availability of performance data for the most recent manufacturing equipment, as well as the confidential nature of cost structures of Asia-based manufacturing lines. A complete treatment of the limitations of the model is provided in \cref{sec:costmodel_limitations}.
+
+\clearpage
 
 \begin{figure}[H]
     \centering
@@ -277,70 +286,19 @@ We describe our manufacturing cost model in the Methods section in the main text
     \label{fig:costmodel-schematic}
 \end{figure}
 
-The LED cost model developed for this publication is a bottom-up microeconomic manufacturing cost model with process-step resolution. Within the timeframe and scope laid out in the main text of this publication, it returns the total manufacturing cost of GaN-based phosphor-converted warm white light-emitting diode packages. The model assumes production at a \textit{"virtual"} North American factory which employs the highest performing equipment which could be identified. Performance here includes throughput, associated yield and resource consumption. It assumes North American utility prices as well as labour rates, which have remained constant over the time period of interest. The equipment used to model the manufacturing processes has been chosen from the catalogues of current market leaders in semiconductor equipment manufacturing. This choice was made based on the specialization of the equipment, as some manufacturers offer product lines aimed specifically at light-emitting diode manufacturing. When more than one type of manufacturing equipment was available, the higher volume variant was chosen. The model does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters.
-
-A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
-
-To provide some context on the scope of our model, a selection of similar efforts is listed in \cref{tab:costmodels}:
-
-\begin{table}[h!]
-    \caption{\textbf{Recent manufacturing cost models for clean energy technologies.}}
-    \begin{NiceTabularX}{\textwidth}{ |l|l|X|l|l|l|l|l|l|l| }
-    \CodeBefore
-       \rectanglecolor{blue!10}{13-1}{14-10}
-    \Body
-    \hline
-        \multirow{2}{*}{\textit{Year}} & \multirow{2}{*}{\textit{Tech.}} & \multirow{2}{*}{\textit{Purpose}} & \multirow{2}{*}{\textit{Period}} & \multirow{2}{*}{\textit{Base}} &  \multicolumn{4}{c|}{\textit{Parameters}} & \multirow{2}{*}{\textit{Source}} \\
-    \cline{6-9}
-         & & & & & \textit{M} & \textit{E} & \textit{G} & \textit{S} & \\
-    \hline
-        2018 & Solar & Cost reductions & 1980-2012 & steps & Y & N & Y & Y* & \cite{kavlak2018evaluating} \\
-    \hline
-        2013 & Solar & Geographic diff. in Cost & 2012 & Red. & Y & Y & Y & N & \cite{goodrich2013assessing} \\
-    \hline
-        2006 & Solar & Cost reductions & 1975-2001 & Red. & Y & N & Y & N & \cite{Nemetsolar} \\
-    \hline
-        2011 & IC & Cost reductions & 2011 & Steps & N & N & Y & Y & \cite{Gopalakrishnan2011} \\
-    \hline
-        2017 & Li-Ion & Technology comparison & 2017 & Steps & (Y) & (Y) & Y & Y & \cite{Ciez2017} \\
-    \hline
-        2015 & Li-Ion & Industry & 2015 & Steps & N & N & Y & Y &  \cite{Petri2015} \\
-    \hline
-        2012 & Li-Ion & Manufacturers & 2012-now & Steps & (Y) & N & Y & Y & \cite{Nelson2012} \\
-    \hline
-        2020 & Wind & Impact of breakthroughs & 2005-2017 & Steps & Y & Y & Y & Y & \cite{Elia2020} \\
-    \hline
-        2010 & Wind & Future cost savings & 2010 & Steps & N & N & Y & Y & \cite{Schubel2010} \\
-    \hline
-        2006 & Wind & Design changes & 1999-2006 & Ops. & N & N & Y & N & \cite{Fingersh2006} \\
-    \hline
-        2012 & LED & Cost reductions & 2012 & Steps & N & N & Y & Y & \cite{ledcomv2} \\
-    \hline
-        2020 & LED & Impact of breakthroughs & 2002-now & Steps & (Y) & (Y) & Y & Y & $^\text{this}_\text{work}$\\
-    \hline
-\end{NiceTabularX}
-\vspace{3mm}
-\caption*{The \textit{Base} column describes the base unit for computations. This can either be manufacturing steps ("Steps"), cost reductions ("Red.") or total cost of operation ("Ops."). The \textit{Parameters} column describes the parameters considered. Market parameters include market size, manufacturing equipment discount, economies of scale, etc. Economy parameters include taxes, subsidies, debt, inflation, etc. "Global" parameters include resource cost, labour cost, overall yield, etc. "Step" parameters include equipment performance, equipment cost, step yield etc. Models self-described as \textit{"bottom-up"} consider parameters $G,S$. Note that those models only capture the manufacturing situation a certain point in time. The exception to this are the model \cite{Elia2020} and the present model. Abbreviations: Solar Photovoltaics, excluding perovskite cells (Solar), integrated circuits (IC), base level for calculations (Base), Parameters: market (M), economy (E), "global" (G), "step" (S). Parameters not considered directly but instead through their impact on other parameters denoted (Y).}
-\label{tab:costmodels}
-\end{table}
-
-While generally comprehensive, the model is limited by the availability of performance data for the most recent manufacturing equipment, as well as the confidential nature of cost structures of Asia-based manufacturing lines. A complete treatment of the limitations of the model is provided in \cref{sec:costmodel_limitations}.
-
-\cite{Scholand2012}\cite{casamayor2018comparative} some more text on model inputs
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{./figures/SEMI_pyramid.pdf}
-    \caption{\textit{SEMI Standard 35} pyramid showing variables that enter into the computation of manufacturing cost. Variables not captured by our model are greyed out. Source: Adapted from \cite{standardE35} and \cite{helin200618th}.}
+    \caption{\textbf{\textit{SEMI Standard 35} pyramid showing variables that enter into the computation of manufacturing cost in our model.} Variables not captured by our model are greyed out. The pyramid has been adapted from \cite{standardE35} and \cite{helin200618th}.}
     \label{fig:semi_pyramid}
-    %\vspace{-10pt}
+    \vspace{-20mm}
 \end{figure}
 
 \clearpage
 \section{Methods: Cost Model Limitations}
 \label{sec:costmodel_limitations}
 
-\cref{sec:costmodel_structure} provided additional information on the structure of the cost model. As illustrated in \cref{tab:costmodels}, our model is comprehensive in its coverage of market, economic, manufacturing step and global manufacturing parameters. However, the model has limitations which must be considered when interpreting the results.
+As illustrated in \cref{fig:semi_pyramid}, our model is comprehensive in its coverage of market, economic, manufacturing step and global manufacturing parameters. However, the model has limitations which must be considered when interpreting the results:
 
 \textbf{Availability of Equipment Performance Data}
 
@@ -350,11 +308,13 @@ Unfortunately, despite the multitude of data sources, important performance para
 
 \textbf{Lack of Data for Calibration}
 
-While the model is setup up to capture the cost structure of a \textit{"virtual"} North American factory, the majority of production capacity is presently located in Asia. There, the share of domestically produced manufacturing equipment has increased from 10\% in 2008 to 65\% in 2015 \cite{tseng2015fab}. Recent investments into factories for high-power light-emitting diodes include Osram's Kulim plant in Malaysia \cite{osram2020kulim} and Lumileds' Penang plants in Malaysia \cite{lumileds2020penang}. In the production of low-power light-emitting diodes, the world's largest producer of LED packages by volume, MLS Co. operates plants in mainland China \cite{mls2020dev}. 
+The model is set up up to capture the cost structure of a \textit{"virtual"} factory employing the most up-to-date equipment in every model year. It operates at a fixed-cost basis (labor cost, electricity cost, cleanroom cost, etc.), which was - due to limitations in data availability - taken to be based on a US-based semiconductor manufacturing plant. However, this does not correspond to any \textit{real, physical} location. The majority of production capacity is presently located in Asia. There, the share of domestically produced manufacturing equipment has increased from 10\% in 2008 to 65\% in 2015 \cite{tseng2015fab}. Recent investments into factories for high-power light-emitting diodes include Osram's Kulim plant in Malaysia \cite{osram2020kulim} and Lumileds' Penang plants in Malaysia \cite{lumileds2020penang}. In the production of low-power light-emitting diodes, the world's largest producer of LED packages by volume, MLS Co. operates plants in mainland China \cite{mls2020dev}. This means that it is difficult to validate model outputs directly with the help of industry data, which (even for American and European companies) is provided only for Asia-based manufacturing lines. 
 
-This means that it is difficult to validate model outputs directly with the help of industry data, which is provided only for Asia-based manufacturing lines. We compare cost model data to a selection of industry data in \cref{sec:cost_model_calibration} and provide an interpretation of the differing cost structure. Generally, we found that our model provides the best-case scenario for LED manufacturing, where the most performant (highest throughput, highest yield) equipment is used in each year. Interviews revealed that this is rarely the case in practice. One reason for this is economic pressure on western manufacturers after the introduction of significant Chinese subsidies as part of the country's Twelfth Five-Year Plan \cite{sanderson2014light}.
+Generally, we found that our model provides the best-case scenario for LED manufacturing, where the most performant (highest throughput, highest yield) equipment is used in each year. Interviews revealed that this is rarely the case in practice. One reason for this is additional economic pressure on western manufacturers following the introduction of significant Chinese subsidies as part of the country's Twelfth Five-Year Plan \cite{sanderson2014light}. While in reality, older equipment with lower performance might be used, we model the use of the best available equipment for each year considered.
 
-However, because the purpose of our model is to show the impact of changes in the design and manufacturing process of devices, the geographic location and associated potentially lower overhead costs or slower adoption of specific equipment are of secondary importance to our model. This is why a US based manufacturing environment was assumed.
+Because the purpose of our model is to show the impact of changes in the design and manufacturing process of devices, rather than the geographic location and associated economic circumstances, we believe this to be a minor drawback. We therefore assumed a US-based manufacturing environment, where the associated overhead costs did not change during the time period considered.
+
+We do compare cost model data to a selection of industry data in \cref{sec:cost_model_calibration} and provide an interpretation of the differing cost structure.
 
 \section{Diagrams: Chip Architecture Manufacturing Process Steps}
 \label{sec:manufacturing_steps}
@@ -714,51 +674,58 @@ A sensitivity analysis of the cost model has been performed using parameter vari
 \section{Cost Model: Comparison with Industry Data/Projections}
 \label{sec:cost_model_calibration}
 
-In order to validate the outputs of the cost model regarding the evolution of the cost structure of low-to-mid-power classic chip GaN phosphor-converted white LED, we conducted a comparison with previously reported U.S. DOE calculations and projections based on the LEDCOM model and industry data provided as part of industry round table discussions. This comparison is shown in \cref{fig:costmodel_calibration}.
-
-We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual U.S.-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers are located in Asia. We also note that the share of the sapphire substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections made for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL,Xie2013,ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections.
+In order to validate the outputs of the cost model regarding the evolution of the cost structure of low-to-mid-power classic chip GaN phosphor-converted white LED, we conducted a comparison with previously reported U.S. DOE calculations and projections based on the \textit{LEDCOM} model and industry data provided as part of industry round table discussions:
 
 \begin{figure}[h]
 	\centering
     \includegraphics[width=\textwidth]{./figures/costmodel_calibration.pdf}
-	\caption{\textbf{Cost structure comparison between our cost model, industry data and DOE projections.} Top panel: manufacturing cost calculations (2008-2016) and projections (2018, 2020) previously published by the U.S. DOE based on industry data and LEDCOM model. Bottom panel: manufacturing cost structure produced by our cost model for 2002, 2012 and 2020. Hatched bars are DOE projections. Sources for top panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in \cref{sec:costmodel_details}.}
+	\caption{\textbf{Cost structure comparison between our cost model, industry data and DOE projections.} Top panel: Absolute manufacturing cost, with two U.S. DOE projection for context. Center panel: manufacturing cost calculations (2008-2016) and projections (2018, 2020) previously published by the U.S. DOE based on industry data and LEDCOM model. Bottom panel: manufacturing cost structure produced by our cost model for 2002, 2012 and 2020. Hatched bars are DOE projections. Sources for top/center panel: \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid}. Sources for bottom panel: own elaboration based on the cost model described in \cref{sec:costmodel_structure}.}
 	\label{fig:costmodel_calibration}
 \end{figure}
 
+\textbf{}
+We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual U.S.-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers are located in Asia. We also note that the share of the sapphire substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections made for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL,Xie2013,ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections.
 
 \clearpage
-\section{Identified LED Innovations and Performance Improvements}
+\section{Historical Progress in Sub-Efficiencies}
 
-This Supplementary Note provides details for the identified LED innovations and performance improvements that contributed to the historical progress in LED technology across efficiency and consumer experience metrics discussed in the main text.
-
-\textbf{Historical Progress in Sub-Efficiencies}
-
-Empirical data on the historical progress in metrics related to four different sub-efficiencies contributing to the overall LED efficiency (lamp efficiency $\eta_L$) is shown in \cref{fgr:subeff}. Specifically, the figure includes data for forward voltage used to calculate to forward voltage efficiency $\eta_{V_f}$ (Panel A1); efficiency droop $\eta_{droop}$ (Panel A2); internal quantum efficiency $\eta_{IQ}$ (Panel B1); and light extraction efficiency $\eta_{LE}$ (Panel B2). Additional information and context for individual panels in \cref{fgr:subeff} are provided below.
-
-\textbf{Panel A1:} Device forward voltage at a test current of I=350mA. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Data points for devices released in 2020 by various manufacturers are shown in an inset plot. \
-
-\textbf{Panel A2:} Efficiency droop at the test current of I=350mA. \
-
-\textbf{Panel B1:} Internal quantum efficiency (IQE) for different chip architectures by type of measurement used. Note that the bump in the DOE Average around 2013 is due to a change in IQE definition laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods: PL - Photoluminescence \cite{Shim_2018}, EL - Electroluminescence \cite{Getty_2009}; ABC Model \cite{Karpov_2014}, Ideality Factor \cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where available. \
-
-\textbf{Panel B2:} Light extraction efficiency (LEE) for different chip architectures by type of specific technology used to improve LEE. The types of data points are shown for reference: Simulation - ray-tracing computer simulation; Experimental (absolute) – direct LEE values; Experimental (relative) - relative improvement over baseline chip architecture. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
-
-Notably, \cref{fgr:subeff} does not include sub-efficiencies related to spectral performance of LEDs: spectral efficiency $\eta_S$ and conversion efficiencies of different phosphors $\eta_{C_R}$ and $\eta_{C_{Y/G}}$.  Typically, there is no direct empirical data available for these metrics in the literature, which made their inclusion in the (mostly) empirical \cref{fgr:subeff} not relevant. Instead, we calculate the values of these metrics used in Figures 4 and 5 in the main text from spectral and luminous efficacy radiation data presented in \cref{fig:phosphor_spectrum} below (see also Methods section in the main text).
+Empirical data on the historical progress in metrics related to four different sub-efficiencies contributing to the overall LED efficiency (lamp efficiency $\eta_L$) is shown in \cref{fgr:subeff}:
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=15.5cm]{./figures/subefficiencies_progress.pdf}
 \caption{\textbf{Historical improvements in LED sub-efficiencies.} Panels A1-A2 show data for key metrics used to calculate forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show data for internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the list of sources provided in \cref{sec:sources}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
 \label{fgr:subeff}
+\vspace{-20mm}
 \end{figure}
 
 \clearpage
-\textbf{Non-Phosphor-Related LED Innovations}
 
-\cref{tab:innovations} summarizes LED innovations and technology and manufacturing process improvements identified in this study as affecting four white LED sub-efficiencies: forward voltage efficiency, light extraction efficiency, internal quantum efficiency, droop and light conversion efficiency. Note that this table does not include phosphor-related LED innovations affecting spectral efficiency, as these are presented separately in Table 1 in the main text as affecting consumer experience metrics and discussed in detail in \cref{sec:innovation_phosphor}.
+\textbf{Panel A1:} This panel shows device forward voltage at a test current of I=350mA, categorized by chip architecture. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Forward voltage efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data points for devices released in 2020 by various manufacturers are shown in an inset plot for additional context. Note that differences between chip architectures in this plot have become small for all but one company. Chip architecture abbreviations: Acronyms: TFFC - thin-film flip-chip, FC - flip-chip, CSP-FC - chip-scale package flip-chip. Company abbreviations: LG - LG Innotek, SE - Seoul Semiconductor, SA - Samsung, OS - Osram, LL - Lumileds.  \
+
+\textbf{Panel A2:} Efficiency droop at the test current of I=350mA, categorized by chip architecture. Droop efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data has been calculated from luminous intensity curves of respective device datasheets. \
+
+\textbf{Panel B1:} Internal quantum efficiency (IQE) for categorized by type of measurement used. Because it is inherently more difficult to measure IQE than is the case for other sub-efficiencies, this panel shows data categorized by different measurement methods. This is not the case for other panels of this figure. Note that the bump in the DOE Average around 2013 is due to a change in IQE definition laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods abbreviations: PL - Photoluminescence \cite{Shim_2018}, EL - Electroluminescence \cite{Getty_2009}; ABC Model \cite{Karpov_2014}, Ideality Factor \cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where available. \
+
+\textbf{Panel B2:} Light extraction efficiency (LEE) for different chip architectures by type of specific technology used to improve LEE. The sources for all data points are shown for reference: Simulation - ray-tracing computer simulation; Experimental (absolute) – direct LEE values; Experimental (relative) - relative improvement over baseline chip architecture. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
+
+\textbf{Additional Notes on \cref{fgr:subeff}}
+
+Data illustrated in \cref{fgr:subeff} was used to determine the performance of best-in-class devices across all sub-efficiencies. The results are shown in Figures 4-6 in the main text.
+
+\textbf{Additional Data on Phosphor Performance}
+
+Note that \cref{fgr:subeff} does not include sub-efficiencies related to spectral performance of LEDs: spectral efficiency $\eta_S$ and conversion efficiencies of different phosphors $\eta_{C_R}$ and $\eta_{C_{Y/G}}$.  Typically, there is no direct empirical data available for these metrics in the literature, which made their inclusion in the (mostly) empirical \cref{fgr:subeff} not relevant. Instead, we calculate the values of these metrics used in Figures 4 and 5 in the main text from spectral and luminous efficacy radiation data presented in \cref{fig:phosphor_spectrum} below (see also Methods section in the main text).
+
+
+
+\clearpage
+\section{Non-Phosphor-Related LED Innovations}
+
+\cref{tab:innovations_1}-\cref{tab:innovations_2} summarize LED innovations and technology and manufacturing process improvements identified in this study as affecting four white LED sub-efficiencies: forward voltage efficiency, light extraction efficiency, internal quantum efficiency, droop and light conversion efficiency. Note that this table does not include phosphor-related LED innovations affecting spectral efficiency, as these are presented separately in Table 1 in the main text as affecting consumer experience metrics and discussed in detail in \cref{sec:innovation_phosphor}.
 
 \begin{table}[H]
-    \caption{LED innovations and technology improvements affecting key white LED device sub-efficiencies.}
+    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note this table is continued in \cref{tab:innovations_2}.}
     \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
         \hline
         \multicolumn{5}{c}{Forward Voltage Efficiency (FVE) $\eta_{Vf}$} \\
@@ -803,7 +770,18 @@ Notably, \cref{fgr:subeff} does not include sub-efficiencies related to spectral
         \hline
             Ongoing & Chip architecture \newline Improvements & Radiative recombination probability & No & I \\
         \hline
-        \multicolumn{5}{c}{Droop $\eta_{droop}$} \\
+        \end{NiceTabularX}
+        \vspace{2mm}
+    \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
+    \vspace{-20mm}
+    \label{tab:innovations_1}
+\end{table}
+
+\begin{table}[H]
+    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note that this table continues \cref{tab:innovations_1}.}
+    \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
+    \hline
+    \multicolumn{5}{c}{Droop $\eta_{droop}$} \\
         \hline
             ongoing & Lower current Density & Current density & No & I \\
         \hline
@@ -826,10 +804,12 @@ Notably, \cref{fgr:subeff} does not include sub-efficiencies related to spectral
             $<$ 2017 & Defect gettering \newline underlayer & Defect density & No & I, \cite{haller2017burying} \\
         \hline
         \end{NiceTabularX}
+        \vspace{2mm}
     \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
-    \label{tab:innovations}
+    \label{tab:innovations_2}
 \end{table}
 
+\clearpage
 \section{Phosphor-Related LED Innovations}
 \label{sec:innovation_phosphor}
 
@@ -857,7 +837,6 @@ Down conversion with ultra-narrow-band phosphor can achieve the highest spectral
 
 Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{Chen_2005}\cite{Hsueh_Shih_Chen_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
 
-\clearpage
 \section{Spectral Data for Phosphors}
 
 \begin{figure}[H]
@@ -873,7 +852,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \begin{table}[h!]
 \captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for Figure 1 organized by technology.}
+    \caption{List of sources for Figure 1.}
     \begin{NiceTabularX}{\textwidth}{|l|X|}
     \hline
     \textit{Technology} & \textit{References} \\
@@ -897,7 +876,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \begin{table}[h!]
 \captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for Figure 2 grouped by data provider.}
+    \caption{List of sources for Figure 2.}
     \begin{NiceTabularX}{\textwidth}{|l|X|}
     \hline
     \textit{Source} & \textit{References} \\
@@ -917,7 +896,7 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \begin{table}[h!]
 \captionsetup{justification=raggedright,singlelinecheck=false}
-\caption{List of sources for Figure 3 grouped by publication type.}
+\caption{List of sources for Figure 3.}
     \begin{NiceTabularX}{\textwidth}{|l|X|}
     \hline
     \textit{Publication Type} & \textit{References} \\
@@ -959,7 +938,21 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 
 \begin{table}[h!]
 \captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for \cref{fgr:subeff} grouped by LED sub-efficiencies.}
+    \caption{List of sources for \cref{fig:haitz_new}.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Metric} & \textit{References} \\
+    \hline
+    Cost & \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid} \\
+    \hline
+    Flux & \cite{haitz2007seoul}\cite{haitz2010osram}\cite{haitz2010lumi-1}\cite{haitz2010cree}\cite{haitz2011lumi-1}\cite{haitz2014nichia}\cite{haitz2015cree-1}\cite{haitz2015cree-2}\cite{haitz2018cree}\cite{haitz2019osram}\cite{haitz2019lumi-1}\cite{haitz2019lumi-1}\cite{haitz2020lumi-1}\cite{haitz2013cob}\cite{haitz2016cob}\cite{haitz2017cob}\cite{haitz2019cob}\cite{haitz2019lumi-1}\cite{haitz2019lumi-2} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{List of sources for \cref{fgr:subeff}.}
     \begin{NiceTabularX}{\textwidth}{|l|X|}
     \hline
     \textit{Panel (Sub-Eff.)} & \textit{References} \\
