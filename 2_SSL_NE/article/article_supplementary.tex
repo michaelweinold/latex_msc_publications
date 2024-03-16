@@ -12,7 +12,7 @@
 
 % custom section designations
 % https://tex.stackexchange.com/a/712523
-\titleformat{\section}[display]{\large\bfseries\filright}{\bfseries Supplementary Note \thesection}{0pt}{}
+\titleformat{\section}[display]{\large\bfseries\filright}{\bfseries Supplementary Note \thesection}{-5pt}{}
 \crefname{section}{Supplementary Note}{Supplementary Notes}
 % custom equation designations
 \renewcommand{\figurename}{Supplementary Figure}
@@ -44,10 +44,10 @@
         \newline 
         M.P. Weinold$^{1,2,3}$, S. Kolesnikov$^1$, L.D. Anadon$^{1,4}$ \\
         \newline
-        $^1$ Centre for Environment, Energy and Natural Resource Governance, Department of Land Economy, University of Cambridge, Cambridge, UK \\
-        $^2$ Group for Energy Systems Analysis, Department of Mechanical and Process Engineering, ETH Zurich, Zurich, Switzerland \\
-        $^3$ Technology Assessment Group, Paul Scherrer Institute, Villigen, Switzerland \\
-        $^4$ Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
+        $^1$Centre for Environment, Energy and Natural Resource Governance \\ Department of Land Economy, University of Cambridge, Cambridge, UK \\
+        $^2$Group for Energy Systems Analysis, Department of Mechanical and Process Engineering \\ ETH Zurich, Zurich, Switzerland \\
+        $^3$Technology Assessment Group, Paul Scherrer Institute  Villigen, Switzerland \\
+        $^4$Belfer Center for Science and International Affairs, Harvard University, Cambridge MA, USA
     }
 }
 
@@ -269,7 +269,7 @@ We describe our manufacturing cost model in the Methods section in the main text
 \section{Methods: Cost Model Structure}
 \label{sec:costmodel_structure}
 
-The LED cost model developed for this publication is a bottom-up microeconomic manufacturing cost model with process-step resolution. Within the timeframe and scope laid out in the main text of this publication, it returns the total manufacturing cost of GaN-based phosphor-converted warm white light-emitting diode packages. The model assumes production at a \textit{"virtual"} factory which employs the highest performing equipment available in each year. Performance in this context comprises throughput, associated yield and resource consumption. It assumes North American utility prices as well as labour rates, which have remained constant over the time period of interest. Compared to other parameters, these fixed costs have little impact on the overall cost, as shown in \cref{fig:sensitivity} and \cref{fig:costmodel_calibration}. The equipment used to model the manufacturing processes has been chosen from the catalogues of current market leaders in semiconductor equipment manufacturing. This choice was made based on the specialization of the equipment, as some manufacturers offer product lines aimed specifically at light-emitting diode manufacturing. When more than one type of manufacturing equipment was available, the higher volume variant was chosen. The model does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters. 
+The LED cost model developed for this publication is a bottom-up microeconomic manufacturing cost model with process-step resolution. Within the timeframe and scope laid out in the main text of this publication, it returns the total manufacturing cost of GaN-based phosphor-converted warm white light-emitting diode packages. The model assumes a hypothetical factory which employs the highest performing equipment available in each year. Performance in this context comprises throughput, associated yield and resource consumption. It assumes North American utility prices as well as labour rates, which have remained constant over the time period of interest. Compared to other parameters, these fixed costs have little impact on the overall cost, as shown in \cref{fig:sensitivity} and \cref{fig:costmodel_calibration}. The equipment used to model the manufacturing processes has been chosen from the catalogues of current market leaders in semiconductor equipment manufacturing. This choice was made based on the specialization of the equipment, as some manufacturers offer product lines aimed specifically at light-emitting diode manufacturing. When more than one type of manufacturing equipment was available, the higher volume variant was chosen. The model does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters. 
 
 A schematic diagram of the cost model is presented in \cref{fig:costmodel-schematic}. The cost model is process step-based. It is split between the two stages of the manufacturing process: the first stage combining operations at the wafer level, followed by the LED packaging stage. The model takes as inputs parameters specific to individual manufacturing process steps (\textit{"manufacturing step parameters"}) and parameters affecting all manufacturing steps (\textit{"global parameters"}). The cost for each process step is then computed. The cost model returns the costs of individual manufacturing steps as well as the total manufacturing cost. It further considers the yield per step and returns the cumulative yield, the yielded cost per step and the yielded total manufacturing cost.
 
@@ -300,7 +300,7 @@ While generally comprehensive, the model is limited by the availability of perfo
 
 As illustrated in \cref{fig:semi_pyramid}, our model is comprehensive in its coverage of market, economic, manufacturing step and global manufacturing parameters. However, the model has limitations which must be considered when interpreting the results:
 
-\textbf{Availability of Equipment Performance Data}
+\textbf{Availability of Equipment Performance Data for all Chip Architectures}
 
 The data for the inputs used in the model were obtained through a combination of scientific literature, conference proceedings, industry reports, industry periodicals, manufacturing equipment datasheets and experts interviews. The model was therefore set up to consider four light-emitting diode chip architectures: A classical light-emitting diode chip architecture with lateral current spreading, two diﬀerent high-power thin-ﬁlm ﬂip-chip architectures and a chip-scale package thin-ﬁlm ﬂip chip architecture, all shown in \cref{sec:manufacturing_steps}.
 
@@ -308,18 +308,18 @@ Unfortunately, despite the multitude of data sources, important performance para
 
 \textbf{Lack of Data for Calibration}
 
-The model is set up up to capture the cost structure of a \textit{"virtual"} factory employing the most up-to-date equipment in every model year. It operates at a fixed-cost basis (labor cost, electricity cost, cleanroom cost, etc.), which was - due to limitations in data availability - taken to be based on a US-based semiconductor manufacturing plant. However, this does not correspond to any \textit{real, physical} location. The majority of production capacity is presently located in Asia. There, the share of domestically produced manufacturing equipment has increased from 10\% in 2008 to 65\% in 2015 \cite{tseng2015fab}. Recent investments into factories for high-power light-emitting diodes include Osram's Kulim plant in Malaysia \cite{osram2020kulim} and Lumileds' Penang plants in Malaysia \cite{lumileds2020penang}. In the production of low-power light-emitting diodes, the world's largest producer of LED packages by volume, MLS Co. operates plants in mainland China \cite{mls2020dev}. This means that it is difficult to validate model outputs directly with the help of industry data, which (even for American and European companies) is provided only for Asia-based manufacturing lines. 
+The model is set up up to capture the cost structure of a hypothetical factory employing the most up-to-date equipment in every model year. It operates at a fixed-cost basis (labor cost, electricity cost, cleanroom cost, etc.), which was - due to limitations in data availability - taken to be based on a US-based semiconductor manufacturing plant. However, this does not correspond to any \textit{real, physical} location. The majority of production capacity is presently located in Asia. There, the share of domestically produced manufacturing equipment has increased from 10\% in 2008 to 65\% in 2015 \cite{tseng2015fab}. Recent investments into factories for high-power light-emitting diodes include Osram's Kulim plant in Malaysia \cite{osram2020kulim} and Lumileds' Penang plants in Malaysia \cite{lumileds2020penang}. In the production of low-power light-emitting diodes, the world's largest producer of LED packages by volume, MLS Co. operates plants in mainland China \cite{mls2020dev}. This means that it is difficult to validate model outputs directly with the help of industry data, which (even for American and European companies) is provided only for Asia-based manufacturing lines. 
 
 Generally, we found that our model provides the best-case scenario for LED manufacturing, where the most performant (highest throughput, highest yield) equipment is used in each year. Interviews revealed that this is rarely the case in practice. One reason for this is additional economic pressure on western manufacturers following the introduction of significant Chinese subsidies as part of the country's Twelfth Five-Year Plan \cite{sanderson2014light}. While in reality, older equipment with lower performance might be used, we model the use of the best available equipment for each year considered.
 
-Because the purpose of our model is to show the impact of changes in the design and manufacturing process of devices, rather than the geographic location and associated economic circumstances, we believe this to be a minor drawback. We therefore assumed a US-based manufacturing environment, where the associated overhead costs did not change during the time period considered.
-
-We do compare cost model data to a selection of industry data in \cref{sec:cost_model_calibration} and provide an interpretation of the differing cost structure.
+Because the purpose of our model is to show the impact of changes in the design and manufacturing process of devices, rather than the geographic location and associated economic circumstances, we believe this to be a minor drawback. For fixed cost parameters, we therefore assumed a US-based manufacturing environment. We do compare cost model data to a selection of industry data in \cref{sec:cost_model_calibration} and provide an interpretation of the differing cost structure.
 
 \section{Diagrams: Chip Architecture Manufacturing Process Steps}
 \label{sec:manufacturing_steps}
 
 \cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering for the manufacturing process of three different chip architectures considered in the cost model.
+
+\vspace{-20mm}
 
     %CLASSICAL CHIP
 
@@ -684,7 +684,7 @@ In order to validate the outputs of the cost model regarding the evolution of th
 \end{figure}
 
 \textbf{}
-We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model relying on state-of-the-art equipment at a virtual U.S.-based manufacturing location, while industry might not run low-power and mid-power chip production on these, more expensive, reactors. In addition, the manufacturing lines of the majority of manufacturers are located in Asia. We also note that the share of the sapphire substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections made for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL,Xie2013,ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections.
+We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model assuming the use of state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these more expensive reactors. In addition, the manufacturing lines of the majority of manufacturers are located in Asia. We also note that the share of the sapphire substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections made for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL,Xie2013,ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections.
 
 \clearpage
 \section{Historical Progress in Sub-Efficiencies}
