@@ -4,7 +4,10 @@
 \input{auxiliary/preamble/1_preamble_functionality_main}
 
 % layout
-\input{2_SSL_NE/article/auxiliary/preamble/2_preamble_layout_paperdraft}
+\input{auxiliary/preamble/2_preamble_layout_paperdraft}
+
+% formatting
+\input{auxiliary/preamble/3_preamble_formatting_listings}
 
 % number all lines as pre journal submission guidelines
 \usepackage{lineno}
@@ -849,6 +852,34 @@ Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make
 	\caption{\textbf{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data.} Corresponding LED products that used phosphor innovations listed in Table 1 in the main article are each indicated by the phosphor label and spectral data publication year. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Figure 6 in the main article. The desirable direction of improvements towards higher LER at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the bottom panels using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: spectral data for the first identified LED products that used phosphor innovations listed in Table 1 in the main article. The luminosity function \cite{cie-term-lumeff}, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable, as the photons of the corresponding energy are lost to the human eye and count towards the spectral loss channel. Plot legends indicate the years of publication of the spectral data and phosphor mixtures used in corresponding LED devices, with the following designations for additional phosphor mix components: ? -  other parts of phosphor mixture not disclosed, G$^*$ - \ch{CaSrS:Eu^{2+}}, Y$^\star$ - $\beta-$SiAlON:Eu$^{2+}$, G$^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, O$^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Sources: top panel - own elaboration based on spectral data; bottom two panels: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
 \label{fig:phosphor_spectrum}
 \end{figure}
+
+\clearpage
+\section{Domain Definition}
+\label{sec:domain}
+
+\textit{Elsevier Scopus}\footnote{\url{https://www.scopus.com/search/}} advanced search query:
+
+\begin{pseudocode}
+TITLE-ABS-KEY(("light-emitting" OR "light emitting") AND "diode")
+AND NOT
+TITLE-ABS-KEY(solar OR violet OR laser)
+AND NOT
+TITLE-ABS-KEY(perovskite OR GaAsP OR AlGaInP OR GaAlAs OR ZnO)
+AND NOT
+TITLE-ABS-KEY(organic OR polymer*)
+AND NOT
+SUBJAREA(ARTS OR BUSI OR DECI OR ECON OR PSYC OR SOCI)
+AND NOT
+SUBJAREA(MEDI OR NURS OR VETE OR DENT OR HEAL OR MULT)
+AND NOT
+SUBJAREA(AGRI OR BIOC OR IMMU OR NEUR OR PHAR)
+AND NOT
+SUBJAREA(envi OR EART OR comp)
+\end{pseudocode}
+
+
+
+Something about patents also?
 
 \clearpage
 \section{Full List of Sources for Figures}
