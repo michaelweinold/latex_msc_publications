@@ -15,8 +15,36 @@
 
 % custom section designations
 % https://tex.stackexchange.com/a/712523
-\titleformat{\section}[display]{\large\bfseries\filright}{\bfseries Supplementary Note \thesection}{-5pt}{}
-\crefname{section}{Supplementary Note}{Supplementary Notes}
+
+\newcounter{suppnotecounter}
+\newcommand{\suppnote}[1]{%
+  \stepcounter{suppnotecounter}%
+  \subsection*{\large\bfseries\filright Supplementary Note \arabic{suppnotecounter}: \\ #1}%
+  \addcontentsline{toc}{subsection}{#1}%
+  \label{suppnote:#1}
+}
+
+\newcounter{suppdisccounter}
+\newcommand{\suppdisc}[1]{%
+  \stepcounter{suppdisccounter}%
+  \subsection*{\large\bfseries\filright Supplementary Discussion \arabic{suppdisccounter}: \\ #1}%
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
+\newcounter{suppmethcounter}
+\newcommand{\suppmeth}[1]{%
+  \stepcounter{suppmethcounter}%
+  \subsection*{\large\bfseries\filright Supplementary Method \arabic{suppmethcounter}: \\ #1}%
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
+\newcounter{supprefcounter}
+\newcommand{\suppref}[1]{%
+  \stepcounter{supprefcounter}%
+  \subsection*{\large\bfseries\filright Supplementary References \arabic{supprefcounter}: \\ #1}%
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
 % custom equation designations
 \renewcommand{\figurename}{Supplementary Figure}
 \crefname{figure}{Supplementary Figure}{Supplementary Figures}
@@ -62,8 +90,13 @@
 \tableofcontents
 
 \clearpage
-\section{Previous Literature on Technological Progress in LEDs}
+
+\addcontentsline{toc}{section}{Supplementary Notes}
+
+\suppnote{Previous Literature on Technological Progress in LEDs}
 \label{sec:prev_lit}
+
+\cref{sec:prev_lit}
 
 The historical development development of light-emitting diodes from a novelty semiconductor experiment into powerful lighting devices has received a considerable amount of attention following the recognition of pioneering work on blue LED by Japanese researchers Shuji Nakamura, Isamu Akasaki and Hiroshi Amano with the 2014 Nobel Prize in Physics \cite{Nakamura2015}. The sources and disaggregated contributions of subsequent improvements in LED technology, however, have not been documented in the literature in a systematic fashion, though there were notable publications reporting on the progress in the design of devices \cite{Shchekin2006,krames2007led,laubsch2009high,hahn2014development}, or the technological improvements  underlying the improvement in overall device efficiency for best performers in 2009 \cite{tsao2010solid} and 2016 \cite{pattison2017solid}. 
 
@@ -71,20 +104,393 @@ Several descriptive publications provide a very useful overview of selected scie
 
 Despite the amount of literature published on the topic of LED history, we are not aware of a prior publication that comprehensively and consistently aggregates and analyzes known chip design, manufacturing, and material improvements to show the overall effect of these improvements on device efficiency or manufacturing cost over time. Existing publications, including those mentioned above, are typically subject to one of the following key limitations:
 
-\begin{itemize}
-    \item Publications often look only at progress across a select few LED device sub-efficiencies, often during a very short time period and, most importantly, only at devices manufactured by one specific company, e.g., OSRAM Opto Semiconductors in \cite{hahn2014development} or Lumileds in \cite{Bhardwaj2017}.
-    \item Publications do not report on a number of potentially sensitive or proprietary advances, especially following the market entry of Chinese LED manufacturing companies as a result of the 12th Five-Year Plan (cf. \cite{guo2017china}).
-    \item Publications typically do not look at the overall LED efficiency and its underlying physical limits and tend to overlook the metrics of progress related to consumer experience. 
-\end{itemize}
+Publications often look only at progress across a select few LED device sub-efficiencies, often during a very short time period and, most importantly, only at devices manufactured by one specific company, e.g., OSRAM Opto Semiconductors in \cite{hahn2014development} or Lumileds in \cite{Bhardwaj2017}. Publications do not report on a number of potentially sensitive or proprietary advances, especially following the market entry of Chinese LED manufacturing companies as a result of the 12th Five-Year Plan (cf. \cite{guo2017china}). Publications typically do not look at the overall LED efficiency and its underlying physical limits and tend to overlook the metrics of progress related to consumer experience. 
 
 Due to these limitations, any recommendations on future improvements in LED technology based on these studies are fragmented at best. Furthermore, the effect of individual innovations and technology spillovers, which has been investigated in solar PV \cite{kavlak2018evaluating,kolesnikov2021spillovers,nemet2019solar}, and to some extent in lithium-ion batteries \cite{Stephan2021}, has not yet been studied in the context of lighting.
 
 In our study, we overcome the limitations of previous literature by, first, synthesizing data provided in multiple publications across an ensemble of various cost, performance and consumer experience metrics for tracking progress in LED technology over an extended period of time. Second, our key advantage and contribution compared to these publications is a multi-method approach that we take to fill in the data gaps and augment information obtained from the literature sources by our own performance calculations, a bottom-up cost model and a series of expert interviews. This enabled us to synthesize evidence from multiple sources and, for the first time, reconstruct a comprehensive picture of the historical progress in white LED technology throughout its entire history.
 
-\clearpage
-\section{Metrics for Technological Progress in LEDs}
+\suppnote{Manufacturing Process Steps}
+\label{sec:manufacturing_steps}
 
-\textbf{Motivation for Methods Selection}
+\cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering for the manufacturing process of three different chip architectures considered in the cost model.
+
+\vspace{-20mm}
+
+    %CLASSICAL CHIP
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=555pt]{./figures/classical_overview_2003.pdf}
+            \caption{\textbf{Manufacturing process for a classical LED package with lateral current spreading, circa 2003.} MQW - multiple quantum well; PLLC - plastic leaded chip carrier.}
+        \label{fig:manuf_classical_2003}
+        \end{figure}
+    \end{landscape}
+    
+    %VERTICAL THIN-FILM FLIP-CHIP
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/vtf_overview_2012-1.pdf}
+            \caption{\textbf{Manufacturing process for a vertical thin-film  package flip-chip LED chip with vertical current spreading, circa 2012. (1/2)} MQW - multiple quantum well; LLO - laser lift-off. Continued in \cref{fig:manuf_vtf_2012-2}}
+            \label{fig:manuf_vtf_2012-1}
+        \end{figure}
+    \end{landscape}
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/vtf_overview_2012-2.pdf}
+            \caption{\textbf{Manufacturing process for a vertical thin-film package flip-chip LED chip with vertical current spreading, circa 2012 (2/2)}. Continued from \cref{fig:manuf_vtf_2012-1}. Encaps. - encapsulation.}
+            \label{fig:manuf_vtf_2012-2}
+        \end{figure}
+    \end{landscape}
+
+    % CHIP-SCALE PACKAGE FLIP-CHIP
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/csp_overview_2020-1.pdf}
+            \caption{\textbf{Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. (1/2)} MQW - multiple quantum well. Continued in \cref{fig:manuf_csp_2020-2}.}
+            \label{fig:manuf_csp_2020-1}
+        \end{figure}
+    \end{landscape}
+
+    \begin{landscape}
+        \begin{figure}
+            \includegraphics[width=595pt]{./figures/csp_overview_2020-2.pdf}
+            \caption{\textbf{Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. (2/2)}. Continued from \cref{fig:manuf_csp_2020-1}. Encaps. - encapsulation.}
+            \label{fig:manuf_csp_2020-2}
+        \end{figure}
+    \end{landscape}
+
+\clearpage
+
+\suppnote{Historical Progress in Chip Architectures}
+\label{sec:chip_architecture}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=15cm]{figures/chip_architecture_overview.pdf}
+\caption{\textbf{Historical evolution of LED chip architectures.} Panel A: classical chip with lateral current spreading; Panel B: Osram’s thin GaN flip-chip (vertical) architecture; Panel C: flip-chip architecture; Panel D: chip-scale package flip-chip architecture. Shown are side views of chips without packages, along a cutaway line best suited to the features of each architecture. The cutaway surface is indicated by a red arrow with an eye on the overlaid top view of each chip. Note that the dimensions are not to scale, and smaller features are greatly exaggerated for clarity. Years indicated correspond to the earliest identified patent priority date. Black frames around certain designs indicate chip designs not brought to large-scale production. Chip architecture abbreviations: TF - Thin-Film; FC - Flip-Chip; CSP - Chip-Scale Package; Material abbreviations: GaN - Gallium Nitride, ITO - Indium Tin Oxide, MQW - Multiple Quantum Well. Source: adapted and compiled from multiple patents and industry publications. See Supplementary Note 16 for the full list of sources and references.}
+\label{fgr:chip_architecture_overview}
+\end{figure}
+
+We summarize the information collected and analysed on the progress in GaN-based LED chip architectures and manufacturing processes in \cref{fgr:chip_architecture_overview}, where we show the evolution of LEDs from classical chips with lateral current spreading to chip-scale package flip-chip architectures. We use this information as input into LED performance calculations and manufacturing cost modeling. 
+
+\clearpage
+\suppnote{Historical Progress in Sub-Efficiencies}
+\label{sec:subeff_progress}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15.5cm]{./figures/subefficiencies_progress.pdf}
+\caption{\textbf{Historical improvements in LED sub-efficiencies.} Panels A1-A2 show data for key metrics used to calculate forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show data for internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the list of sources provided in \cref{sec:sources}. For an illustration of the different chip architectures shown, compare \cref{sec:chip_architecture}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
+\label{fgr:subeff}
+\vspace{-20mm}
+\end{figure}
+
+\clearpage
+
+\textbf{Additional Notes on \cref{fgr:subeff}}
+
+Data illustrated in \cref{fgr:subeff} was used to determine the performance of best-in-class devices across all sub-efficiencies. The results are shown in Figures 4-6 in the main text.
+
+\textbf{Panel A1:} This panel shows device forward voltage at a test current of I=350mA, categorized by chip architecture. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Forward voltage efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data points for devices released in 2020 by various manufacturers are shown in an inset plot for additional context. Note that differences between chip architectures in this plot have become small for all but one company. Chip architecture abbreviations: Acronyms: TFFC - thin-film flip-chip, FC - flip-chip, CSP-FC - chip-scale package flip-chip. Company abbreviations: LG - LG Innotek, SE - Seoul Semiconductor, SA - Samsung, OS - Osram, LL - Lumileds.  \
+
+\textbf{Panel A2:} Efficiency droop at the test current of I=350mA, categorized by chip architecture. Droop efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data has been calculated from luminous intensity curves of respective device datasheets. \
+
+\textbf{Panel B1:} Internal quantum efficiency (IQE) for categorized by type of measurement used. Because it is inherently more difficult to measure IQE than is the case for other sub-efficiencies, this panel shows data categorized by different measurement methods. This is not the case for other panels of this figure. Note that the bump in the DOE Average around 2013 is due to a change in IQE definition laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods abbreviations: PL - Photoluminescence \cite{Shim_2018}, EL - Electroluminescence \cite{Getty_2009}; ABC Model \cite{Karpov_2014}, Ideality Factor \cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where available. \
+
+\textbf{Panel B2:} Light extraction efficiency (LEE) for different chip architectures by type of specific technology used to improve LEE. The sources for all data points are shown for reference: Simulation - ray-tracing computer simulation; Experimental (absolute) – direct LEE values; Experimental (relative) - relative improvement over baseline chip architecture. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
+
+\textbf{Additional Data on Phosphor Performance}
+
+Note that \cref{fgr:subeff} does not include sub-efficiencies related to spectral performance of LEDs: spectral efficiency $\eta_S$ and conversion efficiencies of different phosphors $\eta_{C_R}$ and $\eta_{C_{Y/G}}$.  Typically, there is no direct empirical data available for these metrics in the literature, which made their inclusion in the (mostly) empirical \cref{fgr:subeff} not relevant. Instead, we calculate the values of these metrics used in Figures 4 and 5 in the main text from spectral and luminous efficacy radiation data presented in \cref{fig:phosphor_spectrum} below (see also Methods section in the main text).
+
+
+
+\clearpage
+\suppnote{Non-Phosphor-Related LED Innovations}
+
+\cref{tab:innovations_1}-\cref{tab:innovations_2} summarize LED innovations and technology and manufacturing process improvements identified in this study as affecting four white LED sub-efficiencies: forward voltage efficiency, light extraction efficiency, internal quantum efficiency, droop and light conversion efficiency. Note that this table does not include phosphor-related LED innovations affecting spectral efficiency, as these are presented separately in Table 1 in the main text as affecting consumer experience metrics and discussed in detail in \cref{sec:innovation_phosphor}.
+
+\begin{table}[H]
+    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note this table is continued in \cref{tab:innovations_2}.}
+    \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
+        \hline
+        \multicolumn{5}{c}{Forward Voltage Efficiency (FVE) $\eta_{Vf}$} \\
+        \hline
+            \textit{Year} & \textit{Innovation} & \textit{Area of Improvement} & \textit{Spillover} & \textit{Source} \\
+        \hline
+            1999 & Indium Tin Oxide \newline Current spreading layer & Contact resistance & Yes & \cite{margalith1999indium}\\
+        \hline
+            1998 & Digitated electrodes & Contact resistance & No & \cite{steigerwald2001electrode} \\
+        \hline
+            Ongoing & Epitaxy improvements \newline and better doping & Polarization and \newline bulk resistance & No & I \\
+        \hline
+            1998 & Silver p-Contacts & Contact resistance & No & \cite{kondoh2001nitride} \\
+        \hline
+        \multicolumn{5}{c}{Light extraction efficiency (LEE) $\eta_{LE}$} \\
+        \hline
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
+        \hline
+            $<$ 2003 & Optimization for \newline cavity effects & Reduces self-interference of quantum well & No & I, \cite{Shen2003} \\
+        \hline
+            1993 & Chip surface randomization & Total reflection and absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
+        \hline
+            1993 & Thin-film chip architecture & Absorption & No & I, \cite{Schnitzer1993} \\
+        \hline
+            1996 & Patterned sapphire substrate  & Total reflection and absorption & Yes & I, \cite{Tadatomo2001} \\
+        \hline
+            Ongoing & Chip design for high LEE & Total reflection and absorption & No & I, \cite{Haerle2004} \\
+        \hline
+            $\sim$2000 & Silver p-contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
+        \hline
+        \multicolumn{5}{c}{Internal quantum efficiency (IQE) $\eta_{IQ}$} \\
+        \hline
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
+        \hline
+            1994 & Double heterostructure & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
+        \hline
+            1996 & Multiple quantum well & Higher radiative recombination probability & No & \cite{Koike1996} \\
+        \hline
+            Ongoing & Active region \newline Doping & Radiative recombination probability & No & I, \cite{schubert2018light} \\
+        \hline
+            Ongoing & Epitaxy \newline Improvements & Radiative recombination probability & No & I \\
+        \hline
+            Ongoing & Chip architecture \newline Improvements & Radiative recombination probability & No & I \\
+        \hline
+        \end{NiceTabularX}
+        \vspace{2mm}
+    \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
+    \vspace{-20mm}
+    \label{tab:innovations_1}
+\end{table}
+
+\begin{table}[H]
+    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note that this table continues \cref{tab:innovations_1}.}
+    \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
+    \hline
+    \multicolumn{5}{c}{Droop $\eta_{droop}$} \\
+        \hline
+            ongoing & Lower current Density & Current density & No & I \\
+        \hline
+            ongoing & Epitaxy \newline Improvements & $\ominus/\oplus$ Distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
+        \hline
+            ongoing & Chip Architecture \newline Improvements  & $\ominus/\oplus$ Distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
+        \hline
+            $<$ 2017 & Defect getting \newline underlayer & Defect density & No & I, \cite{haller2017burying} \\
+        \hline
+        \multicolumn{5}{c}{Light conversion efficiency (CE) $\eta_{C}$} \\
+        \hline
+            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
+        \hline
+            Ongoing & Lower current density & Current density & No & I \\
+        \hline
+            Ongoing & Epitaxy \newline Improvements & Charge distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
+        \hline
+            Ongoing & Chip architecture \newline improvements  & Charge distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
+        \hline
+            $<$ 2017 & Defect gettering \newline underlayer & Defect density & No & I, \cite{haller2017burying} \\
+        \hline
+        \end{NiceTabularX}
+        \vspace{2mm}
+    \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
+    \label{tab:innovations_2}
+\end{table}
+
+\clearpage
+\suppnote{Phosphor-Related LED Innovations}
+\label{sec:innovation_phosphor}
+
+This section provides additional details for phosphor-related LED innovations identified in this study as affecting both spectral sub-efficiencies and consumer experience metrics. These include a detailed description of the history of those innovations, which we use to identify the details of involved technology spillovers. In addition, spectral data for the first identified LED products that used those innovations is presented in \cref{fig:phosphor_spectrum}, which we use to calculate consumer experience metrics, as well as LED spectral efficiency.
+
+\textbf{YAG and YGAG Phosphors}
+
+Prior to Nakamura’s invention of highly efficient blue LEDs in the 1990s, Japan’s Nichia Corporation had not sold commercially successful semiconductor products, instead specializing in phosphors for cathode ray tubes (CRT) and fluorescent lamps \cite{nakamura2013blue}  . Nevertheless, extensive firm expertise in this area helped Nichia’s Yoshinori Shimizu formulate the principles of using CRT phosphors to convert blue light from Nakamura’s LEDs into white light in 1994 \cite{shimizu1994sheet}\cite{cho2017white}. By 1996, Shimizu and his colleagues developed \cite{bando1996}\cite{shimizu1999light} the first practical LED application of a well-known Yttrium Aluminium Garnet (YAG) CRT phosphor activated with cerium \cite{blasse1967new}, enabling the first commercial white LED products manufactured and sold by Nichia since late 1996 \cite{bando1998development}\cite{cho2017white}. 
+
+Importantly, the YAG phosphor does not exhibit the spectral properties desirable in general illumination applications (see Figure 6 in the main article). An early solution to this problem, which was first discovered in the late 1967 \cite{holloway1969optical} and suggested for LEDs by the same team at Nichia in 1996 \cite{bando1998development}\cite{shimizu1999light}, was to use the gadolinium-doped red-shifted YAG phosphor (YGAG). Used in combination with red-emitting sulfide phosphors, by 2003 it helped bring to the market the first generation of warm white light LED products, e.g., those produced by Lumileds \cite{Mueller2002}. However, sulfide phosphors led to accelerated deterioration of sensitive parts of LED devices and became less efficient as operating temperatures increased. New chemically stable and non-toxic red phosphors were needed. 
+
+\textbf{258, SLA and SALON phosphors}
+
+In 1997, Hubert Huppertz and Wolfgang Schnick, working at the University of Bayreuth in Germany, synthesized the first compound in a new class of rare earth nitridosilicate materials \cite{Huppertz1997} later dubbed “258” due to a proportion of elements in its chemical formula. The luminescent properties of these materials were identified by the Schnick’s group, by then at Ludwig-Maximilians University of Munich, in 2000 \cite{Hppe2000} after a suggestion made to Schnick at a conference following earlier reports of good luminosity properties of europium-doped compounds \cite{Qiua1998}. U.S.-based LED manufacturer Lumileds applied for a patent for the first class of red LED phosphors based on the 258 nitridosilicate chemistry in 2003 \cite{mueller2004phosphor}. The first use of the 258 phosphor in a commercial “Luxeon” LED package was then reported in a joint publication co-authored by inventors from Lumileds and researchers from the Schnick’s group in 2005 \cite{MuellerMach2005}.
+
+Further efforts in LED phosphor development were directed towards synthesizing a red narrow-band phosphor. Narrow LED emission peak widths yield the highest luminous efficacy of radiation, as in this case less light is emitted in the far-red range of the spectrum in which the human eye is not very sensitive. After synthesizing several narrow-band phosphors emitting in yellow \cite{Hppe2004} and cyan \cite{Kechele2009}, the Schnick’s group identified the local cubic cation coordination structure of the cyan phosphor compound as the reason for its narrow band width \cite{lumi2016narrow}. A search for a structurally analogous nitride compound with the narrow red instead of the cyan emission was undertaken. After several unsuccessful attempts, the sought-after cuboidal nitride compound was found in a 2008 publication led by Francis DiSalvo \cite{Park2008Sr}. Based on information provided in this work, Schnick and colleagues synthesized and studied the spectral properties of a new narrow band red SLA phosphor in 2013 \cite{schmidt2013new}\cite{Pust2014}\cite{schmidt2017phosphors}. The material was introduced in commercial LED devices by Lumileds in 2015 \cite{lumi2016narrow_whitepaper}. 
+
+The most recent red narrow-band phosphor innovation included in Table 1 and Figure 6 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first U.S. patent application for this phosphor was filed in 2017 \cite{seibald2019phosphor}. The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
+
+\textbf{PFS Phosphor}
+
+Down conversion with ultra-narrow-band phosphor can achieve the highest spectral efficiency. However, few such phosphors have been identified, with even less exhibiting desirable material properties such as thermal stability \cite{Phillips2007}. The first commercially successful ultra-narrow-band red phosphor was developed by General Electric (GE). It is based on a potassium fluorosilicate (PFS) compound activated with manganese ions. Its luminescence was first recorded by Adrian Paulusz at GE in 1972 \cite{paulusz1973efficient}. In the early 2000s, while searching for potential new LED phosphor materials for GE’s lighting business at GE Lumination, Emil Radkov rediscovered Paulusz’s findings in the literature. Following extensive research on PFS chemical synthesis and material properties conducted in collaboration with the University of Sofia in Bulgaria, Radkov’s Alma Mater, the PFS phosphor had been under development at GE since 2005 \cite{radkov2006red}\cite{radkov2009red}. This work, supported by public funding from the U.S. Department of Energy (DOE) Solid-State Lighting program \cite{doesslprogram}, resulted in a series of critical improvements in the PFS phosphor properties \cite{Setlur2010}\cite{lyons2012color}, eventually enabling its commercialization under the “TriGain” brand in 2015 \cite{trigain_spectrum}\cite{setlur2015trigain}\cite{Murphy2015}.
+
+\textbf{Quantum Dots for Light Down-Conversion}
+
+Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{Chen_2005}\cite{Hsueh_Shih_Chen_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
+
+\suppnote{Spectral Data for Phosphors}
+
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=0.9\textwidth]{./figures/phosphor_spectrum-comparison.pdf}
+	\caption{\textbf{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data.} Corresponding LED products that used phosphor innovations listed in Table 1 in the main article are each indicated by the phosphor label and spectral data publication year. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Figure 6 in the main article. The desirable direction of improvements towards higher LER at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the bottom panels using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: spectral data for the first identified LED products that used phosphor innovations listed in Table 1 in the main article. The luminosity function \cite{cie-term-lumeff}, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable, as the photons of the corresponding energy are lost to the human eye and count towards the spectral loss channel. Plot legends indicate the years of publication of the spectral data and phosphor mixtures used in corresponding LED devices, with the following designations for additional phosphor mix components: ? -  other parts of phosphor mixture not disclosed, G$^*$ - \ch{CaSrS:Eu^{2+}}, Y$^\star$ - $\beta-$SiAlON:Eu$^{2+}$, G$^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, O$^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Sources: top panel - own elaboration based on spectral data; bottom two panels: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
+\label{fig:phosphor_spectrum}
+\end{figure}
+
+\clearpage
+\suppref{Full List of Sources for Figures}
+\label{sec:sources}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{List of sources for Figure 1.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Technology} & \textit{References} \\
+    \hline
+    LED & Own research, compare \cite{zenodo_weinold_led_history} \\
+    \hline
+    CFL (<1984) & \cite{Bouwknegt1982}\cite{Vrenken1983} \\
+    \hline
+    CFL (1984-2011) & \cite{eger2018origin} \\
+    \hline
+    CFL (>2011) & \cite{Guan2015} \\
+    \hline
+    Fire, Incandescent, HID & \cite{azevedo2009transition} augmented by own calculations based on \cite{benesch1905beleuchtungswesen} \\
+    \hline
+    Max. efficacy & \cite{Murphy2012} \\
+    \hline
+    \end{NiceTabularX}
+    \vspace{2mm}
+    \caption*{Abbreviations: CFL - Compact Fluorescent Lamp, HID - High-Intensity Discharge}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{List of sources for Figure 2.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Source} & \textit{References} \\
+    \hline
+    Stiftung Warentest (Germany) & \cite{Warentest2008}\cite{Warentest2009_1}\cite{Warentest2009_2}\cite{Warentest2010_1}\cite{Warentest2010_2}\cite{Warentest2011}\cite{Warentest2012}\cite{Warentest2013}\cite{Warentest2014_1}\cite{Warentest2014_2}\cite{Warentest2015}\cite{Warentest2016_1}\cite{Warentest2016_2}\cite{Warentest2018} \\
+    \hline
+    Konsument (Austria) & \cite{Konsument2010} \\
+    \hline
+    Which (UK) & \cite{Which2020} \\
+    \hline
+    Industry Periodical & \cite{PM2020} \\
+    \hline
+    Government Report (US) & \cite{national2013assessment} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{List of sources for Figure 3.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Publication Type} & \textit{References} \\
+    \hline
+    Scientific Publications & \cite{plossl2010wafer}\cite{bierhuizen2007performance}\cite{gencc2019distributed}\cite{chong2014performance} \\
+    \hline
+    Patents & \cite{patent1999uemura}\cite{patent1998takaoka}\cite{patent1999komaki}\cite{patent1999komaki}\cite{ludowise2006resonant}\cite{camras2005iii}\cite{steigerwald2004contacting} \\
+    \hline
+    Other Publications & \cite{craford2015}\cite{sun2016}\cite{yole2013packaging} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{List of sources for Figure 6.}
+    \begin{NiceTabularX}{\textwidth}{|l|l|l|X|}
+    \hline
+    \textit{Phosphor/QD} & \textit{Company} & \textit{YOI} & \textit{Reference} \\
+    \hline
+    YAG & Nichia & 1998 & \cite{bando1998development} \\
+    \hline
+    YGAG & Lumileds & 2002 &  \cite{Mueller2002} \\
+    \hline
+    258 & Lumileds & 2005 & \cite{MuellerMach2005} \\
+    \hline
+    SLA & Lumileds & 2014 & \cite{Pust2014} \\
+    \hline
+    PFS & GE & 2015 & \cite{Murphy2015} \\
+    \hline
+    QD & Lumileds & 2017 & \cite{lumileds2016qd} \\
+    \hline
+    Salon & Osram & 2019 & \cite{osram2019qd} \\
+    \hline
+    SALON & Osram & 2019 & \cite{Hoerder2019} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{List of sources for \cref{fig:haitz_new}.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Metric} & \textit{References} \\
+    \hline
+    Cost & \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid} \\
+    \hline
+    Flux & \cite{haitz2007seoul}\cite{haitz2010osram}\cite{haitz2010lumi-1}\cite{haitz2010cree}\cite{haitz2011lumi-1}\cite{haitz2014nichia}\cite{haitz2015cree-1}\cite{haitz2015cree-2}\cite{haitz2018cree}\cite{haitz2019osram}\cite{haitz2019lumi-1}\cite{haitz2019lumi-1}\cite{haitz2020lumi-1}\cite{haitz2013cob}\cite{haitz2016cob}\cite{haitz2017cob}\cite{haitz2019cob}\cite{haitz2019lumi-1}\cite{haitz2019lumi-2} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\begin{table}[h!]
+\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{List of sources for \cref{fgr:subeff}.}
+    \begin{NiceTabularX}{\textwidth}{|l|X|}
+    \hline
+    \textit{Panel (Sub-Eff.)} & \textit{References} \\
+    \hline
+    Panel A1 (FVE) & \cite{nichia2001data}\cite{lumi2003lumi}\cite{gen2005data}\cite{candlepwr2005data}\cite{lumi2006data}\cite{lumi2007data}\cite{nichia2008data}\cite{lumi2008data}\cite{osram2008data}\cite{jeong2011high}\cite{osram2012data}\cite{osram2013data}\cite{osram2014data} \newline \cite{lumi2016data_1}\cite{lumi2016data_2}\cite{epistar2017data}\cite{osram2017data_1}\cite{osram2017data_2}\cite{samsung2017data}\cite{samsung2018data}\cite{osram2018data}\cite{epistar2018data}\cite{lumi2019data} \\
+    \hline
+    Panel A2 (Droop) & Data calculated from luminous intensity curves of respective device datasheets: \cite{datasheet_osram_topled}\cite{osram2008data}\cite{osram2008gdplus}\cite{osram2018csp}\cite{datasheet_lumileds_lux1}\cite{lumi2008data}\cite{lumi2016data_1}\cite{lumi2016data_2}\cite{samsung2018data} \\
+    \hline
+    Panel B1 (IQE) & Data extracted from respective device datasheets and scientific publications (for a complete list, compare \cite{zenodo_weinold_led_history}). Additional data was extracted from government reports: \newline
+\cite{doe_ssl_multiyear_2006}\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2009}\cite{doe_ssl_multiyear_2010}\cite{doe_ssl_multiyear_2011}\cite{doe_ssl_multiyear_2012}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_multiyear_2014}\cite{doe_ssl_rnd_2015}\cite{doe_ssl_rnd_2016} \\
+    \hline
+    Panel B2 (LEE) & \cite{lee2005analysis}\cite{krames2007status}\cite{Jang2004}\cite{Horng2013}\cite{Liao2010}\cite{HungWenHuang2005}\cite{Leem2007}\cite{Huang2008}\cite{Wang2009}\cite{Huh2003}\cite{Horng2008}\cite{Gao2008}\cite{Chang2003}\cite{Zhou2012} \newline \cite{ChunJuTun2006}\cite{Hua2009}\cite{Matioli2010}
+\cite{lee2005analysis}\cite{Zhu2015}\cite{Ding2015}\cite{Taki2019}\cite{Shchekin2006}\cite{Hu2016}\cite{Horng2010}\cite{Lin2016}\cite{Yue2018}\cite{Zhao2012}\cite{Zhu2015}\newline \cite{Ding2015}\cite{wierer2001high}\cite{Steigerwald2002}\cite{DaeSeobHan2006}\cite{Wang2006}\cite{Lee2007}\cite{Shen2007}\cite{Huang2006}\cite{Zhmakin2011} \\
+    \hline
+    \end{NiceTabularX}
+\end{table}
+
+\clearpage
+\addcontentsline{toc}{section}{Supplementary Methods}
+
+\suppmeth{Domain Definition}
+\label{sec:domain}
+
+\textit{Elsevier Scopus}\footnote{\url{https://www.scopus.com/search/}} advanced search query:
+
+\begin{pseudocode}
+TITLE-ABS-KEY(("light-emitting" OR "light emitting") W/2 diode*)
+AND NOT
+TITLE-ABS-KEY(solar OR violet OR laser)
+AND NOT
+TITLE-ABS-KEY(perovskite OR GaAsP OR AlGaInP OR GaAlAs OR ZnO)
+AND NOT
+TITLE-ABS-KEY(organic OR OLED* OR polymer*)
+AND NOT
+SUBJAREA(ARTS OR BUSI OR DECI OR ECON OR PSYC OR SOCI)
+AND NOT
+SUBJAREA(MEDI OR NURS OR VETE OR DENT OR HEAL OR MULT)
+AND NOT
+SUBJAREA(AGRI OR BIOC OR IMMU OR NEUR OR PHAR)
+AND NOT
+SUBJAREA(envi OR EART OR comp)
+\end{pseudocode}
+
+\clearpage
+
+\suppmeth{Metrics for Quantifying Technological Progress in LEDs}
+
+\textbf{Motivation for Metrics Selection}
 
 Investigating the sources of rapid progress in LED technology over the past decades, in which white LEDs have come to dominate the lighting market \cite{zissis2021}, requires selecting appropriate metrics for tracking and quantifying this progress. The choice of metrics affects both what data sources can be used in the analysis and which research methodologies can be used to calculate and analyse such metrics. We select the metrics based on the following two general criteria. First, we focus only on metrics widely accepted and reported in industry. This is because metrics proposed in the scientific literature, but not reported by device manufacturers, cannot be used to compare the performance of commercial LED devices over time. Second, the chosen metrics must be useful for understanding the impact of individual technological improvements on relevant performance and cost characteristics.
 
@@ -112,34 +518,10 @@ A highly cited and frequently called-upon metric is \textit{flux/package}, as de
     \label{fig:haitz_new}
 \end{figure}
 
-\section{Background of Interviewed Experts}
 
-\begin{table}[H]
-\small
-    \centering
-    \caption{Anonymized list of interviewed LED experts.}
-    \begin{tabular}{|l|l|l|l|l|}
-    \hline
-        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Area of Expertise} \\ \hline
-        1 & Academia & Senior researcher & UK & Epitaxy \\ \hline
-        2 & Industry & Consultant, former senior researcher & USA & Device architecture \\ \hline
-        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
-        4 & Academia & Professor & Austria & Phosphors \\ \hline
-        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
-        6 & Consulting & Consultant, former senior technical advisor & USA & Device architecture \\ \hline
-        7 & Academia & Professor & Germany & Phosphors \\ \hline
-        8 & Government & R\&D manager & USA & Device architecture \\ \hline
-        9 & Consulting & Consultant & USA & Device applications \\ \hline
-        10 & Academia & Professor & France & Device physics \\ \hline
-        11 & Industry & Senior scientist, former head of R\&D & USA & Device architecture \\ \hline
-        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
-        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
-    \end{tabular}
-    \label{tab:interviews}
-\end{table}
 
 \clearpage
-\section{Metrics: Device Performance}
+\suppmeth{Device Performance Metrics}
 \label{sec:device_performance_metrics}
 
 During the years following the market introduction of white LEDs, the primary metric of progress in solid-state lighting was typically luminous flux. This was because the luminous flux (total brightness) of early white LEDs was too small to allow for the economical combination of multiple LEDs into lamps for general illumination purposes. In 2000, the highest performing devices yielded around 10 lm, just below the output of a candle as defined in the unit candela (1 cd=12.57 lm) \cite{haitz2011solid}. Progress in this metric was commonly rendered together with the associated reduction in retail prices as “Haitz’s Law”\cite{haitz1999case,haitz2011solid}. Today, however, the devices with the highest performance yield in excess of 1600 lm, the equivalent of a 100 W incandescent bulb \cite{cree2020bright}. LED brightness has thereby become sufficient to enable the construction of lamps from multiple LED devices, with contemporary improvements focusing instead on higher efficiency and quality of light instead of brightness. Even though a large number of scientific publications and industry periodicals continue to focus on brightness as a metric of progress in lighting, we find that, at this point in time, this metric is insufficient to capture the complexity of the multitude of efficiency improvements that have been driving the overall LED efficiency \cite{weinold2021compound}. Specifically, the stagnating levels of luminous flux in the highest performing devices do not capture the outcomes of a major area of LED research, which is improving electrical efficiency at constant brightness.
@@ -251,7 +633,7 @@ The luminous efficacy \textit{of a light source} $\eta$ is defined as the ratio 
 This metric is also frequently cited in device datasheets, scientific literature and textbooks when describing the performance of light-emitting diodes. However, as noted in \cref{subsec:ler}, care must be taken not to confuse this efficacy metric with the \textit{luminous efficacy of radiation}, which depends only on the spectral characteristics of a light source. As the luminous efficacy of a light source $\eta$ captures the overall device efficacy, it depends on a large number of other device properties and parameters. This makes attribution of changes in this metric to individual changes in device design or manufacturing difficult. For this reason, we do not use this metric only to show historical progress across different lighting technologies in Figure 1 in the main text of the article.
 
 \clearpage
-\section{Metrics: Consumer Experience}
+\suppmeth{Consumer Experience Metrics}
 \label{sec:metrics_consumer}
 
 The perceived quality of light is entirely determined by the emission spectrum of a light source \cite{ies_handbook}. Any metric relevant to customer experience can thus be calculated from the spectrum alone. The spectrum of an LED light source is determined by the emission wavelength of the LED itself and the absorption and emission spectra of the down-conversion phosphor used in the device. It is typically included in the product datasheets provided by manufacturers, which enables the calculation of all relevant spectrum-based metrics for these devices. Based on the prevalence in scholarly literature and industry publications, for this study we choose two consumer experience metrics: colour rendering index (CRI) and colour temperature (CT). We do not consider flicker, the unintended high-frequency temporal modulation of light, which is another important consumer experience metric for lighting and a subject of recent regulation by the European Union \cite{weinold2020long}. This effect is caused not by LEDs themselves, but rather by inadequately designed electrical ballasts \cite{Lehman2014}. As a result, it is beyond the scope of this work. 
@@ -273,7 +655,35 @@ We address the limitations of data availability for the chip-level LED manufactu
 We describe our manufacturing cost model in the Methods section in the main text of the article, and discuss its details, including its structure and equations, manufacturing process flows for the chip architectures under consideration, input data, explanation of our cost modelling approach based on yielded costs, as well as the model’s limitations, in \cref{sec:costmodel_details}. The outcome of the cost model is the cumulative yielded manufacturing cost per LED package, which includes all costs associated with producing the chip, including running costs of the factory.
 
 \clearpage
-\section{Methods: Cost Model Structure}
+
+\suppmeth{Background of Interviewed Experts}
+
+\begin{table}[H]
+\small
+    \centering
+    \caption{Anonymized list of interviewed LED experts.}
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+        \textit{\#} & \textit{Sector} & \textit{Role} & \textit{Country} & \textit{Area of Expertise} \\ \hline
+        1 & Academia & Senior researcher & UK & Epitaxy \\ \hline
+        2 & Industry & Consultant, former senior researcher & USA & Device architecture \\ \hline
+        3 & Industry & Consultant, former head of R\&D & Germany & Epitaxy \\ \hline
+        4 & Academia & Professor & Austria & Phosphors \\ \hline
+        5 & Industry & Consultant, former head of R\&D & USA & Device architecture \\ \hline
+        6 & Consulting & Consultant, former senior technical advisor & USA & Device architecture \\ \hline
+        7 & Academia & Professor & Germany & Phosphors \\ \hline
+        8 & Government & R\&D manager & USA & Device architecture \\ \hline
+        9 & Consulting & Consultant & USA & Device applications \\ \hline
+        10 & Academia & Professor & France & Device physics \\ \hline
+        11 & Industry & Senior scientist, former head of R\&D & USA & Device architecture \\ \hline
+        12 & Industry & Principal scientist & Germany & Phosphors \\ \hline
+        13 & Industry & Former head of R\&D & USA & Phosphors \\ \hline
+    \end{tabular}
+    \label{tab:interviews}
+\end{table}
+
+\clearpage
+\suppmeth{Cost Model Structure and Limitations}
 \label{sec:costmodel_structure}
 
 The LED cost model developed for this publication is a bottom-up microeconomic manufacturing cost model with process-step resolution. Within the timeframe and scope laid out in the main text of this publication, it returns the total manufacturing cost of GaN-based phosphor-converted warm white light-emitting diode packages. The model assumes a hypothetical factory which employs the highest performing equipment available in each year. Performance in this context comprises throughput, associated yield and resource consumption. It assumes North American utility prices as well as labour rates, which have remained constant over the time period of interest. Compared to other parameters, these fixed costs have little impact on the overall cost, as shown in \cref{fig:sensitivity} and \cref{fig:costmodel_calibration}. The equipment used to model the manufacturing processes has been chosen from the catalogues of current market leaders in semiconductor equipment manufacturing. This choice was made based on the specialization of the equipment, as some manufacturers offer product lines aimed specifically at light-emitting diode manufacturing. When more than one type of manufacturing equipment was available, the higher volume variant was chosen. The model does not consider costs associated with research and development or those associated with the construction of manufacturing facilities. It considers market trends through their effect on manufacturing parameters. 
@@ -302,8 +712,6 @@ While generally comprehensive, the model is limited by the availability of perfo
 \end{figure}
 
 \clearpage
-\section{Methods: Cost Model Limitations}
-\label{sec:costmodel_limitations}
 
 As illustrated in \cref{fig:semi_pyramid}, our model is comprehensive in its coverage of market, economic, manufacturing step and global manufacturing parameters. However, the model has limitations which must be considered when interpreting the results:
 
@@ -321,60 +729,9 @@ Generally, we found that our model provides the best-case scenario for LED manuf
 
 Because the purpose of our model is to show the impact of changes in the design and manufacturing process of devices, rather than the geographic location and associated economic circumstances, we believe this to be a minor drawback. For fixed cost parameters, we therefore assumed a US-based manufacturing environment. We do compare cost model data to a selection of industry data in \cref{sec:cost_model_calibration} and provide an interpretation of the differing cost structure.
 
-\section{Diagrams: Chip Architecture Manufacturing Process Steps}
-\label{sec:manufacturing_steps}
 
-\cref{fig:manuf_classical_2003}-\cref{fig:manuf_csp_2020-2} show a simplified rendering for the manufacturing process of three different chip architectures considered in the cost model.
 
-\vspace{-20mm}
-
-    %CLASSICAL CHIP
-
-    \begin{landscape}
-        \begin{figure}
-            \includegraphics[width=555pt]{./figures/classical_overview_2003.pdf}
-            \caption{\textbf{Manufacturing process for a classical LED package with lateral current spreading, circa 2003.} MQW - multiple quantum well; PLLC - plastic leaded chip carrier.}
-        \label{fig:manuf_classical_2003}
-        \end{figure}
-    \end{landscape}
-    
-    %VERTICAL THIN-FILM FLIP-CHIP
-
-    \begin{landscape}
-        \begin{figure}
-            \includegraphics[width=595pt]{./figures/vtf_overview_2012-1.pdf}
-            \caption{\textbf{Manufacturing process for a vertical thin-film  package flip-chip LED chip with vertical current spreading, circa 2012. (1/2)} MQW - multiple quantum well; LLO - laser lift-off. Continued in \cref{fig:manuf_vtf_2012-2}}
-            \label{fig:manuf_vtf_2012-1}
-        \end{figure}
-    \end{landscape}
-
-    \begin{landscape}
-        \begin{figure}
-            \includegraphics[width=595pt]{./figures/vtf_overview_2012-2.pdf}
-            \caption{\textbf{Manufacturing process for a vertical thin-film package flip-chip LED chip with vertical current spreading, circa 2012 (2/2)}. Continued from \cref{fig:manuf_vtf_2012-1}. Encaps. - encapsulation.}
-            \label{fig:manuf_vtf_2012-2}
-        \end{figure}
-    \end{landscape}
-
-    % CHIP-SCALE PACKAGE FLIP-CHIP
-
-    \begin{landscape}
-        \begin{figure}
-            \includegraphics[width=595pt]{./figures/csp_overview_2020-1.pdf}
-            \caption{\textbf{Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. (1/2)} MQW - multiple quantum well. Continued in \cref{fig:manuf_csp_2020-2}.}
-            \label{fig:manuf_csp_2020-1}
-        \end{figure}
-    \end{landscape}
-
-    \begin{landscape}
-        \begin{figure}
-            \includegraphics[width=595pt]{./figures/csp_overview_2020-2.pdf}
-            \caption{\textbf{Manufacturing process for a chip scale package flip-chip LED chip with vertical current spreading, circa 2020. (2/2)}. Continued from \cref{fig:manuf_csp_2020-1}. Encaps. - encapsulation.}
-            \label{fig:manuf_csp_2020-2}
-        \end{figure}
-    \end{landscape}
-
-\section{Cost Model: Computation of Yielded Cost}
+\suppmeth{Yielded Cost}
 \label{sec:cost_computation}
 
 The manufacturing process of semiconductor devices can be categorized by the level at which manufacturing process steps are implemented, i.e., either at the wafer level or at the individual chip/package level. The total manufacturing cost per die is thus the sum of the total costs of all wafer processing steps and all die packaging steps.
@@ -567,7 +924,7 @@ Wafer sizes used in manufacturing have also increased over the years due to favo
 	\label{fig:wafers}
 \end{figure}
 
-\section{Cost Model: Contribution of Variables}
+\suppmeth{Contribution of Variables}
 \label{sec:contribution_variables}
 
 To quantify the drivers of changes in manufacturing cost or device performance among many contributing factors, one would need to identify the magnitude of contribution to these changes made by single variables in equations \cref{eqn:cost_wafer} and \cref{eqn:cost_die}. Mathematically, given a function $F$ which describes the manufacturing cost or performance function of a device at time $t$,
@@ -624,8 +981,11 @@ where for $F(t)$ a constant $F(t) \approx \tilde{F} $ can be chosen such that $\
 %
 We use this approach to estimate the effect of individual innovations and spillovers on LED device performance, as discussed in relation to Figure 5 in the main article. Due to time constraints, we leave the quantification of the impact of different drivers of cost reductions with this methodological approach for our future work.
 
-\newpage
-\section{Cost Model: Sensitivity Analysis}
+\clearpage
+
+\addcontentsline{toc}{section}{Supplementary Discussion}
+
+\suppdisc{Cost Model Sensitivity Analysis}
 
 \begin{figure}[ht!]
 	\centering
@@ -676,9 +1036,8 @@ A sensitivity analysis of the cost model has been performed using parameter vari
     \label{tab:sensitivity}
 \end{table}
 
-
 \clearpage
-\section{Cost Model: Comparison with Industry Data/Projections}
+\suppdisc{Cost Data Comparison with Industry Projections}
 \label{sec:cost_model_calibration}
 
 In order to validate the outputs of the cost model regarding the evolution of the cost structure of low-to-mid-power classic chip GaN phosphor-converted white LED, we conducted a comparison with previously reported U.S. DOE calculations and projections based on the \textit{LEDCOM} model and industry data provided as part of industry round table discussions:
@@ -694,319 +1053,7 @@ In order to validate the outputs of the cost model regarding the evolution of th
 We note some differences between the results of our model and the cost structure reported or projected by the DOE. For instance, the share of the epitaxy step is consistently larger in the DOE data. This can in part be explained by our model assuming the use of state-of-the-art equipment, while industry might not run low-power and mid-power chip production on these more expensive reactors. In addition, the manufacturing lines of the majority of manufacturers are located in Asia. We also note that the share of the sapphire substrate price in the DOE data is much larger than in our model, which can in part be explained by the overestimation of the actual price of sapphire wafers in earlier projections made for 2015-2020. Finally, the relative importance of the packaging part of the manufacturing process is very similar in our model and in the DOE results in 2012. However, in the DOE projections it significantly decreases by 2020, while in our model it retains and even increases its share of the total cost. This trend has been independently confirmed by researchers and industry reports on wafer-level packaging \cite{Lee2011WPL,Xie2013,ledsmag2017WLP}, showing better performance of our cost model compared to earlier DOE model projections.
 
 \clearpage
-\section{Historical Progress in Sub-Efficiencies}
-
-Empirical data on the historical progress in metrics related to four different sub-efficiencies contributing to the overall LED efficiency (lamp efficiency $\eta_L$) is shown in \cref{fgr:subeff}:
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=15.5cm]{./figures/subefficiencies_progress.pdf}
-\caption{\textbf{Historical improvements in LED sub-efficiencies.} Panels A1-A2 show data for key metrics used to calculate forward voltage efficiency $\eta_{Vf}$ and droop efficiency $\eta_{droop}$. Panels B1-B2 show data for internal quantum efficiency $\eta_{IQ}$ and light extraction efficiency $\eta_{LE}$. Source: own synthesis of data from the list of sources provided in \cref{sec:sources}. Data on average device performance adapted from U.S. Department of Energy (DOE) Reports \cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_rnd_2016}\cite{doe_ssl_rnd_2018} and an Osram company report \cite{beale_leds_2015}.}
-\label{fgr:subeff}
-\vspace{-20mm}
-\end{figure}
-
-\clearpage
-
-\textbf{Panel A1:} This panel shows device forward voltage at a test current of I=350mA, categorized by chip architecture. The physical limit for a blue light wavelength of 450nm without electric pumping is shown for reference. Forward voltage efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data points for devices released in 2020 by various manufacturers are shown in an inset plot for additional context. Note that differences between chip architectures in this plot have become small for all but one company. Chip architecture abbreviations: Acronyms: TFFC - thin-film flip-chip, FC - flip-chip, CSP-FC - chip-scale package flip-chip. Company abbreviations: LG - LG Innotek, SE - Seoul Semiconductor, SA - Samsung, OS - Osram, LL - Lumileds.  \
-
-\textbf{Panel A2:} Efficiency droop at the test current of I=350mA, categorized by chip architecture. Droop efficiency is computed from this metric as described in \cref{sec:device_performance_metrics}. Data has been calculated from luminous intensity curves of respective device datasheets. \
-
-\textbf{Panel B1:} Internal quantum efficiency (IQE) for categorized by type of measurement used. Because it is inherently more difficult to measure IQE than is the case for other sub-efficiencies, this panel shows data categorized by different measurement methods. This is not the case for other panels of this figure. Note that the bump in the DOE Average around 2013 is due to a change in IQE definition laid out in \cite{doe_ssl_multiyear_2013}. Measurement methods abbreviations: PL - Photoluminescence \cite{Shim_2018}, EL - Electroluminescence \cite{Getty_2009}; ABC Model \cite{Karpov_2014}, Ideality Factor \cite{Masui_2010}. “Not reported” denotes data points where the IQE measurement technique was not reported. Whiskers indicate reported ranges, where available. \
-
-\textbf{Panel B2:} Light extraction efficiency (LEE) for different chip architectures by type of specific technology used to improve LEE. The sources for all data points are shown for reference: Simulation - ray-tracing computer simulation; Experimental (absolute) – direct LEE values; Experimental (relative) - relative improvement over baseline chip architecture. Abbreviations: TFFC - Thin-Film Flip-Chip; FC - Flip-Chip; CSP - Chip-Scale Package; ITO - Indium Tin Oxide; ZnO - Zinc Oxide; PSS - Patterned Sapphire Substrate; electr. - electrode; text. - textured.
-
-\textbf{Additional Notes on \cref{fgr:subeff}}
-
-Data illustrated in \cref{fgr:subeff} was used to determine the performance of best-in-class devices across all sub-efficiencies. The results are shown in Figures 4-6 in the main text.
-
-\textbf{Additional Data on Phosphor Performance}
-
-Note that \cref{fgr:subeff} does not include sub-efficiencies related to spectral performance of LEDs: spectral efficiency $\eta_S$ and conversion efficiencies of different phosphors $\eta_{C_R}$ and $\eta_{C_{Y/G}}$.  Typically, there is no direct empirical data available for these metrics in the literature, which made their inclusion in the (mostly) empirical \cref{fgr:subeff} not relevant. Instead, we calculate the values of these metrics used in Figures 4 and 5 in the main text from spectral and luminous efficacy radiation data presented in \cref{fig:phosphor_spectrum} below (see also Methods section in the main text).
-
-
-
-\clearpage
-\section{Non-Phosphor-Related LED Innovations}
-
-\cref{tab:innovations_1}-\cref{tab:innovations_2} summarize LED innovations and technology and manufacturing process improvements identified in this study as affecting four white LED sub-efficiencies: forward voltage efficiency, light extraction efficiency, internal quantum efficiency, droop and light conversion efficiency. Note that this table does not include phosphor-related LED innovations affecting spectral efficiency, as these are presented separately in Table 1 in the main text as affecting consumer experience metrics and discussed in detail in \cref{sec:innovation_phosphor}.
-
-\begin{table}[H]
-    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note this table is continued in \cref{tab:innovations_2}.}
-    \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
-        \hline
-        \multicolumn{5}{c}{Forward Voltage Efficiency (FVE) $\eta_{Vf}$} \\
-        \hline
-            \textit{Year} & \textit{Innovation} & \textit{Area of Improvement} & \textit{Spillover} & \textit{Source} \\
-        \hline
-            1999 & Indium Tin Oxide \newline Current spreading layer & Contact resistance & Yes & \cite{margalith1999indium}\\
-        \hline
-            1998 & Digitated electrodes & Contact resistance & No & \cite{steigerwald2001electrode} \\
-        \hline
-            Ongoing & Epitaxy improvements \newline and better doping & Polarization and \newline bulk resistance & No & I \\
-        \hline
-            1998 & Silver p-Contacts & Contact resistance & No & \cite{kondoh2001nitride} \\
-        \hline
-        \multicolumn{5}{c}{Light extraction efficiency (LEE) $\eta_{LE}$} \\
-        \hline
-            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
-        \hline
-            $<$ 2003 & Optimization for \newline cavity effects & Reduces self-interference of quantum well & No & I, \cite{Shen2003} \\
-        \hline
-            1993 & Chip surface randomization & Total reflection and absorption & No & I, \cite{bergh1973surface}\cite{Schnitzer1993} \\
-        \hline
-            1993 & Thin-film chip architecture & Absorption & No & I, \cite{Schnitzer1993} \\
-        \hline
-            1996 & Patterned sapphire substrate  & Total reflection and absorption & Yes & I, \cite{Tadatomo2001} \\
-        \hline
-            Ongoing & Chip design for high LEE & Total reflection and absorption & No & I, \cite{Haerle2004} \\
-        \hline
-            $\sim$2000 & Silver p-contacts & Absorption & No & I, \cite{kondoh2001nitride} \\
-        \hline
-        \multicolumn{5}{c}{Internal quantum efficiency (IQE) $\eta_{IQ}$} \\
-        \hline
-            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
-        \hline
-            1994 & Double heterostructure & Higher radiative recombination probability & No & \cite{Nakamura1994} \\
-        \hline
-            1996 & Multiple quantum well & Higher radiative recombination probability & No & \cite{Koike1996} \\
-        \hline
-            Ongoing & Active region \newline Doping & Radiative recombination probability & No & I, \cite{schubert2018light} \\
-        \hline
-            Ongoing & Epitaxy \newline Improvements & Radiative recombination probability & No & I \\
-        \hline
-            Ongoing & Chip architecture \newline Improvements & Radiative recombination probability & No & I \\
-        \hline
-        \end{NiceTabularX}
-        \vspace{2mm}
-    \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
-    \vspace{-20mm}
-    \label{tab:innovations_1}
-\end{table}
-
-\begin{table}[H]
-    \caption{\textbf{LED innovations and technology improvements affecting key device sub-efficiencies.} Note that this table continues \cref{tab:innovations_1}.}
-    \begin{NiceTabularX}{\textwidth}{ |l|X|X|l|l| }
-    \hline
-    \multicolumn{5}{c}{Droop $\eta_{droop}$} \\
-        \hline
-            ongoing & Lower current Density & Current density & No & I \\
-        \hline
-            ongoing & Epitaxy \newline Improvements & $\ominus/\oplus$ Distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
-        \hline
-            ongoing & Chip Architecture \newline Improvements  & $\ominus/\oplus$ Distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
-        \hline
-            $<$ 2017 & Defect getting \newline underlayer & Defect density & No & I, \cite{haller2017burying} \\
-        \hline
-        \multicolumn{5}{c}{Light conversion efficiency (CE) $\eta_{C}$} \\
-        \hline
-            \textit{Year} & \textit{Innovation} & \textit{Area of improvement} & \textit{Spillover} & \textit{Source} \\
-        \hline
-            Ongoing & Lower current density & Current density & No & I \\
-        \hline
-            Ongoing & Epitaxy \newline Improvements & Charge distribution \newline Defect density & No & I, \cite{bhardwaj2016progress} \\
-        \hline
-            Ongoing & Chip architecture \newline improvements  & Charge distribution \newline Defect density & No & I, \cite{Wildeson2017} \\
-        \hline
-            $<$ 2017 & Defect gettering \newline underlayer & Defect density & No & I, \cite{haller2017burying} \\
-        \hline
-        \end{NiceTabularX}
-        \vspace{2mm}
-    \caption*{Note: \textit{Year} column indicates the first instance of application of corresponding invention in white LEDs. 'Ongoing' indicates improvements that are incremental in nature and have been ongoing since the earliest days of LED manufacturing, with no individual breakthroughs identified. \textit{Spillover} column indicates if the innovation involved technology spillovers. \textit{Source} column indicates the source of information about the innovation or improvement, with 'I' indicating expert interviews as such a source.}
-    \label{tab:innovations_2}
-\end{table}
-
-\clearpage
-\section{Phosphor-Related LED Innovations}
-\label{sec:innovation_phosphor}
-
-This section provides additional details for phosphor-related LED innovations identified in this study as affecting both spectral sub-efficiencies and consumer experience metrics. These include a detailed description of the history of those innovations, which we use to identify the details of involved technology spillovers. In addition, spectral data for the first identified LED products that used those innovations is presented in \cref{fig:phosphor_spectrum}, which we use to calculate consumer experience metrics, as well as LED spectral efficiency.
-
-\textbf{YAG and YGAG Phosphors}
-
-Prior to Nakamura’s invention of highly efficient blue LEDs in the 1990s, Japan’s Nichia Corporation had not sold commercially successful semiconductor products, instead specializing in phosphors for cathode ray tubes (CRT) and fluorescent lamps \cite{nakamura2013blue}  . Nevertheless, extensive firm expertise in this area helped Nichia’s Yoshinori Shimizu formulate the principles of using CRT phosphors to convert blue light from Nakamura’s LEDs into white light in 1994 \cite{shimizu1994sheet}\cite{cho2017white}. By 1996, Shimizu and his colleagues developed \cite{bando1996}\cite{shimizu1999light} the first practical LED application of a well-known Yttrium Aluminium Garnet (YAG) CRT phosphor activated with cerium \cite{blasse1967new}, enabling the first commercial white LED products manufactured and sold by Nichia since late 1996 \cite{bando1998development}\cite{cho2017white}. 
-
-Importantly, the YAG phosphor does not exhibit the spectral properties desirable in general illumination applications (see Figure 6 in the main article). An early solution to this problem, which was first discovered in the late 1967 \cite{holloway1969optical} and suggested for LEDs by the same team at Nichia in 1996 \cite{bando1998development}\cite{shimizu1999light}, was to use the gadolinium-doped red-shifted YAG phosphor (YGAG). Used in combination with red-emitting sulfide phosphors, by 2003 it helped bring to the market the first generation of warm white light LED products, e.g., those produced by Lumileds \cite{Mueller2002}. However, sulfide phosphors led to accelerated deterioration of sensitive parts of LED devices and became less efficient as operating temperatures increased. New chemically stable and non-toxic red phosphors were needed. 
-
-\textbf{258, SLA and SALON phosphors}
-
-In 1997, Hubert Huppertz and Wolfgang Schnick, working at the University of Bayreuth in Germany, synthesized the first compound in a new class of rare earth nitridosilicate materials \cite{Huppertz1997} later dubbed “258” due to a proportion of elements in its chemical formula. The luminescent properties of these materials were identified by the Schnick’s group, by then at Ludwig-Maximilians University of Munich, in 2000 \cite{Hppe2000} after a suggestion made to Schnick at a conference following earlier reports of good luminosity properties of europium-doped compounds \cite{Qiua1998}. U.S.-based LED manufacturer Lumileds applied for a patent for the first class of red LED phosphors based on the 258 nitridosilicate chemistry in 2003 \cite{mueller2004phosphor}. The first use of the 258 phosphor in a commercial “Luxeon” LED package was then reported in a joint publication co-authored by inventors from Lumileds and researchers from the Schnick’s group in 2005 \cite{MuellerMach2005}.
-
-Further efforts in LED phosphor development were directed towards synthesizing a red narrow-band phosphor. Narrow LED emission peak widths yield the highest luminous efficacy of radiation, as in this case less light is emitted in the far-red range of the spectrum in which the human eye is not very sensitive. After synthesizing several narrow-band phosphors emitting in yellow \cite{Hppe2004} and cyan \cite{Kechele2009}, the Schnick’s group identified the local cubic cation coordination structure of the cyan phosphor compound as the reason for its narrow band width \cite{lumi2016narrow}. A search for a structurally analogous nitride compound with the narrow red instead of the cyan emission was undertaken. After several unsuccessful attempts, the sought-after cuboidal nitride compound was found in a 2008 publication led by Francis DiSalvo \cite{Park2008Sr}. Based on information provided in this work, Schnick and colleagues synthesized and studied the spectral properties of a new narrow band red SLA phosphor in 2013 \cite{schmidt2013new}\cite{Pust2014}\cite{schmidt2017phosphors}. The material was introduced in commercial LED devices by Lumileds in 2015 \cite{lumi2016narrow_whitepaper}. 
-
-The most recent red narrow-band phosphor innovation included in Table 1 and Figure 6 in the main article, indicated as SALON, has been under development during the late 2010s by a group of Austrian and German researchers that included Huppertz, the discoverer of the “258” material, working in collaboration with Osram, another major LED manufacturer \cite{seibald2019phosphor}\cite{Hoerder2019}\cite{Hoerder2020}. The first U.S. patent application for this phosphor was filed in 2017 \cite{seibald2019phosphor}. The SALON phosphor is a derivate of the SLA phosphor. Therefore, it is the only innovation related to consumer experience metrics identified in our study that seemingly not involved technology spillovers.
-
-\textbf{PFS Phosphor}
-
-Down conversion with ultra-narrow-band phosphor can achieve the highest spectral efficiency. However, few such phosphors have been identified, with even less exhibiting desirable material properties such as thermal stability \cite{Phillips2007}. The first commercially successful ultra-narrow-band red phosphor was developed by General Electric (GE). It is based on a potassium fluorosilicate (PFS) compound activated with manganese ions. Its luminescence was first recorded by Adrian Paulusz at GE in 1972 \cite{paulusz1973efficient}. In the early 2000s, while searching for potential new LED phosphor materials for GE’s lighting business at GE Lumination, Emil Radkov rediscovered Paulusz’s findings in the literature. Following extensive research on PFS chemical synthesis and material properties conducted in collaboration with the University of Sofia in Bulgaria, Radkov’s Alma Mater, the PFS phosphor had been under development at GE since 2005 \cite{radkov2006red}\cite{radkov2009red}. This work, supported by public funding from the U.S. Department of Energy (DOE) Solid-State Lighting program \cite{doesslprogram}, resulted in a series of critical improvements in the PFS phosphor properties \cite{Setlur2010}\cite{lyons2012color}, eventually enabling its commercialization under the “TriGain” brand in 2015 \cite{trigain_spectrum}\cite{setlur2015trigain}\cite{Murphy2015}.
-
-\textbf{Quantum Dots for Light Down-Conversion}
-
-Quantum dots (QD) are semiconductor nanocrystals whose quantum size effects make QDs behave as “artificial atoms”. Semiconductor quantum dots were first synthesized in the Soviet Union in 1981 \cite{ekimov1981quantum} and at Bell Labs in the U.S. in 1983 \cite{Rossetti1983}. Luminescent properties of quantum dots were first empirically observed in 1984 \cite{fojtik1984photo} and extensively studied in the early 1990s. The key feature of QD luminescence discovered in those studies is that its colour is determined by the QD particle size, making it possible to create pure monochromatic blue, green and red light sources just by tuning the QD size. The first application of QDs in LEDs was reported in 1994 in an electroluminescent hybrid QD-polymer LED. However, this LED type could not be used in general illumination due to its very low luminous efficacy. An alternative application of QDs as a kind of a “phosphor” for light down conversion from an LED light source was proposed in the early 2000s as part of the U.S. Department of Energy (DOE)-funded “A Revolution in Lighting“ project at Sandia National Laboratory \cite{simmonsfinal}. This concept was successfully demonstrated by Sandia researchers on a commercial LED in 2003 \cite{shea_rohwer_development_2004}\cite{noauthor_sandia_nodate} and was swiftly taken up and advanced further by a group in Taiwan \cite{Chen_2005}\cite{Hsueh_Shih_Chen_2006} The first commercial application of QDs in an LED lamp was brought about by a collaboration between an MIT-born startup QD Vision and the U.S.-based luminaire manufacturer Nexxus Lighting in 2009 \cite{ledprof_nexxusqd}, \cite{bourzac2013quantum}. However, rapid advances in the spectral and conversion performance of down-conversion phosphors and high manufacturing cost of quantum dots resulted in the discontinuation of this product. After finding market success in display backlighting first demonstrated by Samsung in 2010 \cite{Jang2010} and commercialized by QD Vision in Sony television sets in 2013 \cite{bourzac2013quantum}, QDs returned to the general lighting market in products offered by Lumileds \cite{noauthor_global_2017}\cite{noauthor_quantum_2020} around 2017 and Osram in 2019 \cite{osramqdots} in the form of mid-power LED packages that combined QDs with traditional phosphors for light down conversion.
-
-\section{Spectral Data for Phosphors}
-
-\begin{figure}[H]
-	\centering
-    \includegraphics[width=0.9\textwidth]{./figures/phosphor_spectrum-comparison.pdf}
-	\caption{\textbf{Spectral data and additional consumer experience metrics for the earliest identified representative white LED products with published spectral data.} Corresponding LED products that used phosphor innovations listed in Table 1 in the main article are each indicated by the phosphor label and spectral data publication year. Top panel: Luminous efficacy of radiation (LER) and colour rendering index (CRI) of white LED devices represented in Figure 6 in the main article. The desirable direction of improvements towards higher LER at higher CRI is indicated by a red arrow. Metrics were calculated from spectral data shown in the bottom panels using the \texttt{colour-science} package for Python \cite{colour-science_software}. Bottom two rows of panels: spectral data for the first identified LED products that used phosphor innovations listed in Table 1 in the main article. The luminosity function \cite{cie-term-lumeff}, describing the wavelength-dependent sensitivity of the human eye, is shown for reference in red in each panel. Peaks or large tails of the device emission spectrum at the far ends of the luminosity function are not desirable, as the photons of the corresponding energy are lost to the human eye and count towards the spectral loss channel. Plot legends indicate the years of publication of the spectral data and phosphor mixtures used in corresponding LED devices, with the following designations for additional phosphor mix components: ? -  other parts of phosphor mixture not disclosed, G$^*$ - \ch{CaSrS:Eu^{2+}}, Y$^\star$ - $\beta-$SiAlON:Eu$^{2+}$, G$^\dagger$ - \ch{Lu_3Al_5O_{12}:Ce^{3+}}, O$^\ddagger$ - \ch{(Ba,Sr)_2Si_5N_8:Eu^{2+}}. Source (top panel): own elaboration based on spectral data. Arb. Units - Arbitrary Units, defined as the ratio of radiation intensity at a wavelength compared to the highest point in the spectrum. Sources: top panel - own elaboration based on spectral data; bottom two panels: adapted from published spectral data for LEDs with the following phosphors: YAG \cite{bando1998development}, YGAG \cite{Mueller2002}, 258 \cite{MuellerMach2005}, SLA \cite{Pust2014}, PFS \cite{trigain_spectrum}, QD \cite{lumileds2016qd}\cite{osram2019qd}, SALON \cite{Hoerder2019}.}
-\label{fig:phosphor_spectrum}
-\end{figure}
-
-\clearpage
-\section{Domain Definition}
-\label{sec:domain}
-
-\textit{Elsevier Scopus}\footnote{\url{https://www.scopus.com/search/}} advanced search query:
-
-\begin{pseudocode}
-TITLE-ABS-KEY(("light-emitting" OR "light emitting") AND "diode")
-AND NOT
-TITLE-ABS-KEY(solar OR violet OR laser)
-AND NOT
-TITLE-ABS-KEY(perovskite OR GaAsP OR AlGaInP OR GaAlAs OR ZnO)
-AND NOT
-TITLE-ABS-KEY(organic OR polymer*)
-AND NOT
-SUBJAREA(ARTS OR BUSI OR DECI OR ECON OR PSYC OR SOCI)
-AND NOT
-SUBJAREA(MEDI OR NURS OR VETE OR DENT OR HEAL OR MULT)
-AND NOT
-SUBJAREA(AGRI OR BIOC OR IMMU OR NEUR OR PHAR)
-AND NOT
-SUBJAREA(envi OR EART OR comp)
-\end{pseudocode}
-
-
-
-Something about patents also?
-
-\clearpage
-\section{Full List of Sources for Figures}
-\label{sec:sources}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for Figure 1.}
-    \begin{NiceTabularX}{\textwidth}{|l|X|}
-    \hline
-    \textit{Technology} & \textit{References} \\
-    \hline
-    LED & Own research, compare \cite{zenodo_weinold_led_history} \\
-    \hline
-    CFL (<1984) & \cite{Bouwknegt1982}\cite{Vrenken1983} \\
-    \hline
-    CFL (1984-2011) & \cite{eger2018origin} \\
-    \hline
-    CFL (>2011) & \cite{Guan2015} \\
-    \hline
-    Fire, Incandescent, HID & \cite{azevedo2009transition} augmented by own calculations based on \cite{benesch1905beleuchtungswesen} \\
-    \hline
-    Max. efficacy & \cite{Murphy2012} \\
-    \hline
-    \end{NiceTabularX}
-    \vspace{2mm}
-    \caption*{Abbreviations: CFL - Compact Fluorescent Lamp, HID - High-Intensity Discharge}
-\end{table}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for Figure 2.}
-    \begin{NiceTabularX}{\textwidth}{|l|X|}
-    \hline
-    \textit{Source} & \textit{References} \\
-    \hline
-    Stiftung Warentest (Germany) & \cite{Warentest2008}\cite{Warentest2009_1}\cite{Warentest2009_2}\cite{Warentest2010_1}\cite{Warentest2010_2}\cite{Warentest2011}\cite{Warentest2012}\cite{Warentest2013}\cite{Warentest2014_1}\cite{Warentest2014_2}\cite{Warentest2015}\cite{Warentest2016_1}\cite{Warentest2016_2}\cite{Warentest2018} \\
-    \hline
-    Konsument (Austria) & \cite{Konsument2010} \\
-    \hline
-    Which (UK) & \cite{Which2020} \\
-    \hline
-    Industry Periodical & \cite{PM2020} \\
-    \hline
-    Government Report (US) & \cite{national2013assessment} \\
-    \hline
-    \end{NiceTabularX}
-\end{table}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-\caption{List of sources for Figure 3.}
-    \begin{NiceTabularX}{\textwidth}{|l|X|}
-    \hline
-    \textit{Publication Type} & \textit{References} \\
-    \hline
-    Scientific Publications & \cite{plossl2010wafer}\cite{bierhuizen2007performance}\cite{gencc2019distributed}\cite{chong2014performance} \\
-    \hline
-    Patents & \cite{patent1999uemura}\cite{patent1998takaoka}\cite{patent1999komaki}\cite{patent1999komaki}\cite{ludowise2006resonant}\cite{camras2005iii}\cite{steigerwald2004contacting} \\
-    \hline
-    Other Publications & \cite{craford2015}\cite{sun2016}\cite{yole2013packaging} \\
-    \hline
-    \end{NiceTabularX}
-\end{table}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-\caption{List of sources for Figure 6.}
-    \begin{NiceTabularX}{\textwidth}{|l|l|l|X|}
-    \hline
-    \textit{Phosphor/QD} & \textit{Company} & \textit{YOI} & \textit{Reference} \\
-    \hline
-    YAG & Nichia & 1998 & \cite{bando1998development} \\
-    \hline
-    YGAG & Lumileds & 2002 &  \cite{Mueller2002} \\
-    \hline
-    258 & Lumileds & 2005 & \cite{MuellerMach2005} \\
-    \hline
-    SLA & Lumileds & 2014 & \cite{Pust2014} \\
-    \hline
-    PFS & GE & 2015 & \cite{Murphy2015} \\
-    \hline
-    QD & Lumileds & 2017 & \cite{lumileds2016qd} \\
-    \hline
-    Salon & Osram & 2019 & \cite{osram2019qd} \\
-    \hline
-    SALON & Osram & 2019 & \cite{Hoerder2019} \\
-    \hline
-    \end{NiceTabularX}
-\end{table}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for \cref{fig:haitz_new}.}
-    \begin{NiceTabularX}{\textwidth}{|l|X|}
-    \hline
-    \textit{Metric} & \textit{References} \\
-    \hline
-    Cost & \cite{doe2010solid}\cite{doe2011solid}\cite{doe2012solid}\cite{doe2013solid}\cite{doe2014solid}\cite{doe2015solid}\cite{doe2016solid} \\
-    \hline
-    Flux & \cite{haitz2007seoul}\cite{haitz2010osram}\cite{haitz2010lumi-1}\cite{haitz2010cree}\cite{haitz2011lumi-1}\cite{haitz2014nichia}\cite{haitz2015cree-1}\cite{haitz2015cree-2}\cite{haitz2018cree}\cite{haitz2019osram}\cite{haitz2019lumi-1}\cite{haitz2019lumi-1}\cite{haitz2020lumi-1}\cite{haitz2013cob}\cite{haitz2016cob}\cite{haitz2017cob}\cite{haitz2019cob}\cite{haitz2019lumi-1}\cite{haitz2019lumi-2} \\
-    \hline
-    \end{NiceTabularX}
-\end{table}
-
-\begin{table}[h!]
-\captionsetup{justification=raggedright,singlelinecheck=false}
-    \caption{List of sources for \cref{fgr:subeff}.}
-    \begin{NiceTabularX}{\textwidth}{|l|X|}
-    \hline
-    \textit{Panel (Sub-Eff.)} & \textit{References} \\
-    \hline
-    Panel A1 (FVE) & \cite{nichia2001data}\cite{lumi2003lumi}\cite{gen2005data}\cite{candlepwr2005data}\cite{lumi2006data}\cite{lumi2007data}\cite{nichia2008data}\cite{lumi2008data}\cite{osram2008data}\cite{jeong2011high}\cite{osram2012data}\cite{osram2013data}\cite{osram2014data} \newline \cite{lumi2016data_1}\cite{lumi2016data_2}\cite{epistar2017data}\cite{osram2017data_1}\cite{osram2017data_2}\cite{samsung2017data}\cite{samsung2018data}\cite{osram2018data}\cite{epistar2018data}\cite{lumi2019data} \\
-    \hline
-    Panel A2 (Droop) & Data calculated from luminous intensity curves of respective device datasheets: \cite{datasheet_osram_topled}\cite{osram2008data}\cite{osram2008gdplus}\cite{osram2018csp}\cite{datasheet_lumileds_lux1}\cite{lumi2008data}\cite{lumi2016data_1}\cite{lumi2016data_2}\cite{samsung2018data} \\
-    \hline
-    Panel B1 (IQE) & Data extracted from respective device datasheets and scientific publications (for a complete list, compare \cite{zenodo_weinold_led_history}). Additional data was extracted from government reports: \newline
-\cite{doe_ssl_multiyear_2006}\cite{doe_ssl_multiyear_2007}\cite{doe_ssl_multiyear_2008}\cite{doe_ssl_multiyear_2009}\cite{doe_ssl_multiyear_2010}\cite{doe_ssl_multiyear_2011}\cite{doe_ssl_multiyear_2012}\cite{doe_ssl_multiyear_2013}\cite{doe_ssl_multiyear_2014}\cite{doe_ssl_rnd_2015}\cite{doe_ssl_rnd_2016} \\
-    \hline
-    Panel B2 (LEE) & \cite{lee2005analysis}\cite{krames2007status}\cite{Jang2004}\cite{Horng2013}\cite{Liao2010}\cite{HungWenHuang2005}\cite{Leem2007}\cite{Huang2008}\cite{Wang2009}\cite{Huh2003}\cite{Horng2008}\cite{Gao2008}\cite{Chang2003}\cite{Zhou2012} \newline \cite{ChunJuTun2006}\cite{Hua2009}\cite{Matioli2010}
-\cite{lee2005analysis}\cite{Zhu2015}\cite{Ding2015}\cite{Taki2019}\cite{Shchekin2006}\cite{Hu2016}\cite{Horng2010}\cite{Lin2016}\cite{Yue2018}\cite{Zhao2012}\cite{Zhu2015}\newline \cite{Ding2015}\cite{wierer2001high}\cite{Steigerwald2002}\cite{DaeSeobHan2006}\cite{Wang2006}\cite{Lee2007}\cite{Shen2007}\cite{Huang2006}\cite{Zhmakin2011} \\
-    \hline
-    \end{NiceTabularX}
-\end{table}
-
-\newpage
-
+\addcontentsline{toc}{section}{Supplementary References}
 \printbibliography[title=Supplementary References]
 
 \end{document}
