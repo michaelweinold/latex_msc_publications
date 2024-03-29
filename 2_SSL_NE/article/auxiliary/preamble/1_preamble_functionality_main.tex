@@ -4,6 +4,7 @@
 
 % math typesetting
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 
 % maths definitions, theorems, etc.
@@ -24,6 +25,8 @@
 
 % figures
 \usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
 
 % tables
 \usepackage{booktabs}
@@ -64,6 +67,9 @@
 % custom header size
 \usepackage{titlesec}
 
+% custom titles
+\usepackage{titling}
+
 % customized references (make "Figure 1" a link, not just "1")
 \usepackage[capitalise, nameinlink]{cleveref}
 
@@ -72,9 +78,14 @@
 
 % tikz
 \usepackage{tikz}
+\usetikzlibrary{fit}
+\usetikzlibrary{calc,shadings,patterns}
 
 % calligraphy
 \usepackage{calligra}
 
 % chemical formulas
 \usepackage{chemformula}
+
+% highlighting
+\usepackage{soul} % to be used together with xcolor
